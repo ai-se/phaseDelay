@@ -1,91 +1,97 @@
-\documentclass{sig-alternative}
-%\usepackage{multirow}
-%\usepackage{color}
-%% \usepackage{colortbl}
-%% \usepackage{picture}
-%% %\%usepackage{algorithm}
-%% %\usepackage{algorithmicx}
-%% %\usepackage{algpseudocode}
-%% %\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%% %\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%% \newcommand{\quart}[3]{\begin{picture}(100,6)%1
-%% {\color{black}\put(#3,3){\circle*{4}}\put(#1,3){\line(1,0){#2}}}\end{picture}}
+\documentclass{sig-alternate}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{picture}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+ 
 
-%% %% timm tricks
-%% \newcommand{\bi}{\begin{itemize}[leftmargin=0.4cm]}
-%% \newcommand{\ei}{\end{itemize}}
-%% \newcommand{\be}{\begin{enumerate}}
-%% \newcommand{\ee}{\end{enumerate}}
-%% \newcommand{\tion}[1]{\S\ref{sect:#1}}
-%% \newcommand{\fig}[1]{Figure~\ref{fig:#1}}
-%% \newcommand{\eq}[1]{Equation~\ref{eq:#1}}
+%timm tricks
+\newcommand{\bi}{\begin{itemize}[leftmargin=0.4cm]}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\tion}[1]{\S\ref{sect:#1}}
+\newcommand{\fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\eq}[1]{Equation~\ref{eq:#1}}
+ 
 
-%% %% space saving measures
-
-%% \usepackage[shortlabels]{enumitem} 
-%% %\usepackage{times}
-
-%% \usepackage{url}
-%% \def\baselinestretch{1}
+\usepackage[shortlabels]{enumitem} 
+\usepackage{times}
+\newcommand{\subparagraph}{}
+\usepackage{url}
+\def\baselinestretch{1}
 
 
-%% \setlist{nosep}
-%%  \usepackage[font={small}]{caption, subfig}
-%% \setlength{\abovecaptionskip}{1ex}
-%%  \setlength{\belowcaptionskip}{1ex}
+\setlist{nosep}
+ \usepackage[font={small}]{caption, subfig}
+\setlength{\abovecaptionskip}{1ex}
+ \setlength{\belowcaptionskip}{1ex}
 
-%%  \setlength{\floatsep}{1ex}
-%%  \setlength{\textfloatsep}{1ex}
-%% %\usepackage[compact,small]{titlesec}
-%% \DeclareMathSizes{7}{7}{7}{7} 
-%% \pagenumbering{arabic}
-%% \setlength{\columnsep}{7mm}
+ \setlength{\floatsep}{1ex}
+ \setlength{\textfloatsep}{1ex}
+\usepackage[compact,small]{titlesec}
+\DeclareMathSizes{7}{7}{7}{7} 
+\pagenumbering{arabic}
+\setlength{\columnsep}{7mm}
 
 \begin{document}
 
 \conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{}
-\numberofauthors{2}
+\title{Phase Delay Increases  Repair Time. Not.}
+\numberofauthors{3}
 \author{
 \alignauthor
-Tim Menzies, Carter Pape\\
+Tim Menzies, \\Carter Pape\\
        \affaddr{CS, NcState, USA}\\
        tim.menzies@gmail.com,\\carterpape@gmail.com
 \alignauthor
-Lucas Layman\\
-       \affaddr{Fraunhofer Center, Exp. SE, USA}\\ 
-       llayman@fc-md.umd.edu
-\alignauthor
-William Curtis, Forrest Schull\\
+William Curtis,\\ Forrest Schull\\
 \affaddr{SEI, CMU, USA}
 wrn,fjshull@sei.cmu.edu
+\alignauthor
+Lucas \\Layman\\
+       \affaddr{Fraunhofer Center,  USA}\\ 
+       llayman@fc-md.umd.edu
 } 
 
 
  
 \maketitle
 \begin{abstract}
+This paper categorically rejects 
+the myth that 
+the longer a defect persists in a system, the harder
+it is to remove that defect.  
+This myth is very widely believed
+and that the evidence for this myth dates back to certain
+isolated studies dating from the 1970s. Recent evidence from
+230 software projects from around the world shows that this
+myth is completely false.
 
-%RQ1: Does tuning affect learners' performance?
-%RQ2: How to choose 
-
+More important that our particular results, this paper
+raises the methodological question of how a small number
+of observations from the 1970s can become dogma for decades.
+The obvious next question arising from this study is ``how
+many other widely held beliefs in software engineering are
+not supported by current data?''.
 \end{abstract}
 
 % A category with the (minimum) three required fields
 \vspace{1mm}
 \noindent
 {\bf Categories/Subject Descriptors:} 
-D.2.8 [Software Engineering]: Product metrics;
-I.2.6 [Artificial Intelligence]: Induction
+D.2.8 [Software Engineering]: Product metrics; 
+
+ 
 
 \vspace{1mm}
 \noindent
-{\bf General Terms:} Experimentation, Algorithm}
-
-\vspace{1mm}
-\noindent
-{\bf Keywords:} defect prediction, CART, random forests,
-Fastmap,   bootstrap sampling, effect size, A12.
+{\bf Keywords:} defect prediction, 
 
 \section{Introduction}
 
