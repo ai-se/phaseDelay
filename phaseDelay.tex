@@ -1,51 +1,51 @@
 \documentclass{sig-alternative}
-%\usepackage{multirow}
-%\usepackage{color}
-%% \usepackage{colortbl}
-%% \usepackage{picture}
-%% %\%usepackage{algorithm}
-%% %\usepackage{algorithmicx}
-%% %\usepackage{algpseudocode}
-%% %\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%% %\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%% \newcommand{\quart}[3]{\begin{picture}(100,6)%1
-%% {\color{black}\put(#3,3){\circle*{4}}\put(#1,3){\line(1,0){#2}}}\end{picture}}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{picture}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\quart}[3]{\begin{picture}(100,6)%1
+{\color{black}\put(#3,3){\circle*{4}}\put(#1,3){\line(1,0){#2}}}\end{picture}}
 
-%% %% timm tricks
-%% \newcommand{\bi}{\begin{itemize}[leftmargin=0.4cm]}
-%% \newcommand{\ei}{\end{itemize}}
-%% \newcommand{\be}{\begin{enumerate}}
-%% \newcommand{\ee}{\end{enumerate}}
-%% \newcommand{\tion}[1]{\S\ref{sect:#1}}
-%% \newcommand{\fig}[1]{Figure~\ref{fig:#1}}
-%% \newcommand{\eq}[1]{Equation~\ref{eq:#1}}
+%timm tricks
+\newcommand{\bi}{\begin{itemize}[leftmargin=0.4cm]}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\tion}[1]{\S\ref{sect:#1}}
+\newcommand{\fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\eq}[1]{Equation~\ref{eq:#1}}
 
-%% %% space saving measures
+%space saving measures
 
-%% \usepackage[shortlabels]{enumitem} 
-%% %\usepackage{times}
+\usepackage[shortlabels]{enumitem} 
+\usepackage{times}
 
-%% \usepackage{url}
-%% \def\baselinestretch{1}
+\usepackage{url}
+\def\baselinestretch{1}
 
 
-%% \setlist{nosep}
-%%  \usepackage[font={small}]{caption, subfig}
-%% \setlength{\abovecaptionskip}{1ex}
-%%  \setlength{\belowcaptionskip}{1ex}
+\setlist{nosep}
+ \usepackage[font={small}]{caption, subfig}
+\setlength{\abovecaptionskip}{1ex}
+ \setlength{\belowcaptionskip}{1ex}
 
-%%  \setlength{\floatsep}{1ex}
-%%  \setlength{\textfloatsep}{1ex}
-%% %\usepackage[compact,small]{titlesec}
-%% \DeclareMathSizes{7}{7}{7}{7} 
-%% \pagenumbering{arabic}
-%% \setlength{\columnsep}{7mm}
+ \setlength{\floatsep}{1ex}
+ \setlength{\textfloatsep}{1ex}
+%\usepackage[compact,small]{titlesec}
+\DeclareMathSizes{7}{7}{7}{7} 
+\pagenumbering{arabic}
+\setlength{\columnsep}{7mm}
 
 \begin{document}
 
 \conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{}
-\numberofauthors{2}
+\title{Defect  Repair Costs Escalate Exponentially?}
+\numberofauthors{3}
 \author{
 \alignauthor
 Tim Menzies, Carter Pape\\
