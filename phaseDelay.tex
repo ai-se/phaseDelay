@@ -215,7 +215,6 @@ size & 25th & 50th & 75th & Phase injected & Phase removed\\\hline
  
 \begin{figure}
 \begin{center}
-\scriptsize
 \begin{tabular}{rrl}
 year& \# issues&\\\hline
 2006 &  44 &\\
@@ -242,8 +241,7 @@ Total:&47228
 
 \begin{figure*}[!t]
 
-\renewcommand{\baselinestretch}{0.7}
-\small
+\renewcommand{\baselinestretch}{0.7} 
 \begin{center}
 \begin{tabular}{ll|r|rl}
             &                  & Sample\\
@@ -251,9 +249,50 @@ Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to f
 \input{deltas}
 \end{tabular}
 \end{center}
-\caption{Scale ups for median time to resolve issues (taken from \fig{raw}).}
+\caption{50th percentile (median) scale ups  for  time to resolve issues (taken from \fig{raw}).}
 \label{fig:scale}
 \end{figure*}
+
+
+
+In these results, we checked if a small number of bugs are most expensive. 
+To check this:
+\bi
+\item
+We repeated the analysis that generated \fig{scale},
+but instead of looking at the 50th percentile, we displayed the scale up factors
+\item 
+We only
+checked the Design and Code scale up results since, from \fig{scale}, it is clear these
+have the most examples of longest phase delays.
+\ei 
+The  results are shown in \fig{scale90} and these
+results are somewhat different for Design and Coding issues:
+\bi 
+\item For Design issues,  these have the same
+general form as the 50th percentile results. That is, while it it certainly faster
+to remove thing sin the phase where they are created, once we leave that phase
+it does not seem to matter much how many phases we wait before fixing the issue.
+\begin{itemize}
+\item For Coding issues, the seems little impact of phase delay on the time
+required to fix.
+\end{itemize}
+
+
+\begin{figure*}[!t]
+
+\renewcommand{\baselinestretch}{0.7} 
+\begin{center}
+\begin{tabular}{ll|r|rl}
+            &                  & Sample\\
+Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to first phase}
+\input{deltaBig}
+\end{tabular}
+\end{center}
+\caption{90th percentile scale ups  for  time to resolve issues .}
+\label{fig:scale90}
+\end{figure*}
+
 
 The data used in this work shirai14
 
@@ -341,10 +380,10 @@ such as tasks listed in one day that took like than six hours.
 \ei 
 That said, certain semantic features of the SEI TSP data should be noted.
 Firstly, in the current TSP collection tool, 
-fix times are only the developer time for the developer walking through the phased of \fig{waterfall}.
-We are currently tracking the fix time for later issues (e.g. those raised during  acceptance test and later
-product life cycle). Informally, we can say that in that data we have not detected
-a dramatic phase escalation effect (but we have nothing definitive yet to publish  at this time).
+fix times are only the developer time for the developer walking through the phases of \fig{waterfall}.
+We are currently tracking the fix time for post-release issues (e.g. those raised during  acceptance test and later
+product life cycle). So far, in that post-release data,  we have not detected
+a dramatic phase escalation effect (but at this time, we have nothing definitive comment on that matter).
 
 \bill{somewhere you have one note on \underline{find} and fix times.  for this paper, we need just fix times. but is there
 anything we need to fret about re \underline{find} times?}
@@ -453,6 +492,7 @@ error messages, inadequate checks = Checking
 change management, library, version control = Build, package
 declaration, duplicate names, scope, limits = Assignment
 configuration, timing, memory = System
+\ee
 \section{Conclusion}
 
 \section*{Acknowledgements}
