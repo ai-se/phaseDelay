@@ -55,7 +55,7 @@ Tim Menzies, \\Carter Pape\\
        \affaddr{CS, NcState, USA}\\
        tim.menzies@gmail.com,\\carterpape@gmail.com
 \alignauthor
-William Curtis,\\ Forrest Schull\\
+William Nichols,\\ Forrest Schull\\
 \affaddr{SEI, CMU, USA}
 wrn,fjshull@sei.cmu.edu
 \alignauthor
@@ -297,20 +297,30 @@ Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to f
 The data used in this work shirai14
 
 
-We offer the following notes on the data used in this study.
-These notes will be somewhat detailed and we offer them in order
-to make the following point:
-\bi 
-\item The results section of this paper fails to find that  phase delay causing dramatic increases
-in time to fix issues;
-\item This lack-of-phase-delay effect {\em cannot} be explained away just by  saying that
-the projects in this sample adopted something like  agile methods to reduce re-work costs.
-\ei  
-
-
 The Team Software ProcessSM (TSPSM) provides a
 framework that teams use to collect software process data in real
-time, using a defined disciplined process
+time, using a defined disciplined process.
+In particular, three common features of the projects in our SEI TSP data set  are coaches,
+peer review, and  personnel reviews:
+\bi 
+\item
+A ``coach'' is the team member  authorized to submit project data
+(before submission,
+these coaches check the data for obvious errors);
+\item 
+``Personnel review'' is a technique taken  from the Personal Software
+ProcessSM (PSPSM);
+\item 
+``Peer review'' is a standard technique in
+traditional software engineering.
+\ei
+PSPSM encourages developers to continually make and review their personnel estimates
+about their day-to-day tasks, then compare those estimates against the actual development effort.
+In this way, developers can acquire a more realistic understanding of their work behaviour.
+As to peer review,  Basili and Boehm write  commented in 2001~\cite{boehm01} 
+that peer reviews can catch over half the defects introduced into a system.
+Peer review can be conducted on any artifact generated anywhere in the software
+lifecycle and can quickly be adapted to new kinds of artifacts.
 
 
 \begin{figure}
@@ -333,33 +343,19 @@ Ultimate Debian Database &http://udd.debian.org\\\hline
 \end{center}
 \caption{Some repositories of software engineering data.}\label{fig:sedata}
 \end{figure}
-
-\fig{sedata} lists some of the publicly available
+The data collected in the SEI TSP databases contains 
+extensive process details
+including a detailed phased breakdown showing what happened at what
+phases of the lifecycle. This makes this data somewhat different to the standard
+ publicly available
 software projects data sets currently available to 
 SE researchers. Most of the \fig{sedata} data sets have software product information
 such as full source code, or summaries of static features.
 A subset of that data contain issue or defect reports and/or
-the time taken to build these systems. Compared to those data
-setss, the SEI TSP data contains much more detailed process details
-including a detailed phased breakdown showing what happened at what
-phases of the lifecycle. 
+the time taken to build these systems.  We are unaware
+of any of these having detailed phase-by-phase breakdowns of project data.
 
-As dictacted by the  the projects in our SEI TSP data set  use coaches,
-peer review, and  personnel reviews:
-a ``coach'' is the team member  authorized to submit project data
-(before submission,
-these coaches check the data for obvious errors);
-``personnel review'' is a technique taken  from the Personal Software
-ProcessSM (PSPSM); and
-``peer review'' is a standard technique in
-traditional software engineering.
-PSPSM encourages developers to continually make and review their personnel estimates
-about their day-to-day tasks, then compare those estimates against the actual development effort.
-In this way, developers can acquire a more realistic understanding of their work behaviour.
-As to peer review,  Basili and Boehm write  commented in 2001~\cite{boehm01} 
-that peer reviews can catch over half the defects introduced into a system.
-Peer review can be conducted on any artifact generated anywhere in the software
-lifecycle and can quickly be adapted to new kinds of artifacts.
+
 
 
 The phased used in this paper are shown in \fig{waterfall}. Note that, in that figure:
@@ -397,26 +393,33 @@ of \fig{waterfall}.
 \ei 
 That said, there are some very ``un-agile'' aspects
 of the processes used by the   projects in the TSP SEI data.
-For teams to be included in this data set they had to be following certain 
- guidelines
-laid down by TSPSM (and SEI staff monitored these projects to ensure that that the
-following guidelines were maintained\footnote{bill, can you talk at all about your work doing site visits? i.e. how did you ensure compilance with the following}):
-\be 
-\item  The TSP projects studied here offer new releases at least every three months, but
-often much longer that that\bill{any numbers on that}.
-\item The TSP projects studied     spend one day (or more) working on 
-\item
-The time spent in the of a design activity/phase should require 
-approximately as much effort as the coding phase. That is, for the projects
-studied here, at least half of the reflection on the requirements, design, code
-arises without feedback from running code.
-\item The teams
-cannot combine development and  testing. That is, as before,
+A TSP participant spends much time reflecting on the project,
+undisturbed by the behaviour of the  executables.
+In fact,
 it can be days/weeks
-before team members in the TSP SEI datatet gain  feedback from executing code.  
-\item The time devoted to ``personnel review'' and ``peer review'' (defined below)
+before TSP participants gain  feedback from executing code, for the following reasons:  
+\bi 
+\item
+For TSP projects, the times spent in the of a design activity/phase is   
+approximately as much effort as the coding phase.  
+\item Our TSP teams did not
+ combine development and  testing. 
+ \item  The TSP projects studied here offer new releases at least every three months, but
+often much longer that that\bill{any numbers on that}. Note that this is a far slower
+release schedule than seen in, say, continuous integration projects.  
+\item The time devoted to personnel review'' and peer review (defined above)
 is  about 50\% as much effort as the previous construction phase activity.
-\ee 
+ 
+\ei
+
+Having presented all that, we can now present the main point of this section:
+\bi 
+\item The results section of this paper fails to find that  phase delay causing dramatic increases
+in time to fix issues;
+\item This lack-of-phase-delay effect {\em cannot} be explained away just by  saying that
+the projects in this sample adopted something like  agile methods to reduce re-work costs.
+\ei  
+
 
 
 
@@ -427,6 +430,14 @@ Carnegie Mellon University has collected data from organizations
 that have adopted TSP. 
 Our efforts focused on data collected by projects that launched
 after 2009 and used an automatic data recording tool. 
+Due to confidentiality restrictions, we cannot offer too many details
+on those project. That said, there were less than a dozen United States
+Department of Defence projects. Also, the majority of
+the projects were weither web portals or banking systems in the US, South Africa, and Mexico. 
+There were also some  medical devices (US, France, Japan, and Germany) and a few from a commercial 
+computer-aided design system (developed by a world wide distributed team). 
+
+
 Data collected included time logs, defect
 logs, added and modified size logs, and work
 breakdown strcture logs.
