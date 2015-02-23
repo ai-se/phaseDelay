@@ -3,6 +3,7 @@
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage{picture}
+\usepackage{wrapfig}
 \usepackage{algorithm}
 \usepackage{graphicx}
 \usepackage{algorithmicx}
@@ -46,7 +47,7 @@
 \begin{document}
 
 \conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Exponentially Increases  Repair Time?}
+\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Dramatically Increases  Repair Time?}
 \numberofauthors{3}
 \author{
 \alignauthor
@@ -68,7 +69,7 @@ Lucas \\Layman\\
 \maketitle
 \begin{abstract}
 Does
-repair time increases exponentially
+repair time increases dramatically
 the longer a defect persists in a system?
 This  is very widely belief and the core rational  for
  rejecting   traditional linear development methods
@@ -235,7 +236,7 @@ Total:&47228
 \begin{center}
 \includegraphics[width=6in]{waterfall2.png}
 \end{center}
-\caption{Waterfall (blue) and agile (orange) software development processes.}
+\caption{Different approaches to software development:  waterfall and agile (bottom left).}
 \end{figure*}
 
 
@@ -253,6 +254,132 @@ Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to f
 \caption{Scale ups for median time to resolve issues (taken from \fig{raw}).}
 \label{fig:scale}
 \end{figure*}
+
+The data used in this work shirai14
+
+The Team Software ProcessSM (TSPSM) provides a
+framework that teams use to collect software process data in real
+time, using a defined disciplined process
+
+
+\begin{figure}
+\begin{center}
+\scriptsize\begin{tabular}{|l@{~:~}l|}\hline
+Bug Prediction Dataset &http://bug.inf.usi.ch \\
+Eclipse Bug Data &http://goo.gl/tYKahN \\
+FLOSSMetrics& http://flossmetrics.org \\
+FLOSSMole &http://flossmole.org \\
+IBSBSG& http://www.isbsg.org \\
+ohloh& http://www.openhub.net \\
+PROMISE &http://promisedata.googlecode.com \\
+Qualitas Corpus &http://qualitascorpus.com \\
+Software Artifact Repository &http://sir.unl.edu \\
+SourceForge Research Data &http://zerlot.cse.nd.edu \\
+Sourcerer Project &http://sourcerer.ics.uci.edu \\
+Tukutuku &http://www.metriq.biz/tukutuku \\
+Ultimate Debian Database &http://udd.debian.org\\\hline
+\end{tabular}
+\end{center}
+\caption{Some repositories of software engineering data.}\label{fig:sedata}
+\end{figure}
+
+The TSP couples
+the use of integrated product teams with the Personal Software
+ProcessSM (PSPSM) to give engineers a defined, planned, and
+measured process. For example, PSPSM encourages developers to continually make estimates
+about their day-to-day tasks, then compare those estimates against the actual development effort
+(in this way, developers can acquire a more realistic understanding of their work behaviour
+
+The Software Engineering Institute (SEI) at
+Carnegie Mellon University has collected data from organizations
+that have adopted TSP. 
+Our efforts focused on data collected by projects that launched
+after 2009 and used an automatic data recording tool. 
+Data collected included time logs, defect
+logs, added and modified size logs, and work
+breakdown strcture logs.
+The projects
+were mostly small to medium, with a median duration of 46 days
+and a maximum duration of 90 days. Median team size was 7
+people, with a maximum of 40. Hence,  total development 
+effort\footnote{
+Effort =  duration*teamSize/workDaysPerYear.} for
+these projects ranged from 1.3 years (median) to 14.3 years (max).
+
+In these logs
+the log records include work start time, work end time, delta
+work time, and interruption time. Software engineers are often
+interrupted by meetings, requests for technical help, reporting, and
+so forth. These events are recorded, in minutes, as interruption
+time. In this paper, when we report ``time to resolve an
+issue'', we show the difference between the start and end times
+of a work session, with any interruption time subtracted (the
+difference in times, minus the interruptions).  
+
+As of January 2014, the SEI TSP database contained data from 109
+TSP projects. The projects started between July 2009 and
+September 2013; they included 34 teams and 309 people. Among
+the database fact tables, the time store contains 103,023 time logs,
+18,408 defect logs, and 7,464 size logs\footnote{\bill{we need to 
+update this table}}.  
+
+A common property of real-world data sets is the presence
+of noisy entries (superfluous  or spurious data). 
+The level of noise can be quite high. As reported
+in \cite{shepperd12}, around
+10\% to 30\%
+of the records in the NASA MDP defect data sets are
+affected by noise. Nichols et al.~\cite{shirai14}  report that
+the noise levesl in the SEI TSE data are smaller than those seen
+in other data sets. They found in the SEI TSP data that:\bi 
+\item
+4\% of the data was incorrect such as  null values of illegal formats;
+\item  2\% of the data has inconsistencies such as timestamps
+where the stop time was before the start time;
+\item 3\% of the data had data that was not credible
+such as tasks listed in one day that took like than six hours.
+\ei 
+That said, certain semantic features of the SEI TSP data should be noted.
+Firstly, in the current TSP collection tool, 
+fix times are only the developer time for the developer walking through the phased of \fig{waterfall}.
+We are currently tracking the fix time for later issues (e.g. those raised during  acceptance test and later
+product life cycle). Informally, we can say that in that data we have not detected
+a dramatic phase escalation effect (but we have nothing definitive yet to publish  at this time).
+
+\bill{somewhere you have one note on \underline{find} and fix times.  for this paper, we need just fix times. but is there
+anything we need to fret about re \underline{find} times?}
+
+\fig{sedata} lists some of the publicly available
+software projects data sets currently available to 
+SE researchers. Most of the \fig{sedata} data sets have software product information
+such as full source code, or summaries of static features.
+A subset of that data contain issue or defect reports and/or
+the time taken to build these systems. Compared to those data
+setss, the SEI TSP data contains much more detailed process details
+including a detailed phased breakdown showing what happened at what
+phases of the lifecycle. The phased used in this paper are shown in \fig{waterfall}. Note that, in that figure:
+\bi 
+\item
+Several  phases have the same  sub-activities of {\em review} and {\em inspect}\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
+\item Testing is divided into several statges \footnote{\bill{need a one
+line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
+\ei
+
+software-related data sets are available to researchers; well
+known examples include those from ISBSG (the International
+Software Benchmarking Standards Group) and the Promise Data
+Repository. The ISBSG provides datasets from more than 5,600
+software development projects and publishes data analysis reports
+[11]. The Promise Data Repository mainly stores product metrics
+of open source software and NASA projects [17]. For a  list
+of other Compared to
+other data sets, the TSP database provides a granular level of
+development detail that enables not only analysis with great
+precision at different levels (e.g., project, team, component, and
+individual developer), but also additional opportunity to assess
+data quality. We hope to make the TSP database more broadly
+available in the future to supplement the other research resources
+
 
 The starting point for this paper were the times required to fix 47,228 issues.
 All data was collected
@@ -332,9 +459,9 @@ configuration, timing, memory = System
 This work was partially funded by an National Science
 Foundation grant NSF-CISE 1302169.
 
+\clearpage
 \vspace*{0.5mm}
 \scriptsize
-
 \bibliographystyle{unsrt}
 \bibliography{refs} 
 
