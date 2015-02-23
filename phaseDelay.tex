@@ -7,8 +7,11 @@
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
- 
+\renewcommand{\algorithmicensure}{\textbf{Output:}} 
+\newcommand{\lucas}[1]{\textcolor{red}{#1}} 
+\newcommand{\bill}[1]{\textcolor{blue}{#1}} 
+\newcommand{\carter}[1]{\textcolor{cyan}{#1}} 
+%\newenvironment{changed}{\par}{\par}
 
 %timm tricks
 \newcommand{\bi}{\begin{itemize}[leftmargin=0.4cm]}
@@ -42,7 +45,7 @@
 \begin{document}
 
 \conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{Phase Delay Increases  Repair Time. Not.}
+\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Exponentially Increases  Repair Time?}
 \numberofauthors{3}
 \author{
 \alignauthor
@@ -63,22 +66,34 @@ Lucas \\Layman\\
  
 \maketitle
 \begin{abstract}
-This paper categorically rejects 
-the myth that 
-the longer a defect persists in a system, the harder
-it is to remove that defect.  
-This myth is very widely believed
-and that the evidence for this myth dates back to certain
-isolated studies dating from the 1970s. Recent evidence from
-230 software projects from around the world shows that this
-myth is completely false.
+Does
+repair time increases exponentially
+the longer a defect persists in a system?
+This  is very widely belief and the core rational  for
+ rejecting   traditional linear development methods
+ in favor of more cyclic agile approaches.
 
-More important that our particular results, this paper
-raises the methodological question of how a small number
-of observations from the 1970s can become dogma for decades.
-The obvious next question arising from this study is ``how
-many other widely held beliefs in software engineering are
-not supported by current data?''.
+This paper shows that this belief is maintained
+quite strongly in the industrial software engineering
+community (but, in the academic community, somewhat less so).
+Yet based on a sample of 
+\carter{230} software projects from around the world from 
+\bill{2005 to 2013}, we argue that this belief is mostly 
+incorrect. Specifically: the median fix time for issues
+is just a few minutes and this increases by a small linear amount
+the longer the issue remains in the system. 
+
+What was observed was a small number
+of defects that take a remarkably long time to resolve
+For these issues, if an issue takes more an hour
+to resolve then it will usually require many more hours of work.
+These long-tail bugs
+are more prevalent the longer a project delays issue removal. 
+In order to handle such ``long tail'' issues,
+we suggest  augmenting software
+development groups with additional ``tiger teams'' that are triggered
+when issue resolution time increases beyond a certain number of
+minutes.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -94,6 +109,16 @@ D.2.8 [Software Engineering]: Product metrics;
 {\bf Keywords:} defect prediction, 
 
 \section{Introduction}
+Several recent papers call into questions long-held trusims in the field
+of software engineering. Devanbu reports that, in practice, the advantage of types languages
+is only very minimal. Nagappan et al. found that XXX, contrary to the advice of Dyketra,
+it is not necessarily true that ``goto considered harmful'' XXX. More generally,
+several recent  papers comment on ``locality'' effects where effects
+thold  generally across XXXX
+ 
+Perhaps it is time to take a look at the base premises of our field, particularly in light of the large software analytics data sets newly available for reseaercehrs.
+
+XXX tsp. 40MB . 235 prokects
 
 \section{Related Work}
 
@@ -110,12 +135,201 @@ our knowledge, not updated since. Regardless, as discussed in the next section, 
 
 \input{lucas}
 
+
 \section{billTSP}
 
 \section{carterCharts}
 
 \input{carter}
 
+\sction{Data}
+
+\begin{figure}[!t]
+
+%\renewcommand{\baselinestretch}{0.8}
+\scriptsize
+\begin{center}
+\begin{tabular}{r|rrr|ll}
+  Sample&\multicolumn{3}{c|}{Percentiles}\\ 
+size & 25th & 50th & 75th & Phase injected & Phase removed\\\hline
+57& 6& 16& 47&  BeforeDevelopment&Code\\
+72& 2& 4& 11&  BeforeDevelopment&CodeInspect\\
+165& 6& 18& 56&  BeforeDevelopment&Test\\
+50& 6& 20& 37&  BeforeDevelopment&IntTest\\
+42& 8& 28& 65&  BeforeDevelopment&SysTest\\\hline
+
+66& 2& 6& 15&  Planning&Planning\\
+41& 1& 5& 16&  Planning&ReqtsReview\\\hline
+
+23& 0& 1& 3&  Reqts&Reqts\\
+245& 6& 13& 23&  Reqts&ReqtsReview\\
+289& 7& 16& 30&  Reqts&ReqtsInspect\\
+32& 6& 21& 40&  Reqts&Design\\
+49& 2& 7& 24&  Reqts&DesignInspect\\\hline
+ 
+
+94& 2& 5& 10&  HLD&HLDReview\\
+133& 3& 8& 19&  HLD&HLDInspect\\
+33& 2& 5& 17&  HLD&Design\\\hline
+
+
+
+37& 2& 4& 6&  Design&Design\\
+455& 11& 24& 53&  Design&DesignInspect\\
+218& 5& 14& 30&  Design&Code\\
+166& 4& 11& 22&  Design&CodeInspect\\
+542& 14& 31& 60&  Design&Test\\
+67& 6& 15& 40&  Design&IntTest\\
+92& 10& 25& 53&  Design&SysTest\\\hline
+
+53& 2& 4& 9&  DesignInspect&DesignInspect\\
+38& 1& 3& 9&  DesignInspect&Code\\\hline
+
+126& 4& 12& 31&  Code&Code\\
+459& 11& 24& 45&  Code&CodeInspect\\
+461& 11& 26& 55&  Code&Test\\
+348& 10& 26& 62&  Code&IntTest\\
+230& 8& 18& 39&  Code&SysTest\\
+71& 2& 11& 28&  Code&AcceptTest\\\hline
+
+64& 2& 4& 10&  CodeInspect&CodeInspect\\
+57& 2& 5& 13&  CodeInspect&Test\\\hline
+
+
+
+110& 3& 10& 23&  Test&Test\\
+66& 2& 4& 12&  Test&QualTest\\\hline
+
+
+32& 1& 2& 4&  IntTest&QualTest\\
+36& 1& 11& 30&  IntTest&IntTest\\
+21& 1& 2& 5&  IntTest&SysTest\\
+ \end{tabular}
+\end{center}
+\caption{Distribution of fix times seen in SEI TSP data.}
+\label{fig:faw}
+\end{figure}
+ 
+ 
+\begin{figure}
+\begin{center}
+\scriptsize
+\begin{tabular}{rrl}
+year& \# issues&\\\hline
+2006 &  44 &\\
+2007 &  34 &\\
+2008&  288 &\rule{1mm}{2mm}\\
+2009&  846 &\rule{3mm}{2mm}\\
+2010& 1007 &\rule{3mm}{2mm}\\
+2011& 3273 &\rule{10mm}{2mm}\\
+2012&18102 &\rule{45mm}{2mm}\\
+2013&20336 &\rule{50mm}{2mm}\\
+2014& 3307 & \rule{10mm}{2mm}\\\cline{1-2}
+Total:&47228
+\end{tabular}
+\end{center}
+\caption{This paper studies 47,228 issues recorded 2006 to 2014.}\label{fig:years}
+\end{figure}
+\begin{figure*}
+\begin{center}
+\includegraphic[width=6in]{waterfall.png}
+\end{center}
+\caption{Some parts of the waterfall cycle.}
+\end{figure*}
+\begin{figure}
+\begin{center}
+\includegraphic[width=3.5in]{agile.png}
+\end{center}
+\caption{Some parts of the waterfall cycle.}
+\end{figure}
+
+\begin{figure*}[!t]
+
+\renewcommand{\baselinestretch}{0.7}
+\small
+\begin{center}
+\begin{tabular}{ll|r|rl}
+            &                  & Sample\\
+Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to first phase}
+\input{deltas}
+\end{tabular}
+\end{center}
+\caption{Scale ups for median time to resolve issues (taken from \fig{raw}).}
+\label{fig:scale}
+\end{figure*}
+
+The starting point for this paper were the times required to fix 47,228 issues.
+All data was collected
+by the Software Engineering Institute in the period 2006 to 2014 (see \fig{years}).
+To the best of our knowledge, this is the largest sample of ``time to fix issues''
+yet analyzed. 
+
+This data was collected using the   methodology described by
+Watts Humphrey's Team Software Process~\cite{tsp00}. TSP is an extension of Humphrey's early
+work on Personnel Software Process~\cite{psp05}.  PSP encourages developers to continually make estimates
+about their day-to-day tasks, then compare those estimates against the actual development effort
+(in this way, developers can acquire a more realistic understanding of their work behaviour).
+
+In all data, was collected from 172 separate projects. Given Beck's comments (above) about phase delay motivating agile processes, we take care to identify the differences of these 
+projects to agile development projects. In what we call a ``standard agile'' project, there exists
+some backlog of tasks. When teams complete their current tasks, they reach into to the backlog
+to select the next task(s) to complete. That selection process may use a variety of criteria
+to prioritize which  tasks are selected (for more details on that selection process, see~\cite{me09j,port08,boehmturner03}). Tasks are completed in ``sprints'' that can last hours,
+days, but rarely not more than weeks. Each day meet for brief ``scrum'' sessions to assess (and possibly alter) their current progress on the goals of the spring.  
+
+One way to characterize the above is a ``micro cyclic'' approach where teams 
+constantly reassess their priorities using feedback gained after trying to code 
+functionality X,Y,Z. An alternate, more traditional approach is a ``macro linear''
+approach such as the ``waterfall methodology'' that develops code after an extensive
+pre-planning stage:
+
+\[
+\mathit{Reqts}
+\mathit{ReqtsReview}
+\mathit{ReqtsInspect}
+
+\mathit{HighLevelDesign}
+\mathit{HighLevelReview}
+\mathit{HighLevelInspect}
+
+\mathit{Design}
+\mathit{DesignReview}
+\mathit{DesignInspect}
+
+\mathit{Code}
+
+\mathit{Compile}
+\mathit{Test}
+\mathit{IntTest}
+\mathit{SysTest}
+\]
+
+In the original paper defining and 
+critiquing ``waterfall'', Royce defines a set of assessment and feedback processes
+such that 
+
+
+care to contrast these 
+The majority of the teams follow a basically linear process within a single feature of physical component (usually no more than a week or two work in total). Unlike some agile teams, *most*TSP teams will not conflate development and unit test.  This is usually pretty clear from the task  phase sequencing. A few teams choose to follow a Test Driven Development like process in which code review or inspection will follow test. In a more traditional “micro-linear” TSP approach, unit test follows inspections. 
+
+
+Our data reporting the time required
+to resolve issues in phase $j$ that there were introduced in phase $i, i<j$.
+
+
+
+The defect typ that we studied were
+\be 
+\item design, compile, test, or other support system problems = Environment
+procedure calls and reference, I/O, user formats = Interface
+structure, content = Data
+comments, messages = Documentation
+spelling, punctuatio typos, instruction formats = Syntax
+logic, pointers, loops, recursion, computation, function defects = Function
+error messages, inadequate checks = Checking
+change management, library, version control = Build, package
+declaration, duplicate names, scope, limits = Assignment
+configuration, timing, memory = System
 \section{Conclusion}
 
 \section*{Acknowledgements}
