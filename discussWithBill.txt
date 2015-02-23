@@ -20,3 +20,5 @@ note that not all phases are given below... these are just the ones that occur o
 
 phases="BeforeDevelopment Planning Reqts ReqtsReview ReqtsInspect HLD HLDReview HLDInspect 
         Design DesignInspect Code CodeInspect TestCaseDevel TestCaseInspect  Test QualTest  IntTest SysTest AcceptTest ProductLife"
+        
+        is tsp more exepensive than otherwise?

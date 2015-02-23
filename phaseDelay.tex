@@ -10,9 +10,9 @@
 \usepackage{algpseudocode}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}} 
-\newcommand{\lucas}[1]{\textcolor{red}{#1}} 
-\newcommand{\bill}[1]{\textcolor{blue}{#1}} 
-\newcommand{\carter}[1]{\textcolor{cyan}{#1}} 
+\newcommand{\lucas}[1]{\textcolor{red}{LUCAS: #1}} 
+\newcommand{\bill}[1]{\textcolor{blue}{BILL: #1}} 
+\newcommand{\carter}[1]{\textcolor{cyan}{CARTER: #1}} 
 %\newenvironment{changed}{\par}{\par}
 
 %timm tricks
@@ -296,6 +296,18 @@ Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to f
 
 The data used in this work shirai14
 
+
+We offer the following notes on the data used in this study.
+These notes will be somewhat detailed and we offer them in order
+to make the following point:
+\bi 
+\item The results section of this paper fails to find that  phase delay causing dramatic increases
+in time to fix issues;
+\item This lack-of-phase-delay effect {\em cannot} be explained away just by  saying that
+the projects in this sample adopted something like  agile methods to reduce re-work costs.
+\ei  
+
+
 The Team Software ProcessSM (TSPSM) provides a
 framework that teams use to collect software process data in real
 time, using a defined disciplined process
@@ -322,12 +334,93 @@ Ultimate Debian Database &http://udd.debian.org\\\hline
 \caption{Some repositories of software engineering data.}\label{fig:sedata}
 \end{figure}
 
-The TSP couples
-the use of integrated product teams with the Personal Software
-ProcessSM (PSPSM) to give engineers a defined, planned, and
-measured process. For example, PSPSM encourages developers to continually make estimates
-about their day-to-day tasks, then compare those estimates against the actual development effort
-(in this way, developers can acquire a more realistic understanding of their work behaviour
+\fig{sedata} lists some of the publicly available
+software projects data sets currently available to 
+SE researchers. Most of the \fig{sedata} data sets have software product information
+such as full source code, or summaries of static features.
+A subset of that data contain issue or defect reports and/or
+the time taken to build these systems. Compared to those data
+setss, the SEI TSP data contains much more detailed process details
+including a detailed phased breakdown showing what happened at what
+phases of the lifecycle. 
+
+As dictacted by the  the projects in our SEI TSP data set  use coaches,
+peer review, and  personnel reviews:
+a ``coach'' is the team member  authorized to submit project data
+(before submission,
+these coaches check the data for obvious errors);
+``personnel review'' is a technique taken  from the Personal Software
+ProcessSM (PSPSM); and
+``peer review'' is a standard technique in
+traditional software engineering.
+PSPSM encourages developers to continually make and review their personnel estimates
+about their day-to-day tasks, then compare those estimates against the actual development effort.
+In this way, developers can acquire a more realistic understanding of their work behaviour.
+As to peer review,  Basili and Boehm write  commented in 2001~\cite{boehm01} 
+that peer reviews can catch over half the defects introduced into a system.
+Peer review can be conducted on any artifact generated anywhere in the software
+lifecycle and can quickly be adapted to new kinds of artifacts.
+
+
+The phased used in this paper are shown in \fig{waterfall}. Note that, in that figure:
+\bi 
+\item
+Several  phases have the same  sub-activities of {\em review} and {\em inspect}\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
+\item Testing is divided into several statges \footnote{\bill{need a one
+line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
+\ei 
+Also shown in \fig{waterfall} (bottom left) is the standard definition of an agile process~\cite{boehmturner03}:
+Given some
+some backlog of tasks, wgeb teams complete their current tasks, they select the next task(s) to complete. That selection process may use a variety of criteria
+to prioritize which  tasks are selected (for more details on that selection process, see~\cite{me09j,port08,boehmturner03}). Tasks are completed in ``sprints'' that can last hours,
+days, but rarely not more than weeks. Each day meet for brief ``scrum'' sessions to assess (and possibly alter) their current progress on the goals of the sprint.  
+Agile teams race to generate releases
+(in the continuous release model, releases can be generated on a daily basis, or even faster).  
+Experience gained from those releases informs the discussion in the daily scrums which, in turn,
+can inform the team's decisions on how to select and implement the next set of tasks for next sprint.
+In fact, that experience can result in changing some/all of the tasks in the current backlog. 
+
+TSP is not antithetical to agile--  indeed a TSP-waterfall style project can adopt aspects
+of agile.  For example the agile loop  could be applied
+over one or more of the phases shown in the long waterfall chain of \fig{waterfall}. Some
+TSP teams adopt something like test-driven-development\footnote{TDD is an agile-method
+where the ``test'' is the primary driver of the design. The tests are written first,
+then the code to support those tests. TDD proceeds in three steps: red (where there
+are broken tests); green (where tests are passing); and, possibly, refactor (where
+the code is re-organized based on feedback from those tests~\cite{fraser03}.} where
+reviews are scheduled after testing. Some of the groups in the SEI TSP data used that approach but
+they do not effect the main conclusions of this paper:
+\bi 
+\item They were strongly in the minority\bill{any numbers on this?};
+\item Most of our phase delay data comes from much early in the waterfall model
+of \fig{waterfall}.
+\ei 
+That said, there are some very ``un-agile'' aspects
+of the processes used by the   projects in the TSP SEI data.
+For teams to be included in this data set they had to be following certain 
+ guidelines
+laid down by TSPSM (and SEI staff monitored these projects to ensure that that the
+following guidelines were maintained\footnote{bill, can you talk at all about your work doing site visits? i.e. how did you ensure compilance with the following}):
+\be 
+\item  The TSP projects studied here offer new releases at least every three months, but
+often much longer that that\bill{any numbers on that}.
+\item The TSP projects studied     spend one day (or more) working on 
+\item
+The time spent in the of a design activity/phase should require 
+approximately as much effort as the coding phase. That is, for the projects
+studied here, at least half of the reflection on the requirements, design, code
+arises without feedback from running code.
+\item The teams
+cannot combine development and  testing. That is, as before,
+it can be days/weeks
+before team members in the TSP SEI datatet gain  feedback from executing code.  
+\item The time devoted to ``personnel review'' and ``peer review'' (defined below)
+is  about 50\% as much effort as the previous construction phase activity.
+\ee 
+
+
+
+\section{Data}
 
 The Software Engineering Institute (SEI) at
 Carnegie Mellon University has collected data from organizations
@@ -388,37 +481,7 @@ a dramatic phase escalation effect (but at this time, we have nothing definitive
 \bill{somewhere you have one note on \underline{find} and fix times.  for this paper, we need just fix times. but is there
 anything we need to fret about re \underline{find} times?}
 
-\fig{sedata} lists some of the publicly available
-software projects data sets currently available to 
-SE researchers. Most of the \fig{sedata} data sets have software product information
-such as full source code, or summaries of static features.
-A subset of that data contain issue or defect reports and/or
-the time taken to build these systems. Compared to those data
-setss, the SEI TSP data contains much more detailed process details
-including a detailed phased breakdown showing what happened at what
-phases of the lifecycle. The phased used in this paper are shown in \fig{waterfall}. Note that, in that figure:
-\bi 
-\item
-Several  phases have the same  sub-activities of {\em review} and {\em inspect}\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
-\item Testing is divided into several statges \footnote{\bill{need a one
-line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
-\ei
-
-software-related data sets are available to researchers; well
-known examples include those from ISBSG (the International
-Software Benchmarking Standards Group) and the Promise Data
-Repository. The ISBSG provides datasets from more than 5,600
-software development projects and publishes data analysis reports
-[11]. The Promise Data Repository mainly stores product metrics
-of open source software and NASA projects [17]. For a  list
-of other Compared to
-other data sets, the TSP database provides a granular level of
-development detail that enables not only analysis with great
-precision at different levels (e.g., project, team, component, and
-individual developer), but also additional opportunity to assess
-data quality. We hope to make the TSP database more broadly
-available in the future to supplement the other research resources
-
+The majority of the teams follow a more linear process within a single feature of physical component (usually no more than a week or two work in total). Unlike some agile teams, *most*TSP teams will not conflate development and unit test.
 
 The starting point for this paper were the times required to fix 47,228 issues.
 All data was collected
@@ -433,15 +496,7 @@ about their day-to-day tasks, then compare those estimates against the actual de
 (in this way, developers can acquire a more realistic understanding of their work behaviour).
 
 In all data, was collected from 172 separate projects. Given Beck's comments (above) about phase delay motivating agile processes, we take care to identify the differences of these 
-projects to agile development projects. In what we call a ``standard agile'' project, there exists
-some backlog of tasks. When teams complete their current tasks, they reach into to the backlog
-to select the next task(s) to complete. That selection process may use a variety of criteria
-to prioritize which  tasks are selected (for more details on that selection process, see~\cite{me09j,port08,boehmturner03}). Tasks are completed in ``sprints'' that can last hours,
-days, but rarely not more than weeks. Each day meet for brief ``scrum'' sessions to assess (and possibly alter) their current progress on the goals of the spring.  
-
-One way to characterize the above is a ``micro cyclic'' approach where teams 
-constantly reassess their priorities using feedback gained after trying to code 
-functionality X,Y,Z. An alternate, more traditional approach is a ``macro linear''
+projects to agile development projects. An alternate, more traditional approach is a ``macro linear''
 approach such as the ``waterfall methodology'' that develops code after an extensive
 pre-planning stage:
 
