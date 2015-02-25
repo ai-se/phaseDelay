@@ -2,6 +2,7 @@
 \usepackage{multirow}
 \usepackage{color}
 \usepackage{colortbl}
+
 \usepackage{picture}
 \usepackage{wrapfig}
 \usepackage{algorithm}
@@ -27,12 +28,16 @@
 
 \usepackage[shortlabels]{enumitem} 
 \usepackage{times}
+
+\usepackage{cite}
 \newcommand{\subparagraph}{}
 \usepackage{url}
 \def\baselinestretch{1}
 
 
 \setlist{nosep}
+
+\usepackage{colortbl}
  \usepackage[font={small}]{caption, subfig}
 \setlength{\abovecaptionskip}{1ex}
  \setlength{\belowcaptionskip}{1ex}
@@ -122,7 +127,110 @@ Perhaps it is time to take a look at the base premises of our field, particularl
 
 XXX tsp. 40MB . 235 prokects
 
-\section{Background}
+\section{Motivation}
+\subsection{Why Study Triusms?}
+
+Before exploring one particular truism, we digress to discuss the merits of revisiting
+old conclusions in software engineering.
+
+There are many examples of writers proposing general laws of software engineering.
+Processional societies assume such generalities exist when the offer
+ lists of  supposedly general ``best practices'' such as
+the IEEE 1012 standard for software verification~\cite{1012}.
+Budgen \& Kitchenham seek to reorganize SE research using
+general
+conclusions drawn from a larger number of studies~\cite{kitch04,budgen09}.
+Widely-cited researchers 
+list
+conclusions that are meant to hold across most SE projects; e.g.
+Glass~\cite{glass02}; Jones~\cite{jones07}; Boehm~\cite{boehm00b} and Endres \& Rombach
+whose textbook lists ``50 laws of software engineering''~\cite{endres03,rombach11}. 
+Endres \& Rombach are especially adamant   that such generalities exist:  
+\begin{quote}
+Based on {\em repeated and consistent} observations (emphasis added), key lessons of these fields can now be formulated into rules or even laws, providing initial building blocks towards a theoretical foundation that is essential for further research, for teaching and for the practice of software development. 
+\end{quote}
+The message of this paper is that we need to be very careful before taking action based
+on these supposed general laws. Contrary to the claims of Endres \& Rombach,
+we found {\em repeated inconsistencies} in the SE literature.
+For example,
+this papers tests   Endres \& Rombach's claim that  phase delay
+ dramatically increases the time to fix issues. We show that (a)~this is one of the most
+ strongly held beliefs amongst industrial practitioners and that (b)~it is
+ not supported by data from  171 projects from the period 2004 to 2014. 
+ This result is one of many similar findings that 
+cast doubt on the existence of  ``key lessons  that can be formulated
+as general laws of SE'':
+\bi
+\item
+Turhan~\cite{me12d} lists 28 studies with contradictory conclusions
+on the relation of OO measures to defects.  Those results
+ directly  contradict some of the laws listed by 
+Endres \& Rombach~\cite{endres03}.
+\item
+Ray et al.~\cite{ray2014lang} tested if   strongly typed languages
+predict for better code quality. In  728 projects,
+they found  only a modest benefit in strong typing
+(and caution that that effect may actually be due to other  conflating factors).
+\item
+Fenton \& Neil~\cite{fenton00,fenton00b}   critique the truism that
+``pre-release fault rates for software
+are a predictor for post-release failures'' (as claimed by~\cite{dunsmore88},
+amongst others). For the systems described in~\cite{fenton97}, they
+show that software modules that were highly fault-prone
+prior to release revealed very few faults after release.
+\item
+Meyer claims that   object-oriented (OO) encapsulation will
+reduce error rates in software~\cite{Meyer1988}.  Yet empirical results suggest
+that debugging an OO program is many times harder and
+longer than debugging a standard procedural program~\cite{hatton98}.
+\item
+A truism of visual programming is that ``visual
+representations are inherently superior to mere textual representations''.
+A review by Menzies suggests that the available
+evidence for this claim is hardly conclusive~\cite{me00v}. 
+\ei
+To be fair to the software engineering community, SE is not the only
+field where practitioners hang on to persistent beliefs, even if the evidence
+for those beliefs is not strong.
+The medical profession applies  many practices based on studies
+that have been disproved. For example,
+a  recent article
+in the Mayo Clinic Proceedings~\cite{prasad13} found  
+146 medical practices based on studies 
+in year $i$, but which were  reversed by subsequent trials within years $i+10$.
+Even when the evidence for or against a treatment or intervention is clear, medical providers and patients may not accept it~\cite{aschwanden10}.
+Aschwanden warns:
+\begin{quote}
+Cognitive biases - such as motivated reasoning (all of us want to believe that the things we do make a difference), base rate neglect (failing to pay attention to what happens in the absence of the intervention), and confirmation bias (the tendency to look for evidence that supports what you already know and to ignore the rest) - also influence how we process information~\cite{aschwanden15}.
+\end{quote}
+
+The cognitive issues that complicate medicine are also found in software engineering.
+According to Passos et al.~\cite{passos11}, commercial developers
+are all too willing to believe in general
+truisms.
+They  warn that developers
+usually assume that the truisms they learn from a few past
+projects are general to 
+all their future projects:
+\begin{quote}\label{q:pass}
+...the past experiences were taken into account without 
+much consideration for their context~\cite{passos11}.  
+\end{quote}
+The results of Jorgensen \& Gruschke support the findings if Passos et al. They repor that 
+  commercial estimation ``gurus'' rarely use lessons
+  from past projects to improve their future estimates~\cite{jorgensen09}. 
+When engineers
+  fail to revise their beliefs, this leads to poor
+ estimates  (see examples in~\cite{jorgensen09}).
+%% This leads to  detrimental
+%% situations where groups or 
+%% individuals working on the same project have conflicting beliefs, which they never debate
+%or refine or unify.
+
+In summary, just like medicine, our field suffers when
+ software engineers do  revise old beliefs.  Therefore, papers like this one
+ that retests old beliefs are vital.
+\subsection{Why Study Phase Delay?}
 
 It is no understatement to say that 
 concerns with  phase delay have 
@@ -160,7 +268,7 @@ time, but rose much more slowly, eventually reaching an asymptote? What if tomor
 
 The cost to fix a problem in a piece of software rises exponentially over time. A problem that might take a dollar to fix if you found it during requirements analysis might costs thousands to fix once the software is in production."
 
-I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer $100,000.
+I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer \$100,000.
 
 
 \section{Related Work}
@@ -551,27 +659,7 @@ In all data, was collected from 172 separate projects. Given Beck's comments (ab
 projects to agile development projects. An alternate, more traditional approach is a ``macro linear''
 approach such as the ``waterfall methodology'' that develops code after an extensive
 pre-planning stage:
-
-\[
-\mathit{Reqts}
-\mathit{ReqtsReview}
-\mathit{ReqtsInspect}
-
-\mathit{HighLevelDesign}
-\mathit{HighLevelReview}
-\mathit{HighLevelInspect}
-
-\mathit{Design}
-\mathit{DesignReview}
-\mathit{DesignInspect}
-
-\mathit{Code}
-
-\mathit{Compile}
-\mathit{Test}
-\mathit{IntTest}
-\mathit{SysTest}
-\]
+ 
 
 In the original paper defining and 
 critiquing ``waterfall'', Royce defines a set of assessment and feedback processes
@@ -609,8 +697,43 @@ Foundation grant NSF-CISE 1302169.
 \clearpage
 \vspace*{0.5mm}
 \scriptsize
-\bibliographystyle{unsrt}
+\bibliographystyle{plain}
 \bibliography{refs} 
 
 
 \end{document}
+
+
+One way to address the absence of general laws is  {\em local learning}.
+Even if general laws
+do not exist, then {\em there exists general methods for finding the best local laws}.
+For example, one of us (Nichols) works extensively with software projects to help
+them tune their local software process in order to better fit their local needs.XXX.
+
+ Recent studies report that better predictors of the properties of
+software projects (effort and defects) can be generated by first clustering
+(a.k.a. stratifying or contextualizing or localizing) the data then learning
+different models for each cluster~\cite{posnett11,betten14,betta12,yang11,yang13,minku13}.
+Those {\em local learning} approach finds better predictions with lower variance than
+models learned from all the unclustered data~\cite{me12d,me11m}.
+
+The problem with the local learning is that they it can generate conclusions
+that conflict with strongly-held beliefs of the humans members of the software development team.
+It is an open issue how to handle those conflicts since it is unwise to
+always reject the conclusions of local learning  or the software developers.
+The local learners may be wrong due to incorrect assumptions by the data scientists who configured the learners~\cite{me11e,shull02}.
+On the other hand,  the humans may be wrong due to the cognitive biases described above.
+Experienced data scientists use a cyclic approach where
+(a)~the collected data; and (b)~the learning methods; and (c) the goals of the inquiry are matured  using
+insight offered by humans as they study the
+feedback generated by the learners~\cite{Fayyad96,me11e}.
+
+
+
+the learners' conclusions are discussed with the team in or
+
+(which may be erroneous
+due to incorrect assumptions 
+
+
+We come to this work since  recent results on {\em locality} by Menzies and others
