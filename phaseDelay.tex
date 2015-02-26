@@ -328,7 +328,31 @@ projects are described below.
 
 \input{carter}
 
+
+ 
+\begin{figure*}[!t]
+\begin{center}
+\includegraphics[width=6in]{waterfall2.png}
+\end{center}
+\caption{Different approaches to software development:  waterfall and agile (bottom left).}
+\end{figure*}
+
 \section{Data}
+
+
+\input{data}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{figure}[!t]
 
@@ -396,32 +420,6 @@ size & 25th & 50th & 75th & Phase injected & Phase removed\\\hline
 \label{fig:faw}
 \end{figure}
  
- 
-\begin{figure}
-\begin{center}
-\begin{tabular}{rrl}
-year& \# issues&\\\hline
-2006 &  44 &\\
-2007 &  34 &\\
-2008&  288 &\rule{1mm}{2mm}\\
-2009&  846 &\rule{3mm}{2mm}\\
-2010& 1007 &\rule{3mm}{2mm}\\
-2011& 3273 &\rule{10mm}{2mm}\\
-2012&18102 &\rule{45mm}{2mm}\\
-2013&20336 &\rule{50mm}{2mm}\\
-2014& 3307 & \rule{10mm}{2mm}\\\cline{1-2}
-Total:&47228
-\end{tabular}
-\end{center}
-\caption{This paper studies 47,228 issues recorded 2006 to 2014.}\label{fig:years}
-\end{figure}
-\begin{figure*}[!t]
-\begin{center}
-\includegraphics[width=6in]{waterfall2.png}
-\end{center}
-\caption{Different approaches to software development:  waterfall and agile (bottom left).}
-\end{figure*}
-
 
 \begin{figure*}[!t]
 
@@ -438,7 +436,7 @@ Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to f
 \end{figure*}
 
 
-
+\section{Phase Delay in Slower Bugs?}
 In these results, we checked if a small number of bugs are most expensive. 
 To check this:
 \bi
@@ -477,34 +475,30 @@ Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to f
 \label{fig:scale90}
 \end{figure*}
 
+ 
 
-The data used in this work shirai14
 
-
-The Team Software ProcessSM (TSPSM) provides a
-framework that teams use to collect software process data in real
-time, using a defined disciplined process.
-In particular, three common features of the projects in our SEI TSP data set  are coaches,
-peer review, and  personnel reviews:
-\bi 
+\section{Validity} 
+A previous paper~\cite{shirai14} has applied a range of sanity checks to the data.
+A common property of real-world data sets is the presence
+of noisy entries (superfluous  or spurious data). 
+The level of noise can be quite high. As reported
+in \cite{shepperd12}, around
+10\% to 30\%
+of the records in the NASA MDP defect data sets are
+affected by noise. Nichols et al.~\cite{shirai14}  report that
+the noise levesl in the SEI TSE data are smaller than those seen
+in other data sets. They found in the SEI TSP data that:\bi 
 \item
-A ``coach'' is the team member  authorized to submit project data
-(before submission,
-these coaches check the data for obvious errors);
-\item 
-``Personnel review'' is a technique taken  from the Personal Software
-ProcessSM (PSPSM);
-\item 
-``Peer review'' is a standard technique in
-traditional software engineering.
-\ei
-PSPSM encourages developers to continually make and review their personnel estimates
-about their day-to-day tasks, then compare those estimates against the actual development effort.
-In this way, developers can acquire a more realistic understanding of their work behaviour.
-As to peer review,  Basili and Boehm write  commented in 2001~\cite{boehm01} 
-that peer reviews can catch over half the defects introduced into a system.
-Peer review can be conducted on any artifact generated anywhere in the software
-lifecycle and can quickly be adapted to new kinds of artifacts.
+4\% of the data was incorrect such as  null values of illegal formats;
+\item  2\% of the data has inconsistencies such as timestamps
+where the stop time was before the start time;
+\item 3\% of the data had data that was not credible
+such as tasks listed in one day that took like than six hours.
+\ei 
+
+ 
+\section{Related Work}
 
 
 \begin{figure}
@@ -538,180 +532,6 @@ such as full source code, or summaries of static features.
 A subset of that data contain issue or defect reports and/or
 the time taken to build these systems.  We are unaware
 of any of these having detailed phase-by-phase breakdowns of project data.
-
-
-
-
-The phased used in this paper are shown in \fig{waterfall}. Note that, in that figure:
-\bi 
-\item
-Several  phases have the same  sub-activities of {\em review} and {\em inspect}\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
-\item Testing is divided into several statges \footnote{\bill{need a one
-line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
-\ei 
-Also shown in \fig{waterfall} (bottom left) is the standard definition of an agile process~\cite{boehmturner03}:
-Given some
-some backlog of tasks, wgeb teams complete their current tasks, they select the next task(s) to complete. That selection process may use a variety of criteria
-to prioritize which  tasks are selected (for more details on that selection process, see~\cite{me09j,port08,boehmturner03}). Tasks are completed in ``sprints'' that can last hours,
-days, but rarely not more than weeks. Each day meet for brief ``scrum'' sessions to assess (and possibly alter) their current progress on the goals of the sprint.  
-Agile teams race to generate releases
-(in the continuous release model, releases can be generated on a daily basis, or even faster).  
-Experience gained from those releases informs the discussion in the daily scrums which, in turn,
-can inform the team's decisions on how to select and implement the next set of tasks for next sprint.
-In fact, that experience can result in changing some/all of the tasks in the current backlog. 
-
-TSP is not antithetical to agile--  indeed a TSP-waterfall style project can adopt aspects
-of agile.  For example the agile loop  could be applied
-over one or more of the phases shown in the long waterfall chain of \fig{waterfall}. Some
-TSP teams adopt something like test-driven-development\footnote{TDD is an agile-method
-where the ``test'' is the primary driver of the design. The tests are written first,
-then the code to support those tests. TDD proceeds in three steps: red (where there
-are broken tests); green (where tests are passing); and, possibly, refactor (where
-the code is re-organized based on feedback from those tests~\cite{fraser03}.} where
-reviews are scheduled after testing. Some of the groups in the SEI TSP data used that approach but
-they do not effect the main conclusions of this paper:
-\bi 
-\item They were strongly in the minority\bill{any numbers on this?};
-\item Most of our phase delay data comes from much early in the waterfall model
-of \fig{waterfall}.
-\ei 
-That said, there are some very ``un-agile'' aspects
-of the processes used by the   projects in the TSP SEI data.
-A TSP participant spends much time reflecting on the project,
-undisturbed by the behaviour of the  executables.
-In fact,
-it can be days/weeks
-before TSP participants gain  feedback from executing code, for the following reasons:  
-\bi 
-\item
-For TSP projects, the times spent in the of a design activity/phase is   
-approximately as much effort as the coding phase.  
-\item Our TSP teams did not
- combine development and  testing. 
- \item  The TSP projects studied here offer new releases at least every three months, but
-often much longer that that\bill{any numbers on that}. Note that this is a far slower
-release schedule than seen in, say, continuous integration projects.  
-\item The time devoted to personnel review'' and peer review (defined above)
-is  about 50\% as much effort as the previous construction phase activity.
- 
-\ei
-
-Having presented all that, we can now present the main point of this section:
-\bi 
-\item The results section of this paper fails to find that  phase delay causing dramatic increases
-in time to fix issues;
-\item This lack-of-phase-delay effect {\em cannot} be explained away just by  saying that
-the projects in this sample adopted something like  agile methods to reduce re-work costs.
-\ei  
-
-
-
-
-\section{Data}
-
-The Software Engineering Institute (SEI) at
-Carnegie Mellon University has collected data from organizations
-that have adopted TSP. 
-Our efforts focused on data collected by projects that launched
-after 2009 and used an automatic data recording tool. 
-Due to confidentiality restrictions, we cannot offer too many details
-on those project. That said, there were less than a dozen United States
-Department of Defence projects. Also, the majority of
-the projects were weither web portals or banking systems in the US, South Africa, and Mexico. 
-There were also some  medical devices (US, France, Japan, and Germany) and a few from a commercial 
-computer-aided design system (developed by a world wide distributed team). 
-
-
-Data collected included time logs, defect
-logs, added and modified size logs, and work
-breakdown strcture logs.
-The projects
-were mostly small to medium, with a median duration of 46 days
-and a maximum duration of 90 days. Median team size was 7
-people, with a maximum of 40. Hence,  total development 
-effort\footnote{
-Effort =  duration*teamSize/workDaysPerYear.} for
-these projects ranged from 1.3 years (median) to 14.3 years (max).
-
-In these logs
-the log records include work start time, work end time, delta
-work time, and interruption time. Software engineers are often
-interrupted by meetings, requests for technical help, reporting, and
-so forth. These events are recorded, in minutes, as interruption
-time. In this paper, when we report ``time to resolve an
-issue'', we show the difference between the start and end times
-of a work session, with any interruption time subtracted (the
-difference in times, minus the interruptions).  
-
-As of January 2014, the SEI TSP database contained data from 109
-TSP projects. The projects started between July 2009 and
-September 2013; they included 34 teams and 309 people. Among
-the database fact tables, the time store contains 103,023 time logs,
-18,408 defect logs, and 7,464 size logs\footnote{\bill{we need to 
-update this table}}.  
-
-A common property of real-world data sets is the presence
-of noisy entries (superfluous  or spurious data). 
-The level of noise can be quite high. As reported
-in \cite{shepperd12}, around
-10\% to 30\%
-of the records in the NASA MDP defect data sets are
-affected by noise. Nichols et al.~\cite{shirai14}  report that
-the noise levesl in the SEI TSE data are smaller than those seen
-in other data sets. They found in the SEI TSP data that:\bi 
-\item
-4\% of the data was incorrect such as  null values of illegal formats;
-\item  2\% of the data has inconsistencies such as timestamps
-where the stop time was before the start time;
-\item 3\% of the data had data that was not credible
-such as tasks listed in one day that took like than six hours.
-\ei 
-That said, certain semantic features of the SEI TSP data should be noted.
-Firstly, in the current TSP collection tool, 
-fix times are only the developer time for the developer walking through the phases of \fig{waterfall}.
-We are currently tracking the fix time for post-release issues (e.g. those raised during  acceptance test and later
-product life cycle). So far, in that post-release data,  we have not detected
-a dramatic phase escalation effect (but at this time, we have nothing definitive comment on that matter).
-
-\bill{somewhere you have one note on \underline{find} and fix times.  for this paper, we need just fix times. but is there
-anything we need to fret about re \underline{find} times?}
-
-The majority of the teams follow a more linear process within a single feature of physical component (usually no more than a week or two work in total). Unlike some agile teams, *most*TSP teams will not conflate development and unit test.
-
-The starting point for this paper were the times required to fix 47,228 issues.
-All data was collected
-by the Software Engineering Institute in the period 2006 to 2014 (see \fig{years}).
-To the best of our knowledge, this is the largest sample of ``time to fix issues''
-yet analyzed. 
-
-This data was collected using the   methodology described by
-Watts Humphrey's Team Software Process~\cite{tsp00}. TSP is an extension of Humphrey's early
-work on Personnel Software Process~\cite{psp05}.  PSP encourages developers to continually make estimates
-about their day-to-day tasks, then compare those estimates against the actual development effort
-(in this way, developers can acquire a more realistic understanding of their work behaviour).
-
-In all data, was collected from 172 separate projects. Given Beck's comments (above) about phase delay motivating agile processes, we take care to identify the differences of these 
-projects to agile development projects. An alternate, more traditional approach is a ``macro linear''
-approach such as the ``waterfall methodology'' that develops code after an extensive
-pre-planning stage:
- 
- 
- 
-
-The defect typ that we studied were
-\be 
-\item Environment: design, compile, test, or other support system problems;
-\item Interface: procedure calls and reference, I/O, user format;
-\item Data: structure, content; 
-\item Documentation: comments, messages;
-\item Syntax: spelling, punctuation typos, instruction formats
-\item Function: logic, pointers, loops, recursion, computation, function defects  
-\item Checking: error messages, inadequate checks;
-\item Build: change management, library, version control;
-\item Assignment: package
-declaration, duplicate names, scope, limits;
-\item System: configuration, timing, memory.
-\ee
 
 
 
@@ -774,3 +594,23 @@ XXXX In those 171 projects, we observed that it is
 Our conclusion discusses the implications for our field, and how we might better
 propagated and monitor the wisdom of our field. 
 
+
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{rrl}
+year& \# issues&\\\hline
+2006 &  44 &\\
+2007 &  34 &\\
+2008&  288 &\rule{1mm}{2mm}\\
+2009&  846 &\rule{3mm}{2mm}\\
+2010& 1007 &\rule{3mm}{2mm}\\
+2011& 3273 &\rule{10mm}{2mm}\\
+2012&18102 &\rule{45mm}{2mm}\\
+2013&20336 &\rule{50mm}{2mm}\\
+2014& 3307 & \rule{10mm}{2mm}\\\cline{1-2}
+Total:&47228
+\end{tabular}
+\end{center}
+\caption{This paper studies 47,228 issues recorded 2006 to 2014.}\label{fig:years}
+\end{figure}
