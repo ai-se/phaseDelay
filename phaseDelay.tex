@@ -76,88 +76,114 @@ Lucas \\Layman\\
 Does
 repair time increases dramatically
 the longer a defect persists in a system?
-This  is very widely belief and the core rational  for
- rejecting   traditional linear development methods
- in favor of more cyclic agile approaches.
+This  is very widely belief that is used to justify 
+radical changed to    traditional software development
+ processes.
 
 This paper shows that this belief is maintained
 quite strongly in the industrial software engineering
 community (but, in the academic community, somewhat less so).
 Yet based on a sample of 
-\carter{230} software projects from around the world from 
+171 software projects from around the world from 
 \bill{2005 to 2013}, we argue that this belief is mostly 
 incorrect. Specifically: the median fix time for issues
-is just a few minutes and this increases by a small linear amount
+is just a few minutes and this does not tend to increase
 the longer the issue remains in the system. 
 
-What was observed was a small number
-of defects that take a remarkably long time to resolve
-For these issues, if an issue takes more an hour
-to resolve then it will usually require many more hours of work.
-These long-tail bugs
-are more prevalent the longer a project delays issue removal. 
-In order to handle such ``long tail'' issues,
-we suggest  augmenting software
-development groups with additional ``tiger teams'' that are triggered
-when issue resolution time increases beyond a certain number of
-minutes.
+This result raises the question:
+how did myths like phase delay survive so long  without  critical reassessment.  
+As a community, we need to reflect more on 
+research practices and on how (and when) we reflect on the prominent hypotheses of our field.
 \end{abstract}
 
 % A category with the (minimum) three required fields
 \vspace{1mm}
 \noindent
 {\bf Categories/Subject Descriptors:} 
-D.2.8 [Software Engineering]: Product metrics; 
+D.2.8 [Software Engineering]: Process metrics.
 
  
 
 \vspace{1mm}
 \noindent
-{\bf Keywords:} defect prediction, 
+{\bf Keywords:} phase delay, time to fix, agile, waterfall.
 
 \section{Introduction}
-Several recent papers call into questions long-held trusims in the field
-of software engineering. Devanbu reports that, in practice, the advantage of types languages
-is only very minimal. Nagappan et al. found that XXX, contrary to the advice of Dyketra,
-it is not necessarily true that ``goto considered harmful'' XXX. More generally,
-several recent  papers comment on ``locality'' effects where effects
-thold  generally across XXXX
- 
-Perhaps it is time to take a look at the base premises of our field, particularly in light of the large software analytics data sets newly available for reseaercehrs.
+In 2013-2014, the time of 
+eleven  million programmers~\cite{pettey14} and
+half a trillion dollars~\cite{avram14} was spent on information technology.
+Such a large and growing effort should be managed and optimized via  well-researched conclusions.  
+It is standard practice
+in other fields such as medicine,
+to continually revisit old conclusions~\cite{prasad13}. Software engineering should do the same lest
+ill-founded  exert an undue influence on how we build software.  
 
-XXX tsp. 40MB . 235 prokects
+Accordingly, this paper revisits
+the {\em phase delay} effect
+i.e.  the time required to resolve an issue in a software project increases dramatically 
+the longer it remains in the system. 
+Phase delay has long been
+a    motivator for major changes to
+SE practices. Basili \& Boehm comment that since the 1980s,  phase delay:
+\begin{quote}
+...has been a major driver in focusing
+industrial software practice on thorough
+requirements analysis and design,
+on early verification and validation, and
+on up-front prototyping and simulation
+to avoid costly downstream fixes~\cite{boehm01}.
+\end{quote}
+Basili and Boehm are not alone in this assessment of the significance of the phase delay effect. 
+Our surveys of  industrial practitioners (shown below) reveal it to be
+the single most strongly held belief amongst commercial SE engineers;
+Also,
+as discussed later
+in this paper, concerns over phase delay were a major driver in the development of agile software
+processes.
+
+The conclusions of this paper is that it is erroneous to believe in phase delay.
+When we looked for supporting evidence for that effect, we found that:
+\be 
+\item The evidence for that effect in the historical literature is very weak (to say the least);
+\item  In  a large sample of   contemporary software projects, there is no evidence for phase delay.
+ \ee
+The rest of this paper present evidence for the above two points. 
+The first point is  documented via  a literature survey and the second point is demonstrated
+via an analysis of  
+ 171 software  projects developed in the period \bill{2004 to 2014}.  To the best of our knowledge,
+ this is the largest study on phase delay yet seen in the literature.
+ 
+The conclusions of this paper are two fold. Firstly, the SE community needs to stop
+justifying changes to SE
+practices via the phase delay effect. Secondly,   myths like phase delay should not have lasted decades
+in the literature without  critical reassessment.  As a community, we need to reflect more on our
+research practices and on how (and when) we reflect and revisit the prominent hypotheses of our field.
+
 
 \section{Motivation}
-\subsection{Why Study Triusms?}
+\subsection{Why Reassess Existing Triusms?}
 
 Before exploring one particular truism, we digress to discuss the merits of revisiting
 old conclusions in software engineering.
 
-There are many examples of writers proposing general laws of software engineering.
-Processional societies assume such generalities exist when the offer
+
+Some researchers   adamantly believe in general
+principles of software
+engineering. Processional societies assume such generalities exist when the offer
  lists of  supposedly general ``best practices'' such as
-the IEEE 1012 standard for software verification~\cite{1012}.
+the IEEE 1012 standard for software verification~\cite{1012}.  Endres \& Rombach's comment that 
+\begin{quote}
+Based on repeated and consistent observations, key lessons of these fields can now be formulated into rules or even laws, providing initial building blocks towards a theoretical foundation that is essential for further research, for teaching and for the practice of software development~\cite{endres03,rombach11}
+\end{quote}
+ Endres \& Rombach offer dozens of supposedly general lessons of software engineering~\cite{rombach11}.
+ Many other 
+widely-cited researchers  do the same; e.g.
+Glass~\cite{glass02}; Jones~\cite{jones07}; Boehm~\cite{boehm00b}.
 Budgen \& Kitchenham seek to reorganize SE research using
 general
 conclusions drawn from a larger number of studies~\cite{kitch04,budgen09}.
-Widely-cited researchers 
-list
-conclusions that are meant to hold across most SE projects; e.g.
-Glass~\cite{glass02}; Jones~\cite{jones07}; Boehm~\cite{boehm00b} and Endres \& Rombach
-whose textbook lists ``50 laws of software engineering''~\cite{endres03,rombach11}. 
-Endres \& Rombach are especially adamant   that such generalities exist:  
-\begin{quote}
-Based on {\em repeated and consistent} observations (emphasis added), key lessons of these fields can now be formulated into rules or even laws, providing initial building blocks towards a theoretical foundation that is essential for further research, for teaching and for the practice of software development. 
-\end{quote}
-The message of this paper is that we need to be very careful before taking action based
-on these supposed general laws. Contrary to the claims of Endres \& Rombach,
-we found {\em repeated inconsistencies} in the SE literature.
-For example,
-this papers tests   Endres \& Rombach's claim that  phase delay
- dramatically increases the time to fix issues. We show that (a)~this is one of the most
- strongly held beliefs amongst industrial practitioners and that (b)~it is
- not supported by data from  171 projects from the period 2004 to 2014. 
- This result is one of many similar findings that 
+
+Nevertheless, there are many empirical  findings that 
 cast doubt on the existence of  ``key lessons  that can be formulated
 as general laws of SE'':
 \bi
@@ -166,6 +192,7 @@ Turhan~\cite{me12d} lists 28 studies with contradictory conclusions
 on the relation of OO measures to defects.  Those results
  directly  contradict some of the laws listed by 
 Endres \& Rombach~\cite{endres03}.
+
 \item
 Ray et al.~\cite{ray2014lang} tested if   strongly typed languages
 predict for better code quality. In  728 projects,
@@ -188,6 +215,15 @@ A truism of visual programming is that ``visual
 representations are inherently superior to mere textual representations''.
 A review by Menzies suggests that the available
 evidence for this claim is hardly conclusive~\cite{me00v}. 
+\item Numerous recent {\em local learning} results compare single models
+learned from all available data to multiple models learned from clusters within the data~\cite{betten14,yang11,yang13,minku13,me12d,me11m,betta12,posnett11}.
+A repeated result in those studies in that the local models generated the better effort
+and defect predictions (better median results,
+lower variance in the predictions).
+ \item 
+Other work studies  found dozens of single
+models that performed worse that {\em committees of models}, all with different opinions,
+that contribute to an {\em ensemble} prediction of software development effort~\cite{kocaguneli2012value,azhar13}.
 \ei
 To be fair to the software engineering community, SE is not the only
 field where practitioners hang on to persistent beliefs, even if the evidence
@@ -216,69 +252,68 @@ all their future projects:
 ...the past experiences were taken into account without 
 much consideration for their context~\cite{passos11}.  
 \end{quote}
-The results of Jorgensen \& Gruschke support the findings if Passos et al. They repor that 
-  commercial estimation ``gurus'' rarely use lessons
-  from past projects to improve their future estimates~\cite{jorgensen09}. 
-When engineers
+The results of Jorgensen \& Gruschke support the findings if Passos et al. They report that 
+  supposed software engineering    ``experts'' rarely use lessons
+  from past projects to improve their future reasoning~\cite{jorgensen09}. 
+ They note that
+when the experts
   fail to revise their beliefs, this leads to poor
- estimates  (see examples in~\cite{jorgensen09}).
+ conclusions and software projects  (see examples in~\cite{jorgensen09}).
 %% This leads to  detrimental
 %% situations where groups or 
 %% individuals working on the same project have conflicting beliefs, which they never debate
 %or refine or unify.
 
 In summary, just like medicine, our field suffers when
- software engineers do  revise old beliefs.  Therefore, papers like this one
- that retests old beliefs are vital.
+ software engineers do  revise old beliefs.  Therefore, it is important
+ to regularly  reexamine    old beliefs.
 \subsection{Why Study Phase Delay?}
+Due to its prominence in the field of software engineering,
+this paper studies phase delay. As mentioned in the introduction, concerns about phase delay have
+been used for decades to motivate major changes to software engineering practices. For example,
+in 2000, Kent Beck used phase delay to motivate his call for ``extreme programming'' (a set of techniques
+that evolved into contemporary agile and DevOps practices). Beck writes:
+\begin{quote}
+One of the universal assumptions of software engineering is that the cost of changing a program rises exponentially over time. I can remember sitting in a big linoleum-floored classroom as a college junior and seeing the professor draw on the board the curve found in \fig{curve1}.
 
-It is no understatement to say that 
-concerns with  phase delay have 
-a major  motivator for changing
-SE practices. Basili and Boehm~\cite{boehm01}  commented in
-2001 that, since the 1980s, the phase delay
-``has been a major driver in focusing
-industrial software practice on thorough
-requirements analysis and design,
-on early verification and validation, and
-on up-front prototyping and simulation
-to avoid costly downstream fixes.''
+The cost to fix a problem in a piece of software rises exponentially over time. A problem that might take a dollar to fix if you found it during requirements analysis might costs thousands to fix once the software is in production.
 
-\begin{center}
-\includegraphics[width=3.3in]{beckB4.png}
+I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer \$100,000.~\cite{beck00}
+\end{quote}
 
-\includegraphics[width=3.3in]{beckAFTER.png}
-\end{center}
+\begin{figure}
+ \includegraphics[width=3.3in]{beckB4.png}
+ \caption{Projects exhibiting phase delay. From~\cite{beck00}.}\label{fig:curve1}
+ \end{figure}
+\begin{figure}
+ \includegraphics[width=3.3in]{beckAFTER.png}
+ \caption{Projects without   phase delay. From~\cite{beck00}.}\label{fig:curve2}
+\end{figure}
+ 
+Beck speculated that there might be another kind of project, shown in \fig{curve2},
+that does no exhibit phase delay. In this next quote, Beck clearly states
+the importance of avoiding phase delay (in fact, for Beck, it is {\em the} major
+motivation for his work):
+\begin{quote}
+This (\fig{curve2}) is one of the premises of (agile). It is the technical premise of (agile). If the cost of change rose slowly over time, you would act completely differently from how you do under the assumption that costs rise exponentially. You would make big decisions as late in the process as possible, to defer the cost of making the decisions and to have the greatest possible chance that they would be right. You would only implement what you had to, in hopes that the needs you anticipate for tomorrow wouldn't come true. You would introduce elements to the design only as they simplified existing code or made writing the next bit of code simpler.~\cite{beck00}
+\end{quote}
+Beck makes one other comment that is relevant to this paper: 
+\begin{quote}
+The software development community has spent enormous resources in recent decades trying to reduce the cost of change-better languages, better database technology, better programming practices, better environments and tools, new notations.
 
-Also, concerns with the phase delay  had
- a significant impact on the history of agile programming. Kent Beck is
- particularly eloquent  
+What would we do if all that investment paid off? What if all that work on languages and databases and whatnot actually got somewhere? What if the cost of change didn't rise exponentially over time?~\cite{beck00}
+\end{quote}
+The results of this paper are that, in our sample of hundreds of projects, there is no evidence for phase delay.
+This result is   consistent with Beck being correct: all that work on    languages and databases
+have paid off and, hence, modern software projects do not suffer from the  phase delay effect.  
 
-Under certain circumstances, the exponential rise in the cost of changing software over time can be flattened. If we can flatten the curve, old assumptions about the best way to develop software no longer hold.
-
-One of the universal assumptions of software engineering is that the cost of changing a program rises exponentially over time. I can remember sitting in a big linoleum-floored classroom as a college junior and seeing the professor draw on the board the curve found in Figure 1.
-
-The software development community has spent enormous resources in recent decades trying to reduce the cost of change—better languages, better database technology, better programming practices, better environments and tools, new notations.
-
-What would we do if all that investment paid off? What if all that work on languages and databases and whatnot actually got somewhere? What if the cost of change didn't rise exponentially over
-
-This is one of the premises of XP. It is the technical premise of XP. If the cost of change rose slowly over time, you would act completely differently from how you do under the assumption that costs rise exponentially. You would make big decisions as late in the process as possible, to defer the cost of making the decisions and to have the greatest possible chance that they would be right. You would only implement what you had to, in hopes that the needs you anticipate for tomorrow wouldn't come true. You would introduce elements to the design only as they simplified existing code or made writing the next bit of code simpler.
-￼
-time, but rose much more slowly, eventually reaching an asymptote? What if tomorrow's software engineering professor draws Figure 3 on the board?
-
-The cost to fix a problem in a piece of software rises exponentially over time. A problem that might take a dollar to fix if you found it during requirements analysis might costs thousands to fix once the software is in production."
-
-I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer \$100,000.
-
+XXX clumsy link here
+That said, where our results
+diverge from Beck is that we have observed this lack of phase delay in  projects that are not agile. Those
+projects are described below.
 
 \section{Related Work}
-
-In their text Romabach laws
-
-Kent Beck's original extreme programming text is big on this.
-
-Historical  evidence for this dataes back to some studies in the 1970s. To the best of
-our knowledge, not updated since. Regardless, as discussed in the next section, this
+ 
 
 \input{lucasRelatedWork}
 
@@ -422,10 +457,10 @@ results are somewhat different for Design and Coding issues:
 general form as the 50th percentile results. That is, while it it certainly faster
 to remove thing sin the phase where they are created, once we leave that phase
 it does not seem to matter much how many phases we wait before fixing the issue.
-\begin{itemize}
+\item
 \item For Coding issues, the seems little impact of phase delay on the time
 required to fix.
-\end{itemize}
+\ei
 
 
 \begin{figure*}[!t]
@@ -660,35 +695,25 @@ projects to agile development projects. An alternate, more traditional approach 
 approach such as the ``waterfall methodology'' that develops code after an extensive
 pre-planning stage:
  
-
-In the original paper defining and 
-critiquing ``waterfall'', Royce defines a set of assessment and feedback processes
-such that 
-
-
-care to contrast these 
-The majority of the teams follow a basically linear process within a single feature of physical component (usually no more than a week or two work in total). Unlike some agile teams, *most*TSP teams will not conflate development and unit test.  This is usually pretty clear from the task  phase sequencing. A few teams choose to follow a Test Driven Development like process in which code review or inspection will follow test. In a more traditional “micro-linear” TSP approach, unit test follows inspections. 
-
-
-Our data reporting the time required
-to resolve issues in phase $j$ that there were introduced in phase $i, i<j$.
-
-
+ 
+ 
 
 The defect typ that we studied were
 \be 
-\item design, compile, test, or other support system problems = Environment
-procedure calls and reference, I/O, user formats = Interface
-structure, content = Data
-comments, messages = Documentation
-spelling, punctuatio typos, instruction formats = Syntax
-logic, pointers, loops, recursion, computation, function defects = Function
-error messages, inadequate checks = Checking
-change management, library, version control = Build, package
-declaration, duplicate names, scope, limits = Assignment
-configuration, timing, memory = System
+\item Environment: design, compile, test, or other support system problems;
+\item Interface: procedure calls and reference, I/O, user format;
+\item Data: structure, content; 
+\item Documentation: comments, messages;
+\item Syntax: spelling, punctuation typos, instruction formats
+\item Function: logic, pointers, loops, recursion, computation, function defects  
+\item Checking: error messages, inadequate checks;
+\item Build: change management, library, version control;
+\item Assignment: package
+declaration, duplicate names, scope, limits;
+\item System: configuration, timing, memory.
 \ee
-\section{Conclusion}
+
+
 
 \section*{Acknowledgements}
 This work was partially funded by an National Science
@@ -737,3 +762,15 @@ due to incorrect assumptions
 
 
 We come to this work since  recent results on {\em locality} by Menzies and others
+
+
+XXXX In those 171 projects, we observed that it is
+ fastest to fix issues within the same phase $i$ as when they are generated. But in a result that contradicts
+ the phase delay effect, once an issue ``escapes'' phase $i$
+ it so no more expensive to resolve an issue in phase $i+1$ than
+ phase $i+2, i+3$, etc. Further, that increased effort may be quite modest.
+ That is, contrary to established wisdom, once an  issue ``escapes'' a phase, there is no
+ need to  rapidly retire that issue as soon as possible. 
+Our conclusion discusses the implications for our field, and how we might better
+propagated and monitor the wisdom of our field. 
+
