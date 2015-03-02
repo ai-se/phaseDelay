@@ -356,7 +356,7 @@ projects are described below.
 
 \begin{figure}[!t]
 
-%\renewcommand{\baselinestretch}{0.8}
+\renewcommand{\baselinestretch}{0.7}
 \scriptsize
 \begin{center}
 \begin{tabular}{r|rrr|ll}
@@ -421,19 +421,19 @@ size & 25th & 50th & 75th & Phase injected & Phase removed\\\hline
 \end{figure}
  
 
-\begin{figure*}[!t]
-
-\renewcommand{\baselinestretch}{0.7} 
+\begin{figure}[!t]
+\renewcommand{\baselinestretch}{0.7}
+\scriptsize
 \begin{center}
-\begin{tabular}{ll|r|rl}
-            &                  & Sample\\
-Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to first phase}
+\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{median}\\
+  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
 \input{deltas}
 \end{tabular}
 \end{center}
 \caption{50th percentile (median) scale ups  for  time to resolve issues (taken from \fig{raw}).}
 \label{fig:scale}
-\end{figure*}
+\end{figure}
 
 
 \section{Phase Delay in Slower Bugs?}
@@ -461,38 +461,53 @@ required to fix.
 \ei
 
 
-\begin{figure*}[!t]
-
-\renewcommand{\baselinestretch}{0.7} 
+\begin{figure}[!t]
+\renewcommand{\baselinestretch}{0.7}
+\scriptsize
 \begin{center}
-\begin{tabular}{ll|r|rl}
-            &                  & Sample\\
-Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to first phase}
+\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{90th }\\
+           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{percentile }\\
+  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
 \input{deltaBig}
 \end{tabular}
 \end{center}
 \caption{90th percentile scale ups.}
 \label{fig:scale90}
-\end{figure*}
+\end{figure}
 
 
-\begin{figure*}[!t]
-
-\renewcommand{\baselinestretch}{0.7} 
+\begin{figure}[!t]
+\renewcommand{\baselinestretch}{0.7}
+\scriptsize
 \begin{center}
-\begin{tabular}{ll|r|rl}
-            &                  & Sample\\
-Phase injected & Phase removed & size & \multicolumn{2}{l}{Scale up, w.r.t. to first phase}
-\input{deltaBigBig}
+\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+          \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{99th }\\
+           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{percentile }\\
+  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
+\input{deltasBigBig}
 \end{tabular}
 \end{center}
 \caption{99th percentile scale ups.}
 \label{fig:scale90}
-\end{figure*}
+\end{figure}
+
+\begin{figure}[!t]
+\renewcommand{\baselinestretch}{0.7}
+\scriptsize
+\begin{center}
+\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{mean}\\
+  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
+\input{deltasMean}
+\end{tabular}
+\end{center}
+\caption{Mean  scale ups.}
+\label{fig:scale90}
+\end{figure}
 
 
  
-
 
 \section{Validity} 
 A previous paper~\cite{shirai14} has applied a range of sanity checks to the data.
@@ -513,6 +528,8 @@ where the stop time was before the start time;
 such as tasks listed in one day that took like than six hours.
 \ei 
 
+
+XXX post release. really hard to change? auto-updates, package managers, web-based apps. 
  
 \section{Related Work}
 
