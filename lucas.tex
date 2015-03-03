@@ -1,0 +1,41 @@
+As part of a related research, we conducted a survey of software engineering practitioners and researchers on their views of commonly-head software engineering ''laws''. One of the laws questioned was drawn from from Glass~\cite{glass02} who cites Boehm \lucas{ref needed} as the source: ''Requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' (RqtsErr for short). The survey was conducted in two phases using Amazon's Mechanical Turk. The first phase was conducted only with professional software engineers, and the second survey was conducted only with Program Committee (PC) members of the ESEC/FSE and ICSE conferences.
+
+The respondents answered the following questions for the laws they were presented: 
+\textbf{Agreement:} ''Based on your experience, do you agree that the statement above is correct?'' A Likert scale captured the agreement score from Strongly Disagree to Strongly Agree. A text box was provided to explain the answer.
+\textbf{Applicability:} ''To the extent that you believe it, how widely do you think it applies among software development contexts?'' The possible answers were presented as a scale from -1 to 5:
+\begin{itemize}
+\item I don't know (-1)
+\item This law does not apply at all (0)
+\item Applies in a very narrow range of projects  (1)
+\item Rarely applies (2)
+\item Occasionally applies (3)
+\item Very frequently applies (4)
+\item Always applies (5)
+\end{itemize}
+Respondents were required to explain the applicability score in a text box.
+
+In the ''law evaluation'' portion of the survey, participants were presented with the RqtsErr law and others drawn from \cite{glass02} and \cite{endres03}. The PC member survey contained an additional question: ''Do you agree with the following? 'In general, the longer errors are in the system (requirements errors, design errors, coding errors, etc.), the more expensive they are to fix''' (PhaseDelay for short). Responses were recorded using the \textbf{Agreement} question Likert scale. 
+
+Summary statistics for the agreement and applicability scores for the RqtsErr and PhaseDelay laws are presented in Figure~\ref{fig:survey_results}. Responses whose \textbf{applicability} response was ''I don't know'' are ommitted from analysis.
+
+
+\begin{figure}[!h]
+\renewcommand{\baselinestretch}{0.7}
+\scriptsize
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c}
+Survey & law & N & \multicolumn{2}{c}{agreement} & \multicolumn{2}{c}{applicability} \\ 
+ & & mean & median & mean & median \\
+\hline 
+Practitioners & RqtsErr & 16 & 4.6 & 5 & 4.2 & 4 \\ 
+Researchers & RqtsErr & 30 & 3.8 & 4 & 3.8 & 4 \\ 
+Researchers & PhaseDelay & 30 & 3.6 & 4 & -- & -- 
+\end{tabular} 
+\end{center}
+\caption{Agreement and applicability of phase delay related axioms.}
+\label{fig:survey_results}
+\end{figure}
+
+While the practitioners strongly believed in the law, researchers were less firm. In reading the free response texts, most participants agreed that, unless the system and the affected requirement are simple/trivial, addressing errors may mean system redesign. Further, any changes to the production system have additional complexity (compared to changes while system in development) due to users, data existence, and architecture dependencies. The researchers who disagreed with the law generally asserted that requirements change can be expensive, but that depends on the process used (e.g., agile vs. waterfall) and the adaptability of the system architecture.
+
+Overall, the RqtsErr law was the most agreed upon and most applicable law of 11 surveyed amongst practitioners, and the second most agreed upon law amongst researchers. The survey results seem to confirm that phase delay escalates cost-to-fix is a widely-held belief in software engineering.
