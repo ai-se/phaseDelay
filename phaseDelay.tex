@@ -373,7 +373,47 @@ projects are described below.
 
 \input{carter}
 
+The distribution of defects found and fixed per phase is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections.
 
+\begin{figure*}[!t]
+\begin{center}
+\includegraphics{fix-phase-dist.png}
+\end{center}
+\caption{Distribution of defects found and fixed by phase.}
+\label{fig:fix-phase-dist}
+\end{figure*}
+
+
+In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected). The correlations were also calculated for each phase, e.g., does the phase delay of defects found in Test correlate with the defect's cost-to-fix (Table~\ref{tab:phase_corr}). 
+ 
+\begin{table}[ht]
+\centering
+\begin{tabular}{lll}
+  Phase & $tau$ & $p$ \\ 
+  \hline
+BeforeDevelopment & NA & -- \\ 
+  Planning & NA & -- \\ 
+  Reqts & NA & -- \\ 
+  ReqtsReview & 0.05 & 0.01 \\ 
+  ReqtsInspect & 0.17 & $<$0.01 \\ 
+  HLD & NA & -- \\ 
+  HLDReview & 0.04 & 0.24 \\ 
+  HLDInspect & -0.07 & 0.05 \\ 
+  Design & 0.19 & 0.08 \\ 
+  DesignReview & 0.08 & $<$0.01 \\ 
+  DesignInspect & 0.06 & $<$0.01 \\ 
+  Code & 0.21 & $<$0.01 \\ 
+  CodeReview & 0.15 & $<$0.01 \\ 
+  CodeInspect & 0.11 & $<$0.01 \\ 
+  Test & 0.16 & $<$0.01 \\ 
+  QualTest & NA & -- \\ 
+  IntTest & 0.13 & $<$0.01 \\ 
+  SysTest & 0.32 & $<$0.01 \\ 
+  AcceptTest & 0.07 & 0.29 \\ 
+  \end{tabular}
+\caption{Correlation of cost-to-fix and phase delay for defects found in each phase (Kendall's $\tau$)} 
+\label{tab:phase_corr}
+\end{table}
  
 \begin{figure*}[!t]
 \begin{center}
