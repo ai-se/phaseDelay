@@ -133,7 +133,18 @@ on early verification and validation, and
 on up-front prototyping and simulation
 to avoid costly downstream fixes~\cite{boehm01}.
 \end{quote}
-Basili and Boehm are not alone in this assessment of the significance of the phase delay effect. 
+Basili and Boehm are not alone in this assessment of the significance of the phase delay effect.
+Previously~\cite{me08a}, we have constructed return-on-investement models
+for a common practice amongst U.S. government contractors: 
+independent verification \& validation. IVV has been criticised as
+ineffective since IVV engineers, who many  unfamiliar with the details of the project, are required to pass judgement on the code.
+Hence,  the IVV team may find the same or fewer bugs
+as the developers,
+On the other hand, IVV has been defended
+as follows:  when the IVV team finds bugs earlier that the developers then, due to the phase delay effect, this saves the overall cost of the project. Note that the strength of this argument diminishes
+if fixing later-phase issues is not significantly more expensive than fixing them earlier. 
+
+
 Our surveys of  industrial practitioners (shown below) reveal it to be
 the single most strongly held belief amongst commercial SE engineers;
 Also,
@@ -288,6 +299,40 @@ I resolved then and there that I would never let a problem get through to produc
 \begin{figure}
  \includegraphics[width=3.3in]{beckAFTER.png}
  \caption{Projects without   phase delay. From~\cite{beck00}.}\label{fig:curve2}
+\end{figure}
+
+\begin{figure}[!t]
+\scriptsize
+\begin{center}
+\begin{tabular}{l@{~}|l@{~}|r@{~}r@{~}|r@{~}l}
+          &        & \multicolumn{2}{c|}{Time to}  &\\
+          &        & \multicolumn{2}{c|}{resolve} &\\
+Injection & Removal& initial & now & \multicolumn{2}{l}{Scale up w.r.t initial} \\\hline
+Phase $i$&Phase $i$ & 1 & 1 & 1 &\rule{2mm}{2mm} \\
+Phase $i$ &Phase $i+1$ & 1 & 2& 2 &\rule{4mm}{2mm} \\
+Phase $i$ &Phase $i+2$ & 1 & 4& 4 &\rule{8mm}{2mm} \\
+Phase $i$ &Phase $i+3$ & 1 & 8 & 8 & \rule{16mm}{2mm} \\
+ Phase $i$  &Phase $i+4$ &1 & 16 & 16 &\rule{32mm}{2mm} 
+  \end{tabular}\end{center}
+ \caption{Projects data consistent with
+ the phase delay effect of \fig{curve1}.}\label{fig:curve1a}
+\end{figure}
+
+\begin{figure}[!t]
+\scriptsize
+\begin{center}
+\begin{tabular}{l@{~}|l@{~}|r@{~}r@{~}|r@{~}l}
+          &        & \multicolumn{2}{c|}{Time to}  &\\
+          &        & \multicolumn{2}{c|}{resolve} &\\
+Injection & Removal& initial & now & \multicolumn{2}{l}{Scale up w.r.t initial} \\\hline
+Phase $i$&Phase $i$ & 1 & 1 & 1 &\rule{2mm}{2mm} \\
+Phase $i$ &Phase $i+1$ & 1 & 2& 2 &\rule{4mm}{2mm} \\
+Phase $i$ &Phase $i+2$ & 1 & 2& 2 &\rule{4mm}{2mm} \\
+Phase $i$ &Phase $i+3$ & 1 & 2 & 2 & \rule{4mm}{2mm} \\
+ Phase $i$  &Phase $i+4$ &1 & 2& 2 &\rule{4mm}{2mm} 
+  \end{tabular}\end{center}
+ \caption{Projects data consistent with
+ the phase delay effect of \fig{curve2}.}\label{fig:curve2a}
 \end{figure}
  
 Beck speculated that there might be another kind of project, shown in \fig{curve2},
