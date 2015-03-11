@@ -1,6 +1,8 @@
-The section presents the data that we use to conclude that phase delay is a not a major
-contributor to the time required to resolve an issue.  
+We examine the phase delay effect bin
+171 software projects from around the world from 
+\bill{2005 to 2013} that used the Team Software Process (TSP). 
 
+\subsection{Overview of the Team Software Process}
 The Software Engineering Institute (SEI) at
 Carnegie Mellon University explores methods for software process improvement.
 One product from that research is  
@@ -9,8 +11,33 @@ work on Personal Software
 ProcessSM (PSPSM)~\cite{psp05}.
 
 
-Since 2004, one  of use (Nichols) has been been mentoring 171 software development teams around the world
-as they  deploy TSP within their organizations.  
+
+\sei{One paragraph summary on the key points of TSP execution? The following text should also be reviewed and better integrated.}
+
+Three common features of all those  are (1)~coaches,
+(2)~peer review, and  (3)~personnel reviews.
+ 
+A ``coach'' is a team member  authorized to submit project data
+Before submission,
+these coaches check the data for obvious errors.
+
+``Personnel review'' is a technique taken  from the Personal Software
+ProcessSM (PSPSM). PSPSM encourages developers to continually make and review their personnel estimates
+about their day-to-day tasks, then compare those estimates against the actual development effort.
+In this way, developers can acquire a more realistic understanding of their work behaviour.
+
+ 
+``Peer review'' is a  technique in
+traditional software engineering.
+ Basili and Boehm write  commented in 2001~\cite{boehm01} 
+that peer reviews can catch over half the defects introduced into a system.
+Peer review can be conducted on any artifact generated anywhere in the software
+lifecycle and can quickly be adapted to new kinds of artifacts.
+
+
+
+\subsection{Projects in the Sample}
+Since 2004, one of the authors (Nichols) has been been mentoring 171 software development teams around the world as they deploy TSP within their organizations.  
 The projects
 were mostly small to medium, with a median duration of 46 days
 and a maximum duration of 90 days. Median team size was 7
@@ -30,6 +57,17 @@ further details
 on those project.  
 
 \bill{can we offer any more deatils here?}
+
+\subsection{Data Collection Process}
+\sei{
+\bi
+    \item What are artifacts uploaded to the SEI tool?
+    \item What are the units contained in those artifacts? Are they the ``issues'' as defined in the following paragraph?
+    \item Is participation in the SEI data collection mandatory? i.e., is the data provided self selected?
+    \item When is the data collected?
+    \item What are screening/cleaning procedures, if any?
+\ei
+}
 
 To aid in monitoring these 171 projects  Nichols  built a
 data collection tool that gathers project data a central database at SEI. 
@@ -57,25 +95,6 @@ issue'', we show the difference between the start and end times
 of a work session, with any interruption time subtracted (the
 difference in times, minus the interruptions).  
 
-Three common features of all those  are (1)~coaches,
-(2)~peer review, and  (3)~personnel reviews.
- 
-A ``coach'' is a team member  authorized to submit project data
-Before submission,
-these coaches check the data for obvious errors.
-
-``Personnel review'' is a technique taken  from the Personal Software
-ProcessSM (PSPSM). PSPSM encourages developers to continually make and review their personnel estimates
-about their day-to-day tasks, then compare those estimates against the actual development effort.
-In this way, developers can acquire a more realistic understanding of their work behaviour.
-
- 
-``Peer review'' is a  technique in
-traditional software engineering.
- Basili and Boehm write  commented in 2001~\cite{boehm01} 
-that peer reviews can catch over half the defects introduced into a system.
-Peer review can be conducted on any artifact generated anywhere in the software
-lifecycle and can quickly be adapted to new kinds of artifacts.
 
 
 
@@ -106,6 +125,8 @@ Several  phases have the same  sub-activities of {\em review} and {\em inspect}\
 \item Testing is divided into several statges \footnote{\bill{need a one
 line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
 \ei 
+
+\todo{I recommend deleting the rest of this section. Replace with better descriptions of what the phases are.}
 Also shown in \fig{waterfall} (bottom left) is the standard definition of an agile process~\cite{boehmturner03}:
 Given some
 some backlog of tasks, wgeb teams complete their current tasks, they select the next task(s) to complete. That selection process may use a variety of criteria
