@@ -1,6 +1,6 @@
 We examine the phase delay effect bin
-171 software projects from around the world from 
-\bill{2005 to 2013} that used the Team Software Process (TSP). 
+212 software projects from around the world from 
+\bill{2005 to 2015} that used the Team Software Process (TSP). 
 
 \subsection{Overview of the Team Software Process}
 The Software Engineering Institute (SEI) at
@@ -13,26 +13,32 @@ ProcessSM (PSPSM)~\cite{psp05}.
 
 
 \sei{One paragraph summary on the key points of TSP execution? The following text should also be reviewed and better integrated.}
+TSP guiding principles include 1) engineering work does not happen by accident, it must be planned, 2) the plans must include realistic commitments of the resources needed to perform the work, 3) planed and actual results should be frequently examined to assure that plans remain relevant, and 4) people performing the work should be responsible for planning and tracking the work. After clarifying goals, defining work practices, and estimating size and effort, developers make a detailed short term plan. As the developers perform project work, they use a tool such as the Process Dashboard to collect their time, effort, size, and schedule data. Every week, the team review their data to evaluate status, review actual rates, determine if project goals for schedule, cost, and quality are being met and then make necessary plan corrections. At the end of the project the coach and team perform a quantitative post mortem.
 
-Three common features of all those  are (1)~coaches,
-(2)~peer review, and  (3)~personnel reviews.
+Four common features of TSP projects include (1)~coaches,
+(2)~peer review, and  (3)~personnel reviews (4)~planning.
  
-A ``coach'' is a team member  authorized to submit project data
-Before submission,
+A ``coach'' works with the team and is authorized to submit project data.
+Before reviewing data with the teams, therefore before submission,
 these coaches check the data for obvious errors.
 
 ``Personnel review'' is a technique taken  from the Personal Software
-ProcessSM (PSPSM). PSPSM encourages developers to continually make and review their personnel estimates
-about their day-to-day tasks, then compare those estimates against the actual development effort.
-In this way, developers can acquire a more realistic understanding of their work behaviour.
+ProcessSM (PSPSM) and is more or less unique in its TSP implementation. The technique of a personal review is similar to that of a peer review. Developers systematically examine their own work products using a checklist built from their personal defect profile. This personal review occurs after a portion of a product is done and before peer reviews. 
 
+%PSPSM teaches developers howto continually make and review their personnel estimates
+%about their day-to-day tasks, then compare those estimates against the actual development effort.
+%In this way, developers can acquire a more realistic understanding of their work behaviour.
+  
  
 ``Peer review'' is a  technique in
 traditional software engineering.
  Basili and Boehm write  commented in 2001~\cite{boehm01} 
 that peer reviews can catch over half the defects introduced into a system.
 Peer review can be conducted on any artifact generated anywhere in the software
-lifecycle and can quickly be adapted to new kinds of artifacts.
+lifecycle and can quickly be adapted to new kinds of artifacts. TSP peer reviews follow the Fagan style in which the reviewer uses a checklist composed of common team defects prior to a review team meeting. 
+
+
+''Planning '' is another technique from the in the PSP(SM). Developers estimate the size of work products, define the process phases, use historic rates and time in phase to estimate the required time, the number of defects injected, and the defects to be removed in each phase. Coaches help the developers to compare estimates against actual results. In this way, developers acquire a more realistic understanding of their work behavior and performance.
 
 
 
@@ -57,6 +63,8 @@ further details
 on those project.  
 
 \bill{can we offer any more deatils here?}
+  
+  
 
 \subsection{Data Collection Process}
 \sei{
@@ -69,8 +77,17 @@ on those project.
 \ei
 }
 
-To aid in monitoring these 171 projects  Nichols  built a
-data collection tool that gathers project data a central database at SEI. 
+\sei{ wrn: please review the following}
+
+Organizations using TSP agree to provide project data to the SEI for use in research with the provision that the data must not be traceable to its source. The data includes project and site  characteristic summaries, surveys of team members, launch presentations, launch outbriefs, and baseline plans, final data from the project, and a post mortem report.  In practice, this data requirement has only been enforced for the purposes of certifying and reauthorizing TSP coaches who are the only individuals authorized to submit data. To this data, only the data recorded using the Process Dashboard tool has been collected and aggregated for research. 
+
+To aid in using this data for research and benchmarking  Nichols first collected the Process Dashboard data from the submission repository then used a tool built by the Process Dashboard developer, David Tuma, 
+to gather the project data into a database at SEI. Nichols and Shirai then extracted data into views suitable for analysis. . The key views include the a project results summary, effort logs, task logs, and defect logs. At this stage, the data has not yet undergone additional screening. 
+
+\sei{
+do we need the following information? we do not use it in this analysis
+}
+
 The issue types collected in the the SEI TSP data set divide into:
 \be 
 \item Environment: design, compile, test, or other support system problems;
@@ -97,13 +114,16 @@ difference in times, minus the interruptions).
 
 
 
-
-As of January 2014, the SEI TSP database contained data from 109
-TSP projects. The projects started between July 2009 and
-September 2013; they included 34 teams and 309 people. Among
-the database fact tables, the time store contains 103,023 time logs,
-18,408 defect logs, and 7,464 size logs\footnote{\bill{we need to 
-update this table}}.  
+%wrn, updated 3/11 these
+As of February 2015, the SEI TSP database contained data from 212
+TSP projects. The projects completed between July 2008 and
+November 2014; they included 47 organizations and 843 people. Among
+the database fact tables, 
+contains 268,726 time logs, 
+154,238 task logs,
+ 47,376 defect logs, 
+and 26,534 size logs
+%\footnote{\bill{we need toupdate this table}}.  
 
 
 %That said, certain semantic features of the SEI TSP data should be noted.
@@ -118,11 +138,12 @@ update this table}}.
  
 \subsection{Project Phases}
 This paper studies the impact of phase delay on the time required to resolve issues.
-The phased used in this paper are shown in \fig{waterfall}. Note that, in that figure:
+The logical phases used in this paper are shown in \fig{waterfall}. Note that, in that figure:
 \bi 
 \item
-Several  phases have the same  sub-activities of {\em review} and {\em inspect}\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
-\item Testing is divided into several statges \footnote{\bill{need a one
+Several  phases have the similar  sub-phases of {\em review} and {\em inspect}. In TSP, individuals perform personal reviews on products prior to the peer inspection.\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
+\item Testing is divided into several statges \footnote{\bill{
+(this appears to be OBE), need a one
 line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
 \ei 
 
@@ -146,10 +167,11 @@ where the ``test'' is the primary driver of the design. The tests are written fi
 then the code to support those tests. TDD proceeds in three steps: red (where there
 are broken tests); green (where tests are passing); and, possibly, refactor (where
 the code is re-organized based on feedback from those tests~\cite{fraser03}.} where
-reviews are scheduled after testing. Some of the groups in the SEI TSP data used that approach but
+code inspections are scheduled after unit testing. Some of the groups in the SEI TSP data used that approach but
 they do not effect the main conclusions of this paper:
 \bi 
-\item They were strongly in the minority\bill{any numbers on this?};
+\item They were less than 5\% of the total \bill{any numbers on this?};
+
 \item Most of our phase delay data comes from much early in the waterfall model
 of \fig{waterfall}.
 \ei 
@@ -166,7 +188,7 @@ For TSP projects, the times spent in the of a design activity/phase is
 approximately as much effort as the coding phase.  
 \item Our TSP teams did not
  combine development and  testing. 
- \item  The TSP projects studied here offer new releases at least every three months, but
+ \item  The TSP projects studied here typically offer new releases at least every three months, but
 often much longer that that\bill{any numbers on that}. Note that this is a far slower
 release schedule than seen in, say, continuous integration projects.  
 \item The time devoted to personnel review'' and peer review (defined above)

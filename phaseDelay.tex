@@ -3,6 +3,7 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{colortbl}
 
+\usepackage{subfigure}
 \usepackage{picture}
 \usepackage{wrapfig}
 \usepackage{algorithm}
@@ -54,7 +55,7 @@
 \begin{document}
 
 \conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Dramatically Increases  Repair Time?}
+\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Dramatically Increase  Repair Time?}
 \numberofauthors{3}
 \author{
 \alignauthor
@@ -86,8 +87,8 @@ This paper shows that this belief is maintained
 quite strongly in the industrial software engineering
 community (but, in the academic community, somewhat less so).
 Yet based on a sample of 
-171 software projects from around the world from 
-\bill{2005 to 2013}, we argue that this belief is mostly 
+212 software projects from around the world from 
+\bill{2005 to 2014}, we argue that this belief is mostly 
 incorrect. Specifically: the median fix time for issues
 is just a few minutes and this does not tend to increase
 the longer the issue remains in the system. 
@@ -426,10 +427,7 @@ projects are described below.
 
 The distribution of defects found and fixed per phase is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. \todo{How does this compare evidence from other sources?}
 
-The median time to fix a defect in each phase is shown in \fig{fix-time-per-phase}. \todo{Overlay median on Boehm's chart \fig{cost-to-fix}. How does it compare?}
-
-
-
+The median time to fix a defect in each phase is shown in \fig{fix-time-per-phase}. The median cost to fix a defect is low in the early phases, and then increases slightly during design and coding before peaking during the unit test phase. The median fix time then drops during the testing phases. Note that while the median time remains relatively consistent, the 75th percentile does increase during the testing phases.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -447,26 +445,36 @@ The median time to fix a defect in each phase is shown in \fig{fix-time-per-phas
   Sample&\multicolumn{3}{c|}{Percentiles}\\ 
 size & 25th & 50th & 75th & Phase removed \\
 \hline
-120 & 3 & 3 & 18 & ReqtsInspect.dat \\
-126 & 3 & 3 & 20 & ReqtsReview.dat \\
-70 & 2 & 2 & 10 & HLDInspect.dat \\
- 55 &    2 &    1&    7&HLDReview.dat \\
+120 & 3 & 3 & 18 & ReqtsInspect \\
+126 & 3 & 3 & 20 & ReqtsReview \\
+70 & 2 & 2 & 10 & HLDInspect \\
+ 55 &    2 &    1&    7&HLDReview \\
 
-278&    7&    7&   33&DesignInspect.dat \\
-233&    6&    6&   25&DesignReview.dat \\
+278&    7&    7&   33&DesignInspect \\
+233&    6&    6&   25&DesignReview \\
 
-315&    8&    7&   34&CodeInspect.dat \\ 
-282&    7&    7&   32&CodeReview.dat\\ 
+315&    8&    7&   34&CodeInspect \\ 
+282&    7&    7&   32&CodeReview\\ 
 
-425&   11&   10&   54&UnitTest.dat \\ 
-226&    7&    6&   46&IntTest.dat \\ 
-194&    7&    6&   52&SysTest.dat\\ 
- 88&    4&    3&   38&AcceptTest.dat\\
+425&   11&   10&   54&UnitTest \\ 
+226&    7&    6&   46&IntTest \\ 
+194&    7&    6&   52&SysTest\\ 
+ 88&    4&    3&   38&AcceptTest\\
 \end{tabular}
 \end{center}
 \caption{Median fix time per phase}
 \label{fig:fix-time-per-phase}
 \end{figure}
+
+
+The relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's exponential cost curve~\cite{Boehm81} as well as the Royce case study~\cite{Royce98} in \fig{cost-to-fix-tsp}.
+
+\begin{figure}[!ht]
+ \includegraphics[width=3.3in]{boehm_overlay.png}
+ \caption{Cost-to-fix curve from \fig{cost-to-fix} overlayed with TSP data and case study from~\cite{Royce98}.}
+ \label{fig:cost-to-fix-tsp}
+ \end{figure}
+ 
 
 We reject $H_1$.
 
@@ -479,9 +487,63 @@ We reject $H_1$.
 \ei
 }
 
-In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected). The correlations were also calculated for each phase, e.g., does the phase delay of defects found in Test correlate with the defect's cost-to-fix (Table~\ref{tab:phase_corr}). 
+ \fig{phase_fixtime_plot} shows scatterplots of the cost-to-fix (rank) per phase against the phase delay. In the early phases, i.e., Design \& Coding, most of the defects found have a relatively small phase delay. This is ideal considering that the purpose of the early phase reviews is to remove as many defects as possible. 
+
+In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected) - see \fig{correlation}. The correlations were also calculated for each phase, e.g., does the phase delay of defects found in Test correlate with the defect's cost-to-fix (\fig{phase_corr}).  
 
 We reject $H_2$.
+
+
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=3.3in]{corr.png}
+\end{center}
+\caption{Correlation of phase delay and fix time (plot shows a 1\% sampling of data).}
+\label{fig:correlation}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\begin{tabular}{lll}
+  Phase & $tau$ & $p$ \\ 
+  \hline
+  Design & 0.14 & 0.08 \\ 
+  DesignReview & 0.06 & $<$0.01 \\ 
+  DesignInspect & 0.05 & $<$0.01 \\ 
+  Code & 0.27 & $<$0.01 \\ 
+  CodeReview & 0.12 & $<$0.01 \\ 
+  CodeInspect & 0.09 & $<$0.01 \\ 
+  Test & 0.13 & $<$0.01 \\ 
+  IntTest & 0.1 & $<$0.01 \\ 
+  SysTest & 0.25 & $<$0.01 \\ 
+  AcceptTest & 0.06 & 0.29 \\ 
+  \end{tabular}
+\caption{Correlation of cost-to-fix and phase delay for defects found (Kendall's $\tau$)} 
+\label{fig:phase_corr}
+\end{figure}
+
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=1.6in]{corr-Code.png}
+\includegraphics[width=1.6in]{corr-CodeReview.png}
+\includegraphics[width=1.6in]{corr-CodeInspect.png}
+\vspace{0.01cm}
+
+\includegraphics[width=1.6in]{corr-Design.png}
+\includegraphics[width=1.6in]{corr-DesignReview.png}
+\includegraphics[width=1.6in]{corr-DesignInspect.png}
+\vspace{0.01cm}
+
+\includegraphics[width=1.6in]{corr-Test.png}
+\includegraphics[width=1.6in]{corr-IntTest.png}
+\includegraphics[width=1.6in]{corr-SysTest.png}
+\includegraphics[width=1.6in]{corr-AcceptTest.png}
+
+\caption{Correlation of cost-to-fix (rank) and phase delay for defects found by phase for phases where \# defects >= 30 and \# unique phase delay values >= 5. x = phase delay, y = cost-to-fix rank. Plots use random samples from each phase for readability.}
+\label{fig:phase_fixtime_plot}
+\end{figure*}
 
 
 
@@ -550,34 +612,7 @@ size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{
 
 
  
-\begin{table}[ht]
-\centering
-\begin{tabular}{lll}
-  Phase & $tau$ & $p$ \\ 
-  \hline
-BeforeDevelopment & NA & -- \\ 
-  Planning & NA & -- \\ 
-  Reqts & NA & -- \\ 
-  ReqtsReview & 0.05 & 0.01 \\ 
-  ReqtsInspect & 0.17 & $<$0.01 \\ 
-  HLD & NA & -- \\ 
-  HLDReview & 0.04 & 0.24 \\ 
-  HLDInspect & -0.07 & 0.05 \\ 
-  Design & 0.19 & 0.08 \\ 
-  DesignReview & 0.08 & $<$0.01 \\ 
-  DesignInspect & 0.06 & $<$0.01 \\ 
-  Code & 0.21 & $<$0.01 \\ 
-  CodeReview & 0.15 & $<$0.01 \\ 
-  CodeInspect & 0.11 & $<$0.01 \\ 
-  Test & 0.16 & $<$0.01 \\ 
-  QualTest & NA & -- \\ 
-  IntTest & 0.13 & $<$0.01 \\ 
-  SysTest & 0.32 & $<$0.01 \\ 
-  AcceptTest & 0.07 & 0.29 \\ 
-  \end{tabular}
-\caption{Correlation of cost-to-fix and phase delay for defects found in each phase (Kendall's $\tau$)} 
-\label{tab:phase_corr}
-\end{table}
+
 
 \subsection{Phase Delay in Slower Bugs?}
 In these results, we checked if a small number of bugs are most expensive. 
