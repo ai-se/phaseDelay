@@ -43,7 +43,7 @@ lifecycle and can quickly be adapted to new kinds of artifacts. TSP peer reviews
 
 
 \subsection{Projects in the Sample}
-Since 2004, one of the authors (Nichols) has been been mentoring 171 software development teams around the world as they deploy TSP within their organizations.  
+Since 2004, one of the authors (Nichols) has been been mentoring software development teams and coaches around the world as they deploy TSP within their organizations.  
 The projects
 were mostly small to medium, with a median duration of 46 days
 and a maximum duration of 90 days. Median team size was 7
@@ -54,9 +54,7 @@ these projects ranged from 1.3 years (median) to 14.3 years (max).
 The majority of
 the projects were either web portals or banking systems in the US, South Africa, and Mexico. 
 There were also some  medical devices (US, France, Japan, and Germany),  a few from a commercial 
-computer-aided design system (developed by a world wide distributed team), and less that  
-a dozen United States
-Department of Defence projects.
+computer-aided design system (developed by a world wide distributed team.
  An anonymized version of that data is available in the PROMISE repository\footnote{\carter{Need to add}} and,
  for confidentiality restrictions, we cannot offer 
 further details
@@ -67,19 +65,10 @@ on those project.
   
 
 \subsection{Data Collection Process}
-\sei{
-\bi
-    \item What are artifacts uploaded to the SEI tool?
-    \item What are the units contained in those artifacts? Are they the ``issues'' as defined in the following paragraph?
-    \item Is participation in the SEI data collection mandatory? i.e., is the data provided self selected?
-    \item When is the data collected?
-    \item What are screening/cleaning procedures, if any?
-\ei
-}
 
-\sei{ wrn: please review the following}
 
-Organizations using TSP agree to provide project data to the SEI for use in research with the provision that the data must not be traceable to its source. The data includes project and site  characteristic summaries, surveys of team members, launch presentations, launch outbriefs, and baseline plans, final data from the project, and a post mortem report.  In practice, this data requirement has only been enforced for the purposes of certifying and reauthorizing TSP coaches who are the only individuals authorized to submit data. To this data, only the data recorded using the Process Dashboard tool has been collected and aggregated for research. 
+
+Organizations using a TSP agree to provide their project data to the SEI for use in research. In return the SEI agrees    that  data must not be traceable to its source. The data is collected at major project events, launch, interim checkpoints, and at completion. Data includes project and site  characteristic summaries, surveys of team members, launch presentations, launch outbriefs, and baseline plans, final data from the project, and the post mortem report.  In practice, this data requirement has only been enforced for the purposes of certifying and reauthorizing TSP coaches who are the only individuals authorized to submit data. To this data, only the data recorded using the Process Dashboard tool has been collected and aggregated for research. 
 
 To aid in using this data for research and benchmarking  Nichols first collected the Process Dashboard data from the submission repository then used a tool built by the Process Dashboard developer, David Tuma, 
 to gather the project data into a database at SEI. Nichols and Shirai then extracted data into views suitable for analysis. . The key views include the a project results summary, effort logs, task logs, and defect logs. At this stage, the data has not yet undergone additional screening. 
@@ -112,8 +101,6 @@ issue'', we show the difference between the start and end times
 of a work session, with any interruption time subtracted (the
 difference in times, minus the interruptions).  
 
-
-
 %wrn, updated 3/11 these
 As of February 2015, the SEI TSP database contained data from 212
 TSP projects. The projects completed between July 2008 and
@@ -141,13 +128,13 @@ This paper studies the impact of phase delay on the time required to resolve iss
 The logical phases used in this paper are shown in \fig{waterfall}. Note that, in that figure:
 \bi 
 \item
-Several  phases have the similar  sub-phases of {\em review} and {\em inspect}. In TSP, individuals perform personal reviews on products prior to the peer inspection.\footnote{\bill{plz distinguish review and inspect. does one usually happen first?}}
-\item Testing is divided into several statges \footnote{\bill{
-(this appears to be OBE), need a one
-line description of test vs qualtest vs inttest vs systemTest vs AcceptTest. I tries some words in the Key to \fig{sedata}. dont know if i got it right.}}
+Several  phases in which product is created have sub-phases of {\em review} and {\em inspect} to remove defects. TSP uses review when individuals perform personal reviews of their work products prior to the peer review which TSP calls the inspection).
+\item Testing is divided into several stages. Developers perform unit test prior to code complete. Some standard test phases after code complete include the integration which combines program units into workable system ready for system test. Integration and system test are often performed by a separate group.
+
 \ei 
 
-\todo{I recommend deleting the rest of this section. Replace with better descriptions of what the phases are.}
+\todo{I recommend deleting the rest of this section. Replace with better descriptions of what the phases are.
+wrn: I agree, I will do this Friday}
 Also shown in \fig{waterfall} (bottom left) is the standard definition of an agile process~\cite{boehmturner03}:
 Given some
 some backlog of tasks, wgeb teams complete their current tasks, they select the next task(s) to complete. That selection process may use a variety of criteria

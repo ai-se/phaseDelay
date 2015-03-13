@@ -419,9 +419,12 @@ projects are described below.
 \bi
     \item What is the cost-to-fix curve in TSP data? Check against H1 and compare to past literature.
     \item What is the effect of phase delay? Check against H2.
+    \item fig12 is great. really important. its from  different decades, right?  so can we add text saying that the general pattern is that the (approx) 15 years between each curve tends to a flattening. not, perhaps, due to process but to better build environs.
+    \item but fig12 is blurred in the words. recreate using crisper fonts?
+    \item fig 10 text a little blurred. can we re snap that one? or generate it it some higher res form?
+    \item figs 13 (fix time rank v phase delay) is hard to read (text)
 \ei
 }
-
 
 \subsection{TSP Project Cost-to-fix curve}
 
@@ -431,7 +434,7 @@ The median time to fix a defect in each phase is shown in \fig{fix-time-per-phas
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=3.3in]{fix-phase-dist.png}
+\includegraphics[width=3.3in]{fix-phase-dist.pdf}
 \end{center}
 \caption{Distribution of defects found and fixed by phase.}
 \label{fig:fix-phase-dist}
@@ -482,14 +485,13 @@ We reject $H_1$.
 \todo{
 \bi
     \item What can we say about \fig{raw}
-    \item What can we say about \fig{scale}
-    \item What is the difference between \fig{raw} and \fig{scale}
+    \item What is the difference between \fig{raw}
 \ei
 }
 
- \fig{phase_fixtime_plot} shows scatterplots of the cost-to-fix (rank) per phase against the phase delay. In the early phases, i.e., Design \& Coding, most of the defects found have a relatively small phase delay. This is ideal considering that the purpose of the early phase reviews is to remove as many defects as possible. 
+ In the early phases, i.e., Design \& Coding, most of the defects found have a relatively small phase delay. This is ideal considering that the purpose of the early phase reviews is to remove as many defects as possible. 
 
-In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected) - see \fig{correlation}. The correlations were also calculated for each phase, e.g., does the phase delay of defects found in Test correlate with the defect's cost-to-fix (\fig{phase_corr}).  
+In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected) - see \fig{correlation}. 
 
 We reject $H_2$.
 
@@ -498,52 +500,52 @@ We reject $H_2$.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=3.3in]{corr.png}
+\includegraphics[width=3.3in]{corr.pdf}
 \end{center}
 \caption{Correlation of phase delay and fix time (plot shows a 1\% sampling of data).}
 \label{fig:correlation}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\begin{tabular}{lll}
-  Phase & $tau$ & $p$ \\ 
-  \hline
-  Design & 0.14 & 0.08 \\ 
-  DesignReview & 0.06 & $<$0.01 \\ 
-  DesignInspect & 0.05 & $<$0.01 \\ 
-  Code & 0.27 & $<$0.01 \\ 
-  CodeReview & 0.12 & $<$0.01 \\ 
-  CodeInspect & 0.09 & $<$0.01 \\ 
-  Test & 0.13 & $<$0.01 \\ 
-  IntTest & 0.1 & $<$0.01 \\ 
-  SysTest & 0.25 & $<$0.01 \\ 
-  AcceptTest & 0.06 & 0.29 \\ 
-  \end{tabular}
-\caption{Correlation of cost-to-fix and phase delay for defects found (Kendall's $\tau$)} 
-\label{fig:phase_corr}
-\end{figure}
+% \begin{figure}[ht]
+% \centering
+% \begin{tabular}{lll}
+%   Phase & $tau$ & $p$ \\ 
+%   \hline
+%   Design & 0.14 & 0.08 \\ 
+%   DesignReview & 0.06 & $<$0.01 \\ 
+%   DesignInspect & 0.05 & $<$0.01 \\ 
+%   Code & 0.27 & $<$0.01 \\ 
+%   CodeReview & 0.12 & $<$0.01 \\ 
+%   CodeInspect & 0.09 & $<$0.01 \\ 
+%   Test & 0.13 & $<$0.01 \\ 
+%   IntTest & 0.1 & $<$0.01 \\ 
+%   SysTest & 0.25 & $<$0.01 \\ 
+%   AcceptTest & 0.06 & 0.29 \\ 
+%   \end{tabular}
+% \caption{Correlation of cost-to-fix and phase delay for defects found (Kendall's $\tau$)} 
+% \label{fig:phase_corr}
+% \end{figure}
 
-\begin{figure*}[!ht]
-\centering
-\includegraphics[width=1.6in]{corr-Code.png}
-\includegraphics[width=1.6in]{corr-CodeReview.png}
-\includegraphics[width=1.6in]{corr-CodeInspect.png}
-\vspace{0.01cm}
+% \begin{figure*}[!ht]
+% \centering
+% \includegraphics[width=1.6in]{corr-Code.png}
+% \includegraphics[width=1.6in]{corr-CodeReview.png}
+% \includegraphics[width=1.6in]{corr-CodeInspect.png}
+% \vspace{0.01cm}
 
-\includegraphics[width=1.6in]{corr-Design.png}
-\includegraphics[width=1.6in]{corr-DesignReview.png}
-\includegraphics[width=1.6in]{corr-DesignInspect.png}
-\vspace{0.01cm}
+% \includegraphics[width=1.6in]{corr-Design.png}
+% \includegraphics[width=1.6in]{corr-DesignReview.png}
+% \includegraphics[width=1.6in]{corr-DesignInspect.png}
+% \vspace{0.01cm}
 
-\includegraphics[width=1.6in]{corr-Test.png}
-\includegraphics[width=1.6in]{corr-IntTest.png}
-\includegraphics[width=1.6in]{corr-SysTest.png}
-\includegraphics[width=1.6in]{corr-AcceptTest.png}
+% \includegraphics[width=1.6in]{corr-Test.png}
+% \includegraphics[width=1.6in]{corr-IntTest.png}
+% \includegraphics[width=1.6in]{corr-SysTest.png}
+% \includegraphics[width=1.6in]{corr-AcceptTest.png}
 
-\caption{Correlation of cost-to-fix (rank) and phase delay for defects found by phase for phases where \# defects >= 30 and \# unique phase delay values >= 5. x = phase delay, y = cost-to-fix rank. Plots use random samples from each phase for readability.}
-\label{fig:phase_fixtime_plot}
-\end{figure*}
+% \caption{Correlation of cost-to-fix (rank) and phase delay for defects found by phase for phases where \# defects >= 30 and \# unique phase delay values >= 5. x = phase delay, y = cost-to-fix rank. Plots use random samples from each phase for readability.}
+% \label{fig:phase_fixtime_plot}
+% \end{figure*}
 
 
 
@@ -594,19 +596,19 @@ size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{
 
 
  
- \begin{figure}[!t]
-\renewcommand{\baselinestretch}{0.7}
-\scriptsize
-\begin{center}
-\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
-           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{median}\\
-  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
-\input{deltas}
-\end{tabular}
-\end{center}
-\caption{50th percentile (median) scale ups  for  time to resolve issues (taken from \fig{raw}).}
-\label{fig:scale}
-\end{figure}
+ %\begin{figure}[!t]
+%\%renewcommand{\baselinestretch}{0.7}
+%\scriptsize
+%\begin{center}
+%\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+%%           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{median}\\
+ % Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
+%\input{deltas}
+%\end{tabular}
+%%\end{center}
+%\caption{50th percentile (median) scale ups  for  time to resolve issues (taken from \fig{raw}).}
+%%\label{fig:scale}
+%\end{figure}
  
 
 
@@ -614,61 +616,61 @@ size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{
  
 
 
-\subsection{Phase Delay in Slower Bugs?}
-In these results, we checked if a small number of bugs are most expensive. 
-To check this:
-\bi
-\item
-We repeated the analysis that generated \fig{scale},
-but instead of looking at the 50th percentile, we displayed the scale up factors
-\item 
-We only
-checked the Design and Code scale up results since, from \fig{scale}, it is clear these
-have the most examples of longest phase delays.
-\ei 
-The  results are shown in \fig{scale90} and these
-results are somewhat different for Design and Coding issues: 
-\bi 
-\item For Design issues,  these have the same
-general form as the 50th percentile results. That is, while it it certainly faster
-to remove thing sin the phase where they are created, once we leave that phase
-it does not seem to matter much how many phases we wait before fixing the issue.
-\item
-\item For Coding issues, the seems little impact of phase delay on the time
-required to fix.
-\ei
+%\subsection{Phase Delay in Slower Bugs?}
+%In these results, we checked if a small number of bugs are most expensive. 
+%To check this:
+%\bi
+%\item
+%We repeated the analysis that generated \fig{scale},
+%but instead of looking at the 50th percentile, we displayed the scale up factors
+%\item 
+%We only
+%checked the Design and Code scale up results since, from \fig{scale}, it is clear these
+%have the most examples of longest phase delays.
+%\ei 
+%The  results are shown in \fig{scale90} and these
+%results are somewhat different for Design and Coding issues: 
+%\bi 
+%\item For Design issues,  these have the same
+%general form as the 50th percentile results. That is, while it it certainly faster
+%to remove thing sin the phase where they are created, once we leave that phase
+%it does not seem to matter much how many phases we wait before fixing the issue.
+%\item
+%\item For Coding issues, the seems little impact of phase delay on the time
+%required to fix.
+%\ei
 
  
 
 
-\begin{figure}[!t]
-\renewcommand{\baselinestretch}{0.7}
-\scriptsize
-\begin{center}
-\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
-          \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{99th }\\
-           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{percentile }\\
-  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
-\input{deltasBigBig}
-\end{tabular}
-\end{center}
-\caption{99th percentile scale ups.}
-\label{fig:scale99}
-\end{figure}
+%\begin{figure}[!t]
+%\renewcommand{\baselinestretch}{0.7}
+%\scriptsize
+%\begin{center}
+%\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+%          \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{99th }\\
+%           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{percentile }\\
+%  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
+%\input{deltasBigBig}
+%\end{tabular}
+%\end{center}
+%%\caption{99th percentile scale ups.}
+%\label{fig:scale99}
+%\end{figure}
 
-\begin{figure}[!t]
-\renewcommand{\baselinestretch}{0.7}
-\scriptsize
-\begin{center}
-\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
-           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{mean}\\
-  Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
-\input{deltasMean}
-\end{tabular}
-\end{center}
-\caption{Mean  scale ups.}
-\label{fig:scale90}
-\end{figure}
+%\begin{figure}[!t]
+%\renewcommand{\baselinestretch}{0.7}
+%\scriptsize
+%\begin{center}
+%\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|r@{~}l}
+ %          \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{mean}\\
+ % Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
+%\input{deltasMean}
+%\end{tabular}
+%\end{center}
+%\caption{Mean  scale ups.}
+%\label{fig:scale90}
+%\end{figure}
 
 
  
@@ -757,7 +759,10 @@ XXX post release. really hard to change? auto-updates, package managers, web-bas
 
 \section*{Acknowledgements}
 This work was partially funded by an National Science
-Foundation grants NSF-CISE 1302169 and CISE 1302169.
+Foundation grants NSF-CISE 1302169 and CISE 1302169. 
+\\
+We thank Tuma Solutions for providing the Team Process Data Warehouse software in support of this research.  
+
 
 \clearpage
 \vspace*{0.5mm}
