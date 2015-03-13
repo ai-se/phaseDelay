@@ -3,7 +3,9 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{colortbl}
 
-\usepackage{subfigure}
+
+\usepackage{tabularx}
+\usepackage{subcaption}
 \usepackage{picture}
 \usepackage{wrapfig}
 \usepackage{algorithm}
@@ -419,10 +421,7 @@ projects are described below.
 \bi
     \item What is the cost-to-fix curve in TSP data? Check against H1 and compare to past literature.
     \item What is the effect of phase delay? Check against H2.
-    \item fig12 is great. really important. its from  different decades, right?  so can we add text saying that the general pattern is that the (approx) 15 years between each curve tends to a flattening. not, perhaps, due to process but to better build environs.
-    \item but fig12 is blurred in the words. recreate using crisper fonts?
-    \item fig 10 text a little blurred. can we re snap that one? or generate it it some higher res form?
-    \item figs 13 (fix time rank v phase delay) is hard to read (text)
+    \item \fig{cost-to-fix-tsp} is great. really important. its from  different decades, right?  so can we add text saying that the general pattern is that the (approx) 15 years between each curve tends to a flattening. not, perhaps, due to process but to better build environs.
 \ei
 }
 
@@ -473,7 +472,7 @@ size & 25th & 50th & 75th & Phase removed \\
 The relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's exponential cost curve~\cite{Boehm81} as well as the Royce case study~\cite{Royce98} in \fig{cost-to-fix-tsp}.
 
 \begin{figure}[!ht]
- \includegraphics[width=3.3in]{boehm_overlay.png}
+ \includegraphics[width=3.3in]{boehm-overlay.pdf}
  \caption{Cost-to-fix curve from \fig{cost-to-fix} overlayed with TSP data and case study from~\cite{Royce98}.}
  \label{fig:cost-to-fix-tsp}
  \end{figure}
@@ -485,15 +484,19 @@ We reject $H_1$.
 \todo{
 \bi
     \item What can we say about \fig{raw}
-    \item What is the difference between \fig{raw}
 \ei
 }
 
- In the early phases, i.e., Design \& Coding, most of the defects found have a relatively small phase delay. This is ideal considering that the purpose of the early phase reviews is to remove as many defects as possible. 
-
-In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected) - see \fig{correlation}. 
-
 We reject $H_2$.
+
+
+\fig{phase_delay_medians} and \fig{correlation} show that most defects have a relatively small phase delay in our project sample (phase delay is often <= 2). As intended, the Review and Inspection Phases for Requirements, Design, and Code mostly find defects originating in the preceding phase. In contrast, the Testing phases mostly find defects originating in the Code phase. 
+
+In \fig{raw}, we present the median fix times of defects based on when they were injected and ultimately removed. Defects injected Before Development follow the most severe scale up as development phases pass, but not on the exponential scale traditionally seen (\fig{cost-to-fix}). Defects injected in Requirements, Design, and Coding phases exhibit virtually no scale-up regardless of the phase in which they are fixed.
+
+%In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected). 
+
+
 
 
 
@@ -504,6 +507,30 @@ We reject $H_2$.
 \end{center}
 \caption{Correlation of phase delay and fix time (plot shows a 1\% sampling of data).}
 \label{fig:correlation}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\begin{tabular}{rrr|l}
+    \multicolumn{3}{c|}{Percentiles}\\ 
+  25th & 50th & 75th & Phase removed \\ 
+  \hline
+    2 & 2 & 2 & ReqtsInspect \\ 
+    1 & 1 & 1 & ReqtsReview \\ 
+    2 & 2 & 2 & HLDInspect \\ 
+    1 & 1 & 1 & HLDReview \\ 
+    2 & 2 & 2 & DesignInspect \\ 
+    1 & 1 & 1 & DesignReview \\ 
+    2 & 2 & 2 & CodeInspect \\ 
+    1 & 1 & 1 & CodeReview \\ 
+    3 & 3 & 6 & UnitTest \\ 
+    4 & 4 & 4 & IntTest \\ 
+    5 & 5 & 5 & SysTest \\ 
+    6 & 6 & 6 & AcceptTest \\ 
+  \end{tabular}
+\caption{Median phase delay of defects removed per phase} 
+\label{fig:phase_delay_medians}
 \end{figure}
 
 % \begin{figure}[ht]

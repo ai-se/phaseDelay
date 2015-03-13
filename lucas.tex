@@ -16,23 +16,52 @@ Respondents were required to explain the applicability score in a text box.
 
 Participants were presented with the RqtsErr law and others drawn from \cite{glass02} and \cite{endres03}. The PC member survey contained an additional question: ``Do you agree with the following? 'In general, the longer errors are in the system (requirements errors, design errors, coding errors, etc.), the more expensive they are to fix''' (PhaseDelay for short). Responses were recorded using the \textbf{Agreement} question Likert scale. 
 
-Summary statistics for the agreement and applicability scores for the RqtsErr and PhaseDelay laws are presented in Figure~\ref{fig:survey_results} \lucas{To add results from other laws}. Responses whose \textbf{applicability} response was ''I don't know'' are ommitted from analysis.
+Summary statistics for the agreement and applicability scores for the RqtsErr and PhaseDelay laws are presented in Figure~\ref{fig:survey_results}. Responses whose \textbf{applicability} response was ''I don't know'' are ommitted from analysis.
 
 
 \begin{figure}[!h]
 \renewcommand{\baselinestretch}{0.7}
 \scriptsize
 \begin{center}
-\begin{tabular}{c|c|c|c|c|c|c}
-Survey & law & N & \multicolumn{2}{c}{agreement} & \multicolumn{2}{c}{applicability} \\ 
- & & mean & median & mean & median \\
+\subcaption{Practitioner survey}
+\begin{tabular}{l|c|c|c|c|c}
+Law & N & \multicolumn{2}{c}{agreement} & \multicolumn{2}{c}{applicability} \\ 
+ & & $\bar{x}$ & $\tilde{x}$ & $\bar{x}$ & $\tilde{x}$ \\
 \hline 
-Practitioners & RqtsErr & 16 & 4.6 & 5 & 4.2 & 4 \\ 
-Researchers & RqtsErr & 30 & 3.8 & 4 & 3.8 & 4 \\ 
-Researchers & PhaseDelay & 30 & 3.6 & 4 & -- & -- 
+\textbf{Rqts errors are most expensive...} & 16 & 4.6 & 5 & 4.2 & 4 \\ 
+Process maturity improves output & 17 & 4.4 & 4 & 3.9 & 4 \\ 
+Most time is spent removing errors & 16 & 4.1 & 4 & 3.9 & 4 \\ 
+Missing reqts are hardest to fix & 17 & 4.1 & 4 & 4.0 & 4 \\
+Reuse increases prod. and qual. & 16 & 3.9 & 4 & 3.8 & 4 \\
+OO-programming reduces errors & 13 & 3.9 & 4 & 3.5 & 4 \\
+80-20 rule (defects to modules) & 12 & 3.8 & 4 & 4.0 & 4 \\
+Adding manpower to a late project & 15 & 3.7 & 4 & 3.7 & 4 \\
+Inspections can remove 90\% of defects & 18 & 3.3 & 4 & 3.5 & 4 \\
+Smaller changes have higher error density & 14 & 2.8 & 3 & 3.4 & 3.5 \\
+A developer is unsuited to test own code & 17 & 2.6 & 3 & 3.5 & 4
 \end{tabular} 
+\bigskip
+\subcaption{Researcher survey}
+\begin{tabular}{l|c|c|c|c|c}
+Law & N & \multicolumn{2}{c}{agreement} & \multicolumn{2}{c}{applicability} \\ 
+ & & $\bar{x}$ & $\tilde{x}$ & $\bar{x}$ & $\tilde{x}$ \\
+\hline 
+Process maturity improves output & 4 & 4.0 & 4 & 4.0 & 4 \\
+\textbf{Rqts errors are most expensive...} & 30 & 3.8 & 4 & 3.8 & 4   \\ 
+80-20 rule (defects to modules) & 6 & 3.7 & 4 & 3.5 & 4 \\
+\textbf{PhaseDelay} & 30 & 3.6 & 4 & -- & --  \\ 
+Missing reqts are hardest to fix & 7 & 3.6 & 4 & 3.7 & 4 \\
+Adding manpower to a late project & 4 & 3.5 & 4 & 3.5 & 4 \\
+Inspections can remove 90\% of defects & 7 & 3.4 & 4 & 3.6 & 3 \\
+Reuse increases prod. and qual. & 6 & 3.3 & 4 & 3.0 & 4 \\
+OO-programming reduces errors & 6 & 3.2 & 4 & 2.7 & 3 \\
+Most time is spent removing errors & 6 & 2.8 & 3 & 3.2 & 4 \\ 
+Smaller changes have higher error density & 4 & 2.8 & 3 & 4.0 & 4 \\
+A developer is unsuited to test own code & 7 & 2.1 & 2 & 2.4 & 3
+\end{tabular} 
+
 \end{center}
-\caption{Agreement and applicability of phase delay related axioms.}
+\caption{Agreement and applicability of software engineering axioms.}
 \label{fig:survey_results}
 \end{figure}
 
