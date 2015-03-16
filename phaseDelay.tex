@@ -14,7 +14,8 @@
 \usepackage{algpseudocode}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}} 
-\newcommand{\lucas}[1]{\textcolor{red}{LUCAS: #1}} \newcommand{\tim}[1]{\textcolor{orange}{TIM: #1}}
+\newcommand{\lucas}[1]{\textcolor{red}{LUCAS: #1}} 
+\newcommand{\tim}[1]{\textcolor{Red}{TIM: #1}}
 \newcommand{\bill}[1]{\textcolor{blue}{BILL: #1}} 
 \newcommand{\carter}[1]{\textcolor{cyan}{CARTER: #1}} 
 \newcommand{\sei}[1]{\textcolor{RedViolet}{BILL/FORREST: #1}} 
@@ -46,7 +47,6 @@
  \usepackage[font={small}]{caption, subfig}
 \setlength{\abovecaptionskip}{1ex}
  \setlength{\belowcaptionskip}{1ex}
-
  \setlength{\floatsep}{1ex}
  \setlength{\textfloatsep}{1ex}
 \usepackage[compact,small]{titlesec}
@@ -57,28 +57,36 @@
 \begin{document}
 
 \conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Dramatically Increase  Repair Time?}
-\numberofauthors{3}
+\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Dramatically Increase Defect Fix Time?}
+\numberofauthors{5}
 \author{
-\alignauthor
-Tim Menzies, \\Carter Pape\\
-       \affaddr{Dept. of Computer Science\\
-       North Carolina State U, USA}\\
-       tim.menzies@gmail.com,\\carterpape@gmail.com
-\alignauthor
-William Nichols,\\ Forrest Shull\\
-\affaddr{Software Engineering Institute\\
-        Carnegie Mellon U, USA}
-wrn,fjshull@sei.cmu.edu
-\alignauthor
-Lucas \\Layman\\
-       \affaddr{Fraunhofer CESE, \\
-                College Park, USA}\\ 
-       llayman@fc-md.umd.edu
+\alignauthor 
+Tim Menzies \\
+       \affaddr{Dept. of Computer Science}\\
+       \affaddr{North Carolina State U, USA}\\
+       \email{tim.menzies@gmail.com}
+\alignauthor 
+William Nichols \\
+        \affaddr{Software Engineering Institute}\\
+        \affaddr{Carnegie Mellon U, USA}
+        \email{wrn@sei.cmu.edu} 
+\alignauthor 
+Lucas Layman \\
+       \affaddr{Fraunhofer CESE} \\
+       \affaddr{College Park, USA}\\ 
+       \email{llayman@fc-md.umd.edu}
+\and
+\alignauthor 
+Forrest Shull \\
+        \affaddr{Software Engineering Institute}\\
+        \affaddr{Carnegie Mellon U, USA}
+        \email{fjshull@sei.cmu.edu} 
+\alignauthor 
+Carter Pape \\
+       \affaddr{Dept. of Computer Science}\\
+       \affaddr{North Carolina State U, USA}\\
+       \email{carterpape@gmail.com}
 } 
-
-
- 
 \maketitle
 \begin{abstract}
 Does
@@ -90,15 +98,15 @@ major investments in  software development
 
 This paper shows that this belief is maintained
 quite strongly in the industrial software engineering
-community (but, in the academic community, somewhat less so).
+community (but, in the academic community, a little less so).
 Yet based on a sample of 
 171 software projects from around the world from 
 and completed between 2006 and 2014, we argue that this belief is mostly 
-incorrect. Specifically: the median fix time for issues
-is just a few minutes and this does not tend to increase
+incorrect. Specifically: the median fix time spent in phases
+devoted to resolving issues does {\em not} increase
 the longer the issue remains in the system. 
 
-%This result raises the question: how did myths like phase delay survive so long  without  critical reassessment.  As a community, we need to reflect more on research practices and on how (and when) we reflect on the prominent hypotheses of our field.
+This result raises the question: how do widely-held beliefs like phase delay survive so long  without  critical reassessment?  As a community, we need to reflect more on research practices and on how (and when) we reflect on the prominent hypotheses of our field.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -111,7 +119,7 @@ D.2.8 [Software Engineering]: Process metrics.
 
 \vspace{1mm}
 \noindent
-{\bf Keywords:} phase delay, time to fix, agile, waterfall.
+{\bf Keywords:} software processes, economics, phase delay, time to fix.
 
 \section{Introduction}
 In 2013-2014, the time of 
@@ -138,9 +146,9 @@ on early verification and validation, and
 on up-front prototyping and simulation
 to avoid costly downstream fixes~\cite{boehm01}.
 \end{quote}
-Basili and Boehm are not alone in this assessment of the significance of the phase delay effect. Our surveys of industrial practitioners (shown in \S\ref{survey}) reveal the phase-delay effect to be
-the single most strongly held belief amongst commercial SE engineers.
-Previously~\cite{me08a}, we have constructed return-on-investement models
+Basili and Boehm are not alone in this assessment of the significance of the phase delay effect. Our surveys of industrial practitioners (shown in \S\ref{survey}) reveal the phase delay effect to be
+one of the most strongly-held beliefs amongst commercial software engineers.
+Previously~\cite{me08a}, we have constructed return-on-investment models
 for a common practice amongst U.S. government contractors: 
 independent verification \& validation. IVV has been criticized as
 ineffective since IVV engineers, many of whom are unfamiliar with the details of the project, are required to pass judgement on the code.
@@ -154,13 +162,18 @@ if fixing later-phase issues is not significantly more expensive than fixing the
 
 % Also, as discussed later in this paper, concerns over phase delay were a major driver in the development of agile software processes.
 
-In this paper, we investigate two hypotheses:
+In this paper, we investigate several hypotheses:
 
 \bi
     \item $H_1$: The cost-to-fix of defects monotonically increases across phases.
     \item $H_2$: The cost-to-fix of defects monotonically increases as the phase delay increases.
 \ei
-The rest of the paper investigates these two hypotheses. First, we conduct a survey of practitioners and researchers to gauge their belief in the phase delay effect. Second, we  analyze 171 software  projects developed in the period 2006 to 2014.  To the best of our knowledge, this is the largest study on phase delay yet seen in the literature.
+As we explored the above, we found a related hypothesis was believed by both professional software engineers and FSE conference reviewers:
+\bi
+ \item $H_3$: Requirements errors are the most expensive to fix.
+\ei
+
+The rest of the paper investigates these  hypotheses. First, we conduct a survey of practitioners and researchers to gauge their belief in the phase delay effect. Second, we  analyze 171 software  projects developed in the period 2006 to 2014.  To the best of our knowledge, this is the largest study on phase delay yet seen in the literature.
 
 % The conclusions of this paper is that it is erroneous to believe in phase delay.
 % When we looked for supporting evidence for that effect, we found that:
@@ -294,25 +307,35 @@ In summary, just like medicine, our field suffers when
  to regularly  reexamine    old beliefs.
  
 \subsection{Why Study Phase Delay?}
-\todo{\begin{itemize}
-\item Given the Intro and Motivation, this section should focus on the influence of phase delay in software engineering milieux
-\item Need to tone down the reliance on Beck. The important Beck point is that eliminating the cost-to-fix curve (resulting from phase delay) is one of the main goals of agile. His observations on new technologies are good too.
-\item Need to cite other popular sources of this information, e.g., McConnell's "Ounce of Prevention" article~\cite{mcconnell01}.
-\item Robert Glass's~\cite{glass02} book is very popular and contains an entry on this point
-\item Google Scholar Citations for phase delay works Boehm88~\cite{boehm88} (673), Boehm \& Basili~\cite{boehm01} (761), 
-\end{itemize}}
+\label{sec:why-study}
+%\todo{\begin{itemize}
+%\item Given the Intro and Motivation, this section should focus on the influence of phase delay in software engineering milieux
+%\item Need to tone down the reliance on Beck. The important Beck point is that eliminating the cost-to-fix curve (resulting from phase delay) is one of the main goals of agile. His observations on new technologies are good too.
+%\item Need to cite other popular sources of this information, e.g., McConnell's "Ounce of Prevention" article~\cite{mcconnell01}.
+%\item Robert Glass's~\cite{glass02} book is very popular and contains an entry on this point
+%\item Google Scholar Citations for phase delay works Boehm88~\cite{boehm88} (673), Boehm \& Basili~\cite{boehm01} (761), 
+%\end{itemize}}
 
-Due to its prominence in the field of software engineering,
-this paper studies phase delay. As mentioned in the introduction, concerns about phase delay have
-been used for decades to motivate major changes to software engineering practices. For example,
+This paper examines evidence for the phase delay effect due to its prominence throughout the field of software engineering. Many prominent authors have commented on its perceived usefulness as a rule of thumb for software engineers. For example, in 2001, Steve McConnell mentioned it as a "common observation" in the field and proceeded to knock down arguments that it no longer held for contemporaneous software projects, by relying on recently published data and experience. McConnell also summarized the intuitive argument for why it should be so: ``A small mistake in upstream work can affect large amounts of downstream work. A change to a single sentence in a requirements specification can imply changes in hundreds of lines of code spread across numerous classes or modules, dozens of test cases, and numerous pages of end-user documentation''~\cite{mcconnell01} Glass echoes this sentiment, stating the the fact ``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' is ``really just common sense''~\cite{glass02}. 
+
+Also in 2001, the phase delay effect was listed as number one by Boehm and Basili in their "Top 10 list" of "objective and quantitative data, relationships,
+and predictive models that help
+software developers avoid predictable pitfalls
+and improve their ability to predict
+and control efficient software projects." \cite{boehm01}
+
+More important than its use as a rule of thumb, the phase delay effect has 
+been used for decades to motivate major changes to software engineering practices (as mentioned in Section 1). For example,
 in 2000, Kent Beck used phase delay to motivate his call for ``extreme programming'' (a set of techniques
 that evolved into contemporary agile and DevOps practices). Beck writes:
 \begin{quote}
-One of the universal assumptions of software engineering is that the cost of changing a program rises exponentially over time. I can remember sitting in a big linoleum-floored classroom as a college junior and seeing the professor draw on the board the curve found in \fig{curve1}.
-
-The cost to fix a problem in a piece of software rises exponentially over time. A problem that might take a dollar to fix if you found it during requirements analysis might costs thousands to fix once the software is in production.
-
-I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer \$100,000.~\cite{beck00}
+One of the universal assumptions of software engineering is that the cost of changing a program rises exponentially over time. I can remember sitting in a big linoleum-floored classroom as a college junior and seeing the professor draw on the board the curve found in \fig{curve1}... 
+%
+%The cost to fix a problem in a piece of software rises exponentially over time. 
+A problem that might take a dollar to fix if you found it during requirements analysis might costs thousands to fix once the software is in production.
+%
+%I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer \$100,000.~
+\cite{beck00}
 \end{quote}
 
 \begin{figure}
@@ -324,47 +347,46 @@ I resolved then and there that I would never let a problem get through to produc
  \caption{Projects without   phase delay. From~\cite{beck00}.}\label{fig:curve2}
 \end{figure}
 
-\begin{figure}[!t]
-\scriptsize
-\begin{center}
-\begin{tabular}{l@{~}|l@{~}|r@{~}r@{~}|r@{~}l}
-          &        & \multicolumn{2}{c|}{Time to}  &\\
-          &        & \multicolumn{2}{c|}{resolve} &\\
-Injection & Removal& initial & now & \multicolumn{2}{l}{Scale up w.r.t initial} \\\hline
-Phase $i$&Phase $i$ & 1 & 1 & 1 & **\\
-Phase $i$ &Phase $i+1$ & 1 & 2& 2 & **** \\
-Phase $i$ &Phase $i+2$ & 1 & 4& 4 &******** \\
-Phase $i$ &Phase $i+3$ & 1 & 8 & 8 & ****************  
-  \end{tabular}\end{center}
- \caption{Projects data consistent with
- the phase delay effect of \fig{curve1}.}\label{fig:curve1a}
-\end{figure}
+% \begin{figure}[!t]
+% \scriptsize
+% \begin{center}
+% \begin{tabular}{l@{~}|l@{~}|r@{~}r@{~}|r@{~}l}
+%           &        & \multicolumn{2}{c|}{Time to}  &\\
+%           &        & \multicolumn{2}{c|}{resolve} &\\
+% Injection & Removal& initial & now & \multicolumn{2}{l}{Scale up w.r.t initial} \\\hline
+% Phase $i$&Phase $i$ & 1 & 1 & 1 & **\\
+% Phase $i$ &Phase $i+1$ & 1 & 2& 2 & **** \\
+% Phase $i$ &Phase $i+2$ & 1 & 4& 4 &******** \\
+% Phase $i$ &Phase $i+3$ & 1 & 8 & 8 & ****************  
+%   \end{tabular}\end{center}
+%  \caption{Projects data consistent with
+%  the phase delay effect of \fig{curve1}.}\label{fig:curve1a}
+% \end{figure}
 
-\begin{figure}[!t]
-\scriptsize
-\begin{center}
-\begin{tabular}{l@{~}|l@{~}|r@{~}r@{~}|r@{~}l}
-          &        & \multicolumn{2}{c|}{Time to}  &\\
-          &        & \multicolumn{2}{c|}{resolve} &\\
-Injection & Removal& initial & now & \multicolumn{2}{l}{Scale up w.r.t initial} \\\hline
-Phase $i$&Phase $i$ & 1 & 1 & 1 & ** \\
-Phase $i$ &Phase $i+1$ & 1 & 2& 2 & **** \\
-Phase $i$ &Phase $i+2$ & 1 & 2& 2 & **** \\
-Phase $i$ &Phase $i+3$ & 1 & 2 & 2 & **** \\
- Phase $i$  &Phase $i+4$ &1 & 2& 2 &**** 
-  \end{tabular}\end{center}
- \caption{Projects data consistent with
- the phase delay effect of \fig{curve2}.}\label{fig:curve2a}
-\end{figure}
+% \begin{figure}[!t]
+% \scriptsize
+% \begin{center}
+% \begin{tabular}{l@{~}|l@{~}|r@{~}r@{~}|r@{~}l}
+%           &        & \multicolumn{2}{c|}{Time to}  &\\
+%           &        & \multicolumn{2}{c|}{resolve} &\\
+% Injection & Removal& initial & now & \multicolumn{2}{l}{Scale up w.r.t initial} \\\hline
+% Phase $i$&Phase $i$ & 1 & 1 & 1 & ** \\
+% Phase $i$ &Phase $i+1$ & 1 & 2& 2 & **** \\
+% Phase $i$ &Phase $i+2$ & 1 & 2& 2 & **** \\
+% Phase $i$ &Phase $i+3$ & 1 & 2 & 2 & **** \\
+%  Phase $i$  &Phase $i+4$ &1 & 2& 2 &**** 
+%   \end{tabular}\end{center}
+%  \caption{Projects data consistent with
+%  the phase delay effect of \fig{curve2}.}\label{fig:curve2a}
+% \end{figure}
  
 Beck speculated that there might be another kind of project, shown in \fig{curve2},
-that does not exhibit phase delay. In this next quote, Beck clearly states
-the importance of avoiding phase delay (in fact, for Beck, it is {\em the} major
-motivation for his work):
-\begin{quote}
-This (\fig{curve2}) is one of the premises of (agile). It is the technical premise of (agile). If the cost of change rose slowly over time, you would act completely differently from how you do under the assumption that costs rise exponentially. You would make big decisions as late in the process as possible, to defer the cost of making the decisions and to have the greatest possible chance that they would be right. You would only implement what you had to, in hopes that the needs you anticipate for tomorrow wouldn't come true. You would introduce elements to the design only as they simplified existing code or made writing the next bit of code simpler.~\cite{beck00}
-\end{quote}
-Beck makes one other comment that is relevant to this paper: 
+that does not exhibit phase delay. In fact, for Beck, the possibility that phase delay does not imply exponential increases in the resources required to make changes and fix defects is {\em the} major
+motivation for his work, because it means that decisions can be made as late in the process as possible, so as to increase the chances that these decisions would be right. Beck found more than adequate motivation for this new assumption:
+%\begin{quote}
+%This (\fig{curve2}) is one of the premises of (agile). It is the technical premise of (agile). If the cost of change rose slowly over time, you would act completely differently from how you do under the assumption that costs rise exponentially. You would make big decisions as late in the process as possible, to defer the cost of making the decisions and to have the greatest possible chance that they would be right. You would only implement what you had to, in hopes that the needs you anticipate for tomorrow wouldn't come true. You would introduce elements to the design only as they simplified existing code or made writing the next bit of code simpler.~\cite{beck00}
+%\end{quote}
+%Beck makes one other comment that is relevant to this paper: 
 \begin{quote}
 The software development community has spent enormous resources in recent decades trying to reduce the cost of change-better languages, better database technology, better programming practices, better environments and tools, new notations.
 
@@ -421,21 +443,21 @@ have paid off and, hence, modern software projects do not suffer from the  phase
 
 \section{Analysis of Phase Delay in 171 TSP Projects}
 
-\todo{
-\bi
-    \item What is the cost-to-fix curve in TSP data? Check against H1 and compare to past literature.
-    \item What is the effect of phase delay? Check against H2.
-    \item \fig{cost-to-fix-tsp} is great. really important. its from  different decades, right?  so can we add text saying that the general pattern is that the (approx) 15 years between each curve tends to a flattening. not, perhaps, due to process but to better build environs.
-\ei
-}
+%\todo{
+%\bi
+%    \item What is the cost-to-fix curve in TSP data? Check against H1 and compare to past literature.
+%    \item What is the effect of phase delay? Check against H2.
+%    \item \fig{cost-to-fix-tsp} is great. really important. its from  different decades, right?  so can we add text saying that the general pattern is that the (approx) 15 years between each curve tends to a flattening. not, perhaps, due to process but to better build environs.
+%\ei
+%}
 
 \subsection{TSP Project Cost-to-fix curve}
 
 Our first hypothesis was that defects found in later phases tend to require more time to fix than in earlier phases.
 
-The distribution of defects found and fixed per phase in our data is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. \todo{How does this compare evidence from other sources?}
+The distribution of defects found and fixed per phase in our data is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. (This distribution is similar to that observed for other projects that emphasized investment in software engineering quality assurance practices, for example the NASA robotics projects which had 58\% of defects removed before implementation began. \cite{me08a} Similar results are presented by Jones and Bonsignour, who show 52\% of pretest defects removed before entering implementation. \cite{jones12})  
 
-The median time to fix a defect in each phase is shown in \fig{fix-time-per-phase}. The median cost to fix a defect is low in the early phases, and then increases slightly during design and coding before peaking during the unit test phase. The median fix time then drops during the testing phases. Note that while the median time remains relatively consistent, the 75th percentile does increase during the testing phases.
+\todo{This paragraph is wrong now.} The median time to fix a defect in each phase is shown in \fig{fix-time-per-phase}. The median cost to fix a defect is low in the early phases, and then increases slightly during design and coding before peaking during the unit test phase. The median fix time then drops during the testing phases. Note that while the median time remains relatively consistent, the 75th percentile does increase during the testing phases.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -447,35 +469,44 @@ The median time to fix a defect in each phase is shown in \fig{fix-time-per-phas
 
 
 
-\begin{figure}[!ht]
+\begin{figure*}[!ht]
+
+ \renewcommand{\baselinestretch}{0.7}
+ \scriptsize
 \begin{center}
-\begin{tabular}{r|rrr|l}
-  Sample&\multicolumn{3}{c|}{Percentiles}\\ 
-size & 25th & 50th & 75th & Phase removed \\
-\hline
-120 & 3 & 3 & 18 & ReqtsInspect \\
-126 & 3 & 3 & 20 & ReqtsReview \\
-70 & 2 & 2 & 10 & HLDInspect \\
- 55 &    2 &    1&    7&HLDReview \\
-
-278&    7&    7&   33&DesignInspect \\
-233&    6&    6&   25&DesignReview \\
-
-315&    8&    7&   34&CodeInspect \\ 
-282&    7&    7&   32&CodeReview\\ 
-
-425&   11&   10&   54&UnitTest \\ 
-226&    7&    6&   46&IntTest \\ 
-194&    7&    6&   52&SysTest\\ 
- 88&    4&    3&   38&AcceptTest\\
+\begin{tabular}{r|rr|rl}
+Phase & samples & total time&\multicolumn{2}{l}{Total time w.r.t. first phase}\\\hline
+~\\
+Planning&229&12625&1.00&*\\
+~\\
+Reqts&590&24182&1.91&**\\
+ReqtsInspect&2533&92723&7.34&********\\
+ReqtsReview&1762&67471&5.34&******\\
+~\\
+HLD&78&6856&0.54&*\\
+HLDReview&472&12821&1.01&**\\
+HLDInspect&1366&35291&2.79&***\\
+~\\
+Design&620&21573&1.70&**\\
+DesignInspect&8373&229937&18.21&*******************\\
+DesignReview&3043&92823&7.35&********\\
+~\\
+Code&3029&220058&17.43&******************\\
+CodeReview&4774&163091&12.91&*************\\
+CodeInspect&11406&334442&26.49&***************************\\
+~\\
+UnitTest&9177&352245&2.790&****************************\\
+IntTest&2761&160559&12.71&*************\\
+SysTest&2059&105796&8.37&*********\\
+AcceptTest&1045&42717&0.338&****\\
 \end{tabular}
 \end{center}
-\caption{Median fix time per phase}
+\caption{Times per phase (minutes).}
 \label{fig:fix-time-per-phase}
-\end{figure}
+\end{figure*}
 
 
-For illustrative purposes, the relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's cost curve~\cite{Boehm81} as well as the CCPDS-R case study~\cite{Royce98} in \fig{cost-to-fix-tsp}. It is clear to see that the trend is relatively flat, closer to the pattern exhibited by the Royce case study (which also focused on early defect removal) than the exponential growth curve.
+For illustrative purposes, the relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's cost curve~\cite{Boehm81} as well as the CCPDS-R case study~\cite{Royce98} in \fig{cost-to-fix-tsp}. Cost-to-fix for TSP is total time spent in each review, inspection, or test phase (reported in \fig{fix-time-per-phase}) / \# of defects found in phase (reported in \fig{raw}). It is clear to see that the trend is relatively flat, closer to the pattern exhibited by the Royce case study (which also focused on early defect removal) than the exponential growth curve.
 
 \begin{figure}[!ht]
  \includegraphics[width=3.3in]{boehm-overlay.pdf}
@@ -484,103 +515,16 @@ For illustrative purposes, the relative cost to fix errors per lifecycle phase i
  \end{figure}
  
 
-We reject $H_1$.
+Given the above evidence, we reject $H_1$: The cost-to-fix of defects monotonically increases across phases.
 
 \subsection{Phase delay analysis}
-\todo{
-\bi
-    \item What can we say about \fig{raw}
-\ei
-}
 
-Our second hypothesis was that defects that exhibit higher phase delay (i.e. that persist in the software over more lifecycle phases) tend to require more effort to fix than those with less phase delay. To investigate this, we calculate phase delay as simply the number of project phases (the set used in our data set is shown in \fig{waterfall}) during which the defect existed in the system, i.e. the ordinal rank of removal phase minus the ordinal rank of injection phase. Sub-phases (such as review and inspection) are not included in this calculation.
 
-\fig{correlation} and \fig{phase_delay_medians} show that most defects have a relatively small phase delay in our project sample (phase delay is often <= 2). As intended, the Review and Inspection Phases for Requirements, Design, and Code mostly find defects originating in the same phase. In contrast, the Testing phases mostly find defects originating in the Code phase. 
+Our second hypothesis was that defects that exhibit higher phase delay (i.e. that persist in the software over more lifecycle phases) tend to require more effort to fix than those with less phase delay. To investigate this, we calculate phase delay as simply the number of project phases (the set used in our data set is shown in \fig{waterfall}) during which the defect existed in the system, i.e. the ordinal rank of removal phase minus the ordinal rank of injection phase. Sub-phases (such as review and inspection) are included in this calculation.
 
 In \fig{raw}, we present the median fix times of defects based on when they were injected and ultimately removed. Defects injected Before Development (labelled "B4Dev" in \fig{waterfall}) follow the most severe scale up as development phases pass, but not on the exponential scale traditionally seen (\fig{cost-to-fix}). Defects injected in Requirements, Design, and Coding phases exhibit virtually no scale-up regardless of the phase in which they are fixed.
 
-We reject $H_2$.
-
-%In the TSP data, there is a weak correlation (Kendall's $\tau = 0.19, p < 0.01, 95\% CI$) between a defect's cost-to-fix (minutes of effort) and the defects phase delay (phase removed - phase injected). 
-
-
-
-
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=3.3in]{corr.pdf}
-\end{center}
-\caption{Correlation of phase delay and fix time (plot shows a 1\% sampling of data).}
-\label{fig:correlation}
-\end{figure}
-
-
-\begin{figure}[!ht]
-\centering
-\begin{tabular}{rrr|l}
-    \multicolumn{3}{c|}{Percentiles}\\ 
-  25th & 50th & 75th & Phase removed \\ 
-  \hline
-    2 & 2 & 2 & ReqtsInspect \\ 
-    1 & 1 & 1 & ReqtsReview \\ 
-    2 & 2 & 2 & HLDInspect \\ 
-    1 & 1 & 1 & HLDReview \\ 
-    2 & 2 & 2 & DesignInspect \\ 
-    1 & 1 & 1 & DesignReview \\ 
-    2 & 2 & 2 & CodeInspect \\ 
-    1 & 1 & 1 & CodeReview \\ 
-    3 & 3 & 6 & UnitTest \\ 
-    4 & 4 & 4 & IntTest \\ 
-    5 & 5 & 5 & SysTest \\ 
-    6 & 6 & 6 & AcceptTest \\ 
-  \end{tabular}
-\caption{Median phase delay of defects removed per phase} 
-\label{fig:phase_delay_medians}
-\end{figure}
-
-% \begin{figure}[ht]
-% \centering
-% \begin{tabular}{lll}
-%   Phase & $tau$ & $p$ \\ 
-%   \hline
-%   Design & 0.14 & 0.08 \\ 
-%   DesignReview & 0.06 & $<$0.01 \\ 
-%   DesignInspect & 0.05 & $<$0.01 \\ 
-%   Code & 0.27 & $<$0.01 \\ 
-%   CodeReview & 0.12 & $<$0.01 \\ 
-%   CodeInspect & 0.09 & $<$0.01 \\ 
-%   Test & 0.13 & $<$0.01 \\ 
-%   IntTest & 0.1 & $<$0.01 \\ 
-%   SysTest & 0.25 & $<$0.01 \\ 
-%   AcceptTest & 0.06 & 0.29 \\ 
-%   \end{tabular}
-% \caption{Correlation of cost-to-fix and phase delay for defects found (Kendall's $\tau$)} 
-% \label{fig:phase_corr}
-% \end{figure}
-
-% \begin{figure*}[!ht]
-% \centering
-% \includegraphics[width=1.6in]{corr-Code.png}
-% \includegraphics[width=1.6in]{corr-CodeReview.png}
-% \includegraphics[width=1.6in]{corr-CodeInspect.png}
-% \vspace{0.01cm}
-
-% \includegraphics[width=1.6in]{corr-Design.png}
-% \includegraphics[width=1.6in]{corr-DesignReview.png}
-% \includegraphics[width=1.6in]{corr-DesignInspect.png}
-% \vspace{0.01cm}
-
-% \includegraphics[width=1.6in]{corr-Test.png}
-% \includegraphics[width=1.6in]{corr-IntTest.png}
-% \includegraphics[width=1.6in]{corr-SysTest.png}
-% \includegraphics[width=1.6in]{corr-AcceptTest.png}
-
-% \caption{Correlation of cost-to-fix (rank) and phase delay for defects found by phase for phases where \# defects >= 30 and \# unique phase delay values >= 5. x = phase delay, y = cost-to-fix rank. Plots use random samples from each phase for readability.}
-% \label{fig:phase_fixtime_plot}
-% \end{figure*}
-
+Given the above evidence, we reject $H_2$: the cost-to-fix of defects monotonically increases as the phase delay increases.
 
 
 
@@ -592,33 +536,45 @@ We reject $H_2$.
   Sample&\multicolumn{3}{c|}{Percentiles}\\ 
 size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline
 \\
-  29 &     1 &     3 &    12 & Before Dev & CodeInspect  & 1.00  &  **  \\
-  26 &     1 &     4 &     6 & Before Dev & CodeReview  & 1.33  &  ***  \\
-  73 &     5 &    13 &    59 & Before Dev & UnitTest  & 4.33  &  *********  \\
-  36 &     7 &    24 &    54 & Before Dev & IntTest  & 8.00  &  ****************  \\
-  34 &     8 &    28 &    56 & Before Dev & SysTest  & 9.33  &  *******************  \\\hline
+ 48&   14&   30&   51&Before&DesignInspect &1.00 & **********  \\
+ 94&   22&   45&   80&Before&CodeInspect &1.50 & ***************  \\
+ 53&   13&   28&   49&Before&CodeReview &0.93 & **********  \\
+153&   38&   77&  130&Before&UnitTest &2.56 & **************************  \\
+127&   30&   65&  128&Before&IntTest &2.16 & **********************  \\
+ 92&   24&   56&   89&Before&SysTest &1.86 & *******************  \\
+ 
+ 
 \\
-128 &     2 &     6 &    15 & Reqts & ReqtsInspect  & 1.00  &  **  \\
-132 &     2 &     5 &    12 & Reqts & ReqtsReview  & 0.83  &  **  \\
- 28 &     3 &    13 &    29 & Reqts & DesignInspect  & 2.16  &  *****  \\
- 22 &     6 &    14 &    31 & Reqts & DesignReview  & 2.33  &  *****  \\\hline
+ 56&   14&   35&   57&Planning&ReqtsReview &1.00 & **********  \\
+ 46&   11&   24&   39&Planning&DesignInspect &0.68 & *******  \\
+ 32&   18&   33&   84&Planning&UnitTest &0.94 & **********  \\
+ 
 \\
-272 &     6 &    14 &    30 & Design & DesignInspect  & 1.00  &  **  \\
- 32 &     1 &     4 &    13 & Design & DesignInspection  & 0.28  &  *  \\
-240 &     4 &    11 &    22 & Design & DesignReview  & 0.78  &  **  \\
-110 &     3 &    11 &    23 & Design & CodeInspect  & 0.78  &  **  \\
- 91 &     3 &     7 &    18 & Design & CodeReview  & 0.50  &  *  \\
-323 &     8 &    21 &    45 & Design & UnitTest  & 1.50  &  ***  \\
- 56 &     7 &    20 &    41 & Design & IntTest  & 1.42  &  ***  \\
- 69 &     9 &    27 &    53 & Design & SysTest  & 1.92  &  ****  \\\hline
+189&   46&   93&  155&Reqts&ReqtsInspect &1.00 & **********  \\
+184&   45&   92&  155&Reqts&ReqtsReview &0.98 & **********  \\
+102&   24&   49&   83&Reqts&DesignInspect &0.52 & ******  \\
+ 61&   14&   33&   55&Reqts&DesignReview &0.35 & ****  \\
+ 59&   18&   38&   60&Reqts&CodeInspect &0.40 & ****  \\
+ 91&   22&   49&  104&Reqts&UnitTest &0.52 & ******  \\
+100&   33&   67&  120&Reqts&IntTest &0.72 & ********  \\
+ 78&   28&  122&  237&Reqts&SysTest &1.31 & **************  \\
 \\
-310 &     6 &    15 &    31 & Code & CodeInspect  & 1.00  &  **  \\
-285 &     5 &    14 &    29 & Code & CodeReview  & 0.93  &  **  \\
-287 &     7 &    17 &    44 & Code & UnitTest  & 1.13  &  ***  \\
-180 &     7 &    20 &    45 & Code & IntTest  & 1.33  &  ***  \\
-137 &     6 &    15 &    35 & Code & SysTest  & 1.00  &  **  \\
- 37 &     1 &    11 &    27 & Code & AcceptTest  & 0.73  &  **  \\
-
+207&   50&  101&  156&Design&DesignInspect &1.00 & **********  \\
+210&   51&  103&  166&Design&DesignReview &1.01 & ***********  \\
+163&   39&   79&  135&Design&CodeInspect &0.78 & ********  \\
+134&   32&   66&  116&Design&CodeReview &0.65 & *******  \\
+238&   58&  119&  183&Design&UnitTest &1.17 & ************  \\
+172&   42&   88&  158&Design&IntTest &0.87 & *********  \\
+163&   40&   80&  161&Design&SysTest &0.79 & ********  \\
+ 80&   21&   45&   73&Design&AcceptTest &0.44 & *****  \\
+ 
+\\
+130&   31&   65&  122&Code&AcceptTest &1.00 & **********  \\
+228&   56&  113&  176&Code&CodeInspect &1.73 & ******************  \\
+235&   57&  115&  177&Code&CodeReview &1.76 & ******************  \\
+243&   59&  125&  206&Code&IntTest &1.92 & ********************  \\
+191&   46&   95&  173&Code&SysTest &1.46 & ***************  \\
+269&   66&  133&  206&Code&UnitTest &2.04 & *********************  \\
  \end{tabular}
 \end{center}
 \caption{Distribution of fix times seen in SEI TSP data.}
@@ -713,6 +669,26 @@ size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{
  
 
 \section{Validity} 
+We report validity concerns following the guidelines of Runeson \& H\"{o}st~\cite{runeson09}.
+
+\subsection{Construct validity}
+The essential constructs in our analyses are \emph{cost-to-fix, defects, and phase delay}. 
+
+\emph{Cost-to-fix} is traditionally measured as either effort spent to fix a defect or time spent fixing a defect. In our analysis, we calculate the latter as \# of defects fixed in a defect-removal plan item, such as DesignReview or CodeInspection, divided by the time spent in the plan item. A single project has multiple such plan items. In the TSP data, this time accounts for time spent isolating, analyzing, and fixing the defect, but does not include time spent verifying the fix.
+
+In our sample, all \emph{defects} are considered equally, and thus TSP's reporting methods may result in ``small'' defects could be dominating the sample. For example, typographical requirements errors are included as well as requirements errors that necessitate an architectural change to the system. Our analysis does not include a notion of defect severity, however, we observe no indications in previous cost-to-fix results reported by \cite{Boehm81} and \cite{Royce98} that severity was considered in their samples. However, evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' typographical errors have been known to cause enormous damage (e.g., the Mars climate Orbiter). 
+
+\emph{Phase delay}, as depicted in the scale up column in \fig{cost-to-fix-tsp} \fig{raw}, is a discrete value that does not consider the total time that a defect is latent in the system. Thus, the phase delay of two defects injected in Code but found in System Test will be the same even though one was found at the beginning of test while the other at the end of a potentially lengthy test period. Ideally, one could examine the total real time a defect was in a system from the point at which is was injected to the point at which it was discovered. It may be possible to gather such information if the project keeps rigorous change logs for its requirements, design, and code artifacts. 
+
+\subsection{Internal validity}
+Confounding variables are a threat to any study. In this research, we rely on the substantial sample size of 171 TSP projects and over 47,000 defect logs to avoid confounding effects that may arise from the nature of the projects, teams, or defects. Similarly, the 10-year data collection period should help to ameliorate any maturation or history effects.  As described in \S\ref{sec:data-collection}, all TSP teams are required to contribute time and defect data to the SEI, and thus there should be no selection bias in this sample compared to the overall population of TSP projects. However, there is likely selection bias in the teams that elect to use TSP compared to the entire population of software development teams.
+
+\subsection{External validity}
+Threats to external validity affect the generalization of findings. The most obvious threat to external validity is that TSP is not representative of most software development processes. TSP was, in fact, designed to be rigorous and eliminate defects early in the lifecycle and soon after injection. We make no assertions regarding the generalizability of these results beyond TSP, though we offer some conjecture in \S\ref{sec:discussion} on the potential causes for the flattened cost-to-fix curve. 
+
+Our analysis of cost-to-fix does not include defects found in production, which, in Boehm's original data, account for costs up to 200 times the cost of finding and fixing defects in Requirements. Further, it is not clear how Boehm~\cite{Boehm81} and Royce~\cite{Royce98} define \emph{cost-to-fix}. In our analysis, cost-to-fix includes the time spent isolating, analyzing, and fixing a defect, but not the cost of verifying. If Boehm and Royce include cost of verifying a fix, then the TSP cost curve in \fig{cost-to-fix-tsp} artificially low by comparison. If Boehm and Royce include only the mechanics of fixing the defect, then the TSP cost curve in \fig{cost-to-fix-tsp} is artifically high by comparison.
+
+\subsection{Reliability}
 A previous paper~\cite{shirai14} has applied a range of sanity checks to the data.
 A common property of real-world data sets is the presence
 of noisy entries (superfluous  or spurious data). 
@@ -721,7 +697,7 @@ in \cite{shepperd12}, around
 10\% to 30\%
 of the records in the NASA MDP defect data sets are
 affected by noise. Nichols et al.~\cite{shirai14}  report that
-the noise levesl in the SEI TSE data are smaller than those seen
+the noise levesl in the SEI TSP data are smaller than those seen
 in other data sets. They found in the SEI TSP data that:\bi 
 \item
 4\% of the data was incorrect such as  null values of illegal formats;
@@ -731,28 +707,56 @@ where the stop time was before the start time;
 such as tasks listed in one day that took like than six hours.
 \ei 
 
+The definitions of defect, cost-to-fix, and phase delay are provided in earlier sections. The source data and analysis scripts used to calculate the defect counts, cost-to-fix, and phase delay from the raw materials can be found at \url{https://github.com/txt/txt.github.io/tree/master/tsp}. 
+\tim{Is this okay?}.
 
-XXX post release. really hard to change? auto-updates, package managers, web-based apps. 
- 
+
+
+
  \section{Discussion}
- \todo{
- \bi
-    \item summarize analysis findings
-    \item Offer interpretations of findings, e.g., why might these things be so
- \ei
- }
+ \label{sec:discussion}
+% \todo{
+% \bi
+%    \item summarize analysis findings
+%    \item Offer interpretations of findings, e.g., why might these things be so
+% \ei
+% }
+ 
+In the preceding sections, we looked for evidence of the phase delay effect (using two common interpretations of that effect) in comprehensive and fine-grained data covering 171 software development projects. The results did not support the existence of such an effect. We do not claim that this somehow disproves the phase delay effect, but we observe that it cannot be assumed to hold in every software development context.
+
+Since the phase delay effect has been such a long-lived software engineering truism, as well as one that is accepted by a substantial population of software engineers, it is important to explore possible explanations for our observations.
+
+We surmise that the substantial changes in software development and deployment technologies and practices, since the phase delay effect was first measured, may be responsible for our observations in the TSP data set. Recall that the original data on which the phase delay effect is based, as reported in Section 3, are approximately 40 years old. The most recently reported data, from Shull et al. \cite{Shull02}, was published in 2002 but contains substantial retrospective data. Over time, it would be surprising if the investment in better languages, IDEs, and other development technologies had in fact not created some improvement. To pick just one example, we note that much of the data showing the phase delay effect was collected before frequent and unobtrusive auto-updating software was as common as today, which certainly flattens the cost of changes.
+
+One hypothesized explanation that can be ruled out is that the lack of a phase delay effect is due to using the TSP method. To the contrary, four other studies reported that the expected exponential growth in cost-to-fix was not observed: \bi
+
+\item Boehm \cite{Boehm80} reported a flatter growth rate for small, non-critical projects.
+\item Clutterbuck \cite{Clutterbuck09} showed a flatter cost curve in an agile case study.
+\item Data from NASA's Johnson Space Flight Center, reported by Shull \cite{Shull02}, found that the cost to find certain non-critical classes of defects was fairly constant across lifecycle phases (1.2 hours on average early in the project, versus 1.5 hours late in the project).
+\item Royce \cite{Royce98} reported a flat cost curve for a project that invested heavily upfront in architectural reviews.
+\ei
+
+Note that these results are drawn from a number of different contexts, meaning that there is no common context variable that can be claimed as responsible for the observed lack of a phase delay effect. 
  
  
  \section{Conclusion}
- \todo{
- \bi
-    \item Summarize data tested - survey + TSP data
-    \item reiterate hypothesis testing results
-    \item Restate the motivation: widely-held beliefs need to be revisited. 
-    \item We now have evidence, from 5 different sources, that phase delay does not seem to hold under certain conditions (although our study is by far the biggest in terms of data points).
-    \item phase delay may still apply in some (many?) projects, but clearly it does not in all. This has huge implications for, e.g., cost modeling, effort prediction.
- \ei
- }
+ %\todo{
+ %\bi
+ %   \item Summarize data tested - survey + TSP data
+%    \item reiterate hypothesis testing results
+%    \item Restate the motivation: widely-held beliefs need to be revisited. 
+%    \item We now have evidence, from 5 different sources, that phase delay does not seem to hold under certain conditions (although our study is by far the biggest in terms of data points).
+%    \item phase delay may still apply in some (many?) projects, but clearly it does not in all. This has huge implications for, e.g., cost modeling, effort prediction.
+% \ei
+% }
+ 
+In this paper, we examined contemporary project data for evidence to support the well-known software engineering truism of the phase delay effect. We reported the results of a survey of both researchers and practitioners which showed this truism is still a widely held belief in the software engineering community, and showed how it can have an effect on the methods and tools chosen for software development.
+
+We examined two different interpretations of the phase delay effect (namely, that defects are more expensive to fix in later phases and that defects become more expensive the morer phases they remain). However, our dataset of 171 TSP projects provided no support for either phrasing. This is consistent with other phase delay measures reported in the literature, although ours is by far the largest dataset on which such observations can be drawn. While we do not claim to have disproven this effect in modern software development, we do conclude that there are at least some conditions under which the effect does not hold. Thus we caution developers and researchers not to assume that such effects hold in any given environment.
+
+More broadly, we feel that these results indicate that, in a rapidly changing field such as software engineering, even widely-held rules of thumb should be periodically re-verified. Progress in the domain of software analytics has made such periodic checks more cost-effective and feasible, and we argue that an examination of local behaviors (rather than simply accepting global heuristics) can be of significant benefit.
+
+
  
 % \section{Related Work}
 
@@ -796,7 +800,7 @@ This work was partially funded by an National Science
 Foundation grants NSF-CISE 1302169 and CISE 1302169. 
 \\
 We thank Tuma Solutions for providing the Team Process Data Warehouse software in support of this research.  \\
-Team Software ProcessSM and TSPSM are service marks of Carnegie Mellon University.
+Personal Software Process$\textsuperscript{SM}$, Team Software Process$\textsuperscript{SM}$, and TSP$\textsuperscript{SM}$ are service marks of Carnegie Mellon University.
 
 
 \clearpage
