@@ -1,0 +1,24 @@
+  gsub(/[ \t\r]/,"")    # no white space
+  gsub(/SW/,"")     # dump redudant "SW" prefix 
+  gsub(/Code-Peer/,          "CodeReview")  # note sure on this one
+  gsub(/DevelopmentCode/,    "Code")
+  gsub(/CodeInspection/,     "CodeInspect")
+  gsub(/IntegrationTesting/, "IntTest")
+  gsub(/TestCaseDevel/,      "TestDevel")
+  removed = $12
+  injected= $14
+  fixTime = $8
+  if (removed  == "CodeReview")   next
+  if (injected == "CodeReview")   next 
+  if (removed  == "Compile")      next
+  if (injected == "Compile")      next
+  if (removed  == "DesignReview") next
+  if (injected == "DesignReview") next
+also, in terms of "phase Y being after phase X", here's my current list (left hand side comes before right hand side). care to rearrange?
+
+note that not all phases are given below... these are just the ones that occur often enough to be graphed.
+
+phases="BeforeDevelopment Planning Reqts ReqtsReview ReqtsInspect HLD HLDReview HLDInspect 
+        Design DesignInspect Code CodeInspect TestCaseDevel TestCaseInspect  Test QualTest  IntTest SysTest AcceptTest ProductLife"
+        
+        is tsp more exepensive than otherwise?
