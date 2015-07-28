@@ -23,7 +23,7 @@
 %\newenvironment{changed}{\par}{\par}
 
 %timm tricks
-\newcommand{\bi}{\begin{itemize}[leftmargin=0.4cm]}
+\newcommand{\bi}{\begin{itemize}}%[leftmargin=0.4cm]}
 \newcommand{\ei}{\end{itemize}}
 \newcommand{\be}{\begin{enumerate}}
 \newcommand{\ee}{\end{enumerate}}
@@ -33,7 +33,7 @@
  
 
 \usepackage[shortlabels]{enumitem} 
-\usepackage{times}
+%\usepackage{times}
 
 \usepackage{cite}
 \newcommand{\subparagraph}{}
@@ -41,51 +41,40 @@
 \def\baselinestretch{1}
 
 
-\setlist{nosep}
+%\setlist{nosep}
 
 \usepackage{colortbl}
- \usepackage[font={small}]{caption, subfig}
-\setlength{\abovecaptionskip}{1ex}
- \setlength{\belowcaptionskip}{1ex}
- \setlength{\floatsep}{1ex}
- \setlength{\textfloatsep}{1ex}
-\usepackage[compact,small]{titlesec}
+ %\usepackage[font={small}]{caption, subfig}
+%\setlength{\abovecaptionskip}{1ex}
+ %\setlength{\belowcaptionskip}{1ex}
+% \setlength{\floatsep}{1ex}
+% \setlength{\textfloatsep}{1ex}
+%\usepackage[compact,small]{titlesec}
 \DeclareMathSizes{7}{7}{7}{7} 
 \pagenumbering{arabic}
-\setlength{\columnsep}{7mm}
+%\setlength{\columnsep}{7mm}
 
 \begin{document}
 
-\conferenceinfo{FSE}{'15 Bergamo, Italy}
-\title{Revisiting the Truisms of Software Engineering:\\ Does Phase Delay Dramatically Increase  Fix Time?}
-\numberofauthors{5}
+\conferenceinfo{ICSE}{'16 Austin, Texas}
+\title{Does Phase Delay Dramatically Increase Cost to Fix?}
+\numberofauthors{3}
 \author{
-\alignauthor 
+%\alignauthor 
 Tim Menzies \\
        \affaddr{Dept. of Computer Science}\\
        \affaddr{North Carolina State U, USA}\\
        \email{tim.menzies@gmail.com}
-\alignauthor 
-William Nichols \\
+\and%alignauthor 
+William Nichols,Forest Shull \\
         \affaddr{Software Engineering Institute}\\
-        \affaddr{Carnegie Mellon U, USA}
-        \email{wrn@sei.cmu.edu} 
-\alignauthor 
+        \affaddr{Carnegie Mellon U, USA}\\
+        \email{\{wrn,fjshull\}@sei.cmu.edu} 
+\and %\alignauthor 
 Lucas Layman \\
        \affaddr{Fraunhofer CESE} \\
        \affaddr{College Park, USA}\\ 
        \email{llayman@fc-md.umd.edu}
-\and
-\alignauthor 
-Forrest Shull \\
-        \affaddr{Software Engineering Institute}\\
-        \affaddr{Carnegie Mellon U, USA}
-        \email{fjshull@sei.cmu.edu} 
-\alignauthor 
-Carter Pape \\
-       \affaddr{Dept. of Computer Science}\\
-       \affaddr{North Carolina State U, USA}\\
-       \email{carterpape@gmail.com}
 } 
 \maketitle
 \begin{abstract}
@@ -119,7 +108,7 @@ D.2.8 [Software Engineering]: Process metrics.
 
 \vspace{1mm}
 \noindent
-{\bf Keywords:} software processes, economics, phase delay, time to fix.
+{\bf Keywords:} software processes, economics, phase delay, cost to fix.
 
 \section{Introduction}
 In 2013-2014, 
@@ -335,11 +324,11 @@ A problem that might take a dollar to fix if you found it during requirements an
 \end{quote}
 
 \begin{figure}
- \includegraphics[width=3.3in]{beckB4.png}
+ \includegraphics[width=3.3in]{img/beckB4.png}
  \caption{Projects exhibiting phase delay. From~\cite{beck00}.}\label{fig:curve1}
  \end{figure}
 \begin{figure}
- \includegraphics[width=3.3in]{beckAFTER.png}
+ \includegraphics[width=3.3in]{img/beckAFTER.png}
  \caption{Projects without   phase delay. From~\cite{beck00}.}\label{fig:curve2}
 \end{figure}
 
@@ -459,7 +448,7 @@ Our units of analysis are:
 
 %\hspace{-0.7cm}
 \begin{center}
-\includegraphics[height=2in]{fix-phase-dist.pdf}
+\includegraphics[height=2in]{img/fix-phase-dist.pdf}
 \end{center}
 %~\\
 
@@ -473,7 +462,7 @@ Our units of analysis are:
 %\vspace{-1cm}
 %\hspace{-0.35in}
 \begin{center}
-\includegraphics[width=3in]{boehm-overlay.pdf}
+\includegraphics[width=3in]{img/boehm-overlay.pdf}
  \end{center}
 % ~\\~\\
 %~\\~\\~\\
