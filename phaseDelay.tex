@@ -57,16 +57,16 @@
 \begin{document}
 
 \conferenceinfo{ICSE}{'16 Austin, Texas}
-\title{Does Phase Delay Dramatically Increase Cost to Fix?}
+\title{Are Older Bugs More Expensive to Fix that Newer Bugs? }
 \numberofauthors{3}
 \author{
 %\alignauthor 
 Tim Menzies \\
-       \affaddr{Dept. of Computer Science}\\
-       \affaddr{North Carolina State U, USA}\\
+       \affaddr{Computer Science}\\
+       \affaddr{NC State University, USA}\\
        \email{tim.menzies@gmail.com}
 \and%alignauthor 
-William Nichols,Forest Shull \\
+William Nichols, Forest Shull \\
         \affaddr{Software Engineering Institute}\\
         \affaddr{Carnegie Mellon U, USA}\\
         \email{\{wrn,fjshull\}@sei.cmu.edu} 
@@ -93,7 +93,7 @@ Based on a sample of
  we find that this belief is  
 incorrect. Specifically: the    time  to resolve an
 issue   does {\em not} increase
-the longer the issue remains in the system.    
+the longer that issue remains in the system.    
 
 This result raises the question: how do widely-held beliefs like phase delay survive so long  without  critical reassessment?  As a community, we need to consider how (and when) we reflect on our prominent hypotheses.
 \end{abstract}
@@ -108,12 +108,21 @@ D.2.8 [Software Engineering]: Process metrics.
 
 \vspace{1mm}
 \noindent
-{\bf Keywords:} software processes, economics, phase delay, cost to fix.
+{\bf Keywords:} software economics, phase delay, cost to fix.
+
+\section{todo}
+
+four hypotheses: time = cost;
+intra project PD;
+post project PD;
+intra predicts for post
+
+comment on why post is no longer current. continuous deployment. package managers.Windows moving from service patches (which occur rarely) to continuous deployment (so there will be no windows 11... just a stream of continuous updates).   architectural incubators: big superstructures within which it is simpler and cheaper to do many small projects. e.g. aircraft carriers,  packet-stitching. mean stack (to be clear: none of the data explored in this paper comes from such architectural incubators: this paragraph is only meant to be a  speculation of future implications of this old data to newer projects). 
 
 \section{Introduction}
 In 2013-2014, 
 eleven  million programmers~\cite{pettey14} and
-half a trillion dollars~\cite{avram14} was spent on information technology.
+half a trillion dollars~\cite{avram14} were spent on information technology.
 Such a large and growing effort should be managed and optimized via  well-researched conclusions.  
 
 It is standard practice
@@ -122,31 +131,25 @@ to continually revisit old conclusions~\cite{prasad13}.
 Accordingly, this paper revisits
 the {\em phase delay effect}
 i.e.,  the rule of thumb stating that the time required to resolve an issue in a software project increases dramatically 
-the longer it remains in the system. Basili \& Boehm comment that since the 1980s,  phase delay:
-\begin{quote}
-...has been a major driver in focusing
+the longer it remains in the system. Basili \& Boehm comment that since the 1980s,  phase delay
+``...has been a major driver in focusing
 industrial software practice on thorough
 requirements analysis and design,
 on early verification and validation, and
 on up-front prototyping and simulation
-to avoid costly downstream fixes~\cite{boehm01}.
-\end{quote}
-Basili and Boehm are not alone in this assessment of the significance of the phase delay effect. Our surveys of industrial practitioners (shown in \S\ref{survey}) reveal the phase delay effect to be
+to avoid costly downstream fixes''~\cite{boehm01}.
+
+Basili and Boehm are not alone in this assessment of the significance of the phase delay effect.
+For example,
+our surveys of industrial practitioners (shown in \S\ref{survey}) reveal the phase delay effect to be
 one of the most strongly-held beliefs amongst commercial software engineers.
-Previously~\cite{me08a}, we used phase delay to justify the software practice
+Also,  previously~\cite{me08a} we used phase delay to justify the software practice
 of 
-Independent Verification \& Validation (IVV):
-\bi
-\item
-IVV has been criticized as
-ineffective. IVV engineers are external reviewers, so may be unfamiliar with the project details.
-Hence,    IVV   can find the same or fewer bugs
-as  developers.
-\item
-On the other hand,   when the IVV team finds bugs earlier than the developers then, due to the phase delay effect, this provides overall cost savings to the project. 
-\ei
-Note that this argument critically depends on the assumption that   fixing later-phase issues is  significantly more expensive than fixing them earlier (as does the views of Boehm and Basili and all the industrial practitioners
-we interviewed in \S\ref{survey}). Accordingly, in this paper, we investigate several hypotheses:
+Independent Verification \& Validation (IVV). Specifically,  when the IVV team finds bugs earlier than the developers then (due to the phase delay effect) this provides overall cost savings to the project. 
+Note that this argument critically depends on the assumption that fixing later-phase issues is  significantly more expensive than fixing them earlier (as does the views of Boehm and Basili and all the industrial practitioners
+we interviewed in \S\ref{survey}). 
+
+Accordingly, in this paper, we investigate several hypotheses related to this widely-held belief:
 \bi
     \item $H_1$: The cost to resolve issues dramatically increases across phases.
     \item $H_2$: The cost to resolve issues dramatically increases as the phase delay increases.
@@ -513,12 +516,12 @@ size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{
  80&   21&   45&   73&Design&AcceptTest &0.44 & *****  \\
  
 \\
-235&   57&  115&  177&Code&CodeReview &1.00 &  ******************  \\
-228&   56&  113&  176&Code&CodeInspect &0.99 & ******************  \\
-243&   59&  125&  206&Code&IntTest &1.08 &     *******************  \\
-191&   46&   95&  173&Code&SysTest &0.82 & ******** \\
-269&   66&  133&  206&Code&UnitTest &1.15 & ************  \\
-130&   31&   65&  122&Code&AcceptTest &0.56 & ******  \\
+235&   57&  115&  177&Code&CodeReview &1.00 &  **********  \\
+228&   56&  113&  176&Code&CodeInspect &0.99 & ********** \\
+243&   59&  125&  206&Code&IntTest &1.08 &     *********** \\
+191&   46&   95&  173&Code&SysTest &0.82 &     ******** \\
+269&   66&  133&  206&Code&UnitTest &1.15 &    ***********  \\
+130&   31&   65&  122&Code&AcceptTest &0.56 &  ******  \\
  \end{tabular}
 \end{center}
 \caption{Distribution of fix times seen in SEI TSP data. Left hand side bars
