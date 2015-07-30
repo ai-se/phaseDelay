@@ -57,7 +57,7 @@
 \begin{document}
 
 \conferenceinfo{ICSE}{'16 Austin, Texas}
-\title{Are Older Bugs More Expensive to Fix that Newer Bugs? }
+\title{Delaying Bug Fixes is a Bad Idea?}
 \numberofauthors{3}
 \author{
 %\alignauthor 
@@ -117,8 +117,56 @@ intra project PD;
 post project PD;
 intra predicts for post
 
-comment on why post is no longer current. continuous deployment. package managers.Windows moving from service patches (which occur rarely) to continuous deployment (so there will be no windows 11... just a stream of continuous updates).   architectural incubators: big superstructures within which it is simpler and cheaper to do many small projects. e.g. aircraft carriers,  packet-stitching. mean stack (to be clear: none of the data explored in this paper comes from such architectural incubators: this paragraph is only meant to be a  speculation of future implications of this old data to newer projects). 
+comment on why post is no longer current. continuous deployment. package managers.Windows moving from service patches (which occur rarely) to continuous deployment (so there will be no windows 11... just a stream of continuous updates~\cite{bright15}).   architectural incubators: big superstructures within which it is simpler and cheaper to do many small projects. e.g. aircraft carriers,  packet-stitching. mean stack (to be clear: none of the data explored in this paper comes from such architectural incubators: this paragraph is only meant to be a  speculation of future implications of this old data to newer projects). 
 
+\begin{figure}
+{\small
+\begin{center}
+\begin{tabular}{r|rrrr|r}
+& \multicolumn{4}{c}{Phase Requirements Issue Found }& ref\\
+                &Requirements & Design & Code&  Test& ref\\\hline
+ & 1& 5& 10& 50&~\cite{Boehm81}\\  
+& 1 &3& 5& 37&?\\ 
+&  1 &3& 7& 51& ?\\ 
+& 1& 5 &33 &75& ? \\
+& 1  &    & 10 & 40& ?\\ 
+& 1   &    & 10 &  40& ?\\
+&  1 & 20 & 45 & 250& ?\\  
+&  1  &   5 &      & 50& ? \\\hline
+mean             & 1 & 7.3 & 25.6 & 177\\
+median           & 1 &  5  & 10   & 50.5 
+\end{tabular}
+\end{center}}
+\caption{Sample of the Stecklein et al. literature; from~\cite{steck04}.}
+\end{figure}
+ 
+\begin{figure}
+{\small\begin{center} \begin{tabular}{r|rrr}
+& method1 & method2 & method3\\\hline
+requirements& 1& 1 & 1 \\
+design& 8 & 4 & 1\\
+build& 16 & 16 & 7\\
+test& 21 & 78 & 28\\
+operation& 29 & 186 & 1615
+\end{tabular}\end{center} }
+\caption{Results from the   Stecklein et al. study~\cite{steck04}.}
+\end{figure}
+
+Method1 linear ($R^2$ == 99\%).
+
+\begin{figure}[!t] 
+%\vspace{-1cm}
+%\hspace{-0.35in}
+\begin{center}
+\includegraphics[width=3in]{img/b81.pdf}
+ \end{center}
+% ~\\~\\
+%~\\~\\~\\
+ 
+ \caption{Cost-to-fix curve from \protect\fig{cost-to-fix} 
+ overlayed with case study from~\cite{Royce98} and TSP data. Scale is relative to the phase with the lowest cost to fix. }\label{fig:cost-to-fix-tsp}
+ \end{figure}
+ 
 \section{Introduction}
 In 2013-2014, 
 eleven  million programmers~\cite{pettey14} and
@@ -865,6 +913,22 @@ The question remains: why did this idea, with so little support, become so wides
 We believe that these results indicate that, in a rapidly changing field such as software engineering, even widely-held rules of thumb must be periodically re-verified. In turns out that common sense may not be so sensible after all.
 Progress in the domain of software analytics has made such periodic checks more cost-effective and feasible, and we argue that an examination of local behaviors (rather than simply accepting global heuristics) can be of significant benefit.
 
+\subsection{Future Work}
+There is another ``phase delay'' effect, not discussed above. Even if software is readily updatable, there   may be a ``user phase delay''   amongst   humans using that software. 
+
+Changes to  software that is used by a large population can be confusing (particularly for the sick or elderly). 
+Consider the 23,000,000 veterans working with  the U.S.  Veterans 
+Administration (VA) service. Some of those veterans are dependent on health care or pensions from the VA. Those veterans use the VA's web interfaces
+to  (e.g.) find out
+when their next cheque will arrive. Before we can update the VA web software, we would
+need to  a transition plan that helps users   move from the older to the newer system. This is an example of what might be called a ``user phase delay''; i.e. changes to software are more complex to process, particularly if some users have styled
+their day-to-day work flow around the services offered by the older software.  
+
+This issue of ``user phase delay'' is not addressed by our data, nor by the prior studies on phase delay discussed above.  Hence, this issues   is out of scope for this paper since the expectation that ``older bugs cost more to fix than newer bugs'' was not formed around 
+user issues. 
+
+That said,  
+we think that ``user phase delay'' will become a bigger issue in the future when more people are using more software as part of their day to day life. We even envision a time when users demand fewer updates, just to offer some stability in their life. This is a matter for future work.
 
  
 % \section{Related Work}
@@ -905,6 +969,8 @@ Progress in the domain of software analytics has made such periodic checks more 
 
 
 \section*{Acknowledgements}
+The authors gratefully acknowledge the careful comments of anonymous reviewers-- particularly, their comments on issues relating to ``cost''
+and ``time''.
 This work was partially funded by an National Science
 Foundation grants NSF-CISE 1302169 and CISE 1506586.
 \\
