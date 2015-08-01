@@ -3,7 +3,7 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{colortbl}
 
-
+\usepackage{times}
 \usepackage{tabularx}
 \usepackage{subcaption}
 \usepackage{picture}
@@ -57,7 +57,7 @@
 \begin{document}
 
 \conferenceinfo{ICSE}{'16 Austin, Texas}
-\title{Delaying Bug Fixes is a Bad Idea?}
+\title{Live and Let Die? (Delayed Issues   not  Harder to Resolve)}
 \numberofauthors{3}
 \author{
 %\alignauthor 
@@ -78,26 +78,31 @@ Lucas Layman \\
 } 
 \maketitle
 \begin{abstract}
-Does
-repair time increase dramatically
-the longer an issue persists in a system?
-Many industrial practitioners and academics this   to be true.
-This   belief is used to justify 
-major investments in  software development
- processes and methods.
+Many  practitioners and academics
+believe in a delayed issue effect (DIE); i.e.
+ as issues linger longer in a system,
+ they become exponentially harder to resolve.
+This belief
+is often  used to justify 
+major investments in  new development
+processes that promise to retire more issues, sooner.
 
-This
-paper reports on the largest study on phase delay yet published.
-Based on a sample of 
-171 software projects from around the world (2006 and 2014),
- we find that this belief is  
-incorrect. Specifically: the    time  to resolve an
-issue   does {\em not} increase
-the longer that issue remains in the system.    
+This paper checks for the delayed issue effect in
+171 software projects from around the world (2006 to 2014).
+To the best of our knowledge,  this is the largest study
+yet published on this effect.
+What was observed was the  exact
+opposite of the  delayed issue effect. Specifically:
+the  time  to resolve 
+issues  in one phase  was rarely more than when  issues
+were resolved at a later phase. 
 
-This result raises the question: how do widely-held beliefs like phase delay survive so long  without  critical reassessment?  As a community, we need to consider how (and when) we reflect on our prominent hypotheses.
+This  result begs the question: how many other long-held
+beliefs in software engineering are
+unsupported by current data? 
 \end{abstract}
 
+%XXXwhat it this is due to TSP- 
 % A category with the (minimum) three required fields
 \vspace{1mm}
 \noindent
@@ -109,58 +114,8 @@ D.2.8 [Software Engineering]: Process metrics.
 \vspace{1mm}
 \noindent
 {\bf Keywords:} software economics, phase delay, cost to fix.
-
-\section{todo}
-
-four hypotheses: time = cost;
-intra project PD;
-post project PD;
-intra predicts for post
-
-comment on why post is no longer current. continuous deployment. package managers.Windows moving from service patches (which occur rarely) to continuous deployment (so there will be no windows 11... just a stream of continuous updates~\cite{bright15}).   architectural incubators: big superstructures within which it is simpler and cheaper to do many small projects. e.g. aircraft carriers,  packet-stitching. mean stack (to be clear: none of the data explored in this paper comes from such architectural incubators: this paragraph is only meant to be a  speculation of future implications of this old data to newer projects). 
-
-\begin{figure}
-{\small
-\begin{center}
-\begin{tabular}{r|rrrr|r}
-& \multicolumn{4}{c}{Phase Requirements Issue Found }& ref\\
-                &Requirements & Design & Code&  Test& ref\\\hline
- & 1& 6& 10& 70&~\cite{Boehm81}\\  
-& 1 &3& 5& 37&?\\ 
-&  1 &3& 7& 51& ?\\ 
-& 1& 5 &33 &75& ? \\
-& 1  &    & 10 & 40& ?\\ 
-& 1   &    & 10 &  40& ?\\
-&  1 & 20 & 45 & 250& ?\\  
-&  1  &   5 &      & 50& ? \\\hline
-mean             & 1 & 7.3 & 25.6 & 177\\
-median           & 1 &  5  & 10   & 50.5 
-\end{tabular}
-\end{center}}
-\caption{Sample of the Stecklein et al. literature; from~\cite{steck04}.}
-\end{figure}
  
-\begin{figure}
-{\small\begin{center} \begin{tabular}{r|rrr}
-& method1 & method2 & method3\\\hline
-requirements& 1& 1 & 1 \\
-design& 8 & 4 & 1\\
-build& 16 & 16 & 7\\
-test& 21 & 78 & 28\\
-operation& 29 & 186 & 1615
-\end{tabular}\end{center} }
-\caption{Results from the   Stecklein et al. study~\cite{steck04}.}
-\end{figure}
 
-Method1 linear ($R^2$ == 99\%).
-
-\begin{figure}[!t]  
-\begin{center}
-\includegraphics[angle=270,width=3.5in]{img/b81.pdf}
- \end{center}
- \caption{From Boehm~\cite{Boehm81}. }\label{fig:cost-to-fix-tsp}
- \end{figure}
- 
 \section{Introduction}
 In 2013-2014, 
 eleven  million programmers~\cite{pettey14} and
@@ -171,211 +126,41 @@ It is standard practice
 in other fields such as medicine,
 to continually revisit old conclusions~\cite{prasad13}.
 Accordingly, this paper revisits
-the {\em phase delay effect}
-i.e.,  the rule of thumb stating that the time required to resolve an issue in a software project increases dramatically 
-the longer it remains in the system. Basili \& Boehm comment that since the 1980s,  phase delay
+the widely-held belief of a {\em delayed issue effect} (hereafter, DIE).
+Later in this paper, we offer a precise definition for this effect.
+For the moment, we describe it as follows:
+it is far easier to resolve issues earlier than later in the lifecycle.
+ \fig{b81} shows an example of the delayed issue effect (relating
+ the relative cost of fixing requirements issues at different phases of a project).
+ 
+ Basili \& Boehm comment that since the 1980s,  this effect
+ \begin{quote}
 ``...has been a major driver in focusing
 industrial software practice on thorough
 requirements analysis and design,
 on early verification and validation, and
 on up-front prototyping and simulation
 to avoid costly downstream fixes''~\cite{boehm01}.
-
-Basili and Boehm are not alone in this assessment of the significance of the phase delay effect.
-For example,
-our surveys of industrial practitioners (shown in \S\ref{survey}) reveal the phase delay effect to be
-one of the most strongly-held beliefs amongst commercial software engineers.
-Also,  previously~\cite{me08a} we used phase delay to justify the software practice
-of 
-Independent Verification \& Validation (IVV). Specifically,  when the IVV team finds bugs earlier than the developers then (due to the phase delay effect) this provides overall cost savings to the project. 
-Note that this argument critically depends on the assumption that fixing later-phase issues is  significantly more expensive than fixing them earlier (as does the views of Boehm and Basili and all the industrial practitioners
-we interviewed in \S\ref{survey}). 
-
-Accordingly, in this paper, we investigate several hypotheses related to this widely-held belief:
-\bi
-    \item $H_1$: The cost to resolve issues dramatically increases across phases.
-    \item $H_2$: The cost to resolve issues dramatically increases as the phase delay increases.
-\ei
-As we explored the above, we found a related hypothesis was believed by both professional software engineers and some academics:
-\bi
- \item $H_3$: Requirements errors are the most expensive to fix.
-\ei
-The rest of the paper investigates these  hypotheses. First, we conduct a survey of practitioners and researchers to gauge their belief in the phase delay effect. Second, we  analyze 171 software  projects developed in the period 2006 to 2014.  
-
-% The conclusions of this paper is that it is erroneous to believe in phase delay.
-% When we looked for supporting evidence for that effect, we found that:
-% \be 
-% \item The evidence for that effect in the historical literature is very weak (to say the least);
-% \item  In  a large sample of   contemporary software projects, there is no evidence for phase delay.
-%  \ee
-% The rest of this paper present evidence for the above two points. 
-% The first point is  documented via  a literature survey and the second point is demonstrated
-% via an analysis of  
-
-The conclusions of this paper are two fold. First, the phase delay effect does not hold in the large body of software projects analyzed. Second, commonly-held beliefs, such as phase delay, must be periodically revisited empirically in order for researchers to provide accurate and up-to-date guidance for the practitioner community.
-
-% the SE community needs to stop
-% justifying changes to SE
-% practices via the phase delay effect. Secondly,   myths like phase delay should not have lasted decades
-% in the literature without  critical reassessment.  As a community, we need to reflect more on our
-% research practices and on how (and when) we reflect and revisit the prominent hypotheses of our field.
-
-The core of this paper's arguments are two figures: Figure~\ref{fig:fix-phase-dist} and  \fig{raw}.
-Lest the reader find this too little  to justify our conclusions, we note that it took months
-of work to distill this data from our 171 projects, after which the five authors spent weeks
-exploring and debating the nuances. To the best of our knowledge, this is the largest study on phase delay yet published (and it contains data from orders of magnitude
-more projects than used in prior work~\cite{Fagan76,Boehm76,Daly77,Stephenson76,Shull02,Royce98,Clutterbuck09,Elssamadisy02}).
-To ensure reproducibility and unlike previous work,
-all the data  used in this study is available in the PROMISE
-repository (openscience.us/repo).
-
-\section{Motivation}
-\subsection{Why Reassess Existing Truisms?}
-
-Before exploring the commonly-held belief of the {\em phase delay effect}, we digress to discuss the merits of revisiting
-old conclusions in software engineering.
-
-
-Belief in general
-principles of software
-engineering are common to both research and practice. Professional societies assume such generalities exist when they offer
- lists of supposedly general ``best practices'' such as
-the IEEE 1012 standard for software verification~\cite{1012}.  Endres \& Rombach's comment that 
+\end{quote}
+ \begin{figure}[!b]  
+\begin{center}
+\includegraphics[angle=270,width=3in]{img/b81.pdf}
+ \end{center}
+ \caption{An example DIE effect. From Boehm'81~\cite{Boehm81}. }\label{fig:b81}
+ \end{figure}
+Other prominent authors have commented on its perceived usefulness as a rule of thumb for software engineers.  McConnell mentions it as a "common observation" in the field and  summarizes the intuitive argument for why it should be so: 
 \begin{quote}
-Based on repeated and consistent observations, key lessons of these fields can now be formulated into rules or even laws, providing initial building blocks towards a theoretical foundation that is essential for further research, for teaching and for the practice of software development~\cite{endres03,rombach11}
+''A small mistake in upstream work can affect large amounts of downstream work. A change to a single sentence in a requirements specification can imply changes in hundreds of lines of code spread across numerous classes or modules, dozens of test cases, and numerous pages of end-user documentation''~\cite{mcconnell01}. 
 \end{quote}
- Endres \& Rombach offer dozens of lessons of software engineering~\cite{rombach11}.
- Many other 
-widely-cited researchers  do the same; e.g.
-Glass~\cite{glass02}; Jones~\cite{jones07}; Boehm~\cite{boehm00b}.
-Budgen \& Kitchenham seek to reorganize SE research using
-general
-conclusions drawn from a larger number of studies~\cite{kitch04,budgen09}.
-Nevertheless, there are many empirical  findings that 
-cast doubt on the existence of  ``key lessons  that can be formulated
-as general laws of SE'':
-\bi
-\item
-Turhan~\cite{me12d} lists 28 studies with contradictory conclusions
-on the relation of OO measures to defects.  Those results
- directly  contradict some of the laws listed by 
-Endres \& Rombach~\cite{endres03}.
-
-\item
-Ray et al.~\cite{ray2014lang} tested if   strongly typed languages
-predict for better code quality. In  728 projects,
-they found  only a modest benefit in strong typing
-(and caution that that effect may actually be due to other  conflating factors).
-\item
-Fenton \& Neil~\cite{fenton00,fenton00b}   critique the truism that
-``pre-release fault rates for software
-are a predictor for post-release failures'' (as claimed by~\cite{dunsmore88},
-amongst others). For the systems described in~\cite{fenton97}, they
-show that software modules that were highly fault-prone
-prior to release revealed very few faults after release.
-\item
-Meyer claims that   object-oriented (OO) encapsulation will
-reduce error rates in software~\cite{Meyer1988}.  Yet empirical results suggest
-that debugging an OO program is many times harder and
-longer than debugging a standard procedural program~\cite{hatton98}.
-\item A truism of visual programming is that ``visual
-representations are inherently superior to mere textual representations''. A review by Menzies suggests that the available
-evidence for this claim is hardly conclusive~\cite{me00v}. 
-\item Numerous recent {\em local learning} results compare single models
-learned from all available data to multiple models learned from clusters within the data~\cite{betten14,yang11,yang13,minku13,me12d,me11m,betta12,posnett11}.
-A repeated result in those studies in that the local models generated the better effort
-and defect predictions (better median results,
-lower variance in the predictions).
-% \item 
-% Other work studies  found dozens of single
-% models that performed worse that {\em committees of models}, all with % different opinions,
-% that contribute to an {\em ensemble} prediction of software 
-% development effort~\cite{kocaguneli2012value,azhar13}.
-\ei
-%To be fair to the software engineering community,
-Software engineering is not the only
-field where practitioners hang on to persistent beliefs, even if the evidence
-for those beliefs is not strong.
-The medical profession applies  many practices based on studies
-that have been disproved. For example,
-a  recent article
-in the Mayo Clinic Proceedings~\cite{prasad13} found  
-146 medical practices based on studies 
-in year $i$, but which were  reversed by subsequent trials within years $i+10$.
-Even when the evidence for or against a treatment or intervention is clear, medical providers and patients may not accept it~\cite{aschwanden10}.
-Aschwanden warns:
-\begin{quote}
-Cognitive biases - such as motivated reasoning (all of us want to believe that the things we do make a difference), base rate neglect (failing to pay attention to what happens in the absence of the intervention), and confirmation bias (the tendency to look for evidence that supports what you already know and to ignore the rest) - also influence how we process information~\cite{aschwanden15}.
-\end{quote}
-
-The cognitive issues that complicate medicine are also found in software engineering.
-According to Passos et al.~\cite{passos11}, commercial developers
-are all too willing to believe in general
-truisms.
-They  warn that developers
-usually assume that the truisms they learn from a few past
-projects are general to 
-all their future projects:
-\begin{quote}\label{q:pass}
-...the past experiences were taken into account without 
-much consideration for their context~\cite{passos11}.  
-\end{quote}
-The results of J{\o}rgensen \& Gruschke~\cite{jorgensen09} concur with Passos et al. They report that 
-  supposed software engineering    ``experts'' rarely use lessons
-  from past projects to improve their future reasoning~\cite{jorgensen09}. 
- They note that
-when the experts
-  fail to revise their beliefs, this leads to poor
- conclusions and software projects  (see examples in~\cite{jorgensen09}).
-%% This leads to  detrimental
-%% situations where groups or 
-%% individuals working on the same project have conflicting beliefs, which they never debate
-%or refine or unify.
-
-In summary, just like medicine, our field suffers when
- software engineers do  not revise old beliefs.  Therefore, it is important
- to regularly  reexamine    old beliefs.
- 
-\subsection{Why Study Phase Delay?}
-\label{sec:why-study}
-%\todo{\begin{itemize}
-%\item Given the Intro and Motivation, this section should focus on the influence of phase delay in software engineering milieux
-%\item Need to tone down the reliance on Beck. The important Beck point is that eliminating the cost-to-fix curve (resulting from phase delay) is one of the main goals of agile. His observations on new technologies are good too.
-%\item Need to cite other popular sources of this information, e.g., McConnell's "Ounce of Prevention" article~\cite{mcconnell01}.
-%\item Robert Glass's~\cite{glass02} book is very popular and contains an entry on this point
-%\item Google Scholar Citations for phase delay works Boehm88~\cite{boehm88} (673), Boehm \& Basili~\cite{boehm01} (761), 
-%\end{itemize}}
-
-This paper examines evidence for the phase delay effect due to its prominence throughout the field of software engineering. Many prominent authors have commented on its perceived usefulness as a rule of thumb for software engineers. For example, in 2001, Steve McConnell mentioned it as a "common observation" in the field and proceeded to knock down arguments that it no longer held for contemporaneous software projects, by relying on recently published data and experience. McConnell also summarized the intuitive argument for why it should be so: ``A small mistake in upstream work can affect large amounts of downstream work. A change to a single sentence in a requirements specification can imply changes in hundreds of lines of code spread across numerous classes or modules, dozens of test cases, and numerous pages of end-user documentation''~\cite{mcconnell01} Glass echoes this sentiment, stating the the fact ``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' is ``really just common sense''~\cite{glass02}. 
-
-Also in 2001, the phase delay effect was listed as number one by Boehm and Basili in their "Top 10 list" of "objective and quantitative data, relationships,
+Glass also endorses this effect, asserting that``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' is ``really just common sense''~\cite{glass02}.  Other researchers
+are just as adamant in asserting that that the delayed issue effect is a proven
+fact.
+For example, what we call the delayed issued effect was listed as number one by Boehm and Basili in their "Top 10 list" of ``objective and quantitative data, relationships,
 and predictive models that help
 software developers avoid predictable pitfalls
 and improve their ability to predict
-and control efficient software projects." \cite{boehm01}
-
-More important than its use as a rule of thumb, the phase delay effect has 
-been used for decades to motivate major changes to software engineering practices (as mentioned in Section 1). For example,
-in 2000, Kent Beck used phase delay to motivate his call for ``extreme programming'' (a set of techniques
-that evolved into contemporary agile and DevOps practices). Beck writes:
-\begin{quote}
-One of the universal assumptions of software engineering is that the cost of changing a program rises exponentially over time. I can remember sitting in a big linoleum-floored classroom as a college junior and seeing the professor draw on the board the curve found in \fig{curve1}... 
-%
-%The cost to fix a problem in a piece of software rises exponentially over time. 
-A problem that might take a dollar to fix if you found it during requirements analysis might costs thousands to fix once the software is in production.
-%
-%I resolved then and there that I would never let a problem get through to production. No sirree, I was going to catch problems as soon as possible. I would work out every possible problem in advance. I would review and crosscheck my code. No way was I going to cost my employer \$100,000.~
-\cite{beck00}
-\end{quote}
-
-\begin{figure}
- \includegraphics[width=3.3in]{img/beckB4.png}
- \caption{Projects exhibiting phase delay. From~\cite{beck00}.}\label{fig:curve1}
- \end{figure}
-\begin{figure}
- \includegraphics[width=3.3in]{img/beckAFTER.png}
- \caption{Projects without   phase delay. From~\cite{beck00}.}\label{fig:curve2}
-\end{figure}
+and control efficient software projects''~\cite{boehm01}.
+ 
 
 % \begin{figure}[!t]
 % \scriptsize
@@ -409,39 +194,236 @@ A problem that might take a dollar to fix if you found it during requirements an
 %  \caption{Projects data consistent with
 %  the phase delay effect of \fig{curve2}.}\label{fig:curve2a}
 % \end{figure}
+This paper calls into question all the above claims about the delayed
+issue effect. We suggest that the delayed issue effect might have been an dominant
+effect decades ago,  but {\em not}  for $21^{\mathit{st}}$
+software development. 
+ The delayed issue effect was first reported in 1981 in a era of punch card programming
+and non-interactive environments~\cite{Boehm81}. In the 21$^\mathit{st}$} century, we  program in 
+interactive environments with higher-level languages and better source code control
+tools. Such tools allow for the faster refactoring of existing
+code-- in which case, 
+managing the changes required to fix (say) an incorrect requirements assumption
+is far less    onerous    than before.
+
+Also, we note that our development practices have changed in ways that could   mitigate the delayed issued effect.  Previously,
+software was large monolithic systems that were write once and maintain
+forever. Today, there are more architectures that
+support  extensive and faster changes to software. 
+For example, consider the MEAN stack preferred for web development by
+the continuous deployment community. Older architectures for web development
+often used some variant of LAMP (Linux+ Appache+ Mysql+ Php) that was an intricate
+combination of tools written in different languages. MEAN stacks, on the other hand,
+use Javscript throughout-- which makes large scale reorganizations faster to complete~\cite{wayner15}.
+For another example where organizations are adopting increased development flexability, 
+Microsoft is adjusting its development practices towards a continuous
+release paradigm. Theisen et al. reports their experiences where Microsoft architects
+continually adjust  their modules in response to security issues~\cite{theisen15}.
+Also,
+upgrades to their Windows operating system is moving from service patches (which occur rarely) to continuous deployment (so there will be no Windows 11- just a stream of continuous updates to what is currently called Windows 10~\cite{bright15}).
+
+Other large development shops are similarly reorganizing their work-- witness the US Department of Defense's 2010 mandate
+that all new software acquisitions must adopt agile methods~\cite{kim13}. 
+This change in DoD policy arises from a separation of baseline architecture
+(e.g. the design of an 
+aircraft carrier) and the development of applications within that architecture.
+For the baseline architecture, bad decisions
+made  early in the life cycle may be too expensive to change.
+But at least at the DoD, the majority of software development occurs within
+the framework of some larger architecture (e.g. an aircraft carrier).
+These smaller projects can certainly lever the agile advantage, while 
+using fast refactoring tools that mitigate against  the delayed issue effect.
+
+
+In summary, there exists (1)~historical reasons for believing in the delayed issued
+effect as well as (2)~reasons to believe that that effect may not longer hold.
+Hence, the rest of this article explores the currency of the delayed issue effect.
+After some initial definitions for terminology and hypotheses, we discuss the
+value of checking old ideas. Next, we offer a  survey of industrial practitioners and researchers to show that this the negative impact of issue delay is the very prominent
+concern in thos communities (in fact, amongst industrial practitioners, it is their number one concern).   Next, we  analyze 171 software  projects developed in the period 2006 to 2014 to find  {\em no evidence} of the delayed issue effect
+(note that, to ensure reproducibility,
+all the data  used in this study is available in the PROMISE
+repository at openscience.us/repo). Finally, we discuss the validity and implications of our results.
  
-Beck speculated that there might be another kind of project, shown in \fig{curve2},
-that does not exhibit phase delay. In fact, for Beck, the possibility that phase delay does not imply exponential increases in the resources required to make changes and fix defects is {\em the} major
-motivation for his work, because it means that decisions can be made as late in the process as possible, so as to increase the chances that these decisions would be right. Beck found more than adequate motivation for this new assumption:
-%\begin{quote}
-%This (\fig{curve2}) is one of the premises of (agile). It is the technical premise of (agile). If the cost of change rose slowly over time, you would act completely differently from how you do under the assumption that costs rise exponentially. You would make big decisions as late in the process as possible, to defer the cost of making the decisions and to have the greatest possible chance that they would be right. You would only implement what you had to, in hopes that the needs you anticipate for tomorrow wouldn't come true. You would introduce elements to the design only as they simplified existing code or made writing the next bit of code simpler.~\cite{beck00}
-%\end{quote}
-%Beck makes one other comment that is relevant to this paper: 
-\begin{quote}
-The software development community has spent enormous resources in recent decades trying to reduce the cost of change-better languages, better database technology, better programming practices, better environments and tools, new notations.
+\section{Definitions \& Hypotheses}
+This paper uses the following definitions:
+\bi
+\item
+{\em Delayed issue effect}:   it is {\em exponentially}  more {\em difficult} to resolve an issue in a software project, the {\em longer} it remains.
+\item
+ {\em Longer} time is defined as per  Boehm'81~\cite{Boehm81}; i.e. the gap between the   phases where   issues are introduced and resolved.
+\item
+A measure collected in phase ${1,.,i,..j}$ is 
+{\em exponential} when  that
+   measure at phase $j$   
+   is larger than the sum of that measure in 
+earlier phases $1 \le i < j$. 
+\item
+Issues are more {\em difficult}  
+when their resolution takes more time or costs more  (e.g. needs expensive
+debugging tools or the skills of expensive developers).
+\ei
+This paper explores the  following hypotheses.
+\subsubsection*{H1: DIE is a current and widely-held belief}
+ 
+Using a literature review, we can confirm that there are numerous historical papers (dating back decades)
+that endorse DIE. Also, using a survey conducted from this paper, we find  that 
+  DIE  appears up as the
+single most strongly-held beliefs amongst commercial software engineers.
 
-What would we do if all that investment paid off? What if all that work on languages and databases and whatnot actually got somewhere? What if the cost of change didn't rise exponentially over time?~\cite{beck00}
-\end{quote}
-The results of this paper are that, in our sample of hundreds of projects, there is no evidence for phase delay.
-This result is   consistent with Beck being correct: all that work on    languages and databases
-have paid off and, hence, modern software projects do not suffer from the  phase delay effect.  
+\subsubsection*{H2: DIE is a poorly documented effect}
+ 
+As discussed in our literature review,  many of the papers reporting the DIE
+effect are either:
+\bi
+\item
+Quite old (dating from last century);
+\item
+Just quote prior papers without presenting   new data; 
+\item
+Or cite data sources that can no longer be
+confirmed.
+\ei
 
-That said,  the phase delay myth persists. Hence, this paper.
+\subsubsection*{H3: During development, issues   exhibit a DIE effect}
+While this paper  endorse the above hypotheses, we will argue against this
+third hypothesis. In our sample of 
+ 171 software  projects developed, we will show
+{\em no evidence}  that, during development, issues were exponentially harder to resolve the longer they were left
+ in the software. 
+ 
 
+
+ 
+
+
+% the SE community needs to stop
+% justifying changes to SE
+% practices via the phase delay effect. Secondly,   myths like phase delay should not have lasted decades
+% in the literature without  critical reassessment.  As a community, we need to reflect more on our
+% research practices and on how (and when) we reflect and revisit the prominent hypotheses of our field.
+  
+
+
+
+\section{ But Why Reassess Old Truisms?}
+
+Before going any furhter,  we digress to discuss the merits of revisiting
+old conclusions in software engineering.
+
+
+Beliefs in general
+principles of software
+engineering are common to both research and practice. Professional societies assume such generalities exist when they offer
+ lists of supposedly general ``best practices'' such as
+the IEEE 1012 standard for software verification~\cite{1012}. 
+ Endres \& Rombach offer dozens of lessons of software engineering~\cite{endres03}.
+ Many other 
+widely-cited researchers  do the same; e.g.
+Glass~\cite{glass02}; Jones~\cite{jones07}; Boehm~\cite{boehm00b}.
+Budgen \& Kitchenham seek to reorganize SE research using
+general
+conclusions drawn from a larger number of studies~\cite{kitch04,budgen09}.
+
+That said, there are many empirical  findings that 
+raise doubts that   general laws of SE even exist:
+\be
+\item
+Turhan~\cite{me12d} lists 28 studies with contradictory conclusions
+on the relation of OO measures to defects.  Those results
+ directly  contradict some of the laws listed by 
+Endres \& Rombach~\cite{endres03}.
+\item
+Ray et al.~\cite{ray2014lang} tested if   strongly typed languages
+predict for better code quality. In  728 projects,
+they found  only a modest benefit in strong typing
+(and caution that that effect may actually be due to other  conflating factors).
+\item
+Fenton \& Neil~\cite{fenton00,fenton00b}   critique the truism that
+``pre-release fault rates for software
+are a predictor for post-release failures'' (as claimed by~\cite{dunsmore88},
+amongst others). For the systems described in~\cite{fenton97}, they
+show that software modules that were highly fault-prone
+prior to release revealed very few faults after release.
+\item
+Meyer claims that   object-oriented (OO) encapsulation will
+reduce error rates in software~\cite{Meyer1988}.  Yet empirical results suggest
+that debugging an OO program is many times harder and
+longer than debugging a standard procedural program~\cite{hatton98}.
+\item
+A truism of visual programming is that ``visual
+representations are inherently superior to mere textual representations''. A review by Menzies suggests that the available
+evidence for this claim is hardly conclusive~\cite{me00v}. 
+\item
+Numerous recent {\em local learning} results compare single models
+learned from all available data to multiple models learned from clusters within the data~\cite{betten14,yang11,yang13,minku13,me12d,me11m,betta12,posnett11}.
+A repeated result in those studies in that the local models generated the better effort
+and defect predictions (better median results,
+lower variance in the predictions).
+\ee
+% \item 
+% Other work studies  found dozens of single
+% models that performed worse that {\em committees of models}, all with % different opinions,
+% that contribute to an {\em ensemble} prediction of software 
+% development effort~\cite{kocaguneli2012value,azhar13}.
+To be fair, 
+SE is  not the only
+field where practitioners hang on to persistent beliefs, even if the evidence
+for those beliefs is not strong.
+The medical profession applies  many practices based on studies
+that have been disproved. For example,
+a  recent article
+in the Mayo Clinic Proceedings~\cite{prasad13} found  
+146 medical practices based on studies 
+in year $i$, but which were  reversed by subsequent trials within years $i+10$.
+Even when the evidence for or against a treatment or intervention is clear, medical providers and patients may not accept it~\cite{aschwanden10}.
+Aschwanden warns that ``congitive biases''  such as  confirmation bias (the tendency to look for evidence that supports what you already know and to ignore the rest)  influence how we process information~\cite{aschwanden15}.
+
+The cognitive issues that complicate medicine are also found in software engineering.
+According to Passos et al.~\cite{passos11}, commercial developers
+are all too willing to believe in general
+truisms.
+They  warn that developers
+usually assume that the truisms they learn from a few past
+projects are general to 
+all their future projects. They comment ``past experiences were taken into account without 
+much consideration for their context~\cite{passos11}.  
+The results of J{\o}rgensen \& Gruschke~\cite{jorgensen09} concur with Passos et al. They report that 
+  supposed software engineering    ``experts'' rarely use lessons
+  from past projects to improve their future reasoning~\cite{jorgensen09}. 
+ They note that
+when the experts
+  fail to revise their beliefs, this leads to poor
+ conclusions and software projects  (see examples in~\cite{jorgensen09}).
+%% This leads to  detrimental
+%% situations where groups or 
+%% individuals working on the same project have conflicting beliefs, which they never debate
+%or refine or unify.
+
+In summary, just like medicine, our field suffers when
+ software engineers do  not revise old beliefs.  Therefore, it is important
+ to regularly  reexamine    old beliefs such as the delayed issue effect.
+  
+%\todo{\begin{itemize}
+%\item Given the Intro and Motivation, this section should focus on the influence of phase delay in software engineering milieux
+%\item Need to tone down the reliance on Beck. The important Beck point is that eliminating the cost-to-fix curve (resulting from phase delay) is one of the main goals of agile. His observations on new technologies are good too.
+%\item Need to cite other popular sources of this information, e.g., McConnell's "Ounce of Prevention" article~\cite{mcconnell01}.
+%\item Robert Glass's~\cite{glass02} book is very popular and contains an entry on this point
+%\item Google Scholar Citations for phase delay works Boehm88~\cite{boehm88} (673), Boehm \& Basili~\cite{boehm01} (761), 
+%\end{itemize}}
+ 
 %XXX clumsy link here
 %That said, where our results
 %diverge from Beck is that we have observed this lack of phase delay in  projects that are not agile. Those
 %projects are described below.
  
-
-\subsection{Survey:  Phase Delay and Cost-to-fix Belief}\label{survey} 
-Yet another reason to study the phase delay effect is that it is a dominant belief in industrial SE.
-To test whether this was indeed true, we conducted a survey of software engineers. If our surveyed practitioners make management decisions based on their
+\section{H1: DIE is a current and widely-held belief}
+To assess the prevalence of the delayed issue effect,   conducted a survey of software engineers. If our surveyed practitioners make management decisions based on their
 understanding of SE theory, then the phase delay effect may well influence their judgment.
 
 \input{lucas}
 
-\section{Related Work}
+\section{H2: DIE is a poorly documented effect}
  
 
 \input{lucasRelatedWork}
@@ -799,6 +781,41 @@ Based on the above, we reject   $H_3$.
  
 
 \section{Validity} 
+
+
+\subsubsection*{H4: A post-development DIE effect can be predicted from pre-deployment data} 
+The data collected from our 171 projects     pertains only to
+development, and not to subsequent operations.
+So did we miss the DIE effect in our data since
+our data collection is just not prolonged enough to detect that effect?
+
+We would argue that this is not the case.
+An  exponential DIE effect can be seen {\em during the development} of all
+the papers we have reviewed. For example:
+\bi
+\item In \fig{b81}: see the data relating to development and acceptance testing;
+\item In  all the case studies of \fig{steck04} in the columns {\em Requirements} to {\em Test}.
+\ei
+That is, in the literature we have surveyed, the post-development DIE effect would have been predicted by data collected during pre-deployment development.
+Such 
+
+Another surprise was a lack of {\em growth trend} suggesting that, in operation,
+ we should expect larger exponential delays in resolving issues. This is odd since all
+ the papers we could access on DIE should such a growth trend in the pre-operational data.
+  
+
+
+
+\subsubsection*{H5: ``Time'' to resolve an issue is analogous to ``cost''}
+This hypothesis a somewhat technical point needed for our argument.
+While classical papers on the delayed issue effect discuss the {\em cost}
+of delaying issues, the data from our 171 projects only has time data.
+Hence, to say that our data addresses the classic delayed issue effect,
+we need to make the case that our time measurements are an appropriate
+surrogate for the prior claims on the cost of delaying issues.
+
+
+
 We report validity concerns following the guidelines of Runeson \& H\"{o}st~\cite{runeson09}.
 
 \subsection{Construct validity}
@@ -1046,3 +1063,30 @@ Personal Software Process$\textsuperscript{SM}$, Team Software Process$\textsupe
 % \end{center}
 % \caption{This paper studies 47,228 issues recorded 2006 to 2014.}\label{fig:years}
 % \end{figure}
+
+
+
+ 
+\begin{figure}
+{\small\begin{center} \begin{tabular}{r|rrr}
+& method1 & method2 & method3\\\hline
+requirements& 1& 1 & 1 \\
+design& 8 & 4 & 1\\
+build& 16 & 16 & 7\\
+test& 21 & 78 & 28\\
+operation& 29 & 186 & 1615
+\end{tabular}\end{center} }
+\caption{Results from the   Stecklein et al. study~\cite{steck04}.}
+\end{figure}
+
+Method1 linear ($R^2$ == 99\%).
+
+
+
+In the above definitions, 
+we  defined DIE in terms of ``difficulty'' to resolve  an issue as an umbrella term 
+including either ``more costly''
+or ``takes longer time''.  This hypothesis will be important for our analysis since (a)~the historical
+arguments for DIE (e.g.~\cite{Boehm81}) are expressed in terms of ``cost to resolve'' while (b)~the data available
+to this study is only available as ``time to resolve''. In the general case, it is not true that ``time'' predicts for ``cost''
+(measuring merely ``time'' ignores the hourly rate of the developers invloved or the cost of the hardware/software used for that resolution.
