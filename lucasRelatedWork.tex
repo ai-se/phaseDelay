@@ -17,10 +17,11 @@ a difficult task).
 
 This was a common theme in the literature reviewed for this paper-- i.e.  that  it was no longer possible to access
 the data used to make prior conclusions.
-As an example of this, \fig{steck} shows one 2004 survey that reports an exponential delayed issue  effect for 
-requirements issues in eight case studies. The right-hand-side of that column shows which of those referenced studies
-we can still access-- and a ``?'' denotes a references from a broken url link (note that most
-of those links are broken). Note that nearly all of that data is now no longer accessible.
+As an example of this, \fig{steck} shows one 2004 survey that reports an 
+exponential delayed issue  effect for 
+requirements issues in eight case studies. Note that we cannot verify
+{\em any} of those results since the links in the references of
+that  survey are all broken (``page not foind'' errors).
 
 
 As to the research into agile methods, one goal of that approach
@@ -35,28 +36,24 @@ exact figures.
  \begin{figure}
 {\small
 \begin{center}
-\begin{tabular}{r|rrrr|c}
- case& \multicolumn{4}{c|}{Phase Requirements Issue Found }&  \\
- study               &Requirements & Design & Code&  Test& source\\\hline
-1 & 1& 6& 10& 70&~\cite{Boehm81}\\  
-2& 1 &3& 5& 37&?\\ 
-3&  1 &3& 7& 51& ?\\ 
-4& 1& 5 &33 &75& ? \\
-5& 1  &    & 10 & 40& ?\\ 
-6& 1   &    & 10 &  40& ?\\
-7&  1 & 20 & 45 & 250& ?\\  
-8&  1  &   5 &      & 50& ? \\\hline
-median           & 1 &  5  & 10   & 50.5 
+\begin{tabular}{r|rrrr}
+ case& \multicolumn{4}{c}{Phase Requirements Issue Found }  \\
+ study               &Requirements & Design & Code&  Test\\\hline
+1& 1 &3& 5& 37\\  
+2& 1  &    & 10 & 40 \\ 
+3& 1   &    & 10 &  40 \\
+4&  1  &   5 &      & 50  \\
+5&  1 &3& 7& 51 \\
+6& 1& 5 &33 &75  \\
+7&  1 & 20 & 45 & 250 \\  
 \end{tabular}
 \end{center}}
 \caption{Sample of the Stecklein et al. literature review~\cite{steck04}:
-cost to resolve requirements issues, relative to resolving issues during requirements.
-Question marks ``?'' denotes a reference to
-a result that is not longer accessible (i.e. a broken URL link).}\label{fig:steck}
+cost to resolve requirements issues, relative to resolving  during requirements.}\label{fig:steck}
 \end{figure}
 
 
-\begin{figure}[!b]
+\begin{figure}[!t]
  \includegraphics[width=3in]{img/clutterbuck.png} 
  \caption{Cost of change from an agile case study. From~\cite{Clutterbuck09}.}\label{fig:clutterbuck}
  \end{figure}
@@ -64,19 +61,31 @@ a result that is not longer accessible (i.e. a broken URL link).}\label{fig:stec
  
  
  All in all, the empirical results of this section seem insufficient to justify
- the widely-held beliefs documented in the previous section. Adding to our doubts
- was the discovery of at least two studies that report less-than exponential
+ the  beliefs documented in the previous section. Adding to our doubts
+ was the discovery of   several studies that report less-than exponential
  increase in the difficulties associated with making the changes associated with delayed
  issues. For example,
 Clutterbuck et al.~\cite{Clutterbuck09} studied 5-month effort by a small-to-medium enterprise team developing a 71KLOEC web interface to a database application to implement 18 change requests-- see Figure~\ref{fig:clutterbuck} (note that these were for new and changed user requirements, not defects). Clutterbuck et al. found the cost of change to be relatively flat until the later phases, with much of the effort spent in analysis of the change requests~\cite{Clutterbuck09}. Note that in this study, the effort increased by only 60\% (see the start and end of the curve in Figure~\ref{fig:clutterbuck}).
 
 
 
-\begin{figure}
- \includegraphics[width=3.3in]{img/Royce98.png}
- \caption{Exception to the rule - CCPDS-R case study cost-to-fix curve. From~\cite{Royce98}.}\label{fig:royce}
- \end{figure}
+
  
 Another example of less-than exponential explosion in the difficulty associated with delayed issues comes from the  CCPDS-R
 system described by Royce~\cite{Royce98}. This was a million-line, safety-critical missile defense system show in Figure~\ref{fig:royce}. In this project, design changes (including architecture changes) required approximately twice the effort of implementation and test changes, and the cost-to-fix in implementation and test phases increased slowly. Boehm~\cite{Boehm10} attributes this success to the CCPDS-R development process, which focused on removing architecture risk early in the development lifecycle.
  
+ Other examples, where research papers report non-exponential changes in the difficuty in resoloving issues
+are:
+  \bi
+  \item
+  Boehm~\cite{Boehm80} reported a flatter growth rate for small, non-critical projects.
+   \item 
+  Data from NASA's Johnson Space Flight Center, reported by Shull~\cite{Shull02}, found that the cost to find certain non-critical classes of defects was fairly constant across lifecycle phases (1.2 hours on average early in the project, versus 1.5 hours late in the project). 
+   
+\ei
+
+
+\begin{figure}
+ \includegraphics[width=3.3in]{img/Royce98.png}
+ \caption{Exception to the rule - CCPDS-R case study cost-to-fix curve. From~\cite{Royce98}.}\label{fig:royce}
+ \end{figure}

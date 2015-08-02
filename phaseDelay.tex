@@ -270,7 +270,7 @@ early in the system can cascade into huge problems later in the lifecycle.
 That said, we prefer our more general term ``delayed issue effect'' since not
 only might requirements errors cascade, so too might analysis errors, design errors, etc.
 
-One technical aside: there are several ways to  measure {\em difficulty}. The first is a direct measure of the actual work time spent in correcting the defect in the product. Direct measurement enables analysis of the variability the cost-to-fix among a category of defects. The second approach measures the total time spent in a defect removal phase and divides by the total defects removed. This provides an average cost-to-fix including overhead of that activity. For example, a code inspection may require an hour of effort to remove three defects for a 3 defects per hour or to invert the ratio, 1/3 hours per defect. One observation made by Nichols while studying our 171 projects is that most of the time  is spent locating the defects not actually fixing them. we use the second approach in our analysis.
+
 
 This paper defects the  following claims. Note that we call them
 ``claims'' not ``hypotheses'' since the later require defense via some statistical
@@ -482,21 +482,6 @@ our units of analysis are:
 \end{figure}
 
 
-
-\begin{figure}[!t] 
-%\vspace{-1cm}
-%\hspace{-0.35in}
-\begin{center}
-\includegraphics[width=3in]{img/boehm-overlay.pdf}
- \end{center}
-% ~\\~\\
-%~\\~\\~\\
- 
- \caption{Cost-to-fix curve from \protect\fig{cost-to-fix} 
- overlayed with case study from~\cite{Royce98} and TSP data. Scale is relative to the phase with the lowest cost to fix. }\label{fig:cost-to-fix-tsp}
- \end{figure}
-
- 
 \begin{figure*}[!t] 
  \renewcommand{\baselinestretch}{0.7}
  \scriptsize
@@ -553,7 +538,6 @@ show scale up on median values.}
 
 
 
-
 \subsection{Observations from 171 Projects}
 
 The distribution of defects found and fixed per phase in our data is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects (44\%) were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. (This distribution is similar to that observed for other projects that emphasized investment in software engineering quality assurance practices. For example, Jones and Bonsignour report 52\% of pretest defects removed before entering implementation, for large projects that focus on upfront defect removal techniques \cite{jones12}. NASA robotics projects had a slightly higher percentage (58\%) of defects removed before implementation began, although these had invested in IV\&V on top of other forms of defect removal \cite{me08a}.)  
@@ -582,6 +566,10 @@ delayed issued effects.
  when found during production but the cheapest to fix early in development;
  \item {\bf General:}  It is exponentially more  difficult  to resolve an issue in a software project, the   longer it remains.
 \ei
+
+ 
+
+
 \subsubsection{Specific1}
 
 Our data does not support   
@@ -609,13 +597,12 @@ expect from the delayed issue effect).
 \subsubsection{Specific2}
 Next, we comment on 
 requirements errors are the most expensive to fix 
-{\em when found during production but the cheapest to fix early in development}}. 
+{\em when found during production but the cheapest to fix early in development}. 
 Our data from these 171 project does not extend into post-delivery deployment. That said,
 there is enough evidence to raise doubts that our projects will exhibit exponentially more
 difficult issues after deployment. 
 Specifically: prior reports of an  exponential increase in difficulty in resolving issues {\em during
-deployment} might have been used to predict for exponentially increasing
-difficulty {\em post-deployment}.
+deployment}.
 For example:
 \bi
 \item  From requirements to acceptance testing
@@ -627,11 +614,15 @@ For example:
 The projects surveyed in \fig{steck} report changes of a  \newline
 \{37,40,40,50,51,70,75,250\}-fold increase in pre-deployment period when the software was being developed.
 \ei
+Any manager watching  these intra-development trends would be well-justified
+to anticipate that  the difficulty in resolving issues would will get much worse. Such managers
+would therefore expect an exponentially harder time resolving issues during deployment.
+
 On the other hand, a remarkable feature of Figure~\ref{fig:fix-phase-dist} is the {\em absence}
-of an exponential delay effect in the difficulty to resolve requirements issues during development.
-The greatest difficulty in resolving requirements issues was 1.31 seen in systems testing--
+of an exponential delay effect during development.
+In our data, the greatest difficulty in resolving requirements issues was 1.31 seen in systems testing--
 which is far smaller than the 37 to 250-fold increases reported in \fig{b81}, \fig{cost-to-fix},
-and \fig{steck}.  That is, from our TSP data, we would not anticipate exponentially greater difficulty in resolving requirements issues after
+and \fig{steck}.  That is, from our  data, we would not anticipate exponentially greater difficulty in resolving requirements issues after
 deployment. 
  \subsubsection{General}
  The above specific statements related just to requirements. Turning now
@@ -645,10 +636,30 @@ it does not look like exponential.
 \item The time in final testing is particularly low suggesting that few defects survived into testing
 (and hence, there were few instances where code required massive rework).
 \ei
-
-For illustrative purposes, the relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's cost curve~\cite{Boehm81} as well as the CCPDS-R case study~\cite{Royce98} in \fig{cost-to-fix-tsp}. Cost-to-fix for TSP is total time spent in each review, inspection, or test-related phase / \# of defects found in phase (reported in \fig{raw}). It is clear to see that the trend is relatively flat, closer to the pattern exhibited by the Royce case study (which also focused on early defect removal) than the exponential growth curve.
+In summary:
+\bi
+\item
+The delayed issue effect has been reported in around a dozen papers, at least half of which date back to the 1970s. 
+\item
+But there is no trace of that  effect   in hundreds of software projects built  since 2006.
+\ei
+%For illustrative purposes, the relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's cost curve~\cite{Boehm81} as well as the CCPDS-R case study~\cite{Royce98} in \fig{cost-to-fix-tsp}. Cost-to-fix for TSP is total time spent in each review, inspection, or test-related phase / \# of defects found in phase (reported in \fig{raw}). It is clear to see that the trend is relatively flat, closer to the pattern exhibited by the Royce case study (which also focused on early defect removal) than the exponential growth curve.
  
 
+
+%\begin{figure}[!t] 
+%%\vspace{-1cm}
+%\hspace{-0.35in}
+%\begin{center}
+%\includegraphics[width=3in]{img/boehm-overlay.pdf}
+ %\end{center}
+% ~\\~\\
+%~\\~\\~\\
+ 
+ %\caption{Cost-to-fix curve from \protect\fig{cost-to-fix} 
+ %overlayed with case study from~\cite{Royce98} and TSP data. Scale is relative to the phase with the lowest %c%ost to fix. }\label{fig:cost-to-fix-tsp}
+% \end{figure}
+ 
 %\begin{table}[ht]
 %\renewcommand{\baselinestretch}{0.7}
 % \scriptsize
@@ -805,91 +816,80 @@ For illustrative purposes, the relative cost to fix errors per lifecycle phase i
 
 
  
+ 
 
-\section{Validity} 
+\section{Validity}
+We report validity concerns following the guidelines of Runeson \& H\"{o}st~\cite{runeson09}.
 
-
-To sum up the paper so far,
-\bi
-\item
-The delayed issue effect has been reported in around a dozen papers, at least half of which date back to the 1970s. 
-\item
-But there exists
-no evidence for this effect was seen  in hundreds of software projects build   since 2006.
-\ei
-From this second point, is it valid to assert that it is {\em not} disruptive to  software projects
-to let some issues advance from one phase to the next?
-
-\subsection{Alternate Explanations}
-
-One explanation for the above is that our sample is biased-- that while general software
+\subsection{External validity}
+Threats to external validity affect the generalization of findings. The most obvious threat to external validity is that TSP is not representative of most software development processes. Hence,
+For example, 
+one way to discount the above is that our sample is biased-- that while general software
 systems suffer from the delayed issue effect, systems built using TSP are so much better controlled
 that they  mitigate against the DIE effect.
 
-It would be convenient to offer the last paragraph as the conclusion of this study. Two of our authors (Nichols and Shull)
- work at the organization that invented and promoted TSP.
+It would be convenient to offer the last paragraph as the conclusion of this study
+(two of our authors, Nichols and Shull,  work at the organization that invented and promoted TSP).
+ However, we cannot endorse such a conclusion:
+ \bi
+ \item
+We view TSP as a better way to
+ {\em monitor} the activities {\em of  existing projects}. That is, TSP
+ does not radically change a project, it just offers a better way to log the activity within
+ that project. 
+ \item
+ Our 171 project contain examples of a wide variety
+ of systems (e-commerce web portals and  banking systems) run in a variety of
+ ways (agile or  waterfall or some combination of the two). Hence, rather
+ than being unduly  biased in some manner,
+ we view our 171 projects as a large sample of current industrial processes for software
+ development.
+ \ei
+Another way to discount this result is to say we are only reporting on small to medium-size
+projects, and the real impact of delayed issues is on very large projects.
+There certainly exists another class of very large software project where early requirements
+errors would be catastrophic for later development. For example, when NASA launches deep space missions,
+each of those satellites are special-purpose, uniquely-built devices built by a large contractor
+population. Such systems are very hard to reconfigure halfway through the development.  
+
+We concede that for very large complex NASA-like developments, the delayed issue
+effect could still hold. However, perhaps we need to split our software engineering principles
+into two parts- one for   very large NASA-like projects (which are not very numerous)
+and one for smaller-sized projects like the ones studied here (which are far more numerous).
+Most software is {\em not} like the software used on NASA deep-space satellites.
+As  agile methods grew more popular last decade; and as personnel computers grew more powerful;
+and as the libraries associated with particular languages grew more extensive; then smaller
+teams starting  deliver systems that (previously) had required very large teams.
+As mentioned above,
+our  171 projects represents $\frac{171}{212}=80$\% of the software projects
+seen by the Software Engineering Institute. That is, as far as we can tell,
+there are more small to medium-sized projects than otherwise.
 
 
+\subsection{Construct validity} 
 
-\subsubsection*{H4: A post-development DIE effect can be predicted from pre-deployment data} 
-The data collected from our 171 projects     pertains only to
-development, and not to subsequent operations.
-So did we miss the DIE effect in our data since
-our data collection is just not prolonged enough to detect that effect?
+Our definition of {\em difficult to resolve} combines two concepts: time to change and cost to
+change. In the above we have used them interchangable, comparing our time to resolve data (from the 171 TSP projects) against the cost-to-fix results of Boehm et al. e.g. \fig{b81}.
+Is it valid to assume the equivalence of time and cost?
 
-We would argue that this is not the case.
-An  exponential DIE effect can be seen {\em during the development} of all
-the papers we have reviewed. For example:
-\bi
-\item In \fig{b81}: see the data relating to development and acceptance testing;
-\item In  all the case studies of \fig{steck} in the columns {\em Requirements} to {\em Test}.
-\ei
-That is, in the literature we have surveyed, the post-development DIE effect would have been predicted by data collected during pre-deployment development.
-Such 
+Certainly, there are cases where time is not the same as cost. Consider, for example,
+if debugging required some very expensive tool or the services or a very senior (and hence, very expensive)
+developer. Under those circumstances, time does not equate to cost.
 
-Another surprise was a lack of {\em growth trend} suggesting that, in operation,
- we should expect larger exponential delays in resolving issues. This is odd since all
- the papers we could access on DIE should such a growth trend in the pre-operational data.
-  
+Also, there is the issue of the implication of  a defect. Evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' typographical errors have been known to cause enormous damage (e.g., the Mars climate Orbiter). 
 
+Having documented the above issues, we assert that they are probably not major issues in the study.
+As to the first point, that some debugging may be more expensive than others, one of us (Nichols)
+was closely associated with many of the projects in our sample. He is unaware of any frequent
+use of exorbitantly expensive tools or people on these projects. As to the second point (that
+some defects have an impact beyond the mere cost to fix them), we no evidence suggesting
+that the net effect of this concern over all our projects is non-zero.
 
-
-\subsubsection*{H5: ``Time'' to resolve an issue is analogous to ``cost''}
-This hypothesis a somewhat technical point needed for our argument.
-While classical papers on the delayed issue effect discuss the {\em cost}
-of delaying issues, the data from our 171 projects only has time data.
-Hence, to say that our data addresses the classic delayed issue effect,
-we need to make the case that our time measurements are an appropriate
-surrogate for the prior claims on the cost of delaying issues.
-
-
-
-We report validity concerns following the guidelines of Runeson \& H\"{o}st~\cite{runeson09}.
-
-\subsection{Construct validity}
-XXXX die does not aoccur during developmentjust during deployment
-
-that means during period requirements to test pre-deployent, there is not rush to resolve issues (just as long as a concerted effort is made to retire all issues priot to deployment)
-
-all our data is skewed due to TSP. two responses. 1) we don't thing so. 2) sure, let it due to TSP in which case we can fix the delayed issue effect via process methods 9everyone adopts the team software process). In either case, the delayed issue effect can be ignored or mitigated without extensive investment in radically new methods or tools (e.g. automatic formal methods, better requirement description languages).
-
-
-
-The essential constructs in our analyses are \emph{cost-to-fix, defects, and phase delay}. 
-
-\emph{Cost-to-fix} is traditionally measured as either effort spent to fix a defect or time spent fixing a defect. In our analysis, we calculate the latter as \# of defects fixed in a defect-removal plan item, such as DesignReview or CodeInspection, divided by the time spent in the plan item. A single project has multiple such plan items. In the TSP data, this time accounts for time spent isolating, analyzing, and fixing the defect, but does not include time spent verifying the fix.
-
-In our sample, all \emph{defects} are considered equally, and thus TSP's reporting methods may result in ``small'' defects could be dominating the sample. For example, typographical requirements errors are included as well as requirements errors that necessitate an architectural change to the system. Our analysis does not include a notion of defect severity, however, we observe no indications in previous cost-to-fix results reported by \cite{Boehm81} and \cite{Royce98} that severity was considered in their samples. However, evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' typographical errors have been known to cause enormous damage (e.g., the Mars climate Orbiter). 
-
-\emph{Phase delay}, as depicted in the scale up column in \fig{cost-to-fix-tsp} and \fig{raw}, is a discrete value that does not consider the total time that a defect is latent in the system. Thus, the phase delay of two defects injected in Code but found in System Test will be the same even though one was found at the beginning of test while the other at the end of a potentially lengthy test period. Ideally, one could examine the total real time a defect was in a system from the point at which is was injected to the point at which it was discovered. It may be possible to gather such information if the project keeps rigorous change logs for its requirements, design, and code artifacts. 
 
 \subsection{Internal validity}
 Confounding variables are a threat to any study. In this research, we rely on the substantial sample size of 171 TSP projects and over 47,000 defect logs to avoid confounding effects that may arise from the nature of the projects, teams, or defects. Similarly, the 10-year data collection period should help to ameliorate any maturation or history effects.  As described in \S\ref{sec:data-collection}, all TSP teams are required to contribute time and defect data to the SEI, and thus there should be no selection bias in this sample compared to the overall population of TSP projects. However, there is likely selection bias in the teams that elect to use TSP compared to the entire population of software development teams. Further, we assume that each team has similar defect recording practices, and the TSP coaching provides guidance on what constitutes a defect. Nonetheless, individual developers and teams may apply their own internal rules for filtering defects, which would lead to inconsistent reporting thresholds among the projects in our sample.
 
-\subsection{External validity}
-Threats to external validity affect the generalization of findings. The most obvious threat to external validity is that TSP is not representative of most software development processes. TSP was, in fact, designed to be rigorous and eliminate defects early in the lifecycle and soon after injection. We make no assertions regarding the generalizability of these results beyond TSP, we observe that other case studies in various domains have exhibited flattened cost-to-fix curves.
 
-Our analysis of cost-to-fix does not include defects found in production, which, in Boehm's original data, account for costs up to 200 times the cost of finding and fixing defects in Requirements. Further, it is not clear how Boehm~\cite{Boehm81} and Royce~\cite{Royce98} define \emph{cost-to-fix}. In our analysis, cost-to-fix includes the time spent analyzing, fixing the defect, and validating the fix. If Boehm and Royce do not include all of these costs, then the TSP cost curve in \fig{cost-to-fix-tsp} artificially high by comparison.
 
 %The definitions of defect, cost-to-fix, and phase delay are provided in earlier sections. The %source data and analysis scripts used to calculate the defect counts, cost-to-fix, and phase delay %from the raw materials can be found at \url{https://github.com/txt/txt.github.io/tree/master/tsp}. 
  
@@ -907,8 +907,10 @@ Our analysis of cost-to-fix does not include defects found in production, which,
 % \ei
 % }
  
-In this paper, we have examined contemporary project data for evidence to support the well-known software engineering truism of the phase delay effect. 
-We found that, in the literature, the evidence for phase delay was very spare.
+In this paper, we have examined contemporary project data for traces of
+the widely-believed delayed issue effect.
+We found that, in the literature, the evidence for this effect was very spare--
+in fact, we found
 %and (in a $21^{st}$).  %don't know what this is supposed to be
 We suspect that a very old result was requoted, without being 
 critically re-examined, for literally decades.
@@ -941,16 +943,7 @@ Despite this lack of evidence, the myth remains that phase delay causes increase
 One hypothesized explanation that can be ruled out is that this lack of
 a phase delay effect is due to the use of TSP.
   To the contrary, four non-TSP  case studies reported that the expected exponential growth in cost-to-fix was not observed:
-  \bi
-  \item
-  Boehm~\cite{Boehm80} reported a flatter growth rate for small, non-critical projects.
-  \item
-  Clutterbuck~\cite{Clutterbuck09} showed a flatter cost curve in an agile case study. 
-  \item 
-  Data from NASA's Johnson Space Flight Center, reported by Shull~\cite{Shull02}, found that the cost to find certain non-critical classes of defects was fairly constant across lifecycle phases (1.2 hours on average early in the project, versus 1.5 hours late in the project). 
-  \item
-  Royce~\cite{Royce98} reported a flat cost curve for a project that invested heavily upfront in architectural reviews.
-\ei
+
 If the lack of phase delay is not due to TSP, then what does cause it?
 We surmise that the substantial changes in software development and deployment technologies and practices, since the phase delay effect was first measured, may be responsible for our observations in the TSP data set. Recall that the original data on which the phase delay effect is based, as reported in \S3, are approximately 40 years old. The most recently reported data, from Shull et al. \cite{Shull02}, was published in 2002 but contains substantial retrospective data. Over time, it would be surprising if the investment in better languages, IDEs, and other development technologies had in fact not created some improvement. To pick just one example, we note that much of the data showing the phase delay effect was collected before frequent and unobtrusive auto-updating software was as common as today, which certainly flattens the cost of changes.
 
@@ -965,7 +958,7 @@ Progress in the domain of software analytics has made such periodic checks more 
 There is another ``phase delay'' effect, not discussed above. Even if software is readily updatable, there   may be a ``user phase delay''   amongst   humans using that software. 
 
 Changes to  software that is used by a large population can be confusing (particularly for the sick or elderly). 
-Consider the 23,000,000 veterans working with  the U.S.  Veterans 
+Consider the 23 million veterans working with  the U.S.  Veterans 
 Administration (VA) service. Some of those veterans are dependent on health care or pensions from the VA. Those veterans use the VA's web interfaces
 to  (e.g.) find out
 when their next cheque will arrive. Before we can update the VA web software, we would
