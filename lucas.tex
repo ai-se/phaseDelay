@@ -4,10 +4,13 @@
 
 
 Our survey collected data on software engineers' views of commonly held software engineering ``laws''.
-One of the laws questioned relates directly to the problems associated with
-the delayed issue effect: ``Requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' (from Glass~\cite{glass02} p.71 who references Boehm \& Basili~\cite{boehm01}). We abbreviate this law as RqtsErr
+One of the laws questioned is the a specific form of our delayed issue effect:  ``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' (from Glass~\cite{glass02} p.71 who references Boehm \& Basili~\cite{boehm01}). We abbreviate this law as RqtsErr
 (and is
 illustrated in \fig{b81}).
+
+(Technical aside: we    ask them  RqtsErr  since this issue typically needs no supportive explanatory
+text. On the other hand, if we had asked them about our more general term ``delayed issue
+effect'', we would have had to burden our respondents with extra explanations).
 
 The survey was conducted in two phases using Amazon's Mechanical Turk. The first phase was conducted only with professional software engineers solicited through the Mechanical Turk,
 Professional software engineers were required to complete a pretest to verify their status as a professional or open source software developer and to confirm their knowledge of basic software engineering terminology and technology. The  second survey was conducted Program Committee members of the ESEC/FSE 2015 and ICSE 2014  conferences solicited via email.
@@ -35,8 +38,8 @@ Summary statistics for the agreement and applicability scores for the RqtsErr an
 \scriptsize 
  
 \begin{tabular}{l|c|c|c|c|c}
- &  & \multicolumn{2}{c}{agreement} & \multicolumn{2}{c}{applicability} \\\cline{1-1} 
-Practitioner survey  & N & $\bar{x}$ & $\tilde{x}$ & $\bar{x}$ & $\tilde{x}$ \\
+ &  & \multicolumn{2}{c|}{agreement} & \multicolumn{2}{c}{applicability} \\\cline{1-1} 
+Practitioner survey  & N & w & $\bar{x}$ & $\tilde{x}$ \\
 \hline 
 \textbf{Rqts errors are most expensive...} & 16 & 4.6 & 5 & 4.2 & 4 \\ 
 Process maturity improves output & 17 & 4.4 & 4 & 3.9 & 4 \\ 
@@ -75,4 +78,5 @@ as the single most believed effect.
 %The free response texts, most participants agreed that addressing errors %%late may mean system redesign unless the system and the affected %equirement are simple/trivial. Further, any changes to the production %ystem have additional complexity (compared to changes while system in %evelopment) due to users, data existence, and architecture dependencies. 
 Caveat: in the free repsonse texts, we note that the researchers who disagreed with the law generally asserted that requirements change can be expensive, but that depends on the process used (e.g., agile vs. waterfall) and the adaptability of the system architecture.
 
-Overall, the RqtsErr law was the most agreed upon and most applicable law of 11 surveyed amongst practitioners, and the second most agreed upon law amongst researchers. The survey results strongly support that the notion that the  delayed issue effect   is a widely-held belief in software engineering.
+Overall, the RqtsErr law was the most agreed upon and most applicable law of 11 surveyed amongst practitioners, and the second most agreed upon law amongst researchers. 
+This results strongly support that the notion that the  delayed issue effect   is a widely-held belief in software engineering.
