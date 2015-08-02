@@ -911,9 +911,10 @@ In this paper, we have examined contemporary project data for traces of
 the widely-believed delayed issue effect.
 We found that, in the literature, the evidence for this effect was very spare--
 in fact, we found
-%and (in a $21^{st}$).  %don't know what this is supposed to be
-We suspect that a very old result was requoted, without being 
-critically re-examined, for literally decades.
+just as many articles supporting this  exponential effect~\cite{Boehm76,Boehm81,teck,Fagan76,Stephenson76}
+than otherwise~\cite{Clutterbuck09,Clutterbuck09,Boehm80} and one paper that
+offered evidence consistent with {\em both}
+the the delayed issue effect and its opposite~\cite{shull02}.
 
 We  also  reported the results of a survey of both researchers and practitioners which showed this truism is still a widely held belief in the software engineering community. Such a widely
 held belief, for something with so little evidence, can be damaging if ever it is used
@@ -940,9 +941,6 @@ for other, much older, much smaller studies).
 Despite this lack of evidence, the myth remains that phase delay causes increased time to resolve issues.
  Since the phase delay effect has been such a long-lived software engineering truism, as well as one that is accepted by a substantial population of software engineers, it is important to explore possible explanations for our observations.
  
-One hypothesized explanation that can be ruled out is that this lack of
-a phase delay effect is due to the use of TSP.
-  To the contrary, four non-TSP  case studies reported that the expected exponential growth in cost-to-fix was not observed:
 
 If the lack of phase delay is not due to TSP, then what does cause it?
 We surmise that the substantial changes in software development and deployment technologies and practices, since the phase delay effect was first measured, may be responsible for our observations in the TSP data set. Recall that the original data on which the phase delay effect is based, as reported in \S3, are approximately 40 years old. The most recently reported data, from Shull et al. \cite{Shull02}, was published in 2002 but contains substantial retrospective data. Over time, it would be surprising if the investment in better languages, IDEs, and other development technologies had in fact not created some improvement. To pick just one example, we note that much of the data showing the phase delay effect was collected before frequent and unobtrusive auto-updating software was as common as today, which certainly flattens the cost of changes.
