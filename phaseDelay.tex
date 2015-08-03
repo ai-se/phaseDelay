@@ -3,6 +3,8 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{colortbl}
 
+\usepackage{balance}
+
 \usepackage{times}
 \usepackage{tabularx}
 \usepackage{subcaption}
@@ -482,13 +484,13 @@ our units of analysis are:
 \end{figure}
 
 
-\begin{figure*}[!t] 
+\begin{figure}[!t] 
  \renewcommand{\baselinestretch}{0.7}
  \scriptsize
 \begin{center}
-\begin{tabular}{r|rrr|ll|rl}  % I attach your cursor. thrust, parry, yo!
-  Sample&\multicolumn{3}{c|}{Percentiles}\\ 
-size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline
+\begin{tabular}{r@{~}|r@{~}r@{~}r|@{~}l@{~}l|@{~}r@{~}l}  % I attach your cursor. thrust, parry, yo!
+  \multicolumn{1}{c}{~} &\multicolumn{3}{c}{Percentiles}&\multicolumn{2}{l}{~~~~~~Phase}\\\cline2-6}
+N & 25th & 50th & 75th &   injected & removed   & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline
 \\
  48&   14&   30&   51&Before&DesignInspect &1.00 & **********  \\
  53&   13&   28&   49&Before&CodeReview &0.93 & **********  \\
@@ -532,9 +534,10 @@ size & 25th & 50th & 75th & Phase injected & Phase removed & \multicolumn{2}{l}{
  \end{tabular}
 \end{center}
 \caption{Distribution of fix times seen in SEI TSP data. Left hand side bars
-show scale up on median values.}
+show scale up on median values.
+}
 \label{fig:raw}
-\end{figure*}
+\end{figure}
 
 
 
@@ -894,6 +897,22 @@ Confounding variables are a threat to any study. In this research, we rely on th
 %The definitions of defect, cost-to-fix, and phase delay are provided in earlier sections. The %source data and analysis scripts used to calculate the defect counts, cost-to-fix, and phase delay %from the raw materials can be found at \url{https://github.com/txt/txt.github.io/tree/master/tsp}. 
  
 
+%\section{Future Work}
+%There is another kind of delayed issues  effect, not discussed above. Even if software is readily updatable, there   may be a ``user  inertia''   amongst   humans using that software. 
+%To understand the 
+%Changes to  software that is used by a large population can be confusing (particularly for the sick or elderly). 
+%Consider the 23 million veterans working with  the U.S.  Veterans 
+%Administration (VA) service. Some of those veterans are dependent on health care or pensions from the VA. Those veterans use the VA's web interfaces
+%to  (e.g.) find out
+%when their next cheque will arrive. Before we can update the VA web software, we would
+%need to  a transition plan that helps users   move from the older to the newer system. This is an example of what might be called a ``user phase delay''; i.e. changes to software are more complex to process, particularly if some users have styled
+%their day-to-day work flow around the services offered by the older software.  
+%
+%This issue of ``user phase delay'' is not addressed by our data, nor by the prior studies on phase delay %discussed above.  Hence, this issues   is out of scope for this paper since the expectation that ``older %bugs cost more to fix than newer bugs'' was not formed around 
+%user issues. 
+
+%That said,  
+%we think that ``user phase delay'' will become a bigger issue in the future when more people are using more software as part of their day to day life. We even envision a time when users demand fewer updates, just to offer some stability in their life.  
  
  
  \section{Conclusion}
@@ -907,67 +926,40 @@ Confounding variables are a threat to any study. In this research, we rely on th
 % \ei
 % }
  
-In this paper, we have examined contemporary project data for traces of
-the widely-believed delayed issue effect.
-We found that, in the literature, the evidence for this effect was very spare--
-in fact, we found
-just as many articles supporting this  exponential effect~\cite{Boehm76,Boehm81,steck04,Fagan76,Stephenson76}
-than otherwise~\cite{Clutterbuck09,Clutterbuck09,Boehm80} and one paper that
-offered evidence consistent with {\em both}
-the the delayed issue effect and its opposite~\cite{Shull02}.
+In this paper, we explored   the papers and data related to the 
+widely-believed {\em delayed issue effect} (that delaying the resolution of issues
+exponentially 
+increases the difficulty of completing that  resolution).
+Several prominent SE researchers state this effect is some fundamental law of software engineering~\cite{boehm01,mcconnell01,boehm01,glass02},
+Based on a  survey  of both researchers and practitioners, we  found that
+a specific form  of this effect (requirements errors are hardest to fix) is  widely-believed
+held in the community.  
 
-We  also  reported the results of a survey of both researchers and practitioners which showed this truism is still a widely held belief in the software engineering community. Such a widely
-held belief, for something with so little evidence, can be damaging if ever it is used
-to justify spending scarce resources on novel  methods and tools .
+We checked for traces of this effect in 171 projects from the period 2006 to 2014.
+That data held no trace of the delayed issued effect.
+To the best of our knowledge, this paper is the  largest study
+of this effect yet performed.
 
-Using data from 171 projects from the period 2006 to 2014, we then looked for any evidence
-for three different interpretations of the phase delay effect; namely:
-\bi
-\item
-That defects are more expensive to fix in later phases; 
-\item
-That defects become more expensive the more phases they remain; 
-\item
-That requirements errors are more expensive to fix the later they are found. 
-\ei
-Our dataset provided no support for any of these phrasings. 
-This is significant, as we argue that this paper is (by far)    the largest dataset ever used to explore phase delay (but see ~\cite{Boehm80,Clutterbuck09,Shull02,Royce98} 
-for other, much older, much smaller studies).
-
-
- 
-
-
-Despite this lack of evidence, the myth remains that phase delay causes increased time to resolve issues.
- Since the phase delay effect has been such a long-lived software engineering truism, as well as one that is accepted by a substantial population of software engineers, it is important to explore possible explanations for our observations.
- 
-
-If the lack of phase delay is not due to TSP, then what does cause it?
-We surmise that the substantial changes in software development and deployment technologies and practices, since the phase delay effect was first measured, may be responsible for our observations in the TSP data set. Recall that the original data on which the phase delay effect is based, as reported in \S3, are approximately 40 years old. The most recently reported data, from Shull et al. \cite{Shull02}, was published in 2002 but contains substantial retrospective data. Over time, it would be surprising if the investment in better languages, IDEs, and other development technologies had in fact not created some improvement. To pick just one example, we note that much of the data showing the phase delay effect was collected before frequent and unobtrusive auto-updating software was as common as today, which certainly flattens the cost of changes.
-
-%One hypothesized explanation that can be ruled out is that the lack of a phase delay effect is due to using the TSP method. 
-
-
-The question remains: why did this idea, with so little support, become so widespread in the software engineering literature? No doubt the original evidence was compelling at the time, but much has changed in the realm of software development in the subsequent 40 years. Possibly the concept of phase delay has persisted because, to use Glass's terms on the subject, it seems to be ``just common sense''\cite{glass02}. 
-We believe that these results indicate that, in a rapidly changing field such as software engineering, even widely-held rules of thumb must be periodically re-verified. In turns out that common sense may not be so sensible after all.
+Our explanation for this lack-of-effect is five-fold:
+\be
+\item The effect might be an historical relic. Evidence:
+the effect was first described in the era of punch card computing and non-interactive environments).
+\item The effect might have been intermittent (rather than some fundamental law of software). Evidence: we can  found nearly
+as many papers reporting the effect~\cite{Boehm76,Boehm81,steck04,Fagan76,Stephenson76} as otherwise~\cite{Royce98,Boehm80,Shull02}.
+\item The effect might be confined to very large systems- in which case it would be
+acceptable during development to let smaller to medium
+sized projects carry some unresolved issues from early phases into later phases.
+\item The effect might be mitigated by modern software development approaches that
+encourage change and revision of older parts of the system.
+\item The effect might be mitigated by modern software development tools
+that simplify the process of large-scale reorganization of software systems.
+\ee
+ %One hypothesized explanation that can be ruled out is that the lack of a phase delay effect is due to using the TSP method. 
+Our results beg the question: why did an idea, with so little support, become so widespread in the software engineering literature? No doubt the original evidence was compelling at the time, but much has changed in the realm of software development in the subsequent 40 years. Possibly the concept of the delayed issue effect (or its more specific description: requirements errors are the hardest to fix)
+has persisted because, to use Glass's terms on the subject, it seems to be ``just common sense''\cite{glass02}. 
+Nevertheless, in a rapidly changing field such as software engineering, even widely-held rules of thumb must be periodically re-verified. 
 Progress in the domain of software analytics has made such periodic checks more cost-effective and feasible, and we argue that an examination of local behaviors (rather than simply accepting global heuristics) can be of significant benefit.
 
-\section{Future Work}
-There is another ``phase delay'' effect, not discussed above. Even if software is readily updatable, there   may be a ``user phase delay''   amongst   humans using that software. 
-
-Changes to  software that is used by a large population can be confusing (particularly for the sick or elderly). 
-Consider the 23 million veterans working with  the U.S.  Veterans 
-Administration (VA) service. Some of those veterans are dependent on health care or pensions from the VA. Those veterans use the VA's web interfaces
-to  (e.g.) find out
-when their next cheque will arrive. Before we can update the VA web software, we would
-need to  a transition plan that helps users   move from the older to the newer system. This is an example of what might be called a ``user phase delay''; i.e. changes to software are more complex to process, particularly if some users have styled
-their day-to-day work flow around the services offered by the older software.  
-
-This issue of ``user phase delay'' is not addressed by our data, nor by the prior studies on phase delay discussed above.  Hence, this issues   is out of scope for this paper since the expectation that ``older bugs cost more to fix than newer bugs'' was not formed around 
-user issues. 
-
-That said,  
-we think that ``user phase delay'' will become a bigger issue in the future when more people are using more software as part of their day to day life. We even envision a time when users demand fewer updates, just to offer some stability in their life. This is a matter for future work.
 
  
 % \section{Related Work}
@@ -1020,6 +1012,7 @@ Personal Software Process$\textsuperscript{SM}$, Team Software Process$\textsupe
  
 \vspace*{0.5mm}
 \scriptsize
+\balance
 \bibliographystyle{plain}
 \bibliography{refs} 
 
