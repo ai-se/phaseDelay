@@ -1,4 +1,5 @@
-One reason that industrial practitioners and academics believe so strongly in th delayed issue effect is that they are often presented in the SE literature. For example,
+One reason that industrial practitioners and academics believe so strongly in the delayed issue effect is that it is often referenced
+in the SE literature. For example,
 we know that \fig{b81} has been presented to the gradaute SE class at North Carolina State University, without quarrel or critical comment, every year for the last decade.
 
 Yet when we look at the literature, the evidence for
@@ -48,8 +49,7 @@ exact figures.
 7&  1 & 20 & 45 & 250 \\  
 \end{tabular}
 \end{center}}
-\caption{Sample of the Stecklein et al. literature review~\cite{steck04}:
-cost to resolve requirements issues, relative to resolving  during requirements.}\label{fig:steck}
+\caption{Cost to resolve requirements issues, relative to resolving  during requirements. From ~\cite{steck04}.}\label{fig:steck}
 \end{figure}
 
 
@@ -61,21 +61,20 @@ cost to resolve requirements issues, relative to resolving  during requirements.
  
  
  All in all, the empirical results of this section seem insufficient to justify
- the  beliefs documented in the previous section. Adding to our doubts
- was the discovery of   several studies that report less-than exponential
+ the strength of the beliefs documented in the previous section. Adding to our doubts are  several studies that report less-than exponential
  increase in the difficulties associated with making the changes associated with delayed
- issues. For example,
+ issues. 
 Clutterbuck et al.~\cite{Clutterbuck09} studied 5-month effort by a small-to-medium enterprise team developing a 71KLOEC web interface to a database application to implement 18 change requests-- see Figure~\ref{fig:clutterbuck} (note that these were for new and changed user requirements, not defects). Clutterbuck et al. found the cost of change to be relatively flat until the later phases, with much of the effort spent in analysis of the change requests~\cite{Clutterbuck09}. Note that in this study, the effort increased by only 60\% (see the start and end of the curve in Figure~\ref{fig:clutterbuck}).
 
 
 
 
  
-Another example of less-than exponential explosion in the difficulty associated with delayed issues comes from the  CCPDS-R
-system described by Royce~\cite{Royce98}. This was a million-line, safety-critical missile defense system show in Figure~\ref{fig:royce}. In this project, design changes (including architecture changes) required approximately twice the effort of implementation and test changes, and the cost-to-fix in implementation and test phases increased slowly. Boehm~\cite{Boehm10} attributes this success to the CCPDS-R development process, which focused on removing architecture risk early in the development lifecycle.
+Another example of less-than exponential explosion in the difficulty associated with delayed issues comes from  Royce~\cite{Royce98}. He
+studied  a million-line, safety-critical missile defense system
+(see  Figure~\ref{fig:royce}). Design changes (including architecture changes) required approximately twice the effort of implementation and test changes, and the cost-to-fix in implementation and test phases increased slowly. Boehm~\cite{Boehm10} attributes this success to the  development process, which focused on removing architecture risk early in the development lifecycle.
  
- Other examples, where research papers report non-exponential changes in the difficuty in resoloving issues
-are:
+ Other examples that report the opposite of DIE are:
   \bi
   \item
   Boehm~\cite{Boehm80} reported a flatter growth rate for small, non-critical projects.
@@ -87,5 +86,5 @@ are:
 
 \begin{figure}
  \includegraphics[width=3.3in]{img/Royce98.png}
- \caption{Exception to the rule - CCPDS-R case study cost-to-fix curve. From~\cite{Royce98}.}\label{fig:royce}
+ \caption{Exception to the rule - The Royce study: cost-to-fix curve. From~\cite{Royce98}.}\label{fig:royce}
  \end{figure}

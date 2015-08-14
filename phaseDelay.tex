@@ -236,21 +236,26 @@ the framework of some larger architecture (e.g. an aircraft carrier).
 These smaller projects can certainly lever the agile advantage, while 
 using fast refactoring tools that mitigate against  the delayed issue effect.
 
-
-In summary, there exists (1)~historical reasons for believing in the delayed issued
-effect as well as (2)~reasons to believe that that effect may not longer hold.
-Hence,  this article explores the currency of the delayed issue effect.
+The above argument is an anecdotal evidence that  the delayed issue effect might no longer exist. But anecdotes are not really rigorous
+evidence. Accordingly,  this article explores the currency of the delayed issue effect.
 After some initial definitions, we discuss the
-value of checking old ideas. Next, survey of industrial practitioners and researchers to document a widespread belief that delayed issues have a negative impact on projects.  Next, we  analyze 171 software  projects developed in the period 2006 to 2014 to find  {\em no evidence} of the delayed issue effect
-(note that, to ensure reproducibility,
+value of checking old ideas. Next, a survey of industrial practitioners and researchers to document a widespread belief that delayed issues have a negative impact on projects.  After that, we  analyze 171 software  projects developed in the period 2006 to 2014 to find  {\em no evidence} of the delayed issue effect:
+\bi
+\item
+To ensure reproducibility,
 all the data  used in this study is available in the PROMISE
-repository at openscience.us/repo). Finally, we discuss the validity and implications of our results.
+repository at openscience.us/repo. 
+\item
+To the best of our knowledge,
+this the largest study devoted the delayed issue effect yet conducted.
+\ei
+Finally, we discuss the validity and implications of our results.
  
 \section{Definitions \& Hypotheses}
 This paper uses the following definitions:
 \bi
 \item
-{\em Delayed issue effect}:   it is {\em exponentially}  more {\em difficult} to resolve an issue in a software project, the {\em longer} it remains.
+The {\em delayed issue effect}:   it is {\em exponentially}  more {\em difficult} to resolve  issues in a software project, the {\em longer} they remain.
 \item
  {\em Longer} time is defined as per  Boehm'81~\cite{Boehm81}; i.e. the gap between the   phases where   issues are introduced and resolved.
 \item
@@ -274,7 +279,7 @@ only might requirements errors cascade, so too might analysis errors, design err
 
 
 
-This paper defects the  following claims. Note that we call them
+This paper defends the  following claims. Note that we call them
 ``claims'' not ``hypotheses'' since the later require defense via some statistical
 significance test. On the other hand, our claims will be supported via a variety
 of arguments, presented later in this paper.
@@ -424,8 +429,8 @@ In summary, just like medicine, our field suffers when
 %projects are described below.
  
 \section{``DIE'' is a  widely-held belief}
-To assess the prevalence of the delayed issue effect,   conducted a survey of software engineers. If our surveyed practitioners make management decisions based on their
-understanding of SE theory, then the phase delay effect may well influence their judgment.
+To assess the prevalence of DIE,   we conducted a survey of software engineers. If our surveyed practitioners make management decisions based on their
+understanding of SE theory, then the DIE  may well inappropriately influence their decisions.
 
 \input{lucas}
 
@@ -445,7 +450,7 @@ understanding of SE theory, then the phase delay effect may well influence their
 %\input{carter}
  
 
-\section{Delayed Issues not Harder\newline to Resolve}
+\section{Delayed Issues not  Harder\newline to Resolve}
 
 
 \input{data}
@@ -561,21 +566,9 @@ that first item).
 If  this data exhibited a delayed issue effect,  we would expect those bars in each sub-division to exhibit an
 exponential shape.
 
-Using Figure~\ref{fig:fix-phase-dist}, we can comment on two specific and more general
-delayed issued effects. 
-\bi
-\item {\bf Specific1}: Requirements errors are the most expensive to fix;
-\item {\bf Specific2}: Requirements errors are the most expensive to fix, 
- when found during production but the cheapest to fix early in development;
- \item {\bf General:}  It is exponentially more  difficult  to resolve an issue in a software project, the   longer it remains.
-\ei
-
- 
-
-
-\subsubsection{Specific1}
-
-Our data does not support   
+\subsubsection{Comment 1}
+Figure~\ref{fig:fix-phase-dist}
+ data does not support   
 {\em  requirements errors are the most expensive to fix}.
 Note that   median time spent fixing errors from {\em requirements} across the life cycle was 92, 93,  49, 33, 39, 49, 67, 122 minutes\footnote{If this time seems long, then recall
 that it includes the time required  to (a)~collect data and realize there is an error;
@@ -597,15 +590,33 @@ to {\em code}. But even though the effect was non-small,
  the overall size of the difference
 {\em requirements} to {\em code} was less than 30\% (i.e. much less than we would
 expect from the delayed issue effect). 
-\subsubsection{Specific2}
+
+That said, Figure~\ref{fig:fix-phase-dist} does support the 
+claim that early lifecycle errors are most expensive to fix.
+In all our results, the biggest scale ups are found with resolving
+issues introduced in the {\em before} phase. For example,
+resolving {\em before} issues during unit testing was 2.56 times
+slower than resolving issues earlier in the lifecycle. 
+
+Nevertheless,  it must be added that the scale up seen in 
+Figure~\ref{fig:fix-phase-dist} 
+is much less
+than suggested by the DIE literature. Returning to
+the {\em before/unit test} result: 2.56 is far smaller
+than the scale ups seen in Figure~1. In fact, nowhere in 
+our results do we see any exponential increase.
+
+\subsubsection{Comment 2}
 Next, we comment on 
 requirements errors are the most expensive to fix 
 {\em when found during production but the cheapest to fix early in development}. 
 Our data from these 171 project does not extend into post-delivery deployment. That said,
 there is enough evidence to raise doubts that our projects will exhibit exponentially more
 difficult issues after deployment. 
-Specifically: prior reports of an  exponential increase in difficulty in resolving issues {\em during
-deployment}.
+
+That evidence is as follows.
+Prior reports of an  exponential increase in difficulty in resolving issues {\em during
+development}.
 For example:
 \bi
 \item  From requirements to acceptance testing
@@ -627,7 +638,7 @@ In our data, the greatest difficulty in resolving requirements issues was 1.31 s
 which is far smaller than the 37 to 250-fold increases reported in \fig{b81}, \fig{cost-to-fix},
 and \fig{steck}.  That is, from our  data, we would not anticipate exponentially greater difficulty in resolving requirements issues after
 deployment. 
- \subsubsection{General}
+ \subsubsection{Comment 3}
  The above specific statements related just to requirements. Turning now
  to issues creased in all phases in Figure~\ref{fig:fix-phase-dist},  we see that
  this data does not follow the exponential increase predicted
@@ -892,7 +903,26 @@ that the net effect of this concern over all our projects is non-zero.
 \subsection{Internal validity}
 Confounding variables are a threat to any study. In this research, we rely on the substantial sample size of 171 TSP projects and over 47,000 defect logs to avoid confounding effects that may arise from the nature of the projects, teams, or defects. Similarly, the 10-year data collection period should help to ameliorate any maturation or history effects.  As described in \S\ref{sec:data-collection}, all TSP teams are required to contribute time and defect data to the SEI, and thus there should be no selection bias in this sample compared to the overall population of TSP projects. However, there is likely selection bias in the teams that elect to use TSP compared to the entire population of software development teams. Further, we assume that each team has similar defect recording practices, and the TSP coaching provides guidance on what constitutes a defect. Nonetheless, individual developers and teams may apply their own internal rules for filtering defects, which would lead to inconsistent reporting thresholds among the projects in our sample.
 
+Another issue that threatens internal validity is that our
+results are dependent on developers correctly identifying which
+phase initially created an issue. Certainly, if that was done
+incorrectly in this study, then all our results must be questioned.
+However,  this issue threatens {\em every} study on the delayed
+issue effect-- so if our results are to be doubted on this score,
+then all prior work that reported the delayed issue effect should
+also be doubted. Moreover, the TSP method used in this study
+encourages greater care with error reporting:
 
+
+\bi
+\item Developers are trained   to make that judgement;
+\item All data entry is double-checked by the team couch 
+\item TSP demands that developers analyze their data to make
+process improvements. 
+\ei
+That is, TSP developers are always testing
+if their project insights are accurate. In such an environment,
+it is more likely that they will better identify the injection phase.
 
 %The definitions of defect, cost-to-fix, and phase delay are provided in earlier sections. The %source data and analysis scripts used to calculate the defect counts, cost-to-fix, and phase delay %from the raw materials can be found at \url{https://github.com/txt/txt.github.io/tree/master/tsp}. 
  
