@@ -18,6 +18,9 @@ gitting:
 	git config --global credential.helper cache
 	git config credential.helper 'cache --timeout=3600'
 
+skim:
+	/Applications/Skim.app/Contents/MacOS/Skim $(HOME)/tmp/$(Src).pdf  &
+
 
 view :
 	evince $(HOME)/tmp/$(Src).pdf &
