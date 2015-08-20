@@ -68,7 +68,7 @@ Tim Menzies \\
        \affaddr{NC State University, USA}\\
        \email{tim.menzies@gmail.com}
 \and%alignauthor 
-William Nichols, Forest Shull \\
+William Nichols, Forrest Shull \\
         \affaddr{Software Engineering Institute}\\
         \affaddr{Carnegie Mellon U, USA}\\
         \email{\{wrn,fjshull\}@sei.cmu.edu} 
@@ -89,12 +89,12 @@ is often  used to justify
 major investments in  new development
 processes that promise to retire more issues, sooner.
 
-This paper checks for the delayed issue effect in
-171 software projects from around the world (2006 to 2014).
+This paper tests for the delayed issue effect in
+171 software projects conducted in the period from 2006--2014 from around the world.
 To the best of our knowledge,  this is the largest study
 yet published on this effect.
-What was observed was the  exact
-opposite of the  delayed issue effect. Specifically:
+In that sample, we found the exact
+opposite of the  delayed issue effect; i.e.
 the  time  to resolve 
 issues  in one phase  was rarely more than when  issues
 were resolved at a later phase. 
@@ -215,7 +215,7 @@ support  extensive and faster changes to software.
 For example, 
 Microsoft is adjusting its development practices towards a continuous
 release paradigm. Theisen et al. reports their experiences where Microsoft architects
-continually adjust  their modules in response to security issues~\cite{theisen15}.
+continually adjust  their modules in response to security issues~\cite{Theisen15}.
 Also, upgrades to their Windows operating system is moving from service patches (which occur rarely) to continuous deployment (so there will be no Windows 11- just a stream of continuous updates to what is currently called Windows 10~\cite{bright15}).
 
 For another example, consider the MEAN stack preferred for web development by
@@ -239,7 +239,7 @@ using fast refactoring tools that mitigate against  the delayed issue effect.
 The above argument is an anecdotal evidence that  the delayed issue effect might no longer exist. But anecdotes are not really rigorous
 evidence. Accordingly,  this article explores the currency of the delayed issue effect.
 After some initial definitions, we discuss the
-value of checking old ideas. Next, a survey of industrial practitioners and researchers to document a widespread belief that delayed issues have a negative impact on projects.  After that, we  analyze 171 software  projects developed in the period 2006 to 2014 to find  {\em no evidence} of the delayed issue effect:
+value of checking old ideas. Next, a survey of industrial practitioners and researchers to document a widespread belief that delayed issues have a negative impact on projects.  After that, we  analyze 171 software  projects developed in the period 2006--2014 to find  {\em no evidence} of the delayed issue effect:
 \bi
 \item
 To ensure reproducibility,
@@ -606,10 +606,7 @@ the {\em before/unit test} result: 2.56 is far smaller
 than the scale ups seen in Figure~1. In fact, nowhere in 
 our results do we see any exponential increase.
 
-\subsubsection{Comment 2}
-Next, we comment on 
-requirements errors are the most expensive to fix 
-{\em when found during production but the cheapest to fix early in development}. 
+\newpage\subsubsection{Comment 2}
 Our data from these 171 project does not extend into post-delivery deployment. That said,
 there is enough evidence to raise doubts that our projects will exhibit exponentially more
 difficult issues after deployment. 
@@ -971,7 +968,7 @@ Based on a  survey  of both researchers and practitioners, we  found that
 a specific form  of this effect (requirements errors are hardest to fix) is  widely-believed
 held in the community.  
 
-We checked for traces of this effect in 171 projects from the period 2006 to 2014.
+We checked for traces of this effect in 171 projects from the period 2006--2014.
 That data held no trace of the delayed issued effect.
 To the best of our knowledge, this paper is the  largest study
 of this effect yet performed.
@@ -979,7 +976,7 @@ of this effect yet performed.
 Our explanation for this lack-of-effect is five-fold:
 \be
 \item The effect might be an historical relic. Evidence:
-the effect was first described in the era of punch card computing and non-interactive environments).
+the effect was first described in the era of punch card computing and non-interactive environments.
 \item The effect might have been intermittent (rather than some fundamental law of software). Evidence: we can  found nearly
 as many papers reporting the effect~\cite{Boehm76,Boehm81,steck04,Fagan76,Stephenson76} as otherwise~\cite{Royce98,Boehm80,Shull02}.
 \item The effect might be confined to very large systems- in which case it would be
