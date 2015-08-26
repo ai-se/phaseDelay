@@ -90,14 +90,13 @@ major investments in  new development
 processes that promise to retire more issues, sooner.
 
 This paper tests for the delayed issue effect in
-171 software projects conducted in the period from 2006--2014 from around the world.
+171 software projects conducted around the world in the period from 2006--2014.
 To the best of our knowledge,  this is the largest study
 yet published on this effect.
-In that sample, we found the exact
-opposite of the  delayed issue effect; i.e.
+In our sample, we found no evidence for the  delayed issue effect; i.e.
 the  time  to resolve 
-issues  in one phase  was rarely more than when  issues
-were resolved at a later phase. 
+issues in a later phase was not consistently  more than  
+when  issues were resolved soon after their introduction. 
 
 This  result begs the question: how many other long-held
 beliefs in software engineering are
@@ -125,13 +124,13 @@ half a trillion dollars~\cite{avram14} were spent on information technology.
 Such a large and growing effort should be managed and optimized via  well-researched conclusions.  
 
 It is standard practice
-in other fields such as medicine,
+in other fields, such as medicine,
 to continually revisit old conclusions~\cite{prasad13}.
 Accordingly, this paper revisits
 the widely-held belief of a {\em delayed issue effect} (hereafter, DIE).
 Later in this paper, we offer a precise definition for this effect.
 For the moment, we describe it as follows:
-it is far easier to resolve issues earlier than later in the lifecycle.
+it is far easier to resolve issues earlier rather than later in the lifecycle.
  \fig{b81} shows an example of the delayed issue effect (relating
  the relative cost of fixing requirements issues at different phases of a project).
  
@@ -154,10 +153,10 @@ Other prominent authors have commented on its perceived usefulness as a rule of 
 \begin{quote}
 ''A small mistake in upstream work can affect large amounts of downstream work. A change to a single sentence in a requirements specification can imply changes in hundreds of lines of code spread across numerous classes or modules, dozens of test cases, and numerous pages of end-user documentation''~\cite{mcconnell01}. 
 \end{quote}
-Glass also endorses this effect, asserting that``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' is ``really just common sense''~\cite{glass02}.  Other researchers
+Glass also endorses this effect, asserting that ``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' is ``really just common sense''~\cite{glass02}.  Other researchers
 are just as adamant in asserting that that the delayed issue effect is a proven
 fact.
-For example, what we call the delayed issued effect was listed as number one by Boehm and Basili in their "Top 10 list" of ``objective and quantitative data, relationships,
+For example, what we call the delayed issued effect was listed first by Boehm and Basili in their "Top 10 list" of ``objective and quantitative data, relationships,
 and predictive models that help
 software developers avoid predictable pitfalls
 and improve their ability to predict
@@ -209,8 +208,8 @@ managing the changes required to fix (say) an incorrect requirements assumption
 is far less    onerous    than before.
 
 Also, we note that our development practices have changed in ways that could   mitigate the delayed issued effect.  Previously,
-software was large monolithic systems that were write once and maintain
-forever. Today, there are more architectures that
+software was large monolithic systems that were ''write once and maintain
+forever.'' Today, there are more architectures that
 support  extensive and faster changes to software. 
 For example, 
 Microsoft is adjusting its development practices towards a continuous
@@ -287,14 +286,14 @@ of arguments, presented later in this paper.
 {\bf  Claim1: ``DIE'' is a  widely-held belief.}
 Using a literature review, we can confirm that there are numerous historical papers (dating back decades)
 that endorse DIE. Also, using a survey conducted from this paper, we find  that 
-  DIE  appears up as the
+  DIE  appears as the
 single most strongly-held beliefs amongst commercial software engineers.
 
 {\bf  Claim2: ``DIE'' is a poorly documented.}
  As discussed in our literature review,  many of the papers reporting the DIE
 effect are either (1)~quite old (papers dating from last century);
-(2)~that just quote prior papers without presenting   new data; 
-(3)~or cite data sources that can no longer be
+(2)~quoting prior papers without presenting   new data; 
+(3)~or citing data sources that can no longer be
 confirmed. 
 
 {\bf Claim3: Delayed Issues not Harder to Resolve.}
@@ -368,7 +367,7 @@ evidence for this claim is hardly conclusive~\cite{me00v}.
 \item
 Numerous recent {\em local learning} results compare single models
 learned from all available data to multiple models learned from clusters within the data~\cite{betten14,yang11,yang13,minku13,me12d,me11m,betta12,posnett11}.
-A repeated result in those studies in that the local models generated the better effort
+A repeated result in those studies is that the local models generated the better effort
 and defect predictions (better median results,
 lower variance in the predictions).
 \ee
@@ -388,7 +387,7 @@ in the Mayo Clinic Proceedings~\cite{prasad13} found
 146 medical practices based on studies 
 in year $i$, but which were  reversed by subsequent trials within years $i+10$.
 Even when the evidence for or against a treatment or intervention is clear, medical providers and patients may not accept it~\cite{aschwanden10}.
-Aschwanden warns that ``congitive biases''  such as  confirmation bias (the tendency to look for evidence that supports what you already know and to ignore the rest)  influence how we process information~\cite{aschwanden15}.
+Aschwanden warns that ``cognitive biases''  such as  confirmation bias (the tendency to look for evidence that supports what you already know and to ignore the rest)  influence how we process information~\cite{aschwanden15}.
 
 The cognitive issues that complicate medicine are also found in software engineering.
 According to Passos et al.~\cite{passos11}, commercial developers
@@ -398,7 +397,7 @@ They  warn that developers
 usually assume that the truisms they learn from a few past
 projects are general to 
 all their future projects. They comment ``past experiences were taken into account without 
-much consideration for their context~\cite{passos11}.  
+much consideration for their context~\cite{passos11}.''  
 The results of J{\o}rgensen \& Gruschke~\cite{jorgensen09} concur with Passos et al. They report that 
   supposed software engineering    ``experts'' rarely use lessons
   from past projects to improve their future reasoning~\cite{jorgensen09}. 
@@ -430,7 +429,7 @@ In summary, just like medicine, our field suffers when
  
 \section{``DIE'' is a  widely-held belief}
 To assess the prevalence of DIE,   we conducted a survey of software engineers. If our surveyed practitioners make management decisions based on their
-understanding of SE theory, then the DIE  may well inappropriately influence their decisions.
+understanding of SE theory, then the DIE  may well influence their decisions.
 
 \input{lucas}
 
@@ -567,8 +566,8 @@ If  this data exhibited a delayed issue effect,  we would expect those bars in e
 exponential shape.
 
 \subsubsection{Comment 1}
-Figure~\ref{fig:fix-phase-dist}
- data does not support   
+Figure~\ref{fig:raw}
+ data does not support that   
 {\em  requirements errors are the most expensive to fix}.
 Note that   median time spent fixing errors from {\em requirements} across the life cycle was 92, 93,  49, 33, 39, 49, 67, 122 minutes\footnote{If this time seems long, then recall
 that it includes the time required  to (a)~collect data and realize there is an error;
@@ -583,25 +582,23 @@ Clearly longer than median times seen {\em Before } and in {\em Planning}
 Somewhat shorter, but still not exponentially smaller,  than the median times see after {\em requirements} in {\em design}
 (103,101, 79,66, 119,88, 80,45) and in {\em code} (65,115, 113,125, 95,133). 
 \ei
-For completeness, we ran an  
-A12 test comparing the raw data (and not just the medians of \fig{raw}) and found
- a non-small effect only for the difference {\em requirements}
-to {\em code}. But even though the effect was non-small, 
+For completeness, we ran an A12 test comparing the raw data for each phase, and found an effect size of ''medium'' or higher only for the difference between {\em requirements}
+and {\em code}. In this case, however, 
  the overall size of the difference
 {\em requirements} to {\em code} was less than 30\% (i.e. much less than we would
 expect from the delayed issue effect). 
 
-That said, Figure~\ref{fig:fix-phase-dist} does support the 
+That said, Figure~\ref{fig:raw} does support the 
 claim that early lifecycle errors are most expensive to fix.
 In all our results, the biggest scale ups are found with resolving
 issues introduced in the {\em before} phase. For example,
 resolving {\em before} issues during unit testing was 2.56 times
 slower than resolving issues earlier in the lifecycle. 
 
-Nevertheless,  it must be added that the scale up seen in 
-Figure~\ref{fig:fix-phase-dist} 
+Nevertheless, the scale up seen in 
+Figure~\ref{fig:raw} 
 is much less
-than suggested by the DIE literature. Returning to
+than that suggested by the DIE literature. Returning to
 the {\em before/unit test} result: 2.56 is far smaller
 than the scale ups seen in Figure~1. In fact, nowhere in 
 our results do we see any exponential increase.
@@ -612,7 +609,7 @@ there is enough evidence to raise doubts that our projects will exhibit exponent
 difficult issues after deployment. 
 
 That evidence is as follows.
-Prior reports of an  exponential increase in difficulty in resolving issues {\em during
+Prior literature reports an  exponential increase in difficulty in resolving issues {\em during
 development}.
 For example:
 \bi
@@ -626,18 +623,18 @@ The projects surveyed in \fig{steck} report changes of a  \newline
 \{37,40,40,50,51,70,75,250\}-fold increase in pre-deployment period when the software was being developed.
 \ei
 Any manager watching  these intra-development trends would be well-justified
-to anticipate that  the difficulty in resolving issues would will get much worse. Such managers
+to anticipate that  the difficulty in resolving issues  will get much worse. Such managers
 would therefore expect an exponentially harder time resolving issues during deployment.
 
-On the other hand, a remarkable feature of Figure~\ref{fig:fix-phase-dist} is the {\em absence}
+On the other hand, a remarkable feature of Figure~\ref{fig:raw} is the {\em absence}
 of an exponential delay effect during development.
-In our data, the greatest difficulty in resolving requirements issues was 1.31 seen in systems testing--
+In our data, the greatest increase in difficulty in resolving requirements issues was the 1.31 scale-up seen in systems testing--
 which is far smaller than the 37 to 250-fold increases reported in \fig{b81}, \fig{cost-to-fix},
 and \fig{steck}.  That is, from our  data, we would not anticipate exponentially greater difficulty in resolving requirements issues after
 deployment. 
  \subsubsection{Comment 3}
- The above specific statements related just to requirements. Turning now
- to issues creased in all phases in Figure~\ref{fig:fix-phase-dist},  we see that
+ The above specific statements are related just to requirements. Turning now
+ to issues created in all phases in Figure~\ref{fig:raw},  we see that
  this data does not follow the exponential increase predicted
 by the delayed issue effect:
 \bi
@@ -647,13 +644,13 @@ it does not look like exponential.
 \item The time in final testing is particularly low suggesting that few defects survived into testing
 (and hence, there were few instances where code required massive rework).
 \ei
-In summary:
-\bi
-\item
-The delayed issue effect has been reported in around a dozen papers, at least half of which date back to the 1970s. 
-\item
-But there is no trace of that  effect   in hundreds of software projects built  since 2006.
-\ei
+%In summary:
+%\bi
+%\item
+%The delayed issue effect has been reported in around a dozen papers, at least half of which date back to the 1970s. 
+%\item
+%But there is no trace of that  effect   in hundreds of software projects built  since 2006.
+%\ei
 %For illustrative purposes, the relative cost to fix errors per lifecycle phase in the TSP project data is overlayed with Boehm's cost curve~\cite{Boehm81} as well as the CCPDS-R case study~\cite{Royce98} in \fig{cost-to-fix-tsp}. Cost-to-fix for TSP is total time spent in each review, inspection, or test-related phase / \# of defects found in phase (reported in \fig{raw}). It is clear to see that the trend is relatively flat, closer to the pattern exhibited by the Royce case study (which also focused on early defect removal) than the exponential growth curve.
  
 
@@ -834,8 +831,8 @@ We report validity concerns following the guidelines of Runeson \& H\"{o}st~\cit
 
 \subsection{External validity}
 Threats to external validity affect the generalization of findings. The most obvious threat to external validity is that TSP is not representative of most software development processes. Hence,
-For example, 
-one way to discount the above is that our sample is biased-- that while general software
+for example, 
+one way to discount the above argumentation is that our sample is biased-- that while general software
 systems suffer from the delayed issue effect, systems built using TSP are so much better controlled
 that they  mitigate against the DIE effect.
 
@@ -849,15 +846,15 @@ We view TSP as a better way to
  does not radically change a project, it just offers a better way to log the activity within
  that project. 
  \item
- Our 171 project contain examples of a wide variety
- of systems (e-commerce web portals and  banking systems) run in a variety of
+ Our 171 projects contain examples of a wide variety
+ of systems (ranging from e-commerce web portals to  banking systems) run in a variety of
  ways (agile or  waterfall or some combination of the two). Hence, rather
  than being unduly  biased in some manner,
  we view our 171 projects as a large sample of current industrial processes for software
  development.
  \ei
 Another way to discount this result is to say we are only reporting on small to medium-size
-projects,
+projects
 (see
 \fig{dist}:  median
 effort was was  
@@ -872,12 +869,12 @@ effect could still hold. However, perhaps we need to split our software engineer
 into two parts- one for   very large NASA-like projects (which are not very numerous)
 and one for smaller-sized projects like the ones studied here (which are far more numerous).
 Most software is {\em not} like the software used on NASA deep-space satellites.
-As  agile methods grew more popular last decade; and as personnel computers grew more powerful;
+As  agile methods grew more popular last decade; and as personal computers grew more powerful;
 and as the libraries associated with particular languages grew more extensive; then smaller
 teams starting  deliver systems that (previously) had required very large teams.
 As mentioned above,
 our  171 projects represents $\frac{171}{212}=80$\% of the software projects
-seen by the Software Engineering Institute.
+seen by the Software Engineering Institute's TSP team.
 That is, as far as we can tell,
 there are more small to medium-sized projects than otherwise.
 
@@ -886,20 +883,20 @@ there are more small to medium-sized projects than otherwise.
 \subsection{Construct validity} 
 
 Our definition of {\em difficult to resolve} combines two concepts: time to change and cost to
-change. In the above we have used them interchangable, comparing our time to resolve data (from the 171 TSP projects) against the cost-to-fix results of Boehm et al. e.g. \fig{b81}.
+change. In the above we have used them interchangably, comparing our time to resolve data (from the 171 TSP projects) against the cost-to-fix results of Boehm et al. e.g. \fig{b81}.
 Is it valid to assume the equivalence of time and cost?
 
 Certainly, there are cases where time is not the same as cost. Consider, for example,
 if debugging required some very expensive tool or the services or a very senior (and hence, very expensive)
 developer. Under those circumstances, time does not equate to cost.
 
-Also, there is the issue of the implication of  a defect. Evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' typographical errors have been known to cause enormous damage (e.g., the Mars climate Orbiter). 
+Also, there is the issue of the implication of  a defect. Evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' errors have been known to cause enormous damage (e.g., the Mars Climate Orbiter). 
 
-Having documented the above issues, we assert that they are probably not major issues in the study.
+Having documented the above issues, we assert that they are unlikely to be major issues in the study.
 As to the first point, that some debugging may be more expensive than others, one of us (Nichols)
 was closely associated with many of the projects in our sample. He is unaware of any frequent
 use of exorbitantly expensive tools or people on these projects. As to the second point (that
-some defects have an impact beyond the mere cost to fix them), we no evidence suggesting
+some defects have an impact beyond the mere cost to fix them), we have no evidence suggesting
 that the net effect of this concern over all our projects is non-zero.
 
 
@@ -963,7 +960,7 @@ In this paper, we explored   the papers and data related to the
 widely-believed {\em delayed issue effect} (that delaying the resolution of issues
 exponentially 
 increases the difficulty of completing that  resolution).
-Several prominent SE researchers state this effect is some fundamental law of software engineering~\cite{boehm01,mcconnell01,boehm01,glass02},
+Several prominent SE researchers state this effect is a fundamental law of software engineering~\cite{boehm01,mcconnell01,boehm01,glass02}.
 Based on a  survey  of both researchers and practitioners, we  found that
 a specific form  of this effect (requirements errors are hardest to fix) is  widely-believed
 held in the community.  
@@ -973,7 +970,7 @@ That data held no trace of the delayed issued effect.
 To the best of our knowledge, this paper is the  largest study
 of this effect yet performed.
 
-Our explanation for this lack-of-effect is five-fold:
+To be clear, we do not claim that this effect {\em never} holds in software projects; just that it cannot be assumed to {\em always} hold. Our explanation of the observed lack-of-effect is five-fold:
 \be
 \item The effect might be an historical relic. Evidence:
 the effect was first described in the era of punch card computing and non-interactive environments.
