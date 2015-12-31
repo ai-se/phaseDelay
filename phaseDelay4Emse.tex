@@ -222,12 +222,12 @@ Finally, we discuss the validity and implications of our results.
 This paper uses the following definitions:
 \bi
 \item
-The {\em delayed issue effect}:   it is {\em exponentially}  more {\em difficult} to resolve  issues in a software project, the {\em longer} they remain.
+The {\em delayed issue effect}:   it is {\em very much}  more {\em difficult} to resolve  issues in a software project, the {\em longer} they remain.
 \item
  {\em Longer} time is defined as per  Boehm'81~\cite{Boehm81}; i.e. the gap between the   phases where   issues are introduced and resolved.
 \item
-A measure collected in phase ${1,.,i,..j}$ is 
-{\em exponential} when  that
+We say that a measure collected in phase ${1,.,i,..j}$ is 
+{\em very much} more when  that
    measure at phase $j$   
    is larger than the sum of that measure in 
 earlier phases $1 \le i < j$. 
@@ -267,7 +267,7 @@ confirmed.
 {\bf Claim3: Delayed Issues not Harder to Resolve.}
  In our sample of 
  171 software  projects developed, we will show
-{\em no evidence}  that, during development, delayed issues were exponentially harder to resolve the longer they were left
+{\em no evidence}  that, during development, delayed issues were very much more harder to resolve the longer they were left
  in the software. 
  
 
@@ -479,7 +479,7 @@ a difficult task).
 This was a common theme in the literature reviewed for this paper-- i.e.  that  it was no longer possible to access
 the data used to make prior conclusions.
 As an example of this, \fig{steck} shows one 2004 survey that reports an 
-exponential delayed issue  effect for 
+greatly increased delayed issue  effect for 
 requirements issues in eight case studies. Note that we cannot verify
 {\em any} of those results since the links in the references of
 that  survey are all broken (``page not found'' errors).
@@ -523,7 +523,7 @@ exact figures.
  
  
  All in all, the empirical results of this section seem insufficient to justify
- the strength of the beliefs documented in the previous section. Adding to our doubts are  several studies that report less-than exponential
+ the strength of the beliefs documented in the previous section. Adding to our doubts are  several studies that report less-than large
  increase in the difficulties associated with making the changes associated with delayed
  issues. 
 Clutterbuck et al.~\cite{Clutterbuck09} studied a 5-month effort by a small-to-medium enterprise team developing a 71KLOEC web interface to a database application to implement 18 change requests-- see Figure~\ref{fig:clutterbuck} (note that these were for new and changed user requirements, not defects). Clutterbuck et al. found the cost of change to be relatively flat until the later phases, with much of the effort spent in analysis of the change requests~\cite{Clutterbuck09}. Note that in this study, the effort increased by only 60\% (see the start and end of the curve in Figure~\ref{fig:clutterbuck}).
@@ -532,7 +532,7 @@ Clutterbuck et al.~\cite{Clutterbuck09} studied a 5-month effort by a small-to-m
 
 
  
-Another example of less-than exponential explosion in the difficulty associated with delayed issues comes from  Royce~\cite{Royce98}. He
+Another example of less-than large increase in the difficulty associated with delayed issues comes from  Royce~\cite{Royce98}. He
 studied  a million-line, safety-critical missile defense system
 (see  Figure~\ref{fig:royce}). Design changes (including architecture changes) required approximately twice the effort of implementation and test changes, and the cost-to-fix in implementation and test phases increased slowly. Boehm~\cite{Boehm10} attributes this success to the  development process, which focused on removing architecture risk early in the development lifecycle.
  
@@ -551,9 +551,33 @@ studied  a million-line, safety-critical missile defense system
  \caption{Exception to the rule - The Royce study: cost-to-fix curve. From~\cite{Royce98}.}\label{fig:royce}
  \end{figure}
 
+\subseection{Early Onset of the DIE Effect}\label{sect:earlyonset}
 
- One feature of the above results will become very important in the subsequent discussion. We note that that in all
-the results that report a delayed issue effect, those effects have began to manifest by the end of that project.
+One feature of the above results will become very important in the subsequent discussion.  
+All the   literature described above that reports the onset of  DIE  {\em prior} to delivery.
+\bi
+\item  
+\fig{b81} reports a 40-fold increase in effort requirements to acceptance testing
+\item
+ \fig{cost-to-fix} reports a 100-fold increase
+(for the larger projects) before the code is delivered 
+\item
+The projects surveyed in \fig{steck} report changes of a  
+\{37,40,40,50,51,70,75,250\}-fold increase in pre-deployment period when the software was being developed.
+\ei
+Any manager noticing this  early onset of DIE (prior to delivery, during the initial development)
+would be well-justified
+in believing that  the difficulty in resolving issues  will get much worse. Such managers
+would therefore expect DIE to have a marked effect, post-deployment.
+
+We make this point since,  in the new project data presented below, there is no early onset of DIE. 
+That is:
+\bi
+\item There is no evidence of a growing problem prior to delivery that delayed issues are becoming harder to manage
+\item  Hence, there there is less evidence that DIE is a trend that will significantly and negatively effect the product,
+post-delivery.
+\ei
+
 
  
 
@@ -758,27 +782,24 @@ our units of analysis are:
 
 
 \begin{figure}[!t] 
- \renewcommand{\baselinestretch}{0.7}
+% \renewcommand{\baselinestretch}{0.8}
  \scriptsize
 \begin{center}
-\begin{tabular}{r@{~}|r@{~}r@{~}r|@{~}l@{~}l|@{~}r@{~}l}   
-  \multicolumn{1}{c}{~} &\multicolumn{3}{c}{Percentiles}&\multicolumn{2}{l}{~~~~~~Phase}\\
+\begin{tabular}{r|rrr|ll|rl}   
+  \multicolumn{1}{c}{~} &\multicolumn{3}{c}{Percentiles}&\multicolumn{2}{c}{Phase}\\\cline{2-6}
 N & 25th & 50th & 75th &   injected & removed   & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline
-\\
  48&   14&   30&   51&Before&DesignInspect &1.00 & **********  \\
  53&   13&   28&   49&Before&CodeReview &0.93 & **********  \\
  94&   22&   45&   80&Before&CodeInspect &1.50 & ***************  \\
 153&   38&   77&  130&Before&UnitTest &2.56 & **************************  \\
 127&   30&   65&  128&Before&IntTest &2.16 & **********************  \\
- 92&   24&   56&   89&Before&SysTest &1.86 & *******************  \\
+ 92&   24&   56&   89&Before&SysTest &1.86 & *******************  \\\hline
  
- 
-\\
+  
  56&   14&   35&   57&Planning&ReqtsReview &1.00 & **********  \\
  46&   11&   24&   39&Planning&DesignInspect &0.68 & *******  \\
- 32&   18&   33&   84&Planning&UnitTest &0.94 & **********  \\
- 
-\\
+ 32&   18&   33&   84&Planning&UnitTest &0.94 & **********  \\\hline
+  
 184&   45&   92&  155&Reqts&ReqtsReview &1.00 & **********  \\
 189&   46&   93&  155&Reqts&ReqtsInspect &1.00 & **********  \\
  61&   14&   33&   55&Reqts&DesignReview &0.35 & ****  \\
@@ -786,8 +807,7 @@ N & 25th & 50th & 75th &   injected & removed   & \multicolumn{2}{l}{Scale up w.
  59&   18&   38&   60&Reqts&CodeInspect &0.40 & ****  \\
  91&   22&   49&  104&Reqts&UnitTest &0.52 & ******  \\
 100&   33&   67&  120&Reqts&IntTest &0.72 & ********  \\
- 78&   28&  122&  237&Reqts&SysTest &1.31 & **************  \\
-\\
+ 78&   28&  122&  237&Reqts&SysTest &1.31 & **************  \\\hline 
 210&   51&  103&  166&Design&DesignReview &1.01 & ***********  \\
 207&   50&  101&  156&Design&DesignInspect &1.00 & **********  \\
 134&   32&   66&  116&Design&CodeReview &0.65 & *******  \\
@@ -795,9 +815,8 @@ N & 25th & 50th & 75th &   injected & removed   & \multicolumn{2}{l}{Scale up w.
 238&   58&  119&  183&Design&UnitTest &1.17 & ************  \\
 172&   42&   88&  158&Design&IntTest &0.87 & *********  \\
 163&   40&   80&  161&Design&SysTest &0.79 & ********  \\
- 80&   21&   45&   73&Design&AcceptTest &0.44 & *****  \\
- 
-\\
+ 80&   21&   45&   73&Design&AcceptTest &0.44 & *****  \\\hline
+  
 235&   57&  115&  177&Code&CodeReview &1.00 &  **********  \\
 228&   56&  113&  176&Code&CodeInspect &0.99 & ********** \\
 243&   59&  125&  206&Code&IntTest &1.08 &     *********** \\
@@ -813,6 +832,46 @@ show scale up on median values.
 \end{figure}
 
 
+
+
+\begin{figure}[!t] 
+ %\renewcommand{\baselinestretch}{0.8}
+ \scriptsize
+\begin{center}
+\begin{tabular}{r|r|ll|rl}   
+  \multicolumn{1}{c}{~} &\multicolumn{1}{c}{Percentiles}&\multicolumn{2}{c}{Phase}\\\cline{2-4}
+N  & 99th &   injected & removed   & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline 
+
+57&257&Before&Code&1.00&*********\\
+72&153&Before&CodeInspect&0.60&****** \\
+165&282&Before&Test&1.01&**********\\
+50&365&Before&IntTest&1.42&************** \\
+42&151&Before&SysTest&0.59&****** \\\hline 
+37&600&Design&Design&1.00&********** \\
+455&277&Design&DesignInspect&0.46&***** \\
+218&240&Design&Code&0.40&**** \\
+166&163&Design&CodeInspect&0.27&*** \\
+542&652&Design&Test&1.09&***********\\
+67&277&Design&IntTest&0.46&***** \\
+92&480&Design&SysTest&0.80&******** \\\hline 
+126&600&Code&Code&1.0&**********\\
+459&243&Code&CodeInspect&0.4&**** \\
+461&365&Code&Test&0.6&****** \\
+230&290&Code&SysTest&0.5&***** \\
+71&600&Code&AcceptTest&1.0&*********\\
+348&7200&Code&IntTest&12.0&************************************\\
+  &    &    &       &    & ************************************\\
+  &    &    &       &    & ************************************\\
+
+
+\end{tabular}
+\end{center}
+\caption{99th percentile scale ups.}
+\label{fig:scale99}
+\end{figure}
+
+ 
+ 
 
 \newpage
 \subsection{Observations from 171 Projects}
@@ -833,7 +892,7 @@ The stars on the right-hand-side of that figure show the scale ups associated wi
 expressed as a ratio of the first item in that block (which, by definition, is 1.00 for
 that first item).
 If  this data exhibited a delayed issue effect,  we would expect those bars in each sub-division to exhibit an
-exponential shape.
+very large increased.
 
 \subsubsection{Comment 1}
 Figure~\ref{fig:raw}
@@ -849,7 +908,7 @@ This is:
 Clearly longer than median times seen {\em Before } and in {\em Planning}
 (30,28,45,77,65,56,24,35,33);
 \item
-Somewhat shorter, but still not exponentially smaller,  than the median times see after {\em requirements} in {\em design}
+Somewhat shorter, but still not very much larger,  than the median times see after {\em requirements} in {\em design}
 (103,101, 79,66, 119,88, 80,45) and in {\em code} (65,115, 113,125, 95,133). 
 \ei
 For completeness, we ran an A12 test comparing the raw data for each phase, and found an effect size of ''medium'' or higher only for the difference between {\em requirements}
@@ -871,44 +930,31 @@ is much less
 than that suggested by the DIE literature. Returning to
 the {\em before/unit test} result: 2.56 is far smaller
 than the scale ups seen in Figure~1. In fact, nowhere in 
-our results do we see any exponential increase.
+our results do we see the kind of very large increases reported in the papers
+documenting DIE.
 
 \newpage\subsubsection{Comment 2}
 Our data from these 171 project does not extend into post-delivery deployment. That said,
-there is enough evidence to raise doubts that our projects will exhibit exponentially more
-difficult issues after deployment. 
+there is enough evidence to raise doubts that our projects will exhibit very much more
+difficulty in resolving issues after deployment. 
 
-That evidence is as follows.
-Prior literature reports an  exponential increase in difficulty in resolving issues {\em during
-development}.
-For example:
-\bi
-\item  From requirements to acceptance testing
-\fig{b81} reports a 40-fold increase;
-\item
- \fig{cost-to-fix} reports a 100-fold increase
-(for the larger projects).
-\item
-The projects surveyed in \fig{steck} report changes of a  \newline
-\{37,40,40,50,51,70,75,250\}-fold increase in pre-deployment period when the software was being developed.
-\ei
-Any manager watching  these intra-development trends would be well-justified
-to anticipate that  the difficulty in resolving issues  will get much worse. Such managers
-would therefore expect an exponentially harder time resolving issues during deployment.
-
-On the other hand, a remarkable feature of Figure~\ref{fig:raw} is the {\em absence}
-of an exponential delay effect during development.
+As mentioned in \tion{earlyonset}, every other
+paper reporting DIE also reported  early onset of DIE
+within the current development. A remarkable feature of Figure~\ref{fig:raw} is the {\em absence}
+of a very large DIE   effect during development.
 In our data, the greatest increase in difficulty in resolving requirements issues was the 1.31 scale-up seen in systems testing--
 which is far smaller than the 37 to 250-fold increases reported in \fig{b81}, \fig{cost-to-fix},
-and \fig{steck}.  That is, from our  data, we would not anticipate exponentially greater difficulty in resolving requirements issues after
+and \fig{steck}.  
+
+That is, from our  data, we would not anticipate very much larger  difficulty in resolving requirements issues after
 deployment. 
  \subsubsection{Comment 3}
  The above specific statements are related just to requirements. Turning now
  to issues created in all phases in Figure~\ref{fig:raw},  we see that
- this data does not follow the exponential increase predicted
+ this data does not exhibit the very large   increases predicted
 by the delayed issue effect:
 \bi
-\item There is much ``up and down'' in the chart, but no steady exponential growth such
+\item There is much ``up and down'' in the chart, but no steady very large growth such
 as that see in, for example,  \fig{b81}.
 \item The time in acceptance  testing is particularly low suggesting that few defects survived into testing
 (and hence, there were few instances where code required massive rework).
@@ -1057,48 +1103,6 @@ as that see in, for example,  \fig{b81}.
 %\ei
 
  
-
-
-\begin{figure}[!t]
-\renewcommand{\baselinestretch}{0.7}
-\scriptsize
-\begin{center}
-\begin{tabular}{l@{~~}|l@{~}|r@{~}|r@{~}r@{~}|rl}
-          \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{99th }\\
-           \multicolumn{2}{c}{~}                 &  &\multicolumn{2}{c|}{percentile }\\
- Injection&   Removal& $n$ & initial & now & \multicolumn{2}{l}{Scale up, w.r.t. initial}
-\\\hline
-
-B4dev&Code&57&257&257&1&\rule{2mm}{2mm} \\
-B4dev&CodeInspect&72&257&153&0.60&\rule{2mm}{2mm} \\
-B4dev&Test&165&257&282&1.093&\rule{2mm}{2mm} \\
-B4dev&IntTest&50&257&365&1.42&\rule{2mm}{2mm} \\
-B4dev&SysTest&42&257&151&0.59&\rule{2mm}{2mm} \\
-
-\\\hline
-
-Design&Design&37&600&600&1&\rule{2mm}{2mm} \\
-Design&DesignInspect&455&600&277&0.46&\rule{0mm}{2mm} \\
-Design&Code&218&600&240&0.4&\rule{0mm}{2mm} \\
-Design&CodeInspect&166&600&163&0.27&\rule{0mm}{2mm} \\
-Design&Test&542&600&652&1.09&\rule{2mm}{2mm} \\
-Design&IntTest&67&600&277&0.46&\rule{0mm}{2mm} \\
-Design&SysTest&92&600&480&0.8&\rule{2mm}{2mm} \\
-
-\\\hline
-
-Code&Code&126&600&600&1&\rule{2mm}{2mm} \\
-Code&CodeInspect&459&600&243&0.41&\rule{0mm}{2mm} \\
-Code&Test&461&600&365&0.61&\rule{2mm}{2mm} \\
-Code&IntTest&348&600&7200&12&\rule{24mm}{2mm} \\
-Code&SysTest&230&600&290&0.48&\rule{0mm}{2mm} \\
-Code&AcceptTest&71&600&600&1&\rule{2mm}{2mm} \\
-\end{tabular}
-\end{center}
-\caption{99th percentile scale ups.}
-\label{fig:scale99}
-\end{figure}
-
  
 
 
@@ -1207,7 +1211,7 @@ it is more likely that they will better identify the injection phase.
  
 In this paper, we explored   the papers and data related to the 
 widely-believed {\em delayed issue effect} (that delaying the resolution of issues
-exponentially 
+very much 
 increases the difficulty of completing that  resolution).
 Several prominent SE researchers state this effect is a fundamental law of software engineering~\cite{boehm01,mcconnell01,boehm01,glass02}.
 Based on a  survey  of both researchers and practitioners, we  found that
