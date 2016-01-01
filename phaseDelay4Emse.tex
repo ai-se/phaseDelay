@@ -101,8 +101,9 @@ when  issues were resolved soon after their introduction.
 
 This paper documents the above studies and explores reasons for this  mismatch between this widely-held
 belief and empirical data.
-In  summary, DIE is not some constant across all projects. Rather, is may be an historical relic that only occurrs intermittently 
-in  certain kinds of projects.  This is a significant result since it predicts that  new development
+In  summary, DIE is not some constant across all projects. Rather, DIE might
+actually be an historical relic that  occurs intermittently 
+only in  certain kinds of infrequently occuring projects.  This is a significant result since it predicts that  new development
 processes that promise to faster retire more issues will have only a  limited return on investment. 
 \end{abstract}
 
@@ -388,8 +389,12 @@ effect'', we would have had to burden our respondents with extra explanations).
 The survey was conducted in two phases using Amazon's Mechanical Turk. The first phase was conducted only with professional software engineers solicited through the Mechanical Turk;
 participants were required to complete a pretest to verify their status as a professional or open source software developer and to confirm their knowledge of basic software engineering terminology and technology. The  second survey was conducted with Program Committee members of the ESEC/FSE 2015 and ICSE 2014  conferences solicited via email.
 
-The respondents answered questions on two scales: \newline
+The respondents answered questions on two scales: 
+
+\bi
+\item
 \textbf{Agreement:} ``Based on your experience, do you agree that the statement above is correct?'' A Likert scale captured the agreement score from Strongly Disagree to Strongly Agree. A text box was provided to explain the answer. \newline
+\item
 \textbf{Applicability:} ``To the extent that you believe it, how widely do you think it applies among software development contexts?'' The possible answers were: 
 -1 meaning ``I don't know''; and 0 meaning ``this law does not apply at all'';
  1 meaning ``applies in a very narrow range of projects'';  2 meaning
@@ -398,6 +403,7 @@ The respondents answered questions on two scales: \newline
 4 meaning ``very frequently applies''; and
  5 meaning ``always applies''.
 Respondents were required to explain the applicability score in a text box.
+\ei
 
 In order to baseline the participant's answers, participants were presented with the RqtsErr law and others. For the purposes
 of this paper, the nature of the other laws other than RqtsErr are not relevant-- we
@@ -781,7 +787,7 @@ our units of analysis are:
 \end{figure}
 
 
-\begin{figure}[!t] 
+\begin{figure} 
 % \renewcommand{\baselinestretch}{0.8}
  \scriptsize
 \begin{center}
@@ -825,8 +831,8 @@ N & 25th & 50th & 75th &   injected & removed   & \multicolumn{2}{l}{Scale up w.
 130&   31&   65&  122&Code&AcceptTest &0.56 &  ******  \\
  \end{tabular}
 \end{center}
-\caption{Distribution of fix times seen in SEI TSP data. Left hand side bars
-show scale up on median values.
+\caption{ SEI TSP data: distribution of fix times. RHS bars
+show scale up on {\bf  50th percent} values (i.e. the median).
 }
 \label{fig:raw}
 \end{figure}
@@ -834,7 +840,7 @@ show scale up on median values.
 
 
 
-\begin{figure}[!t] 
+\begin{figure} 
  %\renewcommand{\baselinestretch}{0.8}
  \scriptsize
 \begin{center}
@@ -857,23 +863,21 @@ N  & 99th &   injected & removed   & \multicolumn{2}{l}{Scale up w.r.t. to first
 126&600&Code&Code&1.0&**********\\
 459&243&Code&CodeInspect&0.4&**** \\
 461&365&Code&Test&0.6&****** \\
+348&720&Code&IntTest&1.2&************\\
 230&290&Code&SysTest&0.5&***** \\
-71&600&Code&AcceptTest&1.0&*********\\
-348&7200&Code&IntTest&12.0&************************************\\
-  &    &    &       &    & ************************************\\
-  &    &    &       &    & ************************************\\
+71&600&Code&AcceptTest&1.0&*********
 
 
 \end{tabular}
 \end{center}
-\caption{99th percentile scale ups.}
+\caption{SEI TSP data: distribution of fix times. RHS bars
+show scale up on {\bf 99th percent} values.}
 \label{fig:scale99}
 \end{figure}
-
  
  
-
-\newpage
+ 
+ 
 \subsection{Observations from 171 Projects}
 
 The distribution of defects found and fixed per phase in our data is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects (44\%) were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. (This distribution is similar to that observed for other projects that emphasized investment in software engineering quality assurance practices. For example, Jones and Bonsignour report 52\% of pretest defects removed before entering implementation, for large projects that focus on upfront defect removal techniques \cite{jones12}. NASA robotics projects had a slightly higher percentage (58\%) of defects removed before implementation began, although these had invested in IV\&V on top of other forms of defect removal \cite{me08a}.)  
