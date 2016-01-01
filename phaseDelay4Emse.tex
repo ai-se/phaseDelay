@@ -218,6 +218,42 @@ To the best of our knowledge,
 this the largest study devoted the delayed issue effect yet conducted.
 \ei
 Finally, we discuss the validity and implications of our results.
+
+
+\subsection{Preliminaries} 
+Before beginning, it is appropriate to make the following full disclosure statement. 
+
+
+All the 171 software projects
+studied here were developed using the Team Software Process (TSP$\textsuperscript{SM}$), which is a software development methodology
+developed and promulgated by the employer of the second and third author of this paper (for more details on TSP,
+ see \tion{tsp}).
+Hence, it is tempting to use these results to advocate for TSP since    TSP   might solve  the  DIE problem for  software projects 
+without needing all the extra machinery seen in (say)  Silicon Valley 
+continuous deployment organizations\footnote{ E.g. large scale process changes such as  open source
+development and/pr switching to new tools like NoSQL, Docker, AWS, Javascript and MEAN,  Jenkins, Github, etc.}.
+
+
+That said, it is not clear to us that TSP is such a radical change to software development that it can
+stamp out a supposedly rampant problem like the delayed issue effect. We view TSP as a better way to
+ {\em monitor} the activities   of  existing projects.  TSP
+ does not significantly change a project-- it just offers a better way to log the activity within
+ that project. 
+ 
+Hence, given our data, the conclusion of this paper is {\em  either} the delayed issue effect can be  removed via:
+simple changes to a project (like TSP) {\em or} that the DIE problem does not exist in the first place.
+Either way, our more general point is the same: the delayed issue effect does not plague software development
+(which is a contrary claim to statements from leading figures in the  field of software engineering -- see the introduction).
+
+ 
+
+
+
+
+
+
+
+
  
 \section{Definitions \& Hypotheses}
 This paper uses the following definitions:
@@ -606,7 +642,7 @@ An anonymized version of that data is available in the PROMISE repository at ope
 For confidentiality restrictions, we cannot offer 
 further details on these projects.
 
-\subsection{About TSP$\textsuperscript{SM}$}
+\subsection{About TSP$\textsuperscript{SM}$}\label{sect:tsp}
 
 TSP is a software project management approach developed at the Software Engineering Institute (SEI) at Carnegie Mellon University~\cite{tsp00}. TSP is an extension of the Personal Software Process (PSP$\textsuperscript{SM}$) developed at the SEI by Watts Humphrey ~\cite{tsp00}. The data from these TSP projects were collected and stored in the Software Engineering Measured Process Repository (SEMPR) at the SEI. The Software Engineering Institute (SEI) at Carnegie Mellon University explores methods for software process improvement.
  
@@ -791,178 +827,104 @@ our units of analysis are:
 % \renewcommand{\baselinestretch}{0.8}
  \scriptsize
 \begin{center}
-\begin{tabular}{r|rrr|ll|rl}   
-  \multicolumn{1}{c}{~} &\multicolumn{3}{c}{Percentiles}&\multicolumn{2}{c}{Phase}\\\cline{2-6}
-N & 25th & 50th & 75th &   injected & removed   & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline
- 48&   14&   30&   51&Before&DesignInspect &1.00 & **********  \\
- 53&   13&   28&   49&Before&CodeReview &0.93 & **********  \\
- 94&   22&   45&   80&Before&CodeInspect &1.50 & ***************  \\
-153&   38&   77&  130&Before&UnitTest &2.56 & **************************  \\
-127&   30&   65&  128&Before&IntTest &2.16 & **********************  \\
- 92&   24&   56&   89&Before&SysTest &1.86 & *******************  \\\hline
- 
-  
- 56&   14&   35&   57&Planning&ReqtsReview &1.00 & **********  \\
- 46&   11&   24&   39&Planning&DesignInspect &0.68 & *******  \\
- 32&   18&   33&   84&Planning&UnitTest &0.94 & **********  \\\hline
-  
-184&   45&   92&  155&Reqts&ReqtsReview &1.00 & **********  \\
-189&   46&   93&  155&Reqts&ReqtsInspect &1.00 & **********  \\
- 61&   14&   33&   55&Reqts&DesignReview &0.35 & ****  \\
-102&   24&   49&   83&Reqts&DesignInspect &0.52 & ******  \\
- 59&   18&   38&   60&Reqts&CodeInspect &0.40 & ****  \\
- 91&   22&   49&  104&Reqts&UnitTest &0.52 & ******  \\
-100&   33&   67&  120&Reqts&IntTest &0.72 & ********  \\
- 78&   28&  122&  237&Reqts&SysTest &1.31 & **************  \\\hline 
-210&   51&  103&  166&Design&DesignReview &1.01 & ***********  \\
-207&   50&  101&  156&Design&DesignInspect &1.00 & **********  \\
-134&   32&   66&  116&Design&CodeReview &0.65 & *******  \\
-163&   39&   79&  135&Design&CodeInspect &0.78 & ********  \\
-238&   58&  119&  183&Design&UnitTest &1.17 & ************  \\
-172&   42&   88&  158&Design&IntTest &0.87 & *********  \\
-163&   40&   80&  161&Design&SysTest &0.79 & ********  \\
- 80&   21&   45&   73&Design&AcceptTest &0.44 & *****  \\\hline
-  
-235&   57&  115&  177&Code&CodeReview &1.00 &  **********  \\
-228&   56&  113&  176&Code&CodeInspect &0.99 & ********** \\
-243&   59&  125&  206&Code&IntTest &1.08 &     *********** \\
-191&   46&   95&  173&Code&SysTest &0.82 &     ******** \\
-269&   66&  133&  206&Code&UnitTest &1.15 &    ***********  \\
-130&   31&   65&  122&Code&AcceptTest &0.56 &  ******  \\
- \end{tabular}
+\begin{tabular}{l@{~~~}r|r@{~}r|r@{~}lr@{~}l} 
+\renewcommand{\baselinestretch}{0.5}
+\multicolumn{2}{l|}{Phase} &\multicolumn{2}{c|}{Percentile}& \multicolumn{4}{c}{Ratio w.r.t. to phase where issue was injected)}\\\hline
+ injected & removed&50th & 95th &\multicolumn{2}{c|}{50th}&\multicolumn{2}{c}{95th}\\\hline
+\\
+Before&DesignInspect&30&97&1&\rule{10mm}{2mm}&1&\textcolor{red}{\rule{10mm}{2mm}} \\
+&CodeReview&28&94&0.93&\rule{9mm}{2mm}&0.96&\textcolor{red}{\rule{10mm}{2mm}} \\
+&CodeInspect&45&154&1.5&\rule{15mm}{2mm}&1.58&\textcolor{red}{\rule{16mm}{2mm}} \\
+&UnitTest&77&187&2.56&\rule{26mm}{2mm}&1.92&\textcolor{red}{\rule{19mm}{2mm}} \\
+&IntTest&65&424&2.16&\rule{22mm}{2mm}&4.37&\textcolor{red}{\rule{35mm}{2mm}} \\
+&SysTest&56&164&1.86&\rule{19mm}{2mm}&1.69&\textcolor{red}{\rule{17mm}{2mm}} \\\hline\\
+Planning&ReqtsReview&35&99&1&\rule{10mm}{2mm}&1&\textcolor{red}{\rule{10mm}{2mm}} \\
+&DesignInspect&24&81&0.68&\rule{7mm}{2mm}&0.81&\textcolor{red}{\rule{8mm}{2mm}} \\
+&UnitTest&33&238&0.94&\rule{9mm}{2mm}&2.4&\textcolor{red}{\rule{24mm}{2mm}} \\\hline\\
+Reqts&ReqtsReview&92&240&1&\rule{10mm}{2mm}&1&\textcolor{red}{\rule{10mm}{2mm}} \\
+&ReqtsInspect&93&243&1.01&\rule{10mm}{2mm}&1.01&\textcolor{red}{\rule{10mm}{2mm}} \\
+&DesignReview&33&119&0.35&\rule{4mm}{2mm}&0.49&\textcolor{red}{\rule{5mm}{2mm}} \\
+&DesignInspect&49&137&0.53&\rule{5mm}{2mm}&0.57&\textcolor{red}{\rule{6mm}{2mm}} \\
+&CodeInspect&38&156&0.41&\rule{4mm}{2mm}&0.65&\textcolor{red}{\rule{7mm}{2mm}} \\
+&UnitTest&49&180&0.53&\rule{5mm}{2mm}&0.75&\textcolor{red}{\rule{8mm}{2mm}} \\
+&IntTest&67&300&0.72&\rule{7mm}{2mm}&1.25&\textcolor{red}{\rule{13mm}{2mm}} \\
+&SysTest&122&459&1.32&\rule{13mm}{2mm}&1.91&\textcolor{red}{\rule{19mm}{2mm}} \\\hline\\
+Design&DesignReview&103&331&1&\rule{10mm}{2mm}&1&\textcolor{red}{\rule{10mm}{2mm}} \\
+&DesignInspect&101&272&0.98&\rule{10mm}{2mm}&0.82&\textcolor{red}{\rule{8mm}{2mm}} \\
+&CodeReview&66&215&0.64&\rule{6mm}{2mm}&0.64&\textcolor{red}{\rule{6mm}{2mm}} \\
+&CodeInspect&79&259&0.76&\rule{8mm}{2mm}&0.78&\textcolor{red}{\rule{8mm}{2mm}} \\
+&IntTest&88&337&0.85&\rule{9mm}{2mm}&1.01&\textcolor{red}{\rule{10mm}{2mm}} \\
+&UnitTest&119&383&1.15&\rule{12mm}{2mm}&1.15&\textcolor{red}{\rule{12mm}{2mm}} \\
+&SysTest&80&336&0.77&\rule{8mm}{2mm}&1.01&\textcolor{red}{\rule{10mm}{2mm}} \\
+&AcceptTest&45&120&0.43&\rule{4mm}{2mm}&0.36&\textcolor{red}{\rule{4mm}{2mm}} \\\hline\\
+Code&CodeInspect&113&337&1&\rule{10mm}{2mm}&1&\textcolor{red}{\rule{10mm}{2mm}} \\
+&CodeReview&115&300&1.01&\rule{10mm}{2mm}&0.89&\textcolor{red}{\rule{9mm}{2mm}} \\
+&IntTest&125&473&1.1&\rule{11mm}{2mm}&1.4&\textcolor{red}{\rule{14mm}{2mm}} \\
+&UnitTest&133&434&1.17&\rule{12mm}{2mm}&1.28&\textcolor{red}{\rule{13mm}{2mm}} \\
+&SysTest&95&383&0.84&\rule{8mm}{2mm}&1.13&\textcolor{red}{\rule{11mm}{2mm}} \\
+&AcceptTest&65&360&0.57&\rule{6mm}{2mm}&1.06&\textcolor{red}{\rule{11mm}{2mm}} \\
+
+\end{tabular}
+
 \end{center}
-\caption{ SEI TSP data: distribution of fix times. RHS bars
-show scale up on {\bf  50th percent} values (i.e. the median).
+\caption{ SEI TSP data: 50th and 95th percentiles of issue resolution times for issues injected in phase $X$ and resolved in phase $Y$.
+The right hand side bars
+illustrate how these resolutions increases (expressed as ratios of resolution time in the phase where they were first injected).
+The {\bf BLACK} and \textcolor{red}{{\bf RED}} bars show the increases for the  50th (median) and 95th percentile values, respectively.
 }
 \label{fig:raw}
 \end{figure}
 
 
 
-
-\begin{figure} 
- %\renewcommand{\baselinestretch}{0.8}
- \scriptsize
-\begin{center}
-\begin{tabular}{r|r|ll|rl}   
-  \multicolumn{1}{c}{~} &\multicolumn{1}{c}{Percentiles}&\multicolumn{2}{c}{Phase}\\\cline{2-4}
-N  & 99th &   injected & removed   & \multicolumn{2}{l}{Scale up w.r.t. to first phase}\\\hline 
-
-57&257&Before&Code&1.00&*********\\
-72&153&Before&CodeInspect&0.60&****** \\
-165&282&Before&Test&1.01&**********\\
-50&365&Before&IntTest&1.42&************** \\
-42&151&Before&SysTest&0.59&****** \\\hline 
-37&600&Design&Design&1.00&********** \\
-455&277&Design&DesignInspect&0.46&***** \\
-218&240&Design&Code&0.40&**** \\
-166&163&Design&CodeInspect&0.27&*** \\
-542&652&Design&Test&1.09&***********\\
-67&277&Design&IntTest&0.46&***** \\
-92&480&Design&SysTest&0.80&******** \\\hline 
-126&600&Code&Code&1.0&**********\\
-459&243&Code&CodeInspect&0.4&**** \\
-461&365&Code&Test&0.6&****** \\
-348&720&Code&IntTest&1.2&************\\
-230&290&Code&SysTest&0.5&***** \\
-71&600&Code&AcceptTest&1.0&*********
-
-
-\end{tabular}
-\end{center}
-\caption{SEI TSP data: distribution of fix times. RHS bars
-show scale up on {\bf 99th percent} values.}
-\label{fig:scale99}
-\end{figure}
+ 
  
  
  
  
 \subsection{Observations from 171 Projects}
 
-The distribution of defects found and fixed per phase in our data is shown in Figure~\ref{fig:fix-phase-dist}. A high percentage of defects (44\%) were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. (This distribution is similar to that observed for other projects that emphasized investment in software engineering quality assurance practices. For example, Jones and Bonsignour report 52\% of pretest defects removed before entering implementation, for large projects that focus on upfront defect removal techniques \cite{jones12}. NASA robotics projects had a slightly higher percentage (58\%) of defects removed before implementation began, although these had invested in IV\&V on top of other forms of defect removal \cite{me08a}.)  
+The distribution of defects found and fixed per phase in our data is shown in Figure~\ref{fig:fix-phase-dist}. 
+ high percentage of defects (44\%) were found and fixed in the early phases, i.e., requirements, high level design, and design reviews and inspections. (This distribution is similar to that observed for other projects that emphasized investment in software engineering quality assurance practices. For example, Jones and Bonsignour report 52\% of pretest defects removed before entering implementation, for large projects that focus on upfront defect removal techniques \cite{jones12}. NASA robotics projects had a slightly higher percentage (58\%) of defects removed before implementation began, although these had invested in IV\&V on top of other forms of defect removal \cite{me08a}.)  
 
-\fig{raw} shows the 25th, 50th, 75th percentile
-of the time spent on {\em review} or {\em inspect} or {\em test} phases
-in our 171 projects.
-Note that, in TSP, when developers see issues, they enter {\em review} or 
+\fig{raw} shows the  50th and 95th percentile
+of the time spent resolving issues
+(note that, in TSP, when developers see issues, they enter {\em review} or 
 {\em inspect} or {\em test}
-until that issue is retired.
+until that issue is retired).
+These values include all the time required  to (a)~collect data and realize there is an error;
+(b)~prepare a fix;  and (c)~apply some validation
+procedure to check the fix (e.g. discuss it with a colleague or execute some tests).
+
 
 In that figure, the data is split out according to issues that were fixed in phase $Y$ after
 being introduced in phase $X$. The data is sub-divided into tables according to $X$;
 i.e. according to {\em before, planning, requirements, design} or {\em  code}. 
-The stars on the right-hand-side of that figure show the scale ups associated with the phase removal stages,
-expressed as a ratio of the first item in that block (which, by definition, is 1.00 for
-that first item).
-If  this data exhibited a delayed issue effect,  we would expect those bars in each sub-division to exhibit an
-very large increased.
+To ensure the representativeness of each line, we display examples
+where there exists at least $N\ge 30$ examples\footnote{We selected 30
+for this threshold via the central limit theorem~\cite{maxwelldata}.} of issues {\em injected} in phase $X$ then
+removed in phase $Y$.
 
-\subsubsection{Comment 1}
-Figure~\ref{fig:raw}
- data does not support that   
-{\em  requirements errors are the most expensive to fix}.
-Note that   median time spent fixing errors from {\em requirements} across the life cycle was 92, 93,  49, 33, 39, 49, 67, 122 minutes\footnote{If this time seems long, then recall
-that it includes the time required  to (a)~collect data and realize there is an error;
-(b)~prepare a fix;  and (c)~apply some validation
-procedure to check the fix (e.g. discuss it with a colleague or execute some tests).}.
-This is:
-\bi
-\item
-Clearly longer than median times seen {\em Before } and in {\em Planning}
-(30,28,45,77,65,56,24,35,33);
-\item
-Somewhat shorter, but still not very much larger,  than the median times see after {\em requirements} in {\em design}
-(103,101, 79,66, 119,88, 80,45) and in {\em code} (65,115, 113,125, 95,133). 
-\ei
-For completeness, we ran an A12 test comparing the raw data for each phase, and found an effect size of ''medium'' or higher only for the difference between {\em requirements}
-and {\em code}. In this case, however, 
- the overall size of the difference
-{\em requirements} to {\em code} was less than 30\% (i.e. much less than we would
-expect from the delayed issue effect). 
-
-That said, Figure~\ref{fig:raw} does support the 
+The right hand side bars of that figure
+illustrate how these resolutions increases (expressed as ratios of resolution time in the phase where they were first injected).
+The {\bf BLACK} and \textcolor{red}{{\bf RED}} bars show the increases for the  50th (median) and 95th percentile values, respectively.
+Those bars offer some support for the 
 claim that early lifecycle errors are most expensive to fix.
 In all our results, the biggest scale ups are found with resolving
 issues introduced in the {\em before} phase. For example,
-resolving {\em before} issues during unit testing was 2.56 times
+resolving {\em before} issues during unit testing was 2.56, 4.37 times (at the 50th and 95th percentile, respectively)
 slower than resolving issues earlier in the lifecycle. 
 
 Nevertheless, the scale up seen in 
 Figure~\ref{fig:raw} 
 is much less
 than that suggested by the DIE literature. Returning to
-the {\em before/unit test} result: 2.56 is far smaller
+the {\em before/integration test} result: 2.56 and 4.37 is far smaller
 than the scale ups seen in Figure~1. In fact, nowhere in 
 our results do we see the kind of very large increases reported in the papers
 documenting DIE.
 
-\newpage\subsubsection{Comment 2}
-Our data from these 171 project does not extend into post-delivery deployment. That said,
-there is enough evidence to raise doubts that our projects will exhibit very much more
-difficulty in resolving issues after deployment. 
 
-As mentioned in \tion{earlyonset}, every other
-paper reporting DIE also reported  early onset of DIE
-within the current development. A remarkable feature of Figure~\ref{fig:raw} is the {\em absence}
-of a very large DIE   effect during development.
-In our data, the greatest increase in difficulty in resolving requirements issues was the 1.31 scale-up seen in systems testing--
-which is far smaller than the 37 to 250-fold increases reported in \fig{b81}, \fig{cost-to-fix},
-and \fig{steck}.  
-
-That is, from our  data, we would not anticipate very much larger  difficulty in resolving requirements issues after
-deployment. 
- \subsubsection{Comment 3}
- The above specific statements are related just to requirements. Turning now
- to issues created in all phases in Figure~\ref{fig:raw},  we see that
- this data does not exhibit the very large   increases predicted
-by the delayed issue effect:
-\bi
-\item There is much ``up and down'' in the chart, but no steady very large growth such
-as that see in, for example,  \fig{b81}.
-\item The time in acceptance  testing is particularly low suggesting that few defects survived into testing
-(and hence, there were few instances where code required massive rework).
-\ei
 %In summary:
 %\bi
 %\item
@@ -1107,39 +1069,64 @@ as that see in, for example,  \fig{b81}.
 %\ei
 
  
+
+
+\section{Threats to Validity}
+
+\subsection{External Validity}
+
+When discussing these results with colleagues, they have raised the following questions as threats to validity.
+
+ 
+{\em Question1:} The data collection   for this work does not 
+distinguished between ``low risk'' and ``high risk''
+issues; i.e. between easy-to-fix issues and other most-expensive fixes. 
+It is possible that such high risk issues might occur infrequently,  yet are still detrimental
+since  their resolution time is extremely large?
+
+{\em Answer1} If such outliers were common, they would appear in the upper percentiles of results. 
+As shown in the \textcolor{red}{{\bf RED}} bars of \fig{raw}, no such effect appears in the 95th percentiles of \fig{raw}.  
+
+
+
+ {\em Question2:}
+The data used in this analysis does not extend into post-delivery deployment. 
+Did this study failed to find the DIE effect since it does not arise until after deployment?
  
 
+{\em Answer2:} 
+As mentioned in \tion{earlyonset}, every other
+paper reporting DIE also reported  early onset of DIE
+within the current development. Specifically: those pro-DIE papers reported very large
+increases in the time required to resolve issues {\em even before delivery}. That is, extrapolating those
+trends it would be possible to predict for a large DIE effect, even before delivering the software.
+This is an important point since  Figure~\ref{fig:raw} shows an {\em absence}
+of a very large DIE   effect during development
+(in this data, the greatest increase in difficulty in resolving requirements issues was the 2.16 to 4.37
+scale-up seen in the {\em before} to {\em integration testing} 
+which is far smaller than the 37 to 250-fold increases reported in \fig{b81}, \fig{cost-to-fix},
+and \fig{steck}(.  
+That is, extrapolating the above data, we would not expect DIE effects, post-deployment. 
 
+(As an aside, we have (informally) checked this prediction by following up with the projects for which we
+still have contacts. This follow-up study lacks the detailed data collection used above (it was more ``word of mouth''
+amongst the developers with personnel contacts with the second author). Based
+on that informal data collection, we can report that none of these 171  projects reported
+a  large post-deployment  
+DIE effect.)
  
+ {\em Question3:}
+ While the 171 project studies here are a large sample, are they representative of all software projects? 
  
-
-\section{Validity}
-We report validity concerns following the guidelines of Runeson \& H\"{o}st~\cite{runeson09}.
-
-\subsection{External validity}
-Threats to external validity affect the generalization of findings. The most obvious threat to external validity is that TSP is not representative of most software development processes. Hence,
-for example, 
-one way to discount the above argumentation is that our sample is biased-- that while general software
-systems suffer from the delayed issue effect, systems built using TSP are so much better controlled
-that they  mitigate against the DIE effect.
-
-It would be convenient to offer the last paragraph as the conclusion of this study
-(two of our authors, Nichols and Shull,  work at the organization that invented and promoted TSP).
- However, we cannot endorse such a conclusion:
- \bi
- \item
-We view TSP as a better way to
- {\em monitor} the activities {\em of  existing projects}. That is, TSP
- does not radically change a project, it just offers a better way to log the activity within
- that project. 
- \item
- Our 171 projects contain examples of a wide variety
+ {\em Answer3:} These 171 projects contain examples of a wide variety
  of systems (ranging from e-commerce web portals to  banking systems) run in a variety of
  ways (agile or  waterfall or some combination of the two). Hence, rather
  than being unduly  biased in some manner,
  we view our 171 projects as a large sample of current industrial processes for software
  development.
- \ei
+ 
+ {\em Question4:}
+ 
 Another way to discount this result is to say we are only reporting on small to medium-size
 projects
 (see
@@ -1164,6 +1151,8 @@ our  171 projects represents $\frac{171}{212}=80$\% of the software projects
 seen by the Software Engineering Institute's TSP team.
 That is, as far as we can tell,
 there are more small to medium-sized projects than otherwise.
+
+
 
 
 
