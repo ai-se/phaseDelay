@@ -1,34 +1,173 @@
-@Inproceedings{Theisen15,
-abstract     = {<p>Security testing and reviewing efforts are a necessity for software projects,
-                but are time-consuming and expensive to apply. Identifying vulnerable code
-                supports decision-making during all phases of software development.  An approach
-                for identifying vulnerable code is to identify its <em>attack surface</em>, the
-                sum of all paths for untrusted data into and out of a system. Identifying the
-                code that lies on the attack surface requires expertise and significant manual
-                effort. This paper proposes an automated technique to empirically approximate
-                attack surfaces through the analysis of stack traces.  We hypothesize that stack
-                traces from user-initiated crashes have several desirable attributes for
-                measuring attack surfaces. The goal of this research is <em>to aid software
-                engineers in prioritizing security efforts by approximating the attack surface of
-                a system via stack trace analysis. </em>In a trial on Windows 8, the attack
-                surface approximation selected 48.4{\%} of the binaries and contained 94.6{\%} of known
-                vulnerabilities. Compared with vulnerability prediction models (VPMs) run on the
-                entire codebase, VPMs run on the attack surface approximation improved recall
-                from .07 to .1 for binaries and from .02 to .05 for source files.  Precision
-                remained at .5 for binaries, while improving from .5 to .69 for source files.</p>},
-author       = {Christopher Theisen and Kim Herzig and Patrick Morrison and Brendan Murphy and
-                Laurie Williams},
-booktitle    = {Companion Proceedings of the 37th International Conference on Software
-                Engineering},
-month        = {May},
-note         = {Please note that this paper is not yet published, but accepted for inclusion.},
-publisher    = {IEEE – Institute of Electrical and Electronics Engineers},
-title        = {Approximating Attack Surfaces with Stack Traces},
-url          = {http://research.microsoft.com/apps/pubs/default.aspx?id=238352},
-year         = {2015},
+@book{deming1986out,
+  title={Out of the crisis},
+  author={Deming, W Edwards},
+  journal={Center for advanced engineering study, Cambridge, MA},
+  publisher={MIT Press},
+  year={1986}
 }
 
-@inproceedings{maxwelldata,
+@misc{Beck2001a,
+author = {Beck, K and Beedle, M and van Bennekum, A and Cockburn, A and Cunningham, W and Fowler, M and Grenning, J and Highsmith, J and Hunt, A and Jeffries, R and Kern, J and Marick, B and Martin, R C and Mallor, S and Schwaber, K and Sutherland, J and Thomas, D},
+title = {{The Agile Manifesto}},
+url = {http://www.agilemanifesto.org},
+year = {2001}
+}
+
+
+@article{mittas13,
+  author =	{Nikolaos Mittas and Lefteris Angelis},
+  title =	{Ranking and Clustering Software Cost Estimation
+                  Models through a Multiple Comparisons Algorithm},
+  journal =	{IEEE Trans. Software Eng.},
+  volume =	39,
+  number =	4,
+  year =	2013,
+  pages =	{537-551},
+}
+
+
+@INPROCEEDINGS{arcuri11,
+author={Arcuri, A. and Briand, L.}, 
+booktitle={ICSE'11},
+title={A practical guide for using statistical tests to assess randomized algorithms in software engineering}, 
+year={2011}, 
+pages={1-10}}
+
+
+@inproceedings{Kocaguneli2013:ep,
+author = {Kocaguneli, Ekrem and Zimmermann, Thomas and Bird, Christian and Nagappan, Nachiappan and Menzies, Tim},
+booktitle = {Proceedings - International Conference on Software Engineering},
+doi = {10.1109/ICSE.2013.6606637},
+isbn = {9781467330763},
+issn = {02705257},
+pages = {882--890},
+title = {{Distributed development considered harmful?}},
+year = {2013}
+}
+
+@article{kampenes07,
+  author =	 {Vigdis By Kampenes and Tore Dyb{\aa} and Jo Erskine
+                  Hannay and Dag I. K. Sj{\o}berg},
+  title =	 {A systematic review of effect size in software
+                  engineering experiments},
+  journal =	 {Information {\&} Software Technology},
+  volume =	 49,
+  number =	 {11-12},
+  year =	 2007,
+  pages =	 {1073-1086},
+}
+
+@article{shepperd12a,
+  author =	 {Martin J. Shepperd and Steven G. MacDonell},
+  title =	 {Evaluating prediction systems in software project
+                  estimation},
+  journal =	 {Information {\&} Software Technology},
+  volume =	 54,
+  number =	 8,
+  year =	 2012,
+  pages =	 {820-827},
+}
+
+
+@book{efron93,
+  author =	"Efron, Bradley and Tibshirani, Robert J",
+  title =	"An introduction to the bootstrap",
+  publisher =	"Chapman and Hall",
+  address =	"London",
+  series =	"Mono. Stat. Appl. Probab.",
+  year =	1993,
+}
+
+
+@book{jacobson1999unified,
+  title={The unified software development process},
+  author={Jacobson, Ivar and Booch, Grady and Rumbaugh, James},
+  year={1999},
+  publisher={Addison-Wesley Reading}
+}
+
+@inproceedings{ghotra2015icse,
+  Author = {Baljinder Ghotra and Shane McIntosh and Ahmed E. Hassan},
+  Title = {{Revisiting the Impact of Classification Techniques on the Performance of Defect Prediction Models}},
+  Year = {2015},
+  Booktitle = {Proc. of the International Conference on Software Engineering (ICSE)},
+  Pages = {789-800}
+}
+
+@article{larman2003iterative,
+  title={Iterative and incremental development: A brief history},
+  author={Larman, Craig and Basili, Victor R},
+  journal={Computer},
+  volume={36},
+  number={6},
+  pages={47--56},
+  year={2003},
+  publisher={IEEE}
+}
+
+@book{humphrey1995discipline,
+  title={A discipline for software engineering},
+  author={Humphrey, Watts S},
+  year={1995},
+  publisher={Addison-Wesley Longman Publishing Co., Inc.}
+}
+
+@article{boehm1988spiral,
+  title={A spiral model of software development and enhancement},
+  author={Boehm, Barry W},
+  journal={Computer},
+  volume={21},
+  number={5},
+  pages={61--72},
+  year={1988},
+  publisher={IEEE}
+}
+
+@misc{Facebook,
+  author = {Paul, Ryan},
+  title = {Exclusive: a behind-the-scenes look at Facebook release engineering},
+  howpublished = {\url{http://arstechnica.com/business/2012/04/exclusive-a-behind-the-scenes-look-at-facebook-release-engineering/1/}},
+  publisher = {Ars Technica},
+  note = {Accessed: 2016-06-14}
+}
+    
+
+
+@book{cook1979,
+  title={Quasi-experimentation: Design \& analysis issues for field settings},
+  author={Cook, Thomas D and Campbell, Donald Thomas},
+  year={1979},
+  publisher={Houghton Mifflin Boston}
+}
+
+@book{wohlin2012,
+  title={Experimentation in software engineering},
+  author={Wohlin, Claes and Runeson, Per and H{\"o}st, Martin and Ohlsson, Magnus C and Regnell, Bj{\"o}rn and Wessl{\'e}n, Anders},
+  year={2012},
+  publisher={Springer Science \& Business Media}
+}
+
+@article{carlson2009,
+  title={Study design, precision, and validity in observational studies},
+  author={Carlson, Melissa DA and Morrison, R Sean},
+  journal={Journal of palliative medicine},
+  volume={12},
+  number={1},
+  pages={77--82},
+  year={2009}
+}
+
+@article{madigan2014,
+  title={A systematic statistical approach to evaluating evidence from observational studies},
+  author={Madigan, David and Stang, Paul E and Berlin, Jesse A and Schuemie, Martijn and Overhage, J Marc and Suchard, Marc A and Dumouchel, Bill and Hartzema, Abraham G and Ryan, Patrick B},
+  journal={Annual Review of Statistics and Its Application},
+  volume={1},
+  pages={11--39},
+  year={2014}
+}
+
+
+@book{maxwelldata,
 address = {Englewood Cliffs, NJ},
 author = {Maxwell, K D},
 publisher = {Prentice-Hall},
@@ -74,11 +213,12 @@ doi={10.1109/MS.2013.77},
 ISSN={0740-7459},}
 
 
-@inproceedings{theisen15,
-year=2015,
-title="Approximating Attack Surfaces with Stack Traces"
-author="Christopher Theisen and  Kim Herzig and  Patrick Morrison and  Brendan Murphy and  Laurie Williams"
-booktitle="ICSE'15"
+@inproceedings{theisen2015,
+  title={Approximating attack surfaces with stack traces},
+  author={Theisen, Christopher and Herzig, Kim and Morrison, Patrick and Murphy, Brendan and Williams, Laurie},
+  booktitle={Proceedings of the 37th International Conference on Software Engineering-Volume 2},
+  pages={199--208},
+  year={2015}
 }
 
 @misc{wayner15,
@@ -99,7 +239,7 @@ Haskins, Bil and
 Lovell, Randy and 
 Moroney, Gregory},
 notes= "Available from http://ntrs.nasa.gov/search.jsp?R=20100036670",
-booktitle="14th Annual International Symposium; 19-24 Jun. 2004; Toulouse; France"
+booktitle="14th Annual INCOSE International Symposium; 19-24 Jun. 2004; Toulouse; France"
 }
 
 @misc{bright15,
