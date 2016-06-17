@@ -14,7 +14,9 @@ are addressed.
 
 \begin{quote} {\em Thank you for the careful reviews. Using
 those comments we have extensively revised and extended this draft.
-We trust you will find this draft gratefully improved}
+Specifically, the old version was 20 pages and this version is 27 pages (and the new
+material all comes from the clarification and correction points offered by the reviewers).
+We hope that  you will find this draft greatly improved.}
 \end{quote}
 
 Particularly, this holds for:
@@ -26,26 +28,26 @@ Particularly, this holds for:
 
  
 
-\begin{quote}{\em This new draft  now maps our work into the SE literature on theory building.}\end{quote}
+\begin{quote}{\em This new draft now maps our work into the SE literature on theory building. This new material appears in the introduction as well as being
+peppered throughout the document (in numerous places).}\end{quote}
  
 2) clarification about the data origin and
 characteristics (reviewer 1). 
  
 
 \begin{quote}{\em
-This new draft  now maps not contains extensive notes on the origin and characteristics of our data.}\end{quote}
+This new draft contains much more detail on the origin and characteristics of our data (see \tion{data-collection} and \tion{data_character}).}\end{quote}
 
 3)  use of statistical analysis (reviewers 2 and 3) 
 
-
-\begin{quote}{\em All our results are now augmented with statistical significance tests as well as effect size tests. Those tests greatly strength the overall message of this paper-- that there is no significant
+\begin{quote}{\em All our results are now augmented with statistical significance tests as well as effect size tests (see \tion{stats} and \tion{171projects}). Those tests strengthen the overall message of this paper-- that there is no significant
 phase delay effect.}\end{quote}
 
  
 - writing style, that would benefit form being more
 precise (reviewer 3)
 
-\begin{quote}{\em We have carefully read those comments  nd have made numerous changes
+\begin{quote}{\em We have carefully read those comments and have made numerous changes
 as directed by reviewer3.}\end{quote}
 
 {\bf Reviewer \#1's Comments}
@@ -66,15 +68,18 @@ of the "life of an issue" the authors claim are affected by
 DIE, and it is also not too easy to understand what data the
 authors have available.  
 
-\begin{quote}{\em  We have added an example of the DIE in the Introduction, and more precisely defined how we measure this effect Section 6.\footnote{Lucas- where exactly?} }\end{quote}
+\begin{quote}{\em  The introduction now includes an example of DIE  (see Fig 1).
+Also there are now more precise  definitions on how we measure this effect in \tion{data-collection}}\end{quote}
  
  The authors do not relate their reassessment of an
-"old truism" to the growing set of papers on theory building
+``old truism'' to the growing set of papers on theory building
 in software engineering. With access to such large amounts
 of empirical evidence, it should be possible to take some
 steps toward improved DIE theories. 
 
-\begin{quote}{\em  fshull XXX }\end{quote}
+\begin{quote}{\em We now map our work to prior publications on theory-building in software engineering. That mapping appears in numerous comments through out the text (using the references offered by this reviewer) with the bulk of the comments being top of p2 and the conclusion. 
+
+Notably, we now introduce the DIE as an example of such a theory (in the introduction), and explain that this is done on the basis of it providing a description of a Software development phenomenon accompanied by a rationale that explains why such behavior is expected. While we introduce in the conclusions several rationales that can explain why the effect called for by the theory was not observed in our dataset, we feel that future work is needed to collect data in support or contradiction of these explanations before a new theory can be formulated with confidence. }\end{quote}
 
 The different projects studied are all grouped together. I
 believe studying clusters of development contexts would be
@@ -83,22 +88,36 @@ characterization of projects is inadequate.
 
 \begin{quote}{\em  We agree with this comment and so took two actions for this draft-- one that was effective and one that was ineffective. 
 
-Firstly, this draft now contains extensive notes on the different contexts of the
+First, this draft now contains extensive notes on the different contexts of the
 projects studied here. Those notes are offered in \tion{data_character} and \tion{171projects}.
 
-Secondly (and this was the ineffective step), we  searched the numerous   listed in \tion{data_character} and \tion{171projects}
-in order to check if any stratification contained the delayed issue effect. We failed to find a stratification
-containing an exponential expansion in the time to fix issues. The reason for this was due to the dataL those
-stratifications resulted in smaller sample sizes that exacerbated the large IQR's seen in this data
-(to see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:fix}.IQR is the
-range 75th to 25th in the data. Note that most of our IQRs were larger than tan the 50th percentile; i.e. software
-data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications
+Second (and this was the ineffective step), we  searched the categories   listed in \tion{data_character} and \tion{171projects}
+in order to check if any stratification contained the delayed issue effect. 
+That study   failed to find a stratification
+containing an exponential expansion in the time to fix issues. The reason for this was  the small size
+of those stratifications  exacerbated the large IQR's seen in this data\footnote{Recall that in a sorted list of numbers,
+the inter-quartile range, or IQR, is difference between the 
+  75th to 25th percentile value.}:
+\bi
+\item
+Our 171 projects   stratifies into subsets of varying sizes. Sorting those sizes, we get a list
+comprising of 17,12 then numerous much smaller stratifications.  Reasoning over such small samples
+is problematic in the general case and, in the case of our data, it is ever more problematic due to
+the large IQRS of the data:
+\item
+To see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:raw} Note that most of our IQRs were larger than tan the 50th percentile; i.e. software
+data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications.
+\ei
+Our conclusion from exploring the stratification's is, given the currently available data, we cannot check
+for a DIE effect in subsets of this data.
+
+Note that the above notes are now added to the paper at the end of Section 6.6.
  }\end{quote}
 
 
 
 DETAILED REVIEW: The authors should expand on what they
-include in the "delayed issue effect" (DIE), in particular
+include in the ``delayed issue effect'' (DIE), in particular
 in relation to standard milestones in the life of an issue
 and the corresponding timespans.  I'm particularly
 interested in whether all "indirect" issue resolution steps
@@ -111,9 +130,9 @@ fixes, i.e., no updates to architecture, changed hardware,
 recertification, updated user manuals etc.
 
 \begin{quote} {\em
+We now provide a more explicit definition of what constitutes a defect (our study of issues is limited to defects) and the ``defect lifecycle'' phases we measure in \tion{data-collection}. These definitions greatly expand on the now-deleted list on 14:50 in teh previous version. In TSP, ``a defect is any change to a product, after its construction, that is necessary to make the product correct''. This includes both minor issues (typography) and severe issues (architecture changes, requirements errors). Time on a defect includes a) time to investigate/analyze a defect once discovered, b) time to craft and implement a fix, and c) time to verify and close the defect.
 
-We understand your comment here to be ``are we just reporting trivial errors?''
-As shown in \fig{dtypes}, it is true that around a quarter of the fixes were simple documentation changes. That said, 75\% of the changes are quote  elaborate;   e.g. fixes to function necessitates a careful reflection of the purpose of the code.
+Regarding the concern that we may only be reporting trivial defects, we have added \fig{dtypes}, which shows the distribution of defect types in our data. It is true that around a quarter of the fixes were documentation changes, but the other 75\% are function-altering behavior in the system. 
 }\end{quote}
 
 
@@ -121,7 +140,7 @@ Section 6.3 describes the data, but some aspects
 should be further explained.
 
 \begin{quote} {\em
-At your suggestion, we had added extensive notes on the nature of our data--
+At your suggestion, we have added extensive notes on the nature of our data--
 see \tion{data_character} and \tion{171projects}.
 }\end{quote}
 
@@ -139,9 +158,13 @@ developers actually did this
  all such multi-tasking, and it should at least be properly
  discussed in Section 7 "Threats to validity".
 
-\begin{quote}{{\em 
-Yes, there is undoubtedly some accuracy in the time-tracking. We provide some evidence on the TSP data set's integrity in Section 6.3, and a more extensive discussion on the issue of time-tracking and defect logging accuracy in Section 7.1 on Conclusion Validity.XXX lucas: please check the section numbers are currently
-correct.
+\begin{quote}{\em 
+Yes, there is undoubtedly some accuracy in the time-tracking. We provide some evidence on the rigor of the TSP data collection process in \tion{defin}, \tion{data_integrity}, and \tion{data_character}, and a more extensive discussion on the issue of time-tracking and defect logging accuracy in \tion{conclusion_validity} on Conclusion Validity. We note that the data being collected here was not collected
+for the purposes of this paper. Rather, it was being collected and used by the
+programmers to assist them in their day-to-day management of the project.
+Given this, we have confidence that the logging information is not widely inaccurate.
+
+Please also consider the sanity checks reported in a companion paper (referenced here \tion{data_integrity}). In summary, this data has been heavily vetted.
 }
 \end{quote}
 
@@ -150,9 +173,9 @@ interesting, but it should be complemented by the
 perspective of theory building in software engineering - An
 active research topic lately, with a dedicated workshop
 series (GTSE). I suggest looking into the following
-references for a start: Sjøberg et al. (2008) "Building
-Theories in Software Engineering", Smolander and Päivärinta
-(2013) "Theorizing about software development practices",
+references for a start: Sj{\o}berg et al. (2008) ``Building
+Theories in Software Engineering'', Smolander and Paivarinta
+(2013) ``Theorizing about software development practices'',
 and Stol and Fitzgerald (2015) "Theory-oriented software
 engineering". Considering new empirical evidence is
 obviously critical to theory building, and discussing your
@@ -166,7 +189,9 @@ expect the paper to go beyond simply questioning the "old
 truth". 
  
  \begin{quote}{\em 
-XXX Fshull
+We thank the reviewer for this important observation and have connected our work to the literature on theory-building. However, our data supports a number of possible explanations for the observed intermittent appearance of the DIE. Since the current data is not suitable for choosing among the various hypothesized explanations we feel that formulating a new theory build from this data
+would be premature at this time. That said, we think the current paper would be useful
+as a data point which, when combined with other sources, could be useful for some new future theory of SE.
 }\end{quote}
 
 The authors study three claims in this paper, and the
@@ -192,15 +217,14 @@ during testing - some discussion along these lines would
 strengthen the validity section. 
 
 \begin{quote}{\em 
- We have reviewed and cited the mentioned papers. We have incorporated many of the concerns raised in these papers into our expanded Section 7.4 on External Validity.
-XXX lucas: please check the section numbers are currently
-correct. XXX section 7.4 is a little... terse. can you add another 1/4 to 1/2 page of stuff? or is this sectionn just as large as it neeeds to be
+ We have reviewed and cited the mentioned papers. We have incorporated many of the concerns raised in these papers into the expanded \tion{external_validity} on External Validity.
+ There, we note that Sj{\o}berg et al. list three classes of threats to External Validity (the smallest number) and we address all three of them. In truth, the only way to address External Validity threats is to have a huge sample, broadly representative of your domain, over an extended period of time-- e,g. using the 171 projects from 2006 to 2014 studied in this paper. The issues external validity in observational studies raised in \cite{madigan2014} and \cite{carlson2009} are more applicable to studies that compare a treatment and a control, whereas we are observing an effect that leads us to question the theory that DIE is a truism.
 }\end{quote}
 
 The first and second claims are studied with much less
 rigor. "DIE is a commonly held belief" is studied using a
 survey of software engineers, both practitioners and
-researchers. According to Fig. 2 (actually a table), the
+researchers. According to Fig. 2 (actually a table) [NOTE: Fig. 2 is now \fig{survey_results}], the
 number of respondents is 16 and 30 for practitioners and
 researchers, respectively. Sixteen respondents from industry
 represent a tiny survey of a very general claim that any
@@ -215,18 +239,16 @@ the most rigorous kind, the authors should report how the
 papers were identified. I suspect the terminology used to
 describe the DIE phenomenon is highly diverse, thus it would
 strengthen the paper if the authors reported how they
-reviewed the literature. According to Page 19:34 only eight
+reviewed the literature. According to Page 19:34 [NOTE: the enumerated list in the Conclusion] only eight
 publications were identified. 
 
-\begin{quote}{\em XXX
-Lucas: need to show that these were the only empirical
-results for DIE in tow
-}\end{quote}
+
+\begin{quote}{\em We agree with the reviewer - the phrasing of our claims and the supporting evidence were not congruent. Our intention is to argue from multiple angles that the evidence for DIE is sparse and, more importantly, that DIE persists as a popular belief. Our goal here is to motivate that we should re-investigate the DIE. We have toned down the language and combined our arguments on ``widely-believed'' and ``poorly-documented'' into a new \tion{belief} whose focus is to motivate our study.}\end{quote}
 
 The iterative fashion of modern software development,
 with agile at the extreme end, is not fully discussed (the
 short discussion section could be extended). The phases of
-the linear development of the 80s, (such as in Fig. 1)
+the linear development of the 80s, (such as in Fig. 1) [NOTE: Fig. 1 remains \fig{b81}] 
 probably don't exist in many of the projects in the TSP
 dataset, still the authors discuss the DIE-effect from the
 perspective of the 80s. Page 16:31 states "DIE has been used
@@ -239,10 +261,9 @@ How many of the 171 projects were
 characteristic of the included projects - very important to
 describe! 
 
-\begin{quote}{\em An astute observation. We provide more information on the types of projects included in our sample in Section 6.4. XXX Lucas. Check section number.
-XXX Lucas: can't see the "percent agile" in 6.4. Can you work this with Bill?
+\begin{quote}{\em An astute observation. We provide more information on the types of projects included in our sample in \tion{data_character}
 
-More to the point -- does agile help mitigate DIE? The answer is - we don't know. A strong argument can be made that all iterative&incremental methodologies are meant to mitigate the DIE. Further, huge advances in software engineering technology and process have occurred since DIE was first observed, many of which have precisely targeted the DIE (static analysis, test-first development, automated build). Perhaps our analysis provides evidence that DIE can be defeated, at a large scale across multiple varied projects, using modern technologies. We do not yet know the causes here, but certainly it appears the DIE should not be treated as a truism any more, but rather a variable that can be controlled. We discuss this in Section 8.
+More to the point -- does agile help mitigate DIE? The answer is - we don't know. A strong argument can be made that all iterative \& incremental methodologies were designed to mitigate the DIE. Further, huge advances in software engineering technology and process have occurred since DIE was first observed, many of which have precisely targeted the DIE (static analysis, test-first development, automated build). Perhaps our analysis provides evidence that DIE can be defeated, at a large scale across multiple varied projects, using modern technologies. We do not yet know the causes here, but certainly it appears the DIE should not be treated as a truism any more, but rather a variable that can be controlled. We have added more discussion on this to \tion{discussion}.
 }\end{quote}
 
 
@@ -256,17 +277,17 @@ to discover? I suggest Petersen and Wohlin, "Context in
 industrial software engineering research" (ESEM2009) for
 details on how to characterize development contexts.
 
-\begin{quote}{\em Those notes are offered in \tion{data_character} and \tion{171projects}. \end{quote}
+\begin{quote}{\em Much more context is now offered in \tion{data_character} and \tion{171projects}}. \end{quote}
 
 
 
 
  
-Fig 1: "Operation" dwarfs everything in Boehm's diagram.
+Fig 1 [NOTE: Still \fig{b81}]: "Operation" dwarfs everything in Boehm's diagram.
 Since you do not study anything post release in this paper,
 I think this figure skews the reader's mental picture. If
 you remove the rightmost bar and rescale accordingly, the
-plot better matches the findings you report in Fig. 10. You
+plot better matches the findings you report in Fig. 10 [NOTE: now \fig{raw}]. You
 still identify an interesting result though, but the
 presentation turns fairer. 
 
@@ -278,7 +299,7 @@ MINOR COMMENTS:
 Several figures are copied from previous work. Are all copyrights properly
 managed?  
 
-\begin{quote}{\em We recently published a text on classic SE papers. We know how to manage those issues.}\end{quote}
+\begin{quote}{\em We have removed all copyrighted images and replaced them with original drawings based on information from the cited source.}\end{quote}
 
  
 
@@ -298,30 +319,38 @@ Some figures should be resized to better match the page width.
 Page 3:14 - "The above argument" Which argument? Could be precisely specified.
  
 
-\begin{quote}{\em  We agree: that reference has been deleted. }\end{quote}
+\begin{quote}{\em  We agree: that statement has been deleted. }\end{quote}
  
 Page 3:22 - Please provide the full link to the dataset.
  
 \begin{quote}{\em  Our policy is to get one publication out of paper
-before issueing the data in public. If this paper is accepted, we will certainly add that link. Note that we have a long history of living up to that policy-- see http://openscience.us/repo. }\end{quote}  
+before issuing the data in public. If this paper is accepted, we will certainly add that link. Note that we have a long history of living up to that policy-- see http://openscience.us/repo. }\end{quote}  
 
  
 Page 18:26 - First sentence: "Unexpected results such as this one". Ambiguous reference,
 please be specific.  
 \begin{quote}{\em  We agree. That back reference is removed. }\end{quote}  
 
-\begin{quote}{\em XXX Lucas. Not sure. but do you hanle all the following? }\end{quote}  
+
 
 Page 18:27 - "We also survey the state of SW dev. practice /---/": given the size of the survey,
 this statement feels a bit bold.
 
+\begin{quote}{\em We have removed this statement.}\end{quote}  
  
 TYPOS ETC.  
+
 Sec 1, §1: [3] and [30] have been swapped?  
+
 Page 14:46 - Spell out IV\&V the first (and only) time it appears.
+
 Page 3:24 - missing verb (is) Page 16:43 - "Did this study failed" 
+
 Page 18:44 - Appache 
+
 Page 19:19 - Al Ref 26 - oo --> OO
+
+\begin{quote}{\em  All of these have been corrected. }\end{quote}  
 
 {\bf Reviewer \#2's comments}
 
@@ -353,15 +382,15 @@ contribute to a better understanding of the scope of the
 study. 
 
 \begin{quote}{\em 
-Those notes are offered in \tion{data_character} and \tion{171projects}.}\end{qupte}
+More description about the context and sample have been added in \tion{data_character} and \tion{171projects}.}\end{quote}
 
 I think in particular about the size (lines of codes and/or
  number of software components); a duration histogram would
  also be relevant. Accordingly, the formula for calculating
- variable "Total effort" in Fig. 7 could be explained, and
- Figure 9 made more readable (bigger size).
+ variable "Total effort" in Fig. 7 [NOTE: now \fig{dist}] could be explained, and
+ Figure 9 [NOTE: now \fig{fix-phase-dist}] made more readable (bigger size).
  
- \begin{quote}{\em We have added more description of the projects to Section 6.4. We have also added more precise definitions of our measures in Section 6.2. We have adjusted the size of figures throughout the paper to be more readable.XXX Lucas please check section references. We have added more text 
+ \begin{quote}{\em We have added more description of the projects in \tion{data_character}. We have also added more precise definitions of our measures in \tion{data-collection}. We have adjusted the size of figures throughout the paper to be more readable. We have added more text 
  to explain {\em effort} in \fig{dist}.}\end{quote}
 
  
@@ -371,17 +400,19 @@ should also be brought to the readers knowledge.
  
 
 \begin{quote}{\em 
-Those notes are offered in \tion{data_character} and \tion{171projects}.}\end{qupte}
+Those notes are offered in \tion{data_character} and \tion{171projects}.}\end{quote}
 
-Figure 10 is central to the paper's demonstration; its
+Figure 10 [NOTE: now \fig{raw}] is central to the paper's demonstration; its
 expressiveness could be enhanced: the formula for calculating the 50th
 and 95 ratio could be provided,  the unit of column
 "Percentile" could be mentioned. 
 
 \begin{quote}{\em
-\fig{raw}'s caption now has extensive explanation text. e.g. units
+\fig{raw}'s caption (formerly Figure 10) now has extensive explanation text. e.g. units
 are added on line two. Also, an example of the calculations of the ratios is offered
-in the last line of the caption. }\end{quote}
+in the last line of the caption. Further,
+to simplify comprehension of this diagram, it has been split into two
+(and the more arcane discussion about the outliers, statistics gathered, and methods used is provided is also provided).}\end{quote}
 
 I like the discussion section, in particular, the idea
 of software architectures that could be a contributing
@@ -392,8 +423,8 @@ design choices made in each project?
 
 
 \begin{quote}{\em
-Not explicitly, but \fig{dtypes} lists "interfaces" as a the fourth most
-common type of defect. Note that "interfaces" are changed by architectural
+Not explicitly, but \fig{dtypes} lists ``interfaces'' as a the fourth most
+common type of defect. Note that ``interfaces'' are changed by architectural
 issues. }\end{quote}
  
 In the same trend of ideas, I think what has
@@ -415,8 +446,7 @@ Software Engineering, vol. 38, n° 4, p. 810-827.
 ```
 
 \begin{quote}{\em
-  Absolutely - there are potentially many explanations for why the DIE was NOT observed in our dataset. We discuss some more of the potential causes in Section 8.
-  XXX Lucas. Is the section reference right? Do we reference Harter (and if we do, mention that here).?
+  Absolutely - there are potentially many explanations for why the DIE was NOT observed in our dataset. We add more discussion on the potential causes in \tion{discussion}, supported by the reference to Harter et al.
  }\end{quote}
 
  
@@ -432,24 +462,26 @@ we cannot generalize to larger projects.
  }\end{quote}
 
 
-\begin{quote}{\em
- XXX Lucas: can you retire the follwoing
- }\end{quote}
+Minor remarks: 
 
-Minor remarks: - p.9, line 29 : " … reported by Shull [52], found that the cost to find certain non-critical classes of defects …" => is it the "cost to find" or the "cost to FIX"?  
-```
+- p.9, line 29 : " … reported by Shull [52], found that the cost to find certain non-critical classes of defects ..." => is it the "cost to find" or the "cost to FIX"?  
 
-- [X]  llayman It should be "cost to fix". We have corrected this.
-
- 
 - p.10, line 21: duplicate word "there" -
-p.12, line19: missing word "One of THE guiding …" - p.16,
-line 33: "distinguish" instead of "distinguished"?  - p.18,
-line 42: explain acronym MEAN - p.20, line 20: useless
-enumeration A1?
+
+p.12, line19: missing word "One of THE guiding …" 
+
+- p.16, line 33: "distinguish" instead of "distinguished"?  
+
+- p.18, line 42: explain acronym MEAN 
+
+- p.20, line 20: useless enumeration A1?
+
+\begin{quote}{\em
+ All of these have been corrected or removed.
+ }\end{quote}
  
 
-{\bf  Reviewer \#3's Comemnts}: 
+{\bf  Reviewer \#3's Comments}: 
 
 I like the idea of the paper and I certainly
 would like to see more empirical studies that periodically
@@ -467,7 +499,7 @@ Thanks for those kinds words.
 At the same time, I think that the paper needs to be
 improved before it can be published.
 
-The empirical analysis (Section 6) is a bit of a let down. I
+The empirical analysis (Section 6 [NOTE: now \tion{analysis}) is a bit of a let down. I
 would like to see some sort of more robust and rigorous
 statistical analysis, based on statistical tests.
 
@@ -491,7 +523,7 @@ Thanks for those pointers. We will fix.
 
 DETAIL COMMENTS
 
-Section 2
+Section 2 [NOTE: still \tion{claims}]
 
 I'm not really sure what the authors mean by "We say that a
 measure collected in phase 1, ., i, .. j is very much more
@@ -505,14 +537,9 @@ $m$ (collected in phases, so you can denote by $m(i)$ the
 value of $m$ in phase $i$) has this property *in phase $j$*
 (so, it's a property m has in a specific phase and not a
 general property of the measure) if $\sum_{1 <= i < i} m(i)
-< m(j)$. Then, it's up to you to make this a property of the
-measure, for example by using an existential "policy" ($m$
-has this property if there exists one phase $j$ where
-$\sum_{1 <= i < i} m(i) < m(j)$) or a universal one ($m$ has
-this property if for all phases $1<j$, $\sum_{1 <= i < i}
-m(i) < m(j)$).
+< m(j)$. 
 \begin{quote}{\em
-Thanks for that. We added the $m_j$ notation to Section 2, as you suggested.
+Thanks for that. We added the $m_j$ notation to \tion{claims}, as you suggested.
  }\end{quote}
  
  
@@ -523,11 +550,11 @@ expensive developers)." That's not a very precise
 definition, though, because it has two different
 interpretations, one in terms of time and the other in terms
 of effort. The reasons why you introduce this definition
-become clearer only in Section 7.2, in the Threats to
+become clearer only in Section 7.2 [NOTE: now \tion{construct}], in the Threats to
 Validity, and that's too late. You should move some of the
 discussion of Section 7.2 here.
 \begin{quote}
-{\em Good idea! We did just that- see middle para in Section 2.}
+{\em Good idea! We did just that- see middle para in \tion{claims}.}
 \end{quote}
 Why would the term "delayed issue effect" be a
 generalization of the rule "requirements errors are hardest
@@ -547,7 +574,7 @@ little bit too much ... ("more harder"?)
 \end{quote}
 Section 4
 
-A very minor issue: why is Figure 2 a ... figure, instead of
+A very minor issue: why is Figure 2 [NOTE: now \fig{survey_results}] a ... figure, instead of
 a table? Same for all other tables ...
 \begin{quote}
 {\em Authors' preference. When a document has many tables and figures, navigating
@@ -567,20 +594,18 @@ Section 6.3
 
 You should rephrase your definition "a defect is any change," since a defect is what existed before the change was made and not the change itself.
 \begin{quote}
-{\em We now provide a more precise definition of defect in Section 6.2.
-XXXX= Lucas: check section number.
+{\em We now provide a more precise definition of defect in \tion{defin}.
 }
 \end{quote} 
-You do not explain that "QualTest" in Fig. 8 is.
+You do not explain that "QualTest" in Fig. 8 [NOTE: now \fig{waterfall}] is.
 \begin{quote}
-{\em Removed}
+{\em A mistake on our part that has been removed from the figure.}
 \end{quote}
-The definition of "time per defect - The total # of defects found in a plan item during a removal phase divided by the total time spent on that plan item in that phase." is not correct as it is, as this would basically be the number of defects per unit time, instead. The roles of time and
+The definition of "time per defect - The total \# of defects found in a plan item during a removal phase divided by the total time spent on that plan item in that phase." is not correct as it is, as this would basically be the number of defects per unit time, instead. The roles of time and
 defects should be reversed.
-\begin{quote}{\em We now provide a more precise definition of time measurement related to defects in Section 6.2.}\end{quote}
+\begin{quote}{\em We now provide a more precise definition of time measurement related to defects in \tion{data-collection}}\end{quote}
 
- 
-Section 6.4
+  
 
 Besides adding a more rigorous statistical analysis, you
 need improve your explanations.
@@ -589,21 +614,22 @@ shows the results (see the left-hand column: all those ``1''s mean
 that our stats could not find any difference between the fix times for
 delaying or not delaying.}\end{quote}
 
-Figure 9. The caption says "Distribution of defects found
+Figure 9 [NOTE: now \fig{fix-phase-dist}]. The caption says "Distribution of defects found
 and fixed by phase." Is that the distribution of defects
 found in some phase and fixed in that phase? The text says
 "The distribution of defects found and fixed per phase in
 our data is shown in Figure 9. A high percentage of defects
-(44\) were found and fixed in the early phases, i.e.,
+(44) were found and fixed in the early phases, i.e.,
 requirements, high level design, and design reviews and
 inspections." which doesn't add much. If that's the
 distribution of defects introduced in a phase and fixed
 immediately in that phase, it is not clear why you introduce
 it, though.
 \begin{quote}
-{\em XXXX Bill: one for you.}
+{\em 
+The TSP convention is to fix a defect in the phase in which it was identified, thus "find and fix". With some exceptions, defects are not counted as defects unless they escape that phase. The exception case is the secondary defect introduced during a fix that occurs with some frequency in test and rarely in inspection or review. We have clarified this distinction in the text.}
 \end{quote}
-Figure 10. The explanation of the data and histograms in the
+Figure 10 [NOTE: now \fig{raw}]. The explanation of the data and histograms in the
 figure is, at best, confusing. The caption says "50th and
 95th percentiles of issue resolution times" and the opening
 sentence of Section 6.4 says "Figure 10 shows the 50th and
@@ -616,7 +642,9 @@ be the right interpretation, but right after that you write
 (median) and 95th percentile values, respectively," which
 would be a third interpretation of the data in Figure 10.
 \begin{quote}
-{\em \fig{raw} now has an extensive help text in the caption.
+{\em We agree-that figure was far too confusing. We have now split the 50th and 90th peercentile results
+into two charts, which simplifies both. Please see \fig{raw} and \fig{last}.
+Also, please note that that fit\fig{raw} now has an extensive help text in the caption.
 We used your comments there where we noted the ratios used in the
 bard charts are unitless while the left-hand-side column numbers are
 times in minutes.
@@ -638,8 +666,7 @@ provide some statistical support for it.
 The last paragraph of \tion{171projects} now comments
 on that effect. }
 \end{quote}
-
-Section 7.1
+ 
 
 Maybe you could analyze the projects developed in a
 "traditional" way and check if there is some sort of DIE
@@ -649,23 +676,31 @@ DIE than for the other life cycles, which might partially
 justify the claims of previous researchers about the
 existence of DIE. This would also show that newer kinds of
 life cycles (like Agile ones) help solve DIE. You do provide
-hints about this in Section 8 ("We also note that other
+hints about this in Section 8 [NOTE: now \tion{discussion}] ("We also note that other
 development practices have changed in ways that could
-mitigate the delayed issued effect") and Section 9, but
+mitigate the delayed issued effect") and Section 9 [NOTE: now \tion{conclusion}], but
 that's clearly not enough.
 \begin{quote}{\em
+
 If your comment is along the lines of ``look for stratifications to check if
-DIE exists in subsets'' then we offer the following failed study. 
+DIE exists in subsets'' then we offer the following notes (which we added to the end of \tion{171projects}):
 
-We looked into those stratifications and have  failed to find a stratification
-containing an exponential expansion in the time to fix issues. The reason for this was due to the data in  those
-stratifications resulted in smaller sample sizes that exacerbated the large IQR's seen in this data
-(to see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:fix}.IQR is the
-range 75th to 25th in the data. Note that most of our IQRs were larger than tan the 50th percentile; i.e. software
-data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications.}
+We looked into   stratifications of the data and, so far,   failed to find a stratification
+containing an exponential expansion in the time to fix issues. The reason for this was  the small size
+of those stratifications  exacerbated the large IQR's seen in this data\footnote{Recall that in a sorted list of numbers,
+the inter-quartile range, or IQR, is difference between the 
+  75th to 25th percentile value.}:
+\bi
+\item
+Our 171 projects   stratifies into subsets of varying sizes. Sorting those sizes, we get a list
+comprising of 17,12 then numerous much smaller stratifications.  Reasoning over such small samples
+is problematic in the general case and, in the case of our data, it is ever more problematic due to
+the large IQRS of the data:
+\item
+To see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:raw} Note that most of our IQRs were larger than tan the 50th percentile; i.e. software
+data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications.
+\ei
+Our conclusion from exploring the stratifications is, given the currently available data, we cannot check
+for a DIE effect in subsets of this data.
+}
 \end{quote}
-Section 8
-
- 
-- [ ] Verify that the Section #'s in our responses are accurate prior to submission.
-
