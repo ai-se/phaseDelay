@@ -163,7 +163,7 @@ Like any good theory, DIE includes a rationale for why the expected results woul
 ''A small mistake in upstream work can affect large amounts of downstream work. A change to a single sentence in a requirements specification can imply changes in hundreds of lines of code spread across numerous classes or modules, dozens of test cases, and numerous pages of end-user documentation''~\cite{mcconnell01}. 
 \end{quote}
 Glass also endorses this rationale, asserting that ``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' is ``really just common sense''~\cite{glass02}.  Other researchers
-are just as adamant in asserting that that the delayed issue effect is a generally useful law of software engineering.
+are just as adamant in asserting that the delayed issue effect is a generally useful law of software engineering.
 For example, what we call the delayed issued effect was listed at \#1 by Boehm and Basili in their ``Top 10 list'' of ``objective and quantitative data, relationships,
 and predictive models that help
 software developers avoid predictable pitfalls
@@ -386,6 +386,10 @@ in the SE literature.
 %we know that \fig{b81} has been presented to the graduate SE class at North Carolina State University, without quarrel or %critical comment, every year for the last decade.
 Yet when we look at the literature, the evidence for
 delayed issue effect is both very sparse and very old.
+As  shown in this section,
+a goal of agile methods 
+is to reduce the difficulty associated with making changes later in the lifecycle~\cite{beck00}. Yet, as shown below,
+relatively little empirical data exists on this point.
 
 We examined the literature on the delayed issue effect through a combination of snowball sampling~\cite{wohlin2014guidelines} and database search. We searched Google Scholar for terms such as ``cost to fix'' and ``defect cost'' and ``software quality cost''. The majority of the search results discuss quality measurements, quality improvement, or the cost savings of phase-specific quality improvement efforts (e.g., heuristic test case selection vs. smoke testing). A systematic literature review of software quality cost research can be found in \cite{karg2011systematic}. Relatively few articles discuss cost-to-fix as a function of when the defect was injected or found. We also conducted a general Google search for the above terms. We found a number of website articles and blog postings on this topic, e.g., \cite{IfSQ2013,Soni2016,Parker2013,Gordon2016}. From these, we gathered additional citations for the delayed issue effect, the vast majority of which were secondary sources, e.g.,~\cite{Leffingwell96,mead2004software,mcconnell1996software,mcconnell01,Tassey2002,boehm2012}. Our literature search is not exhaustive, but our results yielded an obvious trend: nearly every citation to the delayed issue effect could be traced to the seminal \textit{Software Engineering Economics}~\cite{Boehm81} or its related works~\cite{boehm88,boehm01}.\footnote{For example, popular sources such as~\cite{pressman2005software, boehm01,glass02,endres03} have a combined citation count of over 14,500 on Google Scholar can all trace their evidence to \textit{Software Engineering Economics}~\cite{Boehm81}.}
 
@@ -428,8 +432,7 @@ Baziuk~\cite{baziuk1995bnr} reports an exponential increase in the cost to patch
 
  
 
-Shull et al.~\cite{Shull02} conducted a literature survey and held a series of e-workshops with industry experts on fighting defects. Workshop participants from Toshiba and IBM reported cost-to-fix ratios between early lifecycle and post-delivery defects of 1:137 and 1:117 for large projects respectively~\cite{Shull02} -- but the raw data points were not provided and thus cannot be confirmed. A goal of agile methods 
-is to reduce the difficulty associated with making changes later in the lifecycle~\cite{beck00}. Relatively little empirical data exists on this point.
+Shull et al.~\cite{Shull02} conducted a literature survey and held a series of e-workshops with industry experts on fighting defects. Workshop participants from Toshiba and IBM reported cost-to-fix ratios between early lifecycle and post-delivery defects of 1:137 and 1:117 for large projects respectively~\cite{Shull02} -- but the raw data points were not provided and thus cannot be confirmed. 
 Elssamadisy and Schalliol~\cite{Elssamadisy02} offer an anecdotal report on the growing, high cost of rework in a 50 person, three-year, 500KLOC Extreme Programming project as the project grew in size and complexity-- but again we cannot access their 
 exact figures. This was a common theme in the literature reviewed for this paper-- i.e.  that  it was no longer possible to access the data used to make prior conclusions. 
 
@@ -464,7 +467,7 @@ exact figures. This was a common theme in the literature reviewed for this paper
 
 
  
-Some studies that report less-than large
+Some studies report less-than large
  increase in the effort required to fix delayed issues.  Boehm~\cite{Boehm80} provides data suggesting that the cost-to-fix curve for small projects
  %, two student projects of 2000 deliverable source instructions, 
  is flatter than for large projects (the dashed line of Figure~\ref{fig:cost-to-fix}). Data from NASA's Johnson Space Flight Center, reported by Shull~\cite{Shull02}, found that the cost to fix certain non-critical classes of defects was fairly constant across lifecycle phases (1.2 hours on average early in the project, versus 1.5 hours late in the project). Royce~\cite{Royce98} studied  a million-line, safety-critical missile defense system. Design changes (including architecture changes) required approximately twice the effort of implementation and test changes, and the cost-to-fix in implementation and test phases increased slowly. Boehm~\cite{Boehm10} attributes this success to a development process focused on removing architecture risk early in the lifecycle. Willis et al. (\cite{willis1998hughes}, page 54) provide tables summarizing the effort to fix over 66,000 defects as a function of lifecycle phase injected and removed from multiple projects. The tables are partly obscured, but seem to provide the first large scale evidence that a)~DIE need not be exponential and b)~DIE need not be monotonically increasing.  Again, the data points from these studies are not available, and thus newer evidence both in favor of and contrary to the DIE cannot be evaluated.
@@ -591,7 +594,7 @@ We make this point since,  in the new project data presented below, we focus on 
 The above analysis motivates a more detailed look at the delayed issued effect.  
 Accordingly, we examined 171 software projects conducted between 2006 and 2014. 
 
-These projects took place at organizations in many countries and were conducted using  the Team Software Process (TSP$\textsuperscript{SM}$). Since 2000, the SEI has been teaching and coaching TSP teams. One of the authors (Nichols) has mentored software development teams and coaches around the world as they deploy TSP within their organizations since 2006.  The  most recent completions were in 2014.
+These projects took place at organizations in many countries and were conducted using  the Team Software Process (TSP$\textsuperscript{SM}$). Since 2000, the SEI has been teaching and coaching TSP teams. One of the authors (Nichols) has mentored software development teams and coaches around the world as they deploy TSP within their organizations since 2006.  The  most recent completions were in 2015.
 
 The projects were mostly small to medium, with a median duration of 46 days and a maximum duration of 90 days in major increments. 
 Several projects extended for multiple incremental development cycles. 
@@ -661,7 +664,7 @@ and certify and monitor that data collection. However, one of us (Nichols) has w
 \subsection{Data Collection and Definitions}
 \label{sect:data-collection}
 
-Organizations using TSP agree to provide their project data to the SEI for use in research. In return the SEI agrees that  data must not be traceable to its source. The data is collected at major project events: launch, interim checkpoints, and at project completion. The data from these TSP projects were collected and stored in the Software Engineering Measured Process Repository (SEMPR) at the SEI. 
+Organizations using TSP agree to provide their project data to the SEI for use in research. In return the SEI agrees that  data must not be traceable to its source. The data are collected at major project events: launch, interim checkpoints, and at project completion. The data from these TSP projects were collected and stored in the Software Engineering Measured Process Repository (SEMPR) at the SEI. 
 
 As of November 2014, the SEI TSP database contained data from 212
 TSP projects. The projects completed between July 2006 and
@@ -726,13 +729,14 @@ declaration, duplicate names, scope
 \caption{Relative frequencies of these defect types seen in our TSP data.}\label{fig:dtypes}.
 \end{figure}
 In our TSP data,  the relative frequencies of these defect types are shown in \fig{dtypes}. Around a quarter of the fixes were simple documentation changes.
-That said, 75\% of the changes are quote  elaborate;   e.g. fixes to function necessitates a careful reflection of the purpose of the code.
+That said, 75\% of the changes are quite elaborate;   e.g. fixes to function necessitates a careful reflection of the purpose of the code.
 
 Individual defects are recorded as line items in the defect logs uploaded to the SEMPR at the SEI. The defect entry includes the time and date a defect was discovered, the phase in which that defect was injected, the development phase in which it was removed, the time (in minutes) required to find and fix the defect, and the categorical type. 
 
-One or more defects are reported against a single plan item in the time tracking logs, e.g., a review session, an inspection meeting, a test execution. The time-tracking logs against the plan items for a defect includes the time required to (a)~collect data and realize there is an error, 
+In the TSP, defect data includes the affected artifact, the estimated developer fix effort (find and fix), the lifecycle phases in which the defect was injected and removed, and the developer who implemented the fix. In the database, the task is associated with a plan item. Defects (one or more) are recorded in the defect log and associated with the plan item (task) in the time tracking logs. For example, a review session, an inspection meeting, or a test would be plan items associated with some product component. When defects are found and fixed, the time recorded in the time-tracking logs against the plan items includes the direct effort time (stop watch rather than wall clock time) required to (a)~collect data and realize there is an error, 
 (b)~prepare a fix,  and (c)~apply some validation
-procedure to check the fix (e.g. discuss it with a colleague or execute some tests).
+procedure to check the fix (e.g. discuss it with a colleague or execute some tests). Although we have explicit estimates of "find and fix" effort for each defect, this fails to account for the full costs (e.g. meeting time or test execution). Because the vast majority of defects are removed in explicit removal phases, we chose to estimate defect cost using the entire time in removal phases divided by the number of defects. We recognize that this approach can exaggerate cost per defect for cases with few defects and large overhead effort, such large test suites or slow running tests that require continuous developer attention.  Nonetheless, this approach provides a better comparison between early removals from inspections later removals from test. The result will be a time per defect that is greater than the directly measured "find and fix" time, but smaller than the wall clock or calendar time. 
+
 Since multiple defects can be recorded against a plan item, the time-to-fix a defect is defined as:
 \[
 \text{\emph{time-to-fix a defect}} := \frac{\text{time for defect plan item}}{\text{\# of defects in plan item}}
@@ -804,9 +808,9 @@ The use of certified local coaches within each project increases the integrity o
 \label{sect:data_character}
 
 %\todo{should we add a citation to Petersen and a few more words on context.}
-In this section we provide some descriptive statistics and discuss the of the projects from which this data was drawn and summarize some additional contextual information. The project contexts describe the conditions under which these measures were obtained, help determine relevance of the results, and may guide future data analysis with segmentation. Key attributes of the context include the business and application domains, product size, project duration,  work flows, team size, team management,  development and integration approaches, organization size, location or distribution, certifications, developer experience, programming languages and tools used. 
+In this section we provide some descriptive statistics, discuss the projects from which this data was drawn, summarize some additional contextual information. The project contexts describe the conditions under which these measures were obtained, help determine relevance of the results, and may guide future data analysis with segmentation. Key attributes of the context include the business and application domains, product size, project duration,  work flows, team size, team management,  development and integration approaches, organization size, location or distribution, certifications, developer experience, programming languages and tools used. 
 
-We are unable at this time to provide all individual context data for each of the projects for several reasons. While the development data was recorded in tools and submitted in a structured form, context data was collected in less structured project questionnaires, site questionnaires, team member surveys, launch presentations and reports, post mortem presentations and reports. This data has not yet been mined from the submissions 1) because of the cost and effort required, 2) we are obligated to avoid providing any data that can identify projects (that is, the data must remain anonymous), and 3) the unstructured data is not always  complete  submitted.   Gathering more projects will make it easier to anonymize the data and overcome missing data problems. Interest in the data sets by the community may encourage our sponsor to fund additional data mining.  Nonetheless, much context is available from the project data  and we provide some additional context not included within the fact sheets. 
+We are unable at this time to provide all individual context data for each of the projects for several reasons. While the development data was recorded in tools and submitted in a structured form, context data was collected in less structured project questionnaires, site questionnaires, team member surveys, launch presentations and reports, post mortem presentations and reports. This data has not yet been mined from the submissions 1) because of the cost and effort required, 2) we are obligated to avoid providing any data that can identify projects (that is, the data must remain anonymous), and 3) the unstructured data may not be complete when submitted.   Gathering more projects will make it easier to anonymize the data and overcome missing data problems. Interest in the data sets by the community may encourage our sponsor to fund additional data mining.  Nonetheless, much context is available from the project data  and we provide some additional context not included within the fact sheets. 
  
  The projects included come from 45 unique organizations from 6 countries. \fig{nationality} shows the country of origin and application domains for the projects.  \fig{number of projects per organization} shows the number of projects from each organization. 
  
@@ -818,7 +822,7 @@ The data for programming languages is incomplete, with most projects using more 
 
  The specific process work flows and practices are developed by the development team personnel who have received specific training on defining work processes as part of their Personal Software Process training. The process data was collected by the team members to self-manage their personal and team work. Them members also exhibited self-management behavior by estimating planning and scheduling the work tasks. 
 
-While the processes and work flows among these projects can vary, the logical order is described section \ref{development_phase} is followed. Development tasks such as requirements development, design, or code, are typically followed by an appraisal phase such as personal review or inspection. Effort and effectiveness of these activities vary among projects and developers.
+While the processes and work flows among these projects can vary, the logical order described in section \ref{development_phase} is followed. Development tasks such as requirements development, design, or code, are typically followed by an appraisal phase such as personal review or inspection. Effort and effectiveness of these activities vary among projects and developers.
 
 
 \begin{figure}[ht]
@@ -901,13 +905,14 @@ Wholesale or retail trade  & 9
  \begin{figure}[ht]
 \scriptsize
 \centering
+\renewcommand{\arraystretch}{1}%
 \begin{tabular}{lrrrrrrrl}
                                                                    & N   & Min & Q1   & Median & Q3    & Max   & Mean   &  Distribution \\\hline
-Team size                                                          & 171 & 1   & 4    & 6      & 10    & 36    &  7.8    &  \includegraphics[width=15mm]{team_size.png} \\ 
-Duration {[}days{]}                                                & 171 & 7   & 33   & 61     & 118   & 1918  & 107    & \includegraphics[width=15mm]{duration.png} \\
-Added \& Modified LOC                                                 & 117 & 2   & 1125 & 4201   & 13092 & 88394 & 10259  & \includegraphics[width=15mm]{LOC.png} \\
-Components                                                         & 171 & 8   & 26   & 49     & 107   & 4170  & 116.2  & \includegraphics[width=15mm]{components.png} \\
-Year                                                               & 171 &     & 2011 & 2012   & 2013  & 2014  & 2011.9 & \includegraphics[width=15mm]{year.png}
+Team size                                                          & 171 & 1   & 4    & 6      & 10    & 36    &  7.8    &  \includegraphics[width=25mm]{team_size.png} \\ 
+Duration {[}days{]}                                                & 171 & 7   & 33   & 61     & 118   & 1918  & 107    & \includegraphics[width=25mm]{duration.png} \\
+Added \& Modified LOC                                                 & 117 & 2   & 1125 & 4201   & 13092 & 88394 & 10259  & \includegraphics[width=25mm]{LOC.png} \\
+Components                                                         & 171 & 8   & 26   & 49     & 107   & 4170  & 116.2  & \includegraphics[width=25mm]{components.png} \\
+Project Initiation Year                                                       & 171 &    2006 & 2011 & 2012   & 2013  & 2014  & 2011.9 & \includegraphics[width=25mm]{year.png}
 \end{tabular}
 
 \caption{Project summary description}
@@ -915,13 +920,13 @@ Year                                                               & 171 &     &
 \end{figure}
  
  
- Of the 171 projects in the sample, only 117 collected size data in lines of code, however all projects tracked effort and  the component counts with applied effort are provided. Other data is complete for all 171 projects. The projects were mostly of short duration and small to medium size. The median project began in 2012 lasted 61 days, produced 4200 Lines of Code, 49 components (modules or features). Duration ranged from 7 to 1918 days. Size ranged from minimal (this may represent a short maintenance project) to 88394. The earliest project was in 2006 and the most recent in 2014. 
+ Of the 171 projects in the sample, only 117 collected size data in lines of code, however all projects tracked effort and  the component counts with applied effort are provided. Other data are complete for all 171 projects. The projects were mostly of short duration and small to medium size. The median project began in 2012 lasted 61 days, produced 4,200 Lines of Code, 49 components (modules or features). Duration ranged from 7 to 1,918 days. Size ranged from minimal (this may represent a short maintenance project) to 88,394. The earliest project was in 2006 and the most recent in 2014. 
  
 How many of these teams could be classified as "agile" is not clear because actual practices in the agile world can vary. We did not ask teams to self-identify, however we offer the following observations regarding characteristics commonly associated with agile behavior. 
 \begin{itemize}
     \item all teams were self managed, defining work flows, practices, and schedules
-    \item teams meet at least weekly to evaluate progress and replan
-    \item most teams were small with a median size of 6 and a mean of 7.8. only 25\% of the teams were larger than 10 with a long tail on the distribution
+    \item teams met at least weekly to evaluate progress and re-plan
+    \item most teams were small with a median size of 6 and a mean of 7.8; only 25\% of the teams were larger than 10 with a long tail on the distribution
     \item the median project lasted only 60 days, suggesting limited scope for each integration
 \end{itemize}
   
@@ -946,7 +951,22 @@ How many of these teams could be classified as "agile" is not clear because actu
     issue effect: the Scott-Knott ranker;   bootstrap sampling (to test for statistical significantly
     different results); and an effect size test (to reject any significant differences that are trivially small).
     
-    The Scott-Knott ranker 
+    Scott-Knott allows for a direct answer to the following questions: given an issue
+    raised at phase $i$ and resolved at phase $\forall j,k \in \{i,i+1,i+2,...\}$, is it
+    true that that the time to resolve issues at $j$ is significantly different 
+    to the time to resolve issues at $k$? 
+    \be
+    \item Note that if $j,k$ times are significantly different, then we can compare
+    the median values to say (e.g.) resolution time at phase $k$ is 3 times slower than phase $j$.
+    \item Note also that if all times $j,k$ are {\em not} significantly different
+    then we say that the phases all {\em rank} the same (and we denote this by setting
+    all such {\em ranks} to 1).
+    \ee
+    In the following results, we nearly always encountered the second case;
+    i.e.   the times to resolve issues at different times were usually {\em not significantly}
+    different.
+    
+    As to technical details of the Scott-Knott methods, this ranker 
       was   recommended  by  Mittas and Angelis in a
     recent TSE'13 article~\cite{mittas13} and by Ghotra et al. in a recent
     ICSE'15 article~\cite{ghotra2015icse}
@@ -956,15 +976,15 @@ How many of these teams could be classified as "agile" is not clear because actu
     statistical test is applied to the two divisions to check if they are 
     statistically significant different. If so, Scott-Knott considers recurses into both 
     halves.
-    Before Scott-Knot recurses,  however,  it apples some  statistical hypothesis test $H$ to check
+    Before Scott-Knot recurses,  however,  it applies some  statistical hypothesis test $H$ to check
     if $m,n$ are significantly different. 
     
     To operationalize ``interesting'', Scott-Knott seeks the division of 
-    of $l$ treatments into subsets of size $m,n$ of sizes $ls,ms,ns$ and median values
+    $l$ treatments into subsets of size $m,n$ of sizes $ls,ms,ns$ and median values
     $l.\mu, m.\mu, n.\mu$ (respectively) in order to maximize
  $\frac{ms}{ls}abs(m.\mu - l.\mu)^2 + \frac{ns}{ls}abs(n.\mu - l.\mu)^2$.
    
-   To operationalize $H$, we use both  bootstrap sampling  and the A12 effect size test.
+   To operationalize $H$, we use both  bootstrap sampling  and Vargha and Delaney's A12 test A12 effect size test.
    In other 
     words, we divide the data if \textit{both} bootstrap sampling and effect 
     size test agree that a division is statistically significant (with a 
@@ -977,12 +997,12 @@ How many of these teams could be classified as "agile" is not clear because actu
     hypothesis test declares two populations to be ``significantly'' 
     different, then that result is misleading if the ``effect size'' is very 
     small. Hence, to assess the performance differences we first must rule out 
-    small effects using A12, a test   recently endorsed by Arcuri and 
+    small effects using Vargha and Delaney's A12 test, a test   recently endorsed by Arcuri and 
     Briand at ICSE'11~\cite{arcuri11}.
   
     
     To  apply Scott-Knott, we divided data into the phases $P_0$ where issues are introduced. Next, for each division, we separated all the issues that were removed at different subsequent issues $P_r \in \{P_1,P_2,..\}$.
-    For each pair $P_0,P_r$, we build one treatment containing the  issue resolution times for     issues raises in $P_0$ and resolved in $P_r$. These treatments
+    For each pair $P_0,P_r$, we build one treatment containing the  issue resolution times for     issues raised in $P_0$ and resolved in $P_r$. These treatments
     were then ranked by Scott-Knott. 
      
    
@@ -1033,15 +1053,15 @@ How many of these teams could be classified as "agile" is not clear because actu
 1 &   &   CodeInspect     & 9 &  14 & 0.82 & \textcolor{black}{\rule{8mm}{2mm}}  \\
 1 &   &   UnitTest        & 11 &   18 & 1.00 & \textcolor{black}{\rule{10mm}{2mm}}  \\
 1 &   &   IntTest         & 17 &   31 & 1.55 & \textcolor{black}{\rule{15mm}{2mm}}  \\
-1 &   &   AcceptTest      & 14 &   19 & 1.27 & \textcolor{black}{\rule{12mm}{2mm}}  \\
 1 &   &   SysTest         & 13 &   18 & 1.18 & \textcolor{black}{\rule{12mm}{2mm}}  \\
+1 &   &   AcceptTest      & 14 &   19 & 1.27 & \textcolor{black}{\rule{12mm}{2mm}}  \\
 \hline\multicolumn{7}{c}{~}  \\
 1 &  Code   &   CodeReview    & 10 &  16 & 1.00 & \textcolor{black}{\rule{10mm}{2mm}}  \\
 1 &    &   CodeInspect   & 10 &   15 & 1.00 & \textcolor{black}{\rule{10mm}{2mm}}  \\
 1 &   &   UnitTest      & 12 &   20 & 1.20 & \textcolor{black}{\rule{12mm}{2mm}}  \\
 1 &    &   IntTest       & 14 &   25 & 1.40 & \textcolor{black}{\rule{14mm}{2mm}}  \\
-1 &    &   AcceptTest    & 16 &   25 & 1.60 & \textcolor{black}{\rule{16mm}{2mm}}  \\
 1 &   &   SysTest       & 13 &   20 & 1.30 & \textcolor{black}{\rule{13mm}{2mm}}  \\
+1 &    &   AcceptTest    & 16 &   25 & 1.60 & \textcolor{black}{\rule{16mm}{2mm}}  \\
 
 \end{tabular}
 %}
@@ -1086,18 +1106,8 @@ How many of these teams could be classified as "agile" is not clear because actu
 % \end{tabular}
 
 \end{center}
-\caption{Median times to resolve issues seen in the SEI TSP data. The main effect here is that there is no clear exponential growth in the time to resolve issues as issues are injected in some phase $P_0$ then resolved in some subsequent issue $P_r$.
-Shown where are the 50th percentiles of issue resolution times for issues injected in phase $P_O$ and resolved in phase $P_r$ (these values are calculated
-by sorting all resolution time, then reporting the middle values of that sort)
-The ``IQR'' column shows the ``inter-quartile range''; i.e. the range of values representing the 75th - 25th percentile range
-The left-hand-side ``rank'' column shows the result of the Scott-Knott ranking procedure described in \tion{stats}. Note that
-most treatments achieved the same ranks i.e. they were found to be insignificantly different  from each other (the one exception is the Planning:UnitTest results 
-where UnitTests were ranked 2).
-The right-hand-side bars
-illustrate shows the releative sizes of the increases for the  50th (median)   percentile values. These increases are calculated with respect to the first value in each section ``Before, Planning, Reqts. Design, Code''.
-These right-hand-side bars are unitless since they are ratios. For example,
-on the last line, issues injected during coding and fixed in SysTest take 13 minutes (median) to resolve. This is 130\% more than the 10 minutes (median) required
-to resolve coding issues during CodeReview. The right-hand-side bar visually represents that 130\%.}
+\caption{Times to resolve issues seen in the SEI TSP data. For an explanation of this figure,
+see \tion{171projects}.}
 \label{fig:raw}
 \end{figure}
  
@@ -1116,16 +1126,37 @@ These values include all the time required  to (a)~collect data and realize ther
 (b)~prepare a fix;  and (c)~apply some validation
 procedure to check the fix (e.g. discuss it with a colleague or execute some tests).
 
-
-In \fig{raw}, the data is split out according to issues that were fixed in phase $P_r$ after
-being introduced in phase $P_0$. The data is sub-divided into tables according to $P_0$;
+To understand that figure, we offer the following notes:
+\bi
+\item
+Shown here are the 50th percentiles of issue resolution times for issues injected in phase $P_O$ and resolved in phase $P_r$ (these values are calculated
+by sorting all resolution time, then reporting the middle values of that sort).
+\item
+The ``IQR'' column shows the ``inter-quartile range''; i.e. the range of values representing the 75th - 25th percentile range
+\item
+The results in that figure are  split out according to issues that were fixed in phase $P_r$ after
+being introduced in phase $P_0$. The data are sub-divided into tables according to $P_0$;
 i.e. according to {\em before, planning, requirements, design} or {\em  code}. 
-To ensure the representativeness of each line, we display examples
-where there exists at least $N\ge 30$ examples\footnote{We selected 30
+\item
+The left-hand-side ``rank'' column shows the result of the Scott-Knott ranking procedure described in \tion{stats}. These statistical results were applied separately
+to each group {\em Before, Planning, Reqts, Design, Code}.
+Recall from \S5.5 that if all the fix times within a group
+were sadistically insignificantly different, then they were all earn ``rank=1''.
+Note that
+most treatments achieved the same ranks i.e. they were found to be insignificantly different  from each other (the one exception is the Planning:UnitTest results 
+where UnitTests were ranked 2).
+\item
+The right-hand-side bars
+illustrate shows the releative sizes of the increases for the  50th (median)   percentile values. These increases are calculated with respect to the first value in each section ``Before, Planning, Reqts. Design, Code''.
+\item
+These right-hand-side bars are unitless since they are ratios. For example,
+on the last line, issues injected during coding and fixed in SysTest take 13 minutes (median) to resolve. This is 130\% more than the 10 minutes (median) required
+to resolve coding issues during CodeReview. The right-hand-side bar visually represents that 130\%.
+\ei
+Technical note: to ensure the representativeness of each line, we display examples
+where there exist at least $N\ge 30$ examples\footnote{We selected 30
 for this threshold via the central limit theorem~\cite{maxwelldata}.} of issues {\em injected} in phase $P_0$ then
 removed in phase $P_r$.
-The right hand side bars of that figure
-illustrate how these resolutions increase (expressed as ratios of resolution time in the phase where they were first injected).
 
 
 The two key features of \fig{raw} are:
@@ -1156,7 +1187,7 @@ is problematic in the general case and, in the case of our data, it is ever more
 the large IQRs of the data
 (to see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:raw} where  most of our IQRs were larger than tan the 50th percentile; i.e. software
 data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications).
-Our conclusion from exploring the stratification's is that, given the currently available data, we cannot check
+Our conclusion from exploring the stratifications is that, given the currently available data, we cannot check
 for a DIE effect in subsets of this data.
 
 
@@ -1321,7 +1352,7 @@ Threats to conclusion validity are ``issues that affect the ability to draw the 
 
 \textit{Low statistical power}: Our data set is comprised of 47,376 defect logs. Our primary analysis in \fig{raw} is based on injection-removal phase pairs whose with sample size $>30$. The justification for the statistical techniques used in this paper are provided in \tion{stats}.
 
-\textit{Reliability of measures}: The base measures in this study described in \tion{data-collection} are \textit{defects} recorded in TSP defect logs and \textit{time} reported in time tracking logs. The primary threats to the reliability of these measures are: that the definition of a defect varies between projects and that time is not reported accurately or consistently. The reliability of the time reporting is discussed in \tion{data_integrity}. Time is reported on a level of minutes. We do not have an assessment of the error margin for time reporting. Some developers are less precise with time or estimates. Nonetheless defect time-to-fix must sum to less than the total effort in the phase and time log time stamps must be consistent with the time stamps and phase in the defect log. Based on time stamp consistency and conformance with Benford distributions, our experience suggests greater than 90\% of the time log data is recorded in real time. The fidelity and consistency of data will be subject of a future paper. 
+\textit{Reliability of measures}: The base measures in this study described in \tion{data-collection} are \textit{defects} recorded in TSP defect logs and \textit{time} reported in time tracking logs. The primary threats to the reliability of these measures are: that the definition of a defect varies between projects and that time is not reported accurately or consistently. The reliability of the time reporting is discussed in \tion{data_integrity}. Time is reported on a level of minutes. We do not have a precise assessment of the error margin for time reporting. Some developers are less precise with time or estimates. Nonetheless, we have applied several tests to verify that the data is accurate. First we compare entries from the defect and time logs to verify that defect log times-to-fix sum to less than the total time log effort in the phase. Second, time log time stamps must be consistent with both the the time stamps and phase for defect in the defect log. Third, we applied a Benford test on the leading digits from the time log  and defect log times to estimate the number data entries that do not result from a natural process (that is, guessed or estimated rather than measured values) ~\cite{shirai14}.  Based on these tests we believe that greater than 90\% of the time log data is recorded in real time. The fidelity and consistency of data will be subject of a future paper. 
 
 We assume that each team has similar defect recording practices, and the TSP coaching provides guidance on what constitutes a defect. Nonetheless, individual developers and teams may apply their own internal rules for filtering defects, which would lead to inconsistent reporting thresholds among the projects in our sample. A related issue is that we assume developers correctly report in which phases a defect was injected and corrected. One point of variation is the measurement framework that identifies process phases and joins the effort to a size measurement framework. Individual projects may choose to implement a different framework, for example adding phases for specific types of development (for example, adding static analysis or special testing or a non-standard size unit).  
 
@@ -1338,7 +1369,7 @@ it is more likely that they will better identify the injection phase.
 \textit{Reliability of treatment implementation}: 
 Although TSP is not prescriptive about the development process, goals, or strategy, TSP provides precise guidance and training for data gathering. The guidance for logging time and defects is precisely defined. All tasks should be logged as the work is performed with a stopwatch tool. All defects that escape a phase must be logged. All data fields for each defect must be completed.
 
-There are a number of reasons to believe that the data are are consistent between developers and between projects. First, developers receive PSP training, during which instructors focus on complete and accurate data gathering. Second, each project that submitted data had a certified TSP coach responsible for evaluating  process adherence and submitting the data. Third, because the teams use their data to manage the projects the team is motivated to collect complete, accurate, and precise data otherwise the data gathering and analysis would be wasted effort. Fourth, process fidelity issues are apparent to the TSP coach as missing or inconsistent data (e.g. time and defect logs do not match, log entries have excessive rounding, or a developer is an outlier). Fourth, 15 of the projects received a TSP Certification in which process fidelity was evaluated independently by an observer and data analyst examining data internal consistency and consistency with  distributional properties known to consistent among all projects and team members. Fifth, all projects in this sample used the same data gathering tool. Nonetheless, some variations exist. 
+There are a number of reasons to believe that the data are consistent between developers and between projects. First, developers receive PSP training, during which instructors focus on complete and accurate data gathering. Second, each project that submitted data had a certified TSP coach responsible for evaluating  process adherence and submitting the data. Third, because the teams use their data to manage the projects the team is motivated to collect complete, accurate, and precise data otherwise the data gathering and analysis would be wasted effort. Fourth, process fidelity issues are apparent to the TSP coach as missing or inconsistent data (e.g. time and defect logs do not match, log entries have excessive rounding, or a developer is an outlier). Fifth, 15 of the projects received a TSP Certification in which process fidelity was evaluated independently by an observer and data analyst examining data internal consistency and consistency with  distributional properties known to consistent among all projects and team members. Sixth, all projects in this sample used the same data gathering tool. Nonetheless, some variations exist. 
 
 
 
@@ -1398,8 +1429,7 @@ which is far smaller than the 37 to 250-fold increases reported in \fig{b81} and
 
 \textit{Mono-method bias}: We only measure the delayed issue effect in terms of defects (as reported by teams) and time (in minutes of effort). To mitigate mono-method bias, additional measures of these constructs would be needed. For example, defects may be segmented into customer-reported defects and pre-release defects. In addition to time-as-effort, calendar time and price to fix (including labor, CPU time, overhead) would provide a more complete picture of the abstraction ``cost to fix a defect''. Further, there are no subjective measures of cost-to-fix, such as the social impact on the team or frustration of the customer.
 
-\textit{Confounding constructs and levels of constructs}: We do not consider the severity of defects in this analysis. Evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' errors have been known to cause enormous damage (e.g., the Mars Climate Orbiter). It is possible that high-severity defects require more effort to fix simply because more people work on them, or conversely, low-severity defects may be fixed quickly simply because they it is easier to do so. High-severity defects are of particular concern in software projects, and even if the number of high-severity defects is low their cost to fix may be extremely large. Note that if such outliers were common in our data, they would appear in the upper percentiles of results. \fig{last} shows that no such effect occurs in the 90th percentile of our time to resolve
-issues.    That is, while such ``high risk'' issues may certainly exist, they were not a major effect in our data.
+\textit{Confounding constructs and levels of constructs}: We do not consider the severity of defects in this analysis. Evidence discussed in \cite{Shull02} suggests that low severity defects may exhibit a lower cost to change. Nonetheless, even ``small'' errors have been known to cause enormous damage (e.g., the Mars Climate Orbiter). It is possible that high-severity defects require more effort to fix simply because more people work on them, or conversely, low-severity defects may be fixed quickly simply because they it is easier to do so. High-severity defects are of particular concern in software projects, and even if the number of high-severity defects is low their cost to fix may be extremely large. Note that if such outliers were common in our data, they would appear in the upper percentiles of results. 
 
 \textit{Restricted generalizability across constructs}: While we observe a lack of DIE in the TSP dataset, we examine only the construct of time-to-fix. We do not consider the tradeoffs between time-to-fix and other ''-ilities'', such as maintainability. For example, a low time-to-fix may come at the expense of a more robust solution, i.e., a quick and dirty fix instead of an elegant repair.
 
@@ -1442,15 +1472,15 @@ issues.    That is, while such ``high risk'' issues may certainly exist, they we
 1 &   &   CodeInspect      & 33 &     0.89 & \textcolor{black}{\rule{8mm}{2mm}}\\
 1 &   &   UnitTest          & 41 &     1.11 & \textcolor{black}{\rule{12mm}{2mm}}\\
 1 &   &   IntTest          & 75 &    2.03 & \textcolor{black}{\rule{20mm}{2mm}}\\
-1 &   &   AcceptTest       & 44 &     1.19 & \textcolor{black}{\rule{12mm}{2mm}}\\
 1 &   &   SysTest           & 40 &     1.08 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &   &   AcceptTest       & 44 &     1.19 & \textcolor{black}{\rule{12mm}{2mm}}\\
 \hline\multicolumn{6}{c}{~}  \\
 1 &  Code   &   CodeReview      & 35    & 1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
 1 &    &   CodeInspect    & 32   & 0.91 & \textcolor{black}{\rule{9mm}{2mm}}\\
 1 &   &   UnitTest      & 45  & 1.29 & \textcolor{black}{\rule{12mm}{2mm}}\\
 1 &    &   IntTest         & 58   & 1.66 & \textcolor{black}{\rule{16mm}{2mm}}\\
-1 &    &   AcceptTest      & 60 &   1.71 & \textcolor{black}{\rule{17mm}{2mm}}\\
 1 &   &   SysTest        & 47 &    1.34 & \textcolor{black}{\rule{13mm}{2mm}}\\
+1 &    &   AcceptTest      & 60 &   1.71 & \textcolor{black}{\rule{17mm}{2mm}}\\
 
 \end{tabular}
 %}
@@ -1458,14 +1488,14 @@ issues.    That is, while such ``high risk'' issues may certainly exist, they we
 \caption{90th percentile tiles to resolve issues in the SEI TSP data. Same format as \fig{raw} (but here we look at 90th percentile
 outliers while   \fig{raw} explored the central tendencies of the data). The conclusion from this figure is the same
 as \fig{raw}: even when considering the 90th percentile outliers, there is no consistent patterns of 
-exponential growthe in the effort to fix issues delayed later in the lifecycle.}\label{fig:last}
+exponential growth in the effort to fix issues delayed later in the lifecycle.}\label{fig:last}
 \end{figure}
 
 \subsection{External Validity}
 \label{sect:external_validity}
 External validity concerns the generalizability of findings~\cite{wohlin2012} beyond the context of the study. Madigan et al.~\cite{madigan2014} and Carlson \& Morrison~\cite{carlson2009} discuss primarily external validity concerns drawn from studies of large datasets in medicine that are useful for identifying limitations in our study.
 
-\textit{Interaction of selection and treatment}: The most obvious limitation in our study is that the dataset in which we observed no DIE was composed entirely of TSP projects. TSP is a mature process constructed with risk mitigation as its primary purpose. We do not claim that our findings generalize beyond the projects using the TSP process. Similarly, we make no claims regarding generalizability across domains (e.g., defense, banking, games, COTS), scope (\# of features, people, and development length), or organizational features. The purpose of this study is to draw attention to the notion that commonly-held belief of the delayed issue effect may not be a universal truth. This study adds to the evidence offered by the cased study in Royce~\cite{Royce98}. Our study invites a further explanation into the causal factors that mitigate DIE.
+\textit{Interaction of selection and treatment}: The most obvious limitation in our study is that the dataset in which we observed no DIE was composed entirely of TSP projects. TSP is a mature process constructed with risk mitigation as its primary purpose. We do not claim that our findings generalize beyond the projects using the TSP process. Similarly, we make no claims regarding generalizability across domains (e.g., defense, banking, games, COTS), scope (\# of features, people, and development length), or organizational features. The purpose of this study is to draw attention to the notion that commonly-held belief of the delayed issue effect may not be a universal truth. This study adds to the evidence offered by the case study in Royce~\cite{Royce98}. Our study invites a further explanation into the causal factors that mitigate DIE.
 
 
 
@@ -1566,6 +1596,9 @@ Also, the authors gratefully acknowledge the careful comments of anonymous revie
 FSE and ICSE conferences.
 This work was partially funded by an National Science
 Foundation grants NSF-CISE 1302169 and CISE 1506586.
+
+This material is based upon work funded and supported by TSP Licensing under Contract No. FA8721-05-C-0003 with Carnegie Mellon University for the operation of the Software Engineering Institute, a federally funded research and development center sponsored by the United States Department of Defense.  This material has been approved for public release and unlimited distribution.  DM-0003956
+
 Personal Software Process$\textsuperscript{SM}$, Team Software Process$\textsuperscript{SM}$, and TSP$\textsuperscript{SM}$ are service marks of Carnegie Mellon University.
 
  
@@ -1769,7 +1802,7 @@ expect the paper to go beyond simply questioning the "old
 truth". 
  
  \begin{quote}{\em 
-We thank the reviewer for this important observation and have connected our work to the literature on theory-building. However, our data supports a number of possible explanations for the observed intermittent appearance of the DIE. Since the current data is not suitable for choosing among the various hypothesized explanations we feel that formulating a new theory build from this data
+We thank the reviewer for this important observation and have connected our work to the literature on theory-building. However, our data supports a number of possible explanations for the observed intermittent appearance of the DIE. Since the current data are not suitable for choosing among the various hypothesized explanations we feel that formulating a new theory build from this data
 would be premature at this time. That said, we think the current paper would be useful
 as a data point which, when combined with other sources, could be useful for some new future theory of SE.
 }\end{quote}
@@ -2196,9 +2229,9 @@ delaying or not delaying.}\end{quote}
 Figure 9 [NOTE: now \fig{fix-phase-dist}]. The caption says "Distribution of defects found
 and fixed by phase." Is that the distribution of defects
 found in some phase and fixed in that phase? The text says
-"The distribution of defects found and fixed per phase in
+"The distribution of defects  fixed per phase in
 our data is shown in Figure 9. A high percentage of defects
-(44) were found and fixed in the early phases, i.e.,
+(44) were "found and fixed" (that is, the necessary change was identified and implemented)   in the early phases, i.e.,
 requirements, high level design, and design reviews and
 inspections." which doesn't add much. If that's the
 distribution of defects introduced in a phase and fixed
@@ -2223,7 +2256,7 @@ would be a third interpretation of the data in Figure 10.
 \begin{quote}
 {\em We agree-that figure was far too confusing. We have now split the 50th and 90th peercentile results
 into two charts, which simplifies both. Please see \fig{raw} and \fig{last}.
-Also, please note that that fit\fig{raw} now has an extensive help text in the caption.
+Also, please note that fit\fig{raw} now has an extensive help text in the caption.
 We used your comments there where we noted the ratios used in the
 bard charts are unitless while the left-hand-side column numbers are
 times in minutes.

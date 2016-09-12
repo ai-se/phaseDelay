@@ -1,0 +1,80 @@
+
+
+
+
+
+Our survey collected data on software engineers' views of commonly held software engineering ``laws''.
+One of the laws questioned is a specific form of our delayed issue effect:  ``requirements errors are the most expensive to fix when found during production but the cheapest to fix early in development'' (from Glass~\cite{glass02} p.71 who references Boehm \& Basili~\cite{boehm01}). We abbreviate this law (illustrated in \fig{b81}) as RqtsErr.
+
+(Technical aside: we use the RqtsErr formulation since this issue typically needs no supportive explanatory
+text. If we had asked respondents about our more general term ``delayed issue
+effect'', we would have had to burden our respondents with extra explanations).
+
+The survey was conducted in two phases using Amazon's Mechanical Turk. The first phase was conducted only with professional software engineers solicited through the Mechanical Turk;
+participants were required to complete a pretest to verify their status as a professional or open source software developer and to confirm their knowledge of basic software engineering terminology and technology. The  second survey was conducted with Program Committee members of the ESEC/FSE 2015 and ICSE 2014  conferences solicited via email.
+
+The respondents answered questions on two scales: \newline
+\textbf{Agreement:} ``Based on your experience, do you agree that the statement above is correct?'' A Likert scale captured the agreement score from Strongly Disagree to Strongly Agree. A text box was provided to explain the answer. \newline
+\textbf{Applicability:} ``To the extent that you believe it, how widely do you think it applies among software development contexts?'' The possible answers were: 
+-1 meaning ``I don't know''; and 0 meaning ``this law does not apply at all'';
+ 1 meaning ``applies in a very narrow range of projects'';  2 meaning
+``rarely applies'';   3 meaning
+``occasionally applies'';  
+4 meaning ``very frequently applies''; and
+ 5 meaning ``always applies''.
+Respondents were required to explain the applicability score in a text box.
+
+In order to baseline the participant's answers, participants were presented with the RqtsErr law and others. For the purposes
+of this paper, the nature of the other laws other than RqtsErr are not relevant-- we
+only added them in as a way to calibrate responses to the RqtsErr question. All laws were drawn from \cite{glass02} and \cite{endres03}. 
+The PC member survey contained an additional question on ``In general, the longer errors are in the system (requirements errors, design errors, coding errors, etc.), the more expensive they are to fix'' (the Delayed Issue Effect). Responses were recorded using the agreement question Likert scale. 
+
+Summary statistics for the agreement and applicability scores for the RqtsErr and DelayedIssueEffect laws are presented in Figure~\ref{fig:survey_results}. Responses whose Applicability response was ''I don't know'' are omitted from analysis.
+
+
+\begin{figure}[!ht] 
+\scriptsize 
+ 
+\begin{tabular}{l|c|c|c|c|c}
+ &  & \multicolumn{2}{c|}{agreement} & \multicolumn{2}{c}{applicability} \\\cline{1-1} 
+Practitioner survey  & N & med & mode & med & mode \\
+\hline 
+\textbf{Rqts errors are most expensive...} & 16 & 5 & 5 & 4 & 5 \\ 
+Inspections can remove 90\% of defects & 18 & 4 & 5 & 4 & 5 \\
+80-20 rule (defects to modules) & 12 & 4 & 5 & 4 & 5 \\
+Most time is spent removing errors & 16 & 4 & 4 & 4 & 5 \\ 
+Process maturity improves output & 17 & 4 & 4 & 4 & 4 \\ 
+Missing reqts are hardest to fix & 17 & 4 & 4 & 4 & 4 \\
+Reuse increases prod. and qual. & 16 & 4 & 4 & 4 & 4 \\
+OO-programming reduces errors & 13 & 4 & 4 & 4 & 3 \\
+Adding manpower to a late project & 15 & 4 & 4 & 4 & 4 \\
+Smaller changes have higher error density & 14 & 3 & 3 & 3.5 & 5 \\
+A developer is unsuited to test own code & 17 & 3 & 1 & 4 & 5\\\hline
+ 
+Researcher survey \\\hline 
+Process maturity improves output & 4 & 4 & 4 & 4 & 5 \\
+\textbf{Rqts errors are most expensive...} & 30 & 4 & 4 & 4 & 4   \\ 
+\textbf{DelayedIssueEffect} & 30 & 4 & 4 & -- & --  \\
+Reuse increases prod. and qual. & 6 & 4 & 4 & 4 & 4 \\
+80-20 rule (defects to modules) & 6 & 4 & 4 & 4 & 3 \\
+Missing reqts are hardest to fix & 7 & 4 & 4 & 4 & 3 \\
+OO-programming reduces errors & 6 & 4 & 4 & 3 & 4 \\
+Inspections can remove 90\% of defects & 7 & 4 & 4 & 3 & 3 \\
+Adding manpower to a late project & 4 & 3 & 4 & 4 & 3 \\
+Most time is spent removing errors & 6 & 3 & 3 & 4 & 4 \\ 
+Smaller changes have higher error density & 4 & 3 & -- & 4 & 4 \\
+A developer is unsuited to test own code & 7 & 2 & 1 & 3 & 3
+\end{tabular} 
+ 
+\caption{Agreement and applicability of SE axioms.}
+\label{fig:survey_results}
+\end{figure}
+
+Both  practitioners and researchers  strongly believed in RqtsErr: In both sets of responses, RqtsErr received  scores higher than most
+other laws. Further, in the case of practitioners, this law was rated
+as the single most believed effect. 
+%The free response texts, most participants agreed that addressing errors %%late may mean system redesign unless the system and the affected %equirement are simple/trivial. Further, any changes to the production %ystem have additional complexity (compared to changes while system in %evelopment) due to users, data existence, and architecture dependencies. 
+Caveat: in the free reponse texts, we note that the researchers who disagreed with the law generally asserted that requirements change can be expensive, but that the effect depends on the process used (e.g., agile vs. waterfall) and the adaptability of the system architecture.
+
+Overall, the RqtsErr law was the most agreed upon and most applicable law of 11 surveyed amongst practitioners, and the second most agreed upon law amongst researchers. 
+This results strongly support that the notion that the  delayed issue effect   is a widely-held belief in software engineering.
