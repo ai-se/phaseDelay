@@ -106,7 +106,7 @@ This paper documents the above study and explores reasons for this  mismatch bet
 In  summary, DIE is not some constant across all projects. Rather, DIE might
 be an historical relic that  occurs intermittently 
 only in  certain kinds of projects.  This is a significant result since it predicts that  new development
-processes that promise to faster retire more issues will have only a  limited return on investment, and that a long-held truth in software engineering can be defeated on a large scale. 
+processes that promise to faster retire more issues will not have a guaranteed return on investment (depending on the context where applied), and that a long-held truth in software engineering should not be considered a global truism. 
 \end{abstract}
 
  \vspace{1mm}
@@ -330,7 +330,7 @@ and defect predictions (better median results,
 lower variance in the predictions).
 \ee
  
-The dilemma of failing truths in the face of new evidence is not particular to software engineering. 
+The dilemma of updating truths in the face of new evidence is not particular to software engineering. 
 % To be fair, 
 % SE is  not the only
 % field where practitioners hang on to persistent beliefs, even if the evidence
@@ -357,13 +357,13 @@ when the experts
  conclusions and software projects  (see examples in~\cite{jorgensen09}).
  A similar effect is reported by
 Devanbu et al.~\cite{prem16}  who examined responses from 564 Microsoft software developers from around
-the world, they found that  ``(a)~programmers do indeed have very
+the world; they found that  ``(a)~programmers do indeed have very
 strong beliefs on certain topics; (b)~their beliefs are primarily formed
 based on personal experience, rather than on findings in empirical
 research; (c)~beliefs can vary with each project, but do not necessarily
-correspond with actual evidence in that project''.
+correspond with actual evidence in that project.''
 Devanbu et al. further  comment that ``programmers give personal experience
-as the strongest influence in forming their opinions''. This is a troubling
+as the strongest influence in forming their opinions.'' This is a troubling
 result, especially given the above comments from Passos and  J{\o}rgensen et al.~\cite{passos11,jorgensen09} about how quickly practitioners form, freeze, and rarely revisit those opinions.
 
  
@@ -391,7 +391,7 @@ a goal of agile methods
 is to reduce the difficulty associated with making changes later in the lifecycle~\cite{beck00}. Yet, as shown below,
 relatively little empirical data exists on this point.
 
-We examined the literature on the delayed issue effect through a combination of snowball sampling~\cite{wohlin2014guidelines} and database search. We searched Google Scholar for terms such as ``cost to fix'' and ``defect cost'' and ``software quality cost''. The majority of the search results discuss quality measurements, quality improvement, or the cost savings of phase-specific quality improvement efforts (e.g., heuristic test case selection vs. smoke testing). A systematic literature review of software quality cost research can be found in \cite{karg2011systematic}. Relatively few articles discuss cost-to-fix as a function of when the defect was injected or found. We also conducted a general Google search for the above terms. We found a number of website articles and blog postings on this topic, e.g., \cite{IfSQ2013,Soni2016,Parker2013,Gordon2016}. From these, we gathered additional citations for the delayed issue effect, the vast majority of which were secondary sources, e.g.,~\cite{Leffingwell96,mead2004software,mcconnell1996software,mcconnell01,Tassey2002,boehm2012}. Our literature search is not exhaustive, but our results yielded an obvious trend: nearly every citation to the delayed issue effect could be traced to the seminal \textit{Software Engineering Economics}~\cite{Boehm81} or its related works~\cite{boehm88,boehm01}.\footnote{For example, popular sources such as~\cite{pressman2005software, boehm01,glass02,endres03} have a combined citation count of over 14,500 on Google Scholar can all trace their evidence to \textit{Software Engineering Economics}~\cite{Boehm81}.}
+We examined the literature on the delayed issue effect through a combination of snowball sampling~\cite{wohlin2014guidelines} and database search. We searched Google Scholar for terms such as ``cost to fix'' and ``defect cost'' and ``software quality cost''. The majority of the search results discuss quality measurements, quality improvement, or the cost savings of phase-specific quality improvement efforts (e.g., heuristic test case selection vs. smoke testing). A systematic literature review of software quality cost research can be found in \cite{karg2011systematic}. Relatively few articles discuss cost-to-fix as a function of when the defect was injected or found. We also conducted a general Google search for the above terms. We found a number of website articles and blog postings on this topic, e.g., \cite{IfSQ2013,Soni2016,Parker2013,Gordon2016}. From these, we gathered additional citations for the delayed issue effect, the vast majority of which were secondary sources, e.g.,~\cite{Leffingwell96,mead2004software,mcconnell1996software,mcconnell01,Tassey2002,boehm2012}. Our literature search is not exhaustive, but our results yielded an obvious trend: nearly every citation to the delayed issue effect could be traced to the seminal \textit{Software Engineering Economics}~\cite{Boehm81} or its related works~\cite{boehm88,boehm01}.\footnote{For example, popular sources such as~\cite{pressman2005software, boehm01,glass02,endres03}, with a combined citation count of over 14,500 on Google Scholar, can all trace their evidence to \textit{Software Engineering Economics}~\cite{Boehm81}.}
 
 
 Ultimately, we identified nine sources of evidence for the delayed issue effect based on real project data: the original four \cite{Fagan76,Boehm76,Daly77,Stephenson76} reported in \textit{Software Engineering Economics}\cite{Boehm81}, a 1995 report by Baziuk~\cite{baziuk1995bnr} on repair costs at Nortel, a 1998 report by Willis et al.~\cite{willis1998hughes} on software projects at Hughes Aircraft, a 2002 experiment by Westland~\cite{westland2002cost} to fit regression lines to cost-to-fix of localization errors, a 2004 report by Stecklein et al.~\cite{steck04} on cost-to-fix in five NASA projects, and a 2007 survey by Reifer on CMMI Level 5 organization\cite{reifer2007profiles}.
@@ -467,8 +467,8 @@ exact figures. This was a common theme in the literature reviewed for this paper
 
 
  
-Some studies report less-than large
- increase in the effort required to fix delayed issues.  Boehm~\cite{Boehm80} provides data suggesting that the cost-to-fix curve for small projects
+Some studies report smaller
+ increases in the effort required to fix delayed issues.  Boehm~\cite{Boehm80} provides data suggesting that the cost-to-fix curve for small projects
  %, two student projects of 2000 deliverable source instructions, 
  is flatter than for large projects (the dashed line of Figure~\ref{fig:cost-to-fix}). Data from NASA's Johnson Space Flight Center, reported by Shull~\cite{Shull02}, found that the cost to fix certain non-critical classes of defects was fairly constant across lifecycle phases (1.2 hours on average early in the project, versus 1.5 hours late in the project). Royce~\cite{Royce98} studied  a million-line, safety-critical missile defense system. Design changes (including architecture changes) required approximately twice the effort of implementation and test changes, and the cost-to-fix in implementation and test phases increased slowly. Boehm~\cite{Boehm10} attributes this success to a development process focused on removing architecture risk early in the lifecycle. Willis et al. (\cite{willis1998hughes}, page 54) provide tables summarizing the effort to fix over 66,000 defects as a function of lifecycle phase injected and removed from multiple projects. The tables are partly obscured, but seem to provide the first large scale evidence that a)~DIE need not be exponential and b)~DIE need not be monotonically increasing.  Again, the data points from these studies are not available, and thus newer evidence both in favor of and contrary to the DIE cannot be evaluated.
 
@@ -820,7 +820,7 @@ The most common project application domains are banking, consumer applications, 
 The data for programming languages is incomplete, with most projects using more than one language, but few reporting  programming language by component or size.  The list of languages includes ABAP, ADA, Alpha, C, C++, C\#, ASP.net, Delphi, Gauss, Genexus, Hotware, HTML, Java, JavaScript, PHP, PLSQL, Ruby, SQL, and Visual Basic. 
  
 
- The specific process work flows and practices are developed by the development team personnel who have received specific training on defining work processes as part of their Personal Software Process training. The process data was collected by the team members to self-manage their personal and team work. Them members also exhibited self-management behavior by estimating planning and scheduling the work tasks. 
+ The specific process work flows and practices are developed by the development team personnel who have received specific training on defining work processes as part of their Personal Software Process training. The process data was collected by the team members to self-manage their personal and team work. The members also exhibited self-management behavior by estimating planning and scheduling the work tasks. 
 
 While the processes and work flows among these projects can vary, the logical order described in section \ref{development_phase} is followed. Development tasks such as requirements development, design, or code, are typically followed by an appraisal phase such as personal review or inspection. Effort and effectiveness of these activities vary among projects and developers.
 
@@ -900,19 +900,20 @@ Wholesale or retail trade  & 9
 
 
  
- The project schedule, cost, and scope  are characterized by calendar duration, development team size project, and product size (measured in added and modified lines of code and number of components).  These data are all available from the project fact sheets for each project. Summary statistics and the year of project initiation are displayed in Figure~\ref{fig:Project-descriptive-stats}. From this table we can make some observations about the range of project characteristics .
+ The project schedule, cost, and scope  are characterized by calendar duration, development team size project, and product size (measured in added and modified lines of code and number of components).  These data are all available from the project fact sheets for each project. Summary statistics and the year of project initiation are displayed in Figure~\ref{fig:Project-descriptive-stats}. From this table we can make some observations about the range of project characteristics.
  
  \begin{figure}[ht]
 \scriptsize
 \centering
 \renewcommand{\arraystretch}{1}%
 \begin{tabular}{lrrrrrrrl}
-                                                                   & N   & Min & Q1   & Median & Q3    & Max   & Mean   &  Distribution \\\hline
-Team size                                                          & 171 & 1   & 4    & 6      & 10    & 36    &  7.8    &  \includegraphics[width=25mm]{team_size.png} \\ 
-Duration {[}days{]}                                                & 171 & 7   & 33   & 61     & 118   & 1918  & 107    & \includegraphics[width=25mm]{duration.png} \\
-Added \& Modified LOC                                                 & 117 & 2   & 1125 & 4201   & 13092 & 88394 & 10259  & \includegraphics[width=25mm]{LOC.png} \\
-Components                                                         & 171 & 8   & 26   & 49     & 107   & 4170  & 116.2  & \includegraphics[width=25mm]{components.png} \\
-Project Initiation Year                                                       & 171 &    2006 & 2011 & 2012   & 2013  & 2014  & 2011.9 & \includegraphics[width=25mm]{year.png}
+                                        & N   & Min & Q1   & Median & Q3    & Max   & Mean   &  Distribution \\\hline
+Team size                               & 171 & 1   & 4    & 6      & 10    & 36    &  7.8    &  \includegraphics[width=25mm]{team_size.png} \\ 
+Duration {[}days{]}                     & 171 & 7   & 33   & 61     & 118   & 1918  & 107    & \includegraphics[width=25mm]{duration.png} \\
+Added \& Modified LOC                   & 117 & 2   & 1125 & 4201   & 13092 & 88394 & 10259  & \includegraphics[width=25mm]{LOC.png} \\
+Defects Found \& Fixed                  & 171 & 1   & 28   & 95     & 278   & 4580  & 324.4  & \includegraphics[width=25mm]{defect_by_project.png} \\
+Components                              & 171 & 8   & 26   & 49     & 107   & 4170  & 116.2  & \includegraphics[width=25mm]{components.png} \\
+Project Initiation Year                 & 171 &    2006 & 2011 & 2012   & 2013  & 2014  & 2011.9 & \includegraphics[width=25mm]{year.png}
 \end{tabular}
 
 \caption{Project summary description}
@@ -920,7 +921,7 @@ Project Initiation Year                                                       & 
 \end{figure}
  
  
- Of the 171 projects in the sample, only 117 collected size data in lines of code, however all projects tracked effort and  the component counts with applied effort are provided. Other data are complete for all 171 projects. The projects were mostly of short duration and small to medium size. The median project began in 2012 lasted 61 days, produced 4,200 Lines of Code, 49 components (modules or features). Duration ranged from 7 to 1,918 days. Size ranged from minimal (this may represent a short maintenance project) to 88,394. The earliest project was in 2006 and the most recent in 2014. 
+ Of the 171 projects in the sample, only 117 collected size data in lines of code. However all projects tracked effort and  the component counts with applied effort are provided. Other data are complete for all 171 projects. The projects were mostly of short duration and small to medium size. The median project began in 2012 lasted 61 days, produced 4,200 Lines of Code, 49 components (modules or features). Duration ranged from 7 to 1,918 days. Size ranged from minimal (this may represent a short maintenance project) to 88,394. The earliest project was in 2006 and the most recent in 2014. 
  
 How many of these teams could be classified as "agile" is not clear because actual practices in the agile world can vary. We did not ask teams to self-identify, however we offer the following observations regarding characteristics commonly associated with agile behavior. 
 \begin{itemize}
@@ -937,7 +938,7 @@ How many of these teams could be classified as "agile" is not clear because actu
 \begin{center}
 \includegraphics[height=2.5in]{fix-phase-dist.pdf}
 \end{center} 
-\caption{Distribution of defects found and fixed by phase.}
+\caption{Distribution of defects by phase removed.}
 \label{fig:fix-phase-dist}
 \end{figure}
 
@@ -950,18 +951,22 @@ How many of these teams could be classified as "agile" is not clear because actu
     In the following presentation of our results, three statistical methods were used to test for the delayed
     issue effect: the Scott-Knott ranker;   bootstrap sampling (to test for statistical significantly
     different results); and an effect size test (to reject any significant differences that are trivially small).
-    
-    Scott-Knott allows for a direct answer to the following questions: given an issue
-    raised at phase $i$ and resolved at phase $\forall j,k \in \{i,i+1,i+2,...\}$, is it
-    true that that the time to resolve issues at $j$ is significantly different 
-    to the time to resolve issues at $k$? 
-    \be
-    \item Note that if $j,k$ times are significantly different, then we can compare
+    Scott-Knott allows for a direct answer to the following questions:
+    \bi
+    \item
+    Given an issue
+    raised at phase $i$ and resolved at phase $\forall j,k \in \{i,i+1,i+2,...\}$,...
+    \item 
+    ... Is it
+    true that  the time to resolve issues in phase $j$ is significantly different 
+    to the time to resolve issues in phase $k$? 
+    \ei
+    Note that if $j,k$ times are significantly different, then we can compare
     the median values to say (e.g.) resolution time at phase $k$ is 3 times slower than phase $j$.
-    \item Note also that if all times $j,k$ are {\em not} significantly different
+    Note also that if all times $j,k$ are {\em not} significantly different
     then we say that the phases all {\em rank} the same (and we denote this by setting
     all such {\em ranks} to 1).
-    \ee
+    
     In the following results, we nearly always encountered the second case;
     i.e.   the times to resolve issues at different times were usually {\em not significantly}
     different.
@@ -978,13 +983,24 @@ How many of these teams could be classified as "agile" is not clear because actu
     halves.
     Before Scott-Knot recurses,  however,  it applies some  statistical hypothesis test $H$ to check
     if $m,n$ are significantly different. 
-    
-    To operationalize ``interesting'', Scott-Knott seeks the division of 
-    $l$ treatments into subsets of size $m,n$ of sizes $ls,ms,ns$ and median values
-    $l.\mu, m.\mu, n.\mu$ (respectively) in order to maximize
- $\frac{ms}{ls}abs(m.\mu - l.\mu)^2 + \frac{ns}{ls}abs(n.\mu - l.\mu)^2$.
-   
-   To operationalize $H$, we use both  bootstrap sampling  and Vargha and Delaney's A12 test A12 effect size test.
+    To operationalize ``interesting'', 
+    \bi
+    \item
+    Scott-Knott seeks the division of 
+    $l$ treatments into subsets of size $m,n$ (so if $n$ was 
+    appended to the  end of $m$ then that new list
+    would the same as $l$).
+    \item
+    We say that $l,m,n$ have
+    sizes $ls,ms,ns$ and median values
+    $l.\mu, m.\mu, n.\mu$ (respectively) 
+    \item
+    Scott-Knott tries all ways to split $l$ into $m,n$ and returns
+    the one that maximizes the differences in the mean values
+    before and after the splits; i.e. 
+ \[\frac{ms}{ls}abs(m.\mu - l.\mu)^2 + \frac{ns}{ls}abs(n.\mu - l.\mu)^2\]
+   \ei
+   To operationalize $H$, we use both  bootstrap sampling  and Vargha and Delaney's A12 effect size test.
    In other 
     words, we divide the data if \textit{both} bootstrap sampling and effect 
     size test agree that a division is statistically significant (with a 
@@ -997,7 +1013,7 @@ How many of these teams could be classified as "agile" is not clear because actu
     hypothesis test declares two populations to be ``significantly'' 
     different, then that result is misleading if the ``effect size'' is very 
     small. Hence, to assess the performance differences we first must rule out 
-    small effects using Vargha and Delaney's A12 test, a test   recently endorsed by Arcuri and 
+    small effects using Vargha and Delaney's A12 test, a test    endorsed by Arcuri and 
     Briand at ICSE'11~\cite{arcuri11}.
   
     
@@ -1106,18 +1122,71 @@ How many of these teams could be classified as "agile" is not clear because actu
 % \end{tabular}
 
 \end{center}
-\caption{Times to resolve issues seen in the SEI TSP data. For an explanation of this figure,
+\caption{Median times to resolve issues seen in the SEI TSP data. For an explanation of this figure,
 see \tion{171projects}.}
 \label{fig:raw}
 \end{figure}
- 
- 
+ \begin{figure}[!t]
+% \renewcommand{\baselinestretch}{0.8}
+% \small
+\begin{center}
+%\resizebox{\columnwidth}{!}{
+\scriptsize
+\begin{tabular}{c|lr|r|rl}
+  & \multicolumn{2}{c|}{ } &  Percentiles & \multicolumn{2}{c}{Growth with respect to earliest phase  } \\ 
+   & \multicolumn{2}{c|}{Phase} &  (units= miniutes) & \multicolumn{2}{c}{(unitless ratios of two time values) } \\\hline
+
+
+  rank & injected & removed &   90th   &  \multicolumn{2}{c}{90th percentile growth} \\ 
+\hline\multicolumn{6}{c}{~}  \\
+1 &  Before   &   DesignInspect     & 32  &  1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &   &   CodeReview      &   31   &    0.97 & \textcolor{black}{\rule{9mm}{2mm}}\\
+1 &   &   CodeInspect     &   32   &    1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &   &   UnitTest        &   45  &    1.41 & \textcolor{black}{\rule{14mm}{2mm}}\\
+1 &   &   IntTest         &   63  &   1.97 & \textcolor{black}{\rule{19mm}{2mm}}\\
+1 &   &   SysTest         &   46   &   1.44 & \textcolor{black}{\rule{14mm}{2mm}}\\  
+\hline\multicolumn{6}{c}{~}  \\
+1 &  Planning     &   ReqtsReview       & 35   &   1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &               &   DesignInspect     & 31  &   0.89 & \textcolor{black}{\rule{8mm}{2mm}}\\
+2 &               &   UnitTest          & 53 &   1.51 & \textcolor{black}{\rule{15mm}{2mm}}\\
+\hline\multicolumn{6}{c}{~}  \\
+1 &  Reqts   &   ReqtsReview      & 42 &    1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &          &   ReqtsInspect      & 40 &     0.95 & \textcolor{black}{\rule{9mm}{2mm}}\\
+1 &          &   DesignReview      & 34 &    0.81 & \textcolor{black}{\rule{8mm}{2mm}}\\
+1 &          &   DesignInspect     & 38 &     0.90 & \textcolor{black}{\rule{9mm}{2mm}}\\
+1 &          &   CodeInspect      & 45 &   1.07 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &          &   UnitTest          & 40 &   0.95 & \textcolor{black}{\rule{9mm}{2mm}}\\
+1 &          &   IntTest          & 95 &      2.26 & \textcolor{black}{\rule{22mm}{2mm}}\\
+1 &          &   SysTest          & 126 &    3.00 & \textcolor{black}{\rule{30mm}{2mm}}\\
+\hline\multicolumn{6}{c}{~}  \\
+1 & Design   &   DesignReview     & 37 &   1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &          &   DesignInspect    & 28 &    0.76 & \textcolor{black}{\rule{7mm}{2mm}}\\
+1 &   &   CodeReview        & 40 &     1.08 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &   &   CodeInspect      & 33 &     0.89 & \textcolor{black}{\rule{8mm}{2mm}}\\
+1 &   &   UnitTest          & 41 &     1.11 & \textcolor{black}{\rule{12mm}{2mm}}\\
+1 &   &   IntTest          & 75 &    2.03 & \textcolor{black}{\rule{20mm}{2mm}}\\
+1 &   &   SysTest           & 40 &     1.08 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &   &   AcceptTest       & 44 &     1.19 & \textcolor{black}{\rule{12mm}{2mm}}\\
+\hline\multicolumn{6}{c}{~}  \\
+1 &  Code   &   CodeReview      & 35    & 1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
+1 &    &   CodeInspect    & 32   & 0.91 & \textcolor{black}{\rule{9mm}{2mm}}\\
+1 &   &   UnitTest      & 45  & 1.29 & \textcolor{black}{\rule{12mm}{2mm}}\\
+1 &    &   IntTest         & 58   & 1.66 & \textcolor{black}{\rule{16mm}{2mm}}\\
+1 &   &   SysTest        & 47 &    1.34 & \textcolor{black}{\rule{13mm}{2mm}}\\
+1 &    &   AcceptTest      & 60 &   1.71 & \textcolor{black}{\rule{17mm}{2mm}}\\
+
+\end{tabular}
+%}
+\end{center}
+\caption{90th percentile times to resolve issues seen in the SEI TSP data.   Same format as \fig{raw} (but here we look at 90th percentile
+outliers while   \fig{raw} explored the central tendencies of the data).}\label{fig:last}
+\end{figure}
 \subsection{Observations from 171 Projects}\label{sect:171projects}
 
-The distribution by phase in which defects were discovered (that is both found and fixed) in our data is shown in Figure~\ref{fig:fix-phase-dist}. Defects are counted only if they they escape the introduction phase unless a bad fix introduces a new defect.  These secondary defects occur almost exclusively in test and very rarely in an inspection. 
+The count by phase in which defects were removed is shown in Figure~\ref{fig:fix-phase-dist}. Defects are counted only if they they escape the introduction phase unless a bad fix introduces a new defect. These secondary defects occur almost exclusively in test and very rarely in an inspection. 
 A high percentage of defects (44\%) were found and fixed in the early phases, i.e., prior to coding. This distribution is similar to that observed for other projects that emphasized investment in software engineering quality assurance practices. For example, Jones and Bonsignour report 52\% of pretest defects removed before entering implementation, for large projects that focus on upfront defect removal techniques \cite{jones12}. NASA robotics projects had a slightly higher percentage (58\%) of defects removed before implementation began, although these had invested in independent verification and validation on top of other forms of defect removal \cite{me08a}.  
 
-\fig{raw} shows the  50th  percentile
+\fig{raw} and \fig{last} show the  50th and 90th  percentile (respectively)
 of the time spent resolving issues
 (note that, in TSP, when developers see issues, they enter {\em review} or 
 {\em inspect} or {\em test}
@@ -1129,7 +1198,7 @@ procedure to check the fix (e.g. discuss it with a colleague or execute some tes
 To understand that figure, we offer the following notes:
 \bi
 \item
-Shown here are the 50th percentiles of issue resolution times for issues injected in phase $P_O$ and resolved in phase $P_r$ (these values are calculated
+Shown here are the 50th/90th percentiles of issue resolution times for issues injected in phase $P_O$ and resolved in phase $P_r$ (these values are calculated
 by sorting all resolution time, then reporting the middle values of that sort).
 \item
 The ``IQR'' column shows the ``inter-quartile range''; i.e. the range of values representing the 75th - 25th percentile range
@@ -1141,33 +1210,34 @@ i.e. according to {\em before, planning, requirements, design} or {\em  code}.
 The left-hand-side ``rank'' column shows the result of the Scott-Knott ranking procedure described in \tion{stats}. These statistical results were applied separately
 to each group {\em Before, Planning, Reqts, Design, Code}.
 Recall from \S5.5 that if all the fix times within a group
-were sadistically insignificantly different, then they were all earn ``rank=1''.
+were statistically insignificantly different, then they all earn ``rank=1''.
 Note that
-most treatments achieved the same ranks i.e. they were found to be insignificantly different  from each other (the one exception is the Planning:UnitTest results 
+most treatments achieved the same ranks i.e. they were found to be insignificantly different  from each other (the one exception is  within the  Planning:UnitTest results 
 where UnitTests were ranked 2).
 \item
 The right-hand-side bars
-illustrate shows the releative sizes of the increases for the  50th (median)   percentile values. These increases are calculated with respect to the first value in each section ``Before, Planning, Reqts. Design, Code''.
+show the relative sizes of the increases for the  50th (median)   percentile values. These increases are calculated with respect to the first value in each section ``Before, Planning, Reqts. Design, Code''.
 \item
 These right-hand-side bars are unitless since they are ratios. For example,
-on the last line, issues injected during coding and fixed in SysTest take 13 minutes (median) to resolve. This is 130\% more than the 10 minutes (median) required
+on the last line of \fig{raw}, issues injected during coding and fixed in SysTest take 13 minutes (median) to resolve. This is 130\% more than the 10 minutes (median) required
 to resolve coding issues during CodeReview. The right-hand-side bar visually represents that 130\%.
 \ei
-Technical note: to ensure the representativeness of each line, we display examples
+Technical note: to ensure   representativeness, we display examples
 where there exist at least $N\ge 30$ examples\footnote{We selected 30
 for this threshold via the central limit theorem~\cite{maxwelldata}.} of issues {\em injected} in phase $P_0$ then
 removed in phase $P_r$.
 
 
-The two key features of \fig{raw} are:
+The two key features of \fig{raw} and  \fig{last} are:
 \be
 \item Nowhere in
 these results do we see the kind of very large increases reported in the papers
-documenting DIE. For example, consider the ratio of the issue resolution time
-between {\em Before/DesignInspect} and {\em Before/SysTest} result. That ratio is 1.11 which is far smaller
+documenting DIE; neither in the median fix times of \fig{raw}
+or at the 90th percentile level of \fig{last}. For example, consider the ratio of the issue resolution time
+between {\em Before/DesignInspect} and {\em Before/SysTest} result of \fig{raw}. That ratio is 1.11 which is far smaller
 than the scale ups seen in \fig{b81}.  
 \item
-Nearly all the supposed increases seen in \fig{raw} are insignificantly different
+Nearly all the supposed increases seen in \fig{raw} and \fig{last} are insignificantly different
 to the other treatments.  The left hand column of \fig{raw} shows the results of the Scott-Knott statistical tests. Note that nearly all
 the treatments have the same rank (``1''); i.e. usually there is no statistically significant difference in the 
 time to resolve issues. The only exception here is Planning:UnitTest which is ranked ``2'' but even here, the scale up is merely
@@ -1175,25 +1245,26 @@ a factor of 3, and not the exponential increase promised by classic reports of t
 \ee
 One possible explanation for the lack of a DIE effect is that we are looking
 broadly at the entire data set but not at specific stratifications. To address that concern,
-we spent some time reproducing \fig{raw} for various subsets of our data.
+we spent some time reproducing these figures for various subsets of our data.
 That proved to be an unfruitful-- no stratification was found that 
 contained an exponential expansion in the time to fix issues. The reason for this was  the small size
 of those stratifications  exacerbated the large IQR's seen in this data\footnote{Recall that in a sorted list of numbers,
-the inter-quartile range, or IQR, is difference between the 
-  75th to 25th percentile value.}.
-Our 171 projects   stratifies into subsets of varying sizes. Sorting those sizes, we get a list
-comprising of 17,12 then numerous much smaller stratifications.  Reasoning over such small samples
-is problematic in the general case and, in the case of our data, it is ever more problematic due to
-the large IQRs of the data
-(to see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:raw} where  most of our IQRs were larger than tan the 50th percentile; i.e. software
-data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications).
+the inter-quartile range, or IQR, is the difference between the 
+  75th and 25th percentile value.}.
+Our 171 projects   stratify into subsets of varying sizes. 
+The two largest subsets contained only 17 and 12 projects, with numerous much smaller stratifications.
+Reasoning over such small samples
+is problematic in the general case and, in the case of our data, it is even more problematic due to
+the large IQRs of the data.
+(To see these large IQRs,  please compare the 50th percentile and IQR columns of Figure~\ref{fig:raw}, where  most of the IQRs are larger than the 50th percentile; i.e. software
+data exhibits large variances, which in this case are exacerbated by the smaller samples seen in the stratifications).
 Our conclusion from exploring the stratifications is that, given the currently available data, we cannot check
 for a DIE effect in subsets of this data.
 
 
 Before moving on, we comment on some of the counter-intuitive
-results in \fig{raw}. Consider, for example, the ``Reqts'' results were
-the time required to fix issues actually tends to {\em decrease} the longer they are left in the system. In terms of explaining this result, the key thing is the left-hand-side statistically ranking: all these treatments were found to be statistically indistinguishable. In such a set of treatments, the observed
+results in these figures. Consider, for example, the ``Reqts'' results of  \fig{raw} where
+the time required to fix issues actually tends to {\em decrease} the longer they are left in the system. In terms of explaining this result, the key thing is the left-hand-side statistical ranking: all these treatments were found to be statistically indistinguishable. In such a set of treatments, the observed
 difference may {\em not} be a causal effect; rather, it may just
 be the result of  random noise.
 
@@ -1350,7 +1421,7 @@ Threats to validity are reported according to the four categories described in W
 \label{sect:conclusion_validity}
 Threats to conclusion validity are ``issues that affect the ability to draw the correct conclusion about relations between the treatment and the outcome''~\cite{wohlin2012}. We do not have a traditional treatment or control as in a classical experiment. Instead, we evaluate if the DIE holds in a modern data set. The data set is comprised of TSP projects, so the treatment could be misconstrued as TSP, but this is not that case as we do not have an experimental control to compare TSP against. 
 
-\textit{Low statistical power}: Our data set is comprised of 47,376 defect logs. Our primary analysis in \fig{raw} is based on injection-removal phase pairs whose with sample size $>30$. The justification for the statistical techniques used in this paper are provided in \tion{stats}.
+\textit{Low statistical power}: Our data set is comprised of 47,376 defect logs. Our primary analysis in \fig{raw} is based on injection-removal phase pairs whose with sample size $>30$. The justification for the statistical techniques used in this paper is provided in \tion{stats}.
 
 \textit{Reliability of measures}: The base measures in this study described in \tion{data-collection} are \textit{defects} recorded in TSP defect logs and \textit{time} reported in time tracking logs. The primary threats to the reliability of these measures are: that the definition of a defect varies between projects and that time is not reported accurately or consistently. The reliability of the time reporting is discussed in \tion{data_integrity}. Time is reported on a level of minutes. We do not have a precise assessment of the error margin for time reporting. Some developers are less precise with time or estimates. Nonetheless, we have applied several tests to verify that the data is accurate. First we compare entries from the defect and time logs to verify that defect log times-to-fix sum to less than the total time log effort in the phase. Second, time log time stamps must be consistent with both the the time stamps and phase for defect in the defect log. Third, we applied a Benford test on the leading digits from the time log  and defect log times to estimate the number data entries that do not result from a natural process (that is, guessed or estimated rather than measured values) ~\cite{shirai14}.  Based on these tests we believe that greater than 90\% of the time log data is recorded in real time. The fidelity and consistency of data will be subject of a future paper. 
 
@@ -1362,9 +1433,9 @@ incorrectly in this study, then all our results must be questioned.
 However,  this issue threatens {\em every} study on the delayed
 issue effect-- so if our results are to be doubted on this score,
 then all prior work that reported the delayed issue effect should
-also be doubted.  In TSP, developers are trained and supplied templates for defect and time tracking, all data entry is double-checked by the team TSP coach, and TSP demands that developers analyze their data to make process improvements. That is, TSP developers are always testing
+also be doubted.  In TSP, developers are trained and supplied with templates for defect and time tracking, all data entry is double-checked by the team TSP coach, and developers are required to analyze their data to make process improvements. That is, TSP developers are always testing
 if their project insights are accurate. In such an environment,
-it is more likely that they will better identify the injection phase.
+it is more likely that they will accurately identify the injection phase.
 
 \textit{Reliability of treatment implementation}: 
 Although TSP is not prescriptive about the development process, goals, or strategy, TSP provides precise guidance and training for data gathering. The guidance for logging time and defects is precisely defined. All tasks should be logged as the work is performed with a stopwatch tool. All defects that escape a phase must be logged. All data fields for each defect must be completed.
@@ -1412,7 +1483,7 @@ Threats to internal validity concern the causal relationship between the treatme
 \subsection{Construct validity} \label{sect:construct}
 Construct validity concerns ``generalizing the result of the experiment to the concept or theory behind the experiment''~\cite{wohlin2012}. Thus, do the observations in this paper provide evidence on the general delayed issue effect theory?
 
-\textit{Inadequate pre-operational explication of constructs}: As described in \tion{data-collection}, the measures of defect, time, and cost in the original DIE papers are not clearly defined.\footnote{In retrospect, empirical software engineering studies at that time were extremely rare, and guidance for reporting empirical case studies and experiments have improved substantially. One of the seminal books on quasi-experimentation and reporting of validity concerns, Cook and Campbell~\cite{cook1979}, had not been published when most of the DIE papers were written.} Note that in Figure~\ref{fig:cost-to-fix}, the units of ``cost-to-fix'' are not expressed -- in the source references, cost appears as calendar time, effort, and price. In the TSP, a defect is defined as ``any change to a product, after its construction, that is necessary to make the product correc'' and time to correct a defect includes ``the time to analyze, repair, and validate a defect fix''. Our analysis of DIE focuses on time as a measure of time-as-effort (persons * time). 
+\textit{Inadequate pre-operational explication of constructs}: As described in \tion{data-collection}, the measures of defect, time, and cost in the original DIE papers are not clearly defined.\footnote{In retrospect, empirical software engineering studies at that time were extremely rare, and guidance for reporting empirical case studies and experiments have improved substantially. One of the seminal books on quasi-experimentation and reporting of validity concerns, Cook and Campbell~\cite{cook1979}, had not been published when most of the DIE papers were written.} Note that in Figure~\ref{fig:cost-to-fix}, the units of ``cost-to-fix'' are not expressed -- in the source references, cost appears as calendar time, effort, and price. In the TSP, a defect is defined as ``any change to a product, after its construction, that is necessary to make the product correc'' and time to correct a defect includes ``the time to analyze, repair, and validate a defect fix.'' Our analysis of DIE focuses on time as a measure of time-as-effort (persons * time). 
 
 The data used in this analysis does not extend into post-delivery deployment. As mentioned in \tion{earlyonset}, every other
 paper reporting DIE also reported  early onset of DIE
@@ -1433,63 +1504,7 @@ which is far smaller than the 37 to 250-fold increases reported in \fig{b81} and
 
 \textit{Restricted generalizability across constructs}: While we observe a lack of DIE in the TSP dataset, we examine only the construct of time-to-fix. We do not consider the tradeoffs between time-to-fix and other ''-ilities'', such as maintainability. For example, a low time-to-fix may come at the expense of a more robust solution, i.e., a quick and dirty fix instead of an elegant repair.
 
-\begin{figure}[!t]
-% \renewcommand{\baselinestretch}{0.8}
-% \small
-\begin{center}
-%\resizebox{\columnwidth}{!}{
-\scriptsize
-\begin{tabular}{c|lr|r|rl}
-  & \multicolumn{2}{c|}{ } &  Percentiles & \multicolumn{2}{c}{Growth with respect to earliest phase  } \\ 
-   & \multicolumn{2}{c|}{Phase} &  (units= miniutes) & \multicolumn{2}{c}{(unitless ratios of two time values) } \\\hline
 
-
-  rank & injected & removed &   90th   &  \multicolumn{2}{c}{90th percentile growth} \\ 
-\hline\multicolumn{6}{c}{~}  \\
-1 &  Before   &   DesignInspect     & 32  &  1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &   &   CodeReview      &   31   &    0.97 & \textcolor{black}{\rule{9mm}{2mm}}\\
-1 &   &   CodeInspect     &   32   &    1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &   &   UnitTest        &   45  &    1.41 & \textcolor{black}{\rule{14mm}{2mm}}\\
-1 &   &   IntTest         &   63  &   1.97 & \textcolor{black}{\rule{19mm}{2mm}}\\
-1 &   &   SysTest         &   46   &   1.44 & \textcolor{black}{\rule{14mm}{2mm}}\\  
-\hline\multicolumn{6}{c}{~}  \\
-1 &  Planning     &   ReqtsReview       & 35   &   1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &               &   DesignInspect     & 31  &   0.89 & \textcolor{black}{\rule{8mm}{2mm}}\\
-2 &               &   UnitTest          & 53 &   1.51 & \textcolor{black}{\rule{15mm}{2mm}}\\
-\hline\multicolumn{6}{c}{~}  \\
-1 &  Reqts   &   ReqtsReview      & 42 &    1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &          &   ReqtsInspect      & 40 &     0.95 & \textcolor{black}{\rule{9mm}{2mm}}\\
-1 &          &   DesignReview      & 34 &    0.81 & \textcolor{black}{\rule{8mm}{2mm}}\\
-1 &          &   DesignInspect     & 38 &     0.90 & \textcolor{black}{\rule{9mm}{2mm}}\\
-1 &          &   CodeInspect      & 45 &   1.07 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &          &   UnitTest          & 40 &   0.95 & \textcolor{black}{\rule{9mm}{2mm}}\\
-1 &          &   IntTest          & 95 &      2.26 & \textcolor{black}{\rule{22mm}{2mm}}\\
-1 &          &   SysTest          & 126 &    3.00 & \textcolor{black}{\rule{30mm}{2mm}}\\
-\hline\multicolumn{6}{c}{~}  \\
-1 & Design   &   DesignReview     & 37 &   1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &          &   DesignInspect    & 28 &    0.76 & \textcolor{black}{\rule{7mm}{2mm}}\\
-1 &   &   CodeReview        & 40 &     1.08 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &   &   CodeInspect      & 33 &     0.89 & \textcolor{black}{\rule{8mm}{2mm}}\\
-1 &   &   UnitTest          & 41 &     1.11 & \textcolor{black}{\rule{12mm}{2mm}}\\
-1 &   &   IntTest          & 75 &    2.03 & \textcolor{black}{\rule{20mm}{2mm}}\\
-1 &   &   SysTest           & 40 &     1.08 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &   &   AcceptTest       & 44 &     1.19 & \textcolor{black}{\rule{12mm}{2mm}}\\
-\hline\multicolumn{6}{c}{~}  \\
-1 &  Code   &   CodeReview      & 35    & 1.00 & \textcolor{black}{\rule{10mm}{2mm}}\\
-1 &    &   CodeInspect    & 32   & 0.91 & \textcolor{black}{\rule{9mm}{2mm}}\\
-1 &   &   UnitTest      & 45  & 1.29 & \textcolor{black}{\rule{12mm}{2mm}}\\
-1 &    &   IntTest         & 58   & 1.66 & \textcolor{black}{\rule{16mm}{2mm}}\\
-1 &   &   SysTest        & 47 &    1.34 & \textcolor{black}{\rule{13mm}{2mm}}\\
-1 &    &   AcceptTest      & 60 &   1.71 & \textcolor{black}{\rule{17mm}{2mm}}\\
-
-\end{tabular}
-%}
-\end{center}
-\caption{90th percentile tiles to resolve issues in the SEI TSP data. Same format as \fig{raw} (but here we look at 90th percentile
-outliers while   \fig{raw} explored the central tendencies of the data). The conclusion from this figure is the same
-as \fig{raw}: even when considering the 90th percentile outliers, there is no consistent patterns of 
-exponential growth in the effort to fix issues delayed later in the lifecycle.}\label{fig:last}
-\end{figure}
 
 \subsection{External Validity}
 \label{sect:external_validity}
@@ -1514,7 +1529,7 @@ External validity concerns the generalizability of findings~\cite{wohlin2012} be
 
 Earlier we noted that the delayed issue effect was first reported in 1976 in an era of punch card programming and non-interactive environments~\cite{Boehm76}. We also note that other development practices have changed in ways that could   mitigate the delayed issued effect.  Previously,
 most software systems were large, monolithic, and ''write once and maintain
-forever''. Today, even large software systems are trending toward DevOps and cloud-based deployment. Advances in network communications, CPU processing power, memory storage, virtualization, and cloud architectures have enabled faster changes to software, even for large systems. Facebook deploys its 1.5 GB binary blob via BitTorrent in 30 minutes every day~\cite{Facebook}. 
+forever.'' Today, even large software systems are trending toward DevOps and cloud-based deployment. Advances in network communications, CPU processing power, memory storage, virtualization, and cloud architectures have enabled faster changes to software, even for large systems. Facebook deploys its 1.5 GB binary blob via BitTorrent in 30 minutes every day~\cite{Facebook}. 
 % For example, 
 % Microsoft is adjusting its development practices towards a continuous
 % release paradigm. Theisen et al. reports their experiences where Microsoft architects
@@ -1535,7 +1550,7 @@ For the baseline architecture, bad decisions
 made early in the life cycle may be too expensive to change and the DIE may still hold.
 However, smaller projects within the larger architecture (e.g., lift controls, radar displays) can leverage more agile, interactive development provided that interfaces and architectural requirements are well-defined. 
  
-So, is it really surprising that DIE was not observed? Many software engineering technologies have been created precisely to avoid the delayed issue effect by removing risk as early as possible. Boehm's spiral model~\cite{boehm1988spiral}, Humphrey's PSP~\cite{humphrey1995discipline} and TSP~\cite{tsp00}, the Unified Software Development Process~\cite{jacobson1999unified}, and agile methods~\cite{Beck2001a} all in part or in whole focus on removing risk early in the development lifecycle. Indeed, this idea is core to the whole history of iterative and incremental product development dating back to ``plan-do-study-act'' developed at Bell Labs in the 1930's~\cite{larman2003iterative} and popularized by W. Edwards Deming~\cite{deming1986out}. Harter et al. find a statistical correlation between fewer high severity defects and rigourous process discipline in large or complex systems~\cite{harter2012does}. Technical advancements in processing power, storage, networking, and parallelism have combined with a deeper scientific understanding of software construction to enable a whole host of software assurance technologies, from early-phase requirements modeling to automated release testing.
+So, is it really surprising that DIE was not observed? Many software engineering technologies have been created precisely to avoid the delayed issue effect by removing risk as early as possible. Boehm's spiral model~\cite{boehm1988spiral}, Humphrey's PSP~\cite{humphrey1995discipline} and TSP~\cite{tsp00}, the Unified Software Development Process~\cite{jacobson1999unified}, and agile methods~\cite{Beck2001a} all in part or in whole focus on removing risk early in the development lifecycle. Indeed, this idea is core to the whole history of iterative and incremental product development dating back to ``plan-do-study-act'' developed at Bell Labs in the 1930's~\cite{larman2003iterative} and popularized by W. Edwards Deming~\cite{deming1986out}. Harter et al. find a statistical correlation between fewer high severity defects and rigorous process discipline in large or complex systems~\cite{harter2012does}. Technical advancements in processing power, storage, networking, and parallelism have combined with a deeper scientific understanding of software construction to enable a whole host of software assurance technologies, from early-phase requirements modeling to automated release testing.
 
 The delayed issue effect may continue to be prevalent in some cases, such as high-assurance software, architecturally complex systems, or in projects with poor engineering discipline. We do not have evidence for or against such claims. However, our data shows that the DIE has been mitigated through some combination of software engineering technology and process in a large set of projects in many domains. Our results are evidence that the software engineering community has been successful in meeting one of its over-arching goals. But our results raise an equally important point - should the DIE persist as a truism (see \S\ref{sect:belief}), or is it a project outcome that can be controlled by software engineering process and technology?
  
@@ -1617,705 +1632,212 @@ Personal Software Process$\textsuperscript{SM}$, Team Software Process$\textsupe
  
 {\bf Editor's comments}
  
-Dear authors,
+The reviewers have carefully scrutinized the revised version, and all of the found the new version being globally improved with respect to the major concerns, and thus found the manuscript being worth publishing. At the same time, changes have introduced some inconsistencies and minor issues (such as a figure caption being too extensive) that the authors should fix them before submitting the final version.
 
-Three knowledgeable reviewers have scrutinized the manuscript
-and found it interesting and relevant,  although in need for
-certain improvements. Therefore, the authors are
- invited to submit a revised version for a new review, where
- the reviewers' comments
-are addressed.
-
-\begin{quote} {\em Thank you for the careful reviews. Using
-those comments we have extensively revised and extended this draft.
-Specifically, the old version was 20 pages and this version is 29 pages (and the new
-material all comes from the clarification and correction points offered by the reviewers).
-We hope that  you will find this draft greatly improved.}
-\end{quote}
-
-Particularly, this holds for:
-
-
-1) the connection to activities of theory building in ESE
-(reviewers 1).  
-
-
- 
-
-\begin{quote}{\em This new draft now maps our work into the SE literature on theory building. This new material appears in the introduction as well as throughout the document.}\end{quote}
- 
-2) clarification about the data origin and
-characteristics (reviewer 1). 
- 
-
-\begin{quote}{\em
-This new draft contains much more detail on the origin and characteristics of our data (see \tion{data-collection} and \tion{data_character}).}\end{quote}
-
-3)  use of statistical analysis (reviewers 2 and 3) 
-
-\begin{quote}{\em All our results are now augmented with statistical significance tests as well as effect size tests (see \tion{stats} and \tion{171projects}). Those tests strengthen the overall message of this paper-- that there is no significant
-phase delay effect.}\end{quote}
-
- 
-- writing style, that would benefit form being more
-precise (reviewer 3)
-
-\begin{quote}{\em We have carefully read those comments and have made numerous changes
-as directed by reviewer3.}\end{quote}
-
-{\bf Reviewer \#1's Comments}
-
-
-The paper investigates whether a widely
-accepted "rule" in software engineering holds by looking at
-a large set of empirical data. The research topic is highly
-relevant and the results are interesting.   The discussion
-on reassessing old truism fits the scope of the journal very
-well.  The language in the paper is excellent, and the
-structure is (although non-standard) easy to follow.
-
-\begin{quote}{\em Thank you for those kind comments.}\end{quote}
-
-It is not easy for the reader to understand what parts
-of the "life of an issue" the authors claim are affected by
-DIE, and it is also not too easy to understand what data the
-authors have available.  
-
-\begin{quote}{\em  The introduction now includes an example of DIE  (see Fig 1).
-Also there are now more precise  definitions on how we measure this effect in \tion{data-collection}}\end{quote}
- 
- The authors do not relate their reassessment of an
-``old truism'' to the growing set of papers on theory building
-in software engineering. With access to such large amounts
-of empirical evidence, it should be possible to take some
-steps toward improved DIE theories. 
-
-\begin{quote}{\em We now map our work to prior publications on theory-building in software engineering, as well as theory falsification in general. That mapping appears in numerous comments through out the text (using the references offered by this reviewer) with the bulk of the comments being top of p2 and the conclusion. 
-
-Notably, we now introduce the DIE as an example of such a theory (in the introduction), and explain that this is done on the basis of it providing a description of a Software development phenomenon accompanied by a rationale that explains why such behavior is expected. While we introduce in the conclusions several rationales that can explain why the effect called for by the theory was not observed in our dataset, we feel that future work is needed to collect data in support or contradiction of these explanations before a new theory can be formulated with confidence. }\end{quote}
-
-The different projects studied are all grouped together. I
-believe studying clusters of development contexts would be
-highly interesting, but unfortunately the current
-characterization of projects is inadequate.  
-
-\begin{quote}{\em  We agree with this comment and so took two actions for this draft-- one that was effective and one that was ineffective. 
-
-First, this draft now contains extensive notes on the different contexts of the
-projects studied here. Those notes are offered in \tion{data_character} and \tion{171projects}.
-
-Second (and this was the ineffective step), we  searched the categories   listed in \tion{data_character} and \tion{171projects}
-in order to check if any stratification contained the delayed issue effect. 
-That study   failed to find a stratification
-containing an exponential expansion in the time to fix issues. The reason for this was  the small size
-of those stratifications  exacerbated the large IQR's seen in this data\footnote{Recall that in a sorted list of numbers,
-the inter-quartile range, or IQR, is difference between the 
-  75th to 25th percentile value.}:
-\bi
-\item
-Our 171 projects   stratifies into subsets of varying sizes. Sorting those sizes, we get a list
-comprising of 17,12 then numerous much smaller stratifications.  Reasoning over such small samples
-is problematic in the general case and, in the case of our data, it is ever more problematic due to
-the large IQRS of the data:
-\item
-To see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:raw} Note that most of our IQRs were larger than tan the 50th percentile; i.e. software
-data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications.
-\ei
-Our conclusion from exploring the stratification's is, given the currently available data, we cannot check
-for a DIE effect in subsets of this data.
-
-Note that the above notes are now added to the paper at the end of Section 6.6.
- }\end{quote}
-
-
-
-DETAILED REVIEW: The authors should expand on what they
-include in the ``delayed issue effect'' (DIE), in particular
-in relation to standard milestones in the life of an issue
-and the corresponding timespans.  I'm particularly
-interested in whether all "indirect" issue resolution steps
-are covered, e.g., change impact analysis, updating
-documentation, and regression testing. The effort involved
-in these steps clearly depends on the development context of
-the specific project. The short a-c) list on page 14:50
-suggest that the issues studied are restricted to minor
-fixes, i.e., no updates to architecture, changed hardware,
-recertification, updated user manuals etc.
-
-\begin{quote} {\em
-We now provide a more explicit definition of what constitutes a defect (our study of issues is limited to defects) and the ``defect lifecycle'' phases we measure in \tion{data-collection}. These definitions greatly expand on the now-deleted list on 14:50 in teh previous version. In TSP, ``a defect is any change to a product, after its construction, that is necessary to make the product correct''. This includes both minor issues (typography) and severe issues (architecture changes, requirements errors). Time on a defect includes a) time to investigate/analyze a defect once discovered, b) time to craft and implement a fix, and c) time to verify and close the defect.
-
-Regarding the concern that we may only be reporting trivial defects, we have added \fig{dtypes}, which shows the distribution of defect types in our data. It is true that around a quarter of the fixes were documentation changes, but the other 75\% are function-altering behavior in the system. 
+\begin{quote}{\em  That you for your comments. We have removed that excessively long figure text and fixed the typos and other small inconsistencies mentioned by the reviewers. We hope this revision meets with your approval.
 }\end{quote}
 
+{\bf Reviewer1}
 
-Section 6.3 describes the data, but some aspects
-should be further explained.
+Thank you for carefully revising the manuscript. All my comments have been addressed - either elaborated in the paper or explained in the rejoinder. The manuscript is mature and my remaining comments are all minor. Unfortunately, it is not easy to refer to specific comments in the rejoinder, but I do my best below.
 
-\begin{quote} {\em
-At your suggestion, we have added extensive notes on the nature of our data--
-see \tion{data_character} and \tion{171projects}.
+I think the manuscript has improved considerably, especially in regard to three key aspects. First, the data and the overall development context has greatly improved. This will help future readers understand the results and allow further interpretation. Second, the paper now connects to previous research on theory building in software engineering - already in the introduction section. While no new theories are put forward in this paper, I think the discussion is important, and the pointers to future work could inspire more work. Third, I appreciate the authors' efforts to stratify the data. Although there are no new findings, I believe the discussion belongs in the paper - I missed it in the previous version.
+
+R1.1: Note that there is no Section 6.6 in the manuscript though, make sure you didn't forget anything.
+
+\begin{quote}{\em Reply1.1: Our bad. Wrong section reference. One more Latex compile and that bad ref went away.
 }\end{quote}
 
+Minor comments:
 
-Logging interruption time
-sounds very useful, but I wonder how carefully the
-developers actually did this 
- it must be really hard to keep up the discipline required.
- If you are interrupted as a developer (e.g., phone calls,
- urgent mail, someone asks a question) I don't think the
- first thing you do is to stop a timer on your computer.
- Moreover, developers often work on several defects in
- parallel, and might interweave bug fixing with new
- development. I don't think the "interruption time" captures
- all such multi-tasking, and it should at least be properly
- discussed in Section 7 "Threats to validity".
+R1.2Section 4: I think the paragraphing could be improved - the highly interesting point about agile is hidden. "A goal of agile methods is to reduce /---/ little empirical data exist" appears in the middle of a paragraph headed by "Shull et al. conducted a literature survey and held a series of e-workshops". Consider restructuring this section to bring forward the agile perspective.
 
 \begin{quote}{\em 
-Yes, there is undoubtedly some accuracy in the time-tracking. We provide some evidence on the rigor of the TSP data collection process in \tion{defin}, \tion{data_integrity}, and \tion{data_character}, and a more extensive discussion on the issue of time-tracking and defect logging accuracy in \tion{conclusion_validity} on Conclusion Validity. We note that the data being collected here was not collected
-for the purposes of this paper. Rather, it was being collected and used by the
-programmers to assist them in their day-to-day management of the project.
-Given this, we have confidence that the logging information is not widely inaccurate.
-
-Please also consider the sanity checks reported in a companion paper (referenced here \tion{data_integrity}). In summary, this data has been heavily vetted.
-}
-\end{quote}
-
-The discussion on reassessing old truisms (Section 3) is
-interesting, but it should be complemented by the
-perspective of theory building in software engineering - An
-active research topic lately, with a dedicated workshop
-series (GTSE). I suggest looking into the following
-references for a start: Sj{\o}berg et al. (2008) ``Building
-Theories in Software Engineering'', Smolander and Paivarinta
-(2013) ``Theorizing about software development practices'',
-and Stol and Fitzgerald (2015) "Theory-oriented software
-engineering". Considering new empirical evidence is
-obviously critical to theory building, and discussing your
-new results in the light of an theory creation would be
-valuable. The authors mention that DIE appears to occur
-intermittently in certain kinds of projects - maybe the
-authors could elaborate on this idea and present an improved
-DIE theory based on what they now know? I believe the
-authors have the best available data to do so, and I would
-expect the paper to go beyond simply questioning the "old
-truth". 
- 
- \begin{quote}{\em 
-We thank the reviewer for this important observation and have connected our work to the literature on theory-building. However, our data supports a number of possible explanations for the observed intermittent appearance of the DIE. Since the current data are not suitable for choosing among the various hypothesized explanations we feel that formulating a new theory build from this data
-would be premature at this time. That said, we think the current paper would be useful
-as a data point which, when combined with other sources, could be useful for some new future theory of SE.
+Reply1.2: We agree that this section "buries the lead". We have moved those critical sentences to the front of the section.
 }\end{quote}
 
-The authors study three claims in this paper, and the
-third claim is the central one: "delayed issues are not
-harder to resolve". To study whether issues require longer
-resolution times in later phases, the authors analyze a
-large set of issue data from historical projects. Thus the
-manuscript reports from an observational study rather than
-an experiment with a controlled delivery of treatments.
-While I believe the authors' approach is practical, I would
-like to see a critical discussion on threats to validity of
-observational studies (e.g., Madigan et al., A Systematic
-Statistical Approach to Evaluating Evidence from
-Observational Studies, Annu. Rev. Stat. Appl. 2014. 1:11-39
-and Carlson and Morison, Study Design, Precision, and
-Validity in Observational Studies, J Palliat Med. 2009 Jan;
-12(1): 77-82). An alternative study design (although
-difficult to realize in a system of industrial size) would
-be to let different developers resolve the same issues for
-the same software system, i.e., one group resolves an issue
-during design, another during implementation, and a third
-during testing - some discussion along these lines would
-strengthen the validity section. 
+R1.3: I don't fully understand Section 5.2.2 paragraph 4, and the relation between plan items and the time tracking logs. "One or more defects are reported against a single plan item, e.g., a review session, an inspection meeting, a test execution". Multiple defects can be mapped to a plan item? But a plan item can also be "resolving a defect" (page 11:46). Also, the time tracking logs include time to collect data, prepare a fix, and its validation (page 12:50)… But what if a plan item includes both running a test suite and resolving the identified defect? The equation presented on page 13 suggests that the "time-to-fix a defect" could be inflated by e.g. running slow test cases. I'm sure the authors have all this covered, but the text confuses me. Could it possibly be revised? Maybe another figure could clarify the situation?
 
 \begin{quote}{\em 
- We have reviewed and cited the mentioned papers. We have incorporated many of the concerns raised in these papers into the expanded \tion{external_validity} on External Validity.
- There, we note that Sj{\o}berg et al. list three classes of threats to External Validity (the smallest number) and we address all three of them. In truth, the only way to address External Validity threats is to have a huge sample, broadly representative of your domain, over an extended period of time-- e,g. using the 171 projects from 2006 to 2014 studied in this paper. The issues external validity in observational studies raised in \cite{madigan2014} and \cite{carlson2009} are more applicable to studies that compare a treatment and a control, whereas we are observing an effect that leads us to question the theory that DIE is a truism.
+Reply1.3: We apologize for the confusion. We have rewritten this paragraph to be more understandable. The key point is that we measure defects both directly and by summing effort in defect removal phases. The total removal phases produce a greater cost estimate by including overhead.
 }\end{quote}
 
-The first and second claims are studied with much less
-rigor. "DIE is a commonly held belief" is studied using a
-survey of software engineers, both practitioners and
-researchers. According to Fig. 2 (actually a table) [NOTE: Fig. 2 is now \fig{survey_results}], the
-number of respondents is 16 and 30 for practitioners and
-researchers, respectively. Sixteen respondents from industry
-represent a tiny survey of a very general claim that any
-software engineer could respond to. Why were not more
-answers collected? The authors do not have much evidence to
-defend the first claim, and there is no discussion of the
-corresponding validity threats. The second claim, "DIE is
-poorly documented", is studied using a literature review.
-Unfortunately, the method underlying the literature review
-is not presented. Although it doesn't need to be an SLR of
-the most rigorous kind, the authors should report how the
-papers were identified. I suspect the terminology used to
-describe the DIE phenomenon is highly diverse, thus it would
-strengthen the paper if the authors reported how they
-reviewed the literature. According to Page 19:34 [NOTE: the enumerated list in the Conclusion] only eight
-publications were identified. 
+R1.4: Section 5.2.3: There is a minor discrepancy between Figure 7 and the text. In the running text you list system tests before acceptance tests, but the opposite order is depicted in the figure. Make sure the order is correct, also in Figure 13.
 
-
-\begin{quote}{\em We agree with the reviewer - the phrasing of our claims and the supporting evidence were not congruent. Our intention is to argue from multiple angles that the evidence for DIE is sparse and, more importantly, that DIE persists as a popular belief. Our goal here is to motivate that we should re-investigate the DIE. We have toned down the language and combined our arguments on ``widely-believed'' and ``poorly-documented'' into a new \tion{belief} whose focus is to motivate our study. We have added more details on our literature search and snowball sampling. We have also highlighted how blog articles often cite secondary sources, which in turn cite Software Engineering Economics, to illustrate how the DIE pehnemonon has perpetuated.}\end{quote}
-
-The iterative fashion of modern software development,
-with agile at the extreme end, is not fully discussed (the
-short discussion section could be extended). The phases of
-the linear development of the 80s, (such as in Fig. 1) [NOTE: Fig. 1 remains \fig{b81}] 
-probably don't exist in many of the projects in the TSP
-dataset, still the authors discuss the DIE-effect from the
-perspective of the 80s. Page 16:31 states "DIE has been used
-to justify many changes to early lifecycle software
-engineering" - does this mean the agile movement
-successfully mitigated DIE? This possibility is not fully
-considered in the paper.
-How many of the 171 projects were
-(more or less) agile? This appears to be an important
-characteristic of the included projects - very important to
-describe! 
-
-\begin{quote}{\em We provide more information on the types of projects included in our sample in \tion{data_character}
-
-More to the point -- does agile help mitigate DIE? The answer is - we don't know. A strong argument can be made that all iterative \& incremental methodologies were designed to mitigate the DIE. Further, huge advances in software engineering technology and process have occurred since DIE was first observed, many of which have precisely targeted the DIE (static analysis, test-first development, automated build). Perhaps our analysis provides evidence that DIE can be defeated, at a large scale across multiple varied projects, using modern technologies. We do not yet know the causes here, but certainly it appears the DIE should not be treated as a truism any more, but rather a variable that can be controlled. We have added more discussion on this to \tion{discussion}.
+\begin{quote}{\em 
+Reply1.4: Our bad. System comes before acceptance. Changed throughout. Good catch!
 }\end{quote}
 
-
-Concerning characterization of the 171 projects, the
-paper needs to report much more detail. I would expect to
-see some descriptive statistics.   The paper does not report much
-characterization of the 171 projects. I strongly suggest the
-authors to dig deeper into the data, and analyzing for which
-types of projects the findings hold. What patterns are there
-to discover? I suggest Petersen and Wohlin, "Context in
-industrial software engineering research" (ESEM2009) for
-details on how to characterize development contexts.
-
-\begin{quote}{\em Much more context is now offered in \tion{data_character} and \tion{171projects}}. \end{quote}
-
-
-
-
- 
-Fig 1 [NOTE: Still \fig{b81}]: "Operation" dwarfs everything in Boehm's diagram.
-Since you do not study anything post release in this paper,
-I think this figure skews the reader's mental picture. If
-you remove the rightmost bar and rescale accordingly, the
-plot better matches the findings you report in Fig. 10 [NOTE: now \fig{raw}]. You
-still identify an interesting result though, but the
-presentation turns fairer. 
-
-\begin{quote}{\em We understand why you are making that suggestion.
-That figure is something of a classic. Therefore we opted not to chop the figure but hope the text is sufficiently clear}.
-\end{quote}
-
-MINOR COMMENTS: 
-Several figures are copied from previous work. Are all copyrights properly
-managed?  
-
-\begin{quote}{\em We have removed all copyrighted images and replaced them with original drawings based on information from the cited source.}\end{quote}
-
- 
-
-\fig{raw}: Black and red is not a good pair for
-grayscale printouts. Please use black and gray instead.
-\begin{quote}{\em  We agree: switched to black and gray.  }\end{quote}
-
- 
- 
-Some figures should be resized to better match the page width.  
- 
-
-\begin{quote}{\em  We agree: fixed. }\end{quote}
-
-
- 
-Page 3:14 - "The above argument" Which argument? Could be precisely specified.
- 
-
-\begin{quote}{\em  We agree: that statement has been deleted. }\end{quote}
- 
-Page 3:22 - Please provide the full link to the dataset.
- 
-\begin{quote}{\em  Our policy is to get one publication out of paper
-before issuing the data in public. If this paper is accepted, we will certainly add that link. Note that we have a long history of living up to that policy-- see http://openscience.us/repo. }\end{quote}  
-
- 
-Page 18:26 - First sentence: "Unexpected results such as this one". Ambiguous reference,
-please be specific.  
-\begin{quote}{\em  We agree. That back reference is removed. }\end{quote}  
-
-
-
-Page 18:27 - "We also survey the state of SW dev. practice /---/": given the size of the survey,
-this statement feels a bit bold.
-
-\begin{quote}{\em We have removed this statement.}\end{quote}  
- 
-TYPOS ETC.  
-
-Sec 1, §1: [3] and [30] have been swapped?  
-
-Page 14:46 - Spell out IV\&V the first (and only) time it appears.
-
-Page 3:24 - missing verb (is) Page 16:43 - "Did this study failed" 
-
-Page 18:44 - Appache 
-
-Page 19:19 - Al Ref 26 - oo --> OO
-
-\begin{quote}{\em  All of these have been corrected. }\end{quote}  
-
-{\bf Reviewer \#2's comments}
-
-The topic of this paper is the empirical
-evaluation of a largely admitted claim in software
-engineering, i.e. the exponential cost of correcting errors
-according to the phase in which the errors are discovered.
-The claim is first confirmed by surveying and interviewing
-practitioners and experts. Next, the authors use a large set
-of data from projects in SEI database. The results show
-that, strictly speaking, the claim does not hold (although
-some effects of delayed corrections can be noticed).
-
-Globally, the paper is well written and the authors develop
-a convincing demonstration. The topic of the paper is highly
-relevant for both practitioners and people from academia.
-Among many, I personally believed in this claim and had
-regularly taught it in my courses. Thus, reading this paper
-offers a refreshing perspective on our understandings of
-software engineering background and theoretical knowledge. I
-also like the suggested posture that insists on the
-necessary skepticism that we should have against such
-prevailing claims.
-
-Beyond this positive global impression, I have some concerns
-about the study reporting and analysis: -  It seems to me
-that more descriptive statistics about the sample would
-contribute to a better understanding of the scope of the
-study. 
+R1.5: Figure 10 - I like this figure, especially the final distribution column! But please clarify the year… I'm sure many projects are not completed within a calendar year. Does the year show when the project started or finished (released)?
 
 \begin{quote}{\em 
-More description about the context and sample have been added in \tion{data_character} and \tion{171projects}.}\end{quote}
+Reply 1.5: Thank you for catching this ambiguity and for the positive comment on the distributions. We reported the start year and have modified the figure to clarify.
+}\end{quote}
 
-I think in particular about the size (lines of codes and/or
- number of software components); a duration histogram would
- also be relevant. Accordingly, the formula for calculating
- variable "Total effort" in Fig. 7 [NOTE: now \fig{dist}] could be explained, and
- Figure 9 [NOTE: now \fig{fix-phase-dist}] made more readable (bigger size).
- 
- \begin{quote}{\em We have added more description of the projects in \tion{data_character}. We have also added more precise definitions of our measures in \tion{data-collection}. We have adjusted the size of figures throughout the paper to be more readable. We have added more text 
- to explain {\em effort} in \fig{dist}.}\end{quote}
-
- 
-If certain attributes for the issues and errors are
-available in the data (e.g. severity, priority, etc.), they
-should also be brought to the readers knowledge.  
- 
+R1.6: Figure 12 - Found and fixed? Does this mean each defect appears twice in the figure? Could you separate them? The current figure is hard to penetrate.
 
 \begin{quote}{\em 
-Those notes are offered in \tion{data_character} and \tion{171projects}.}\end{quote}
+Reply 1.6: Each defect is counted only once. The term "found and fixed" has a specific meaning, but this meaning has not come through clearly to more than one reviewer. To TSP practitioners, "found and fixed" means that the required change was "identified and implemented". We modified the text to clarify this that this operational term is a single activity.
+}\end{quote}
 
-Figure 10 [NOTE: now \fig{raw}] is central to the paper's demonstration; its
-expressiveness could be enhanced: the formula for calculating the 50th
-and 95 ratio could be provided,  the unit of column
-"Percentile" could be mentioned. 
+R1.7 Figure 13 - The caption is far too long. Could parts of it be moved to a paragraph in the running text?
 
-\begin{quote}{\em
-\fig{raw}'s caption (formerly Figure 10) now has extensive explanation text. e.g. units
-are added on line two. Also, an example of the calculations of the ratios is offered
-in the last line of the caption. Further,
-to simplify comprehension of this diagram, it has been split into two
-(and the more arcane discussion about the outliers, statistics gathered, and methods used is provided is also provided).}\end{quote}
+\begin{quote}{\em 
+Reply1.7: Moved into text
+}\end{quote}
 
-I like the discussion section, in particular, the idea
-of software architectures that could be a contributing
-factor for enhancing software evolution and reducing the
-cost of issues and errors fixing. Is there any available
-knowledge in the data set concerning any architectural
-design choices made in each project?  
+R1.8: Section 6.1 - It is not obvious to me how to interpret "conformance with Benford distribution". Could you please elaborate somewhat?
+
+\begin{quote}{\em 
+Reply 1.8: A Benford test is used in forensic accounting to detect human manipulation of data entries. The distribution is not quite, but vaguely log-normal and occurs naturally in frequency distributions, such as log tables and data entries. Human alterations (guesses) cause deviations from the expected distribution. We have applied this test to log entries to estimate those recorded in real time vs those estimated or guessed. We have re-written the paragraph and included a citation to clarify the meaning.
+}\end{quote}
+
+R1.9: Section 6.1 paragraph 7 - "Fourth" appears twice.
+
+\begin{quote}{\em 
+Reply 1.9: Fixed
+}\end{quote}
+
+R1.10: Section 6.3 paragraph 5 - "Figure 14 shows that no such effect occurs…" How? Severity is not presented in the figure. Moreover, did your stratification cover high-severity defects?
+
+\begin{quote}{\em 
+Reply 1.10: You are correct. That is an incorrect inference. We have deleted that sentence.
+}\end{quote}
+
+R1.11:
+
+Details:
+\item Page 24:12 - "the cased study"
+\item Page 7:24 - "Some studies that report less-than" Remove extra "that".
+\item Page 12:41 - "quote elaborate" quite?
+\item Page 14:30 - "the of the"
+\item Page 14:45 - "complete submitted"
+\item Page 15-16 - No thousands separators.
+\item Page 16:48 - "only 25\% of the teams…" Was this supposed to be a separate item in the bullet list?
+\item Page 18:51 - "raises" -\> "raised"
+
+\begin{quote}{\em 
+Reply 1.11: Fixed. Thanks!
+}\end{quote}
+
+{\bf Reviewer2}
+
+Reviewer #2: This revised version (R1) of the paper contains many corrections, changes, and enhancements. The authors have considered all the reviewer's comments and have provided precise responses. My own observations (i.e. Reviewer #2) have been globally satisfied, and thanks to comments from reviewers #1 and #3, the paper has been significantly enhanced.
+
+\begin{quote}{\em 
+Thank you for that comment.
+}\end{quote}
+
+Nonetheless, there are still some issues that need some clarifications.
+
+R2.1 My main concerns are related to data and statistics sections:
+
+As requested, the authors have added descriptive statistics about the data. However, some of these are not very relevant here, i.e. number of projects per organization (Fig. 9), year distribution (Fig.11 last row). Moreover, Fig. 11 could be complemented with the number of defects distribution.
+
+\begin{quote}{\em 
+Reply 2.1: We have added a defect count distribution as suggested.
+}\end{quote}
+
+R2.2- The statistical analysis section (§5.5) can be enhanced by better explicating the calculations. The Scott-Knott algorithm is a particular clustering algorithm, and the reader needs some clarification how it contributes to the demonstration.
+
+\begin{quote}{\em 
+Reply 2.2: You are quite correct- our description of Scott-Knott was opaque. We have added more text at the start of 5.5.
+}\end{quote}
+
+2.3 Moreover, Fig.13 is still insufficiently clear. The authors added a lengthy legend; I tend to think this would better be placed in the text. The column on the left hand (i.e. "rank") is still unclear to me.
+
+\begin{quote}{\em 
+Reply 2.3: . You are correct: that explanation text in the figure caption was confusing. By moving it to to section 5.6, it can be expanded into a dot list (easier to read) and extra details
+can be added (for example, as you suggest, we can discuss more the meaning of the "rank" column).
+}\end{quote}
+
+2.4 - I am troubled by Fig. 12, how many defects have in total been fixed in the same phase in which they have been found? What is the proportion from the initial 47,376 defect logs that are concerned in the statistics in Fig. 13?
+
+\begin{quote}{\em 
+Reply 2.4: "Find and fix" is a single sub-task, so all defects are "found and fixed" in the same phase. This is distinct from injected and found.
+}\end{quote}
+
+- Finally, looking at Fig.6 and defect type distribution, wouldn't be relevant to explore any possible effect of defect type on the results in Fig. 13? As defect severity is absent, may be defect type has some influence. It could be that certain categories of defect can be corrected any time during the project, it could even be that these defects, in particular, are delayed for later (because they are easy to repair)/
+
+\begin{quote}{\em 
+Reply 2.5: Indeed, some activities are more likely to find certain types of defects. This was explored in a pair of TSP Symposium papers using PSP data:
+
+D. Vallespir and W. Nichols, “An Analysis of Code Defect Injection and Removal in PSP,” in Proceedings of the TSP Symposium 2012, 2012. , and
+
+D. Vallespir, “Analysis of Design Defect Injection and Removal in PSP,” in TSP Symposium 2011, 2011, pp. 1–28.
+
+However, exploring this with data from so many distinct projects presents challenges and analysis beyond the scope of this paper. This is an interesting question that should be pursued in future work. 
+Although some types of defect are clearly more challenging than the others (syntax is often simple), the discovery phase and activity is a much larger effect. Examining this relationship is a very good idea, but we judged that to be a significant future effort to elaborate on the more basic finding.
+}\end{quote}
+
+2.6 Minor remarks:
+
+\item p3, line 1: "that" repeated
+
+\item Section 5.2: the numbers about the TSP database can be regrouped in a table
+\item Fig.11: the presentation of the table could be enhanced by reducing the size of columns N, Min, etc. and enlarging the column Distribution to make the graphics visible.
+\item p. 17: the full name should be mention for the "A12 effect size test" (i.e. Vargha and Delaney's A12 test, cf. [1])
+\item p.17, line 36: "it applies"
+\item p.17, line 38: "of" repeated
+\item Section 5.6: the last paragraphs about the possible explanations could be regrouped in a separate subsection
+\item p.21, line 20: "are" repeated
+
+\begin{quote}{\em 
+Reply 2.6: Fixed
+}\end{quote}
+
+{\bf Reviewer3}
+
+Reviewer #3: The authors have adequately addressed my observations. Below is a list minor comments (with one exception, all of them are typos).
+
+R3.1: Section 5.2.2
+"quote elaborate" should be "quite elaborate"
+
+Section 5.4
+"discuss the of the projects" should probably be "discuss those of the projects"
+
+"the logical order is described section 5.2.3 is followed" should be "the logical order described in Section 5.2.3 is followed"
+
+In Fig. 11, the "min" Year is not reported (even though the text says it's 2006).
+
+"teams meet at least weekly" should be "teams met at least weekly" (everything else is in the past tense)
+
+Section 5.5
+
+"it apples some statistical hypothesis test" should be "it applies some statistical hypothesis test"
+
+"the division of of l treatments" should be "the division of l treatments"
+
+\begin{quote}{\em 
+Reply 3.1: These items have been fixed. Thanks!
+}\end{quote}
+
+3.2 The description of the Scott-Knott ranker is not terribly clear. You write "Scott-Knott seeks the division of of l treatments into subsets of size m, n of sizes ls,ms, ns and median values l.μ,m.μ, n.μ (respectively) in order to maximize \[ms/ls* abs(m.μ − l.μ)^2 + ns/ls* abs(n.μ − l.μ)^2\] but it's not clear to me what "subsets of size m, n of sizes ls,ms, ns and median values l.μ,m.μ, n.μ (respectively)" means. Are these 5 subsets? How are they related?
+
+\begin{quote}{\em 
+Reply 3.2: That text was unclear and we have fixed it. See the second dot list in Section 5.5.
+}\end{quote}
+
+3.3 In the caption of Figure 13, you write "(these values are calculated by sorting all resolution time, then reporting the middle values of that sort) The", which should be "(these values are calculated by sorting all resolution times, then reporting the middle values of that sort). The"
+
+Section 5.6
+"examples where there exists at least N >= 30 examples" should be "examples where there exist at least N >= 30 examples"
+
+Should "stratification's" be "stratifications"?
+
+Section 6.1
+"the data are are consistent" should be "the data is consistent" (you've always used "data" as a singular noun everywhere else in the paper)
+
+Section 6.4
+"cased study" should be "case study"
+
+"the data are" should be "the data is"
 
 
-\begin{quote}{\em
-Not explicitly, but \fig{dtypes} lists ``interfaces'' as a the fourth most
-common type of defect. Note that ``interfaces'' are changed by architectural
-issues. }\end{quote}
- 
-In the same trend of ideas, I think what has
-fundamentally changed since early days of SE is the
-development of requirements engineering. In actual SE
-practices, problem and the solution spaces are
-systematically explored thanks to RE techniques; together
-with architecture, this could also explain why things have
-changed since the 70'. It could be, for example, that people
-tend to make less severe errors in early software project
-phases (thanks to RE techniques); a similar phenomenon was
-observed when SE practices become more mature (see Harter et
-al. 2012).  
+\begin{quote}{\em 
+Reply 3.3: fixed
+}\end{quote}
 
-References Harter D. E., Kemerer C. F., Slaughter S. (2012).
-Does Software Process Improvement Reduce the Severity of
-Defects? A Longitudinal Field Study. IEEE Transactions on
-Software Engineering, vol. 38, n° 4, p. 810-827.
-```
-
-\begin{quote}{\em
-  Absolutely - there are potentially many explanations for why the DIE was NOT observed in our dataset. We add more discussion on the potential causes in \tion{discussion}, supported by the reference to Harter et al.
- }\end{quote}
-
- 
-In the conclusion section, I feel uncomfortable with
-the assertion "That data held no trace of the delayed issued
-effect" (line 17). As mentioned elsewhere in the paper, the
-delayed issue is not absent; it is much less significant and
-systematic than what is usually claimed. Moreover, this
-reduction has been demonstrated for medium sized projects;
-we cannot generalize to larger projects.  
-\begin{quote}{\em
-  We agree -That line has been removed.
- }\end{quote}
-
-
-Minor remarks: 
-
-- p.9, line 29 : " … reported by Shull [52], found that the cost to find certain non-critical classes of defects ..." => is it the "cost to find" or the "cost to FIX"?  
-
-- p.10, line 21: duplicate word "there" -
-
-p.12, line19: missing word "One of THE guiding …" 
-
-- p.16, line 33: "distinguish" instead of "distinguished"?  
-
-- p.18, line 42: explain acronym MEAN 
-
-- p.20, line 20: useless enumeration A1?
-
-\begin{quote}{\em
- All of these have been corrected or removed.
- }\end{quote}
- 
-
-{\bf  Reviewer \#3's Comments}: 
-
-I like the idea of the paper and I certainly
-would like to see more empirical studies that periodically
-check if our beliefs about software engineering practices
-still hold (or even if they have ever held). The authors
-address one of the beliefs that are more entrenched in the
-population of researchers and practitioners, and a very
-important one too.
-
-
-\begin{quote}{\em
-Thanks for those kinds words.
- }\end{quote}
-
-At the same time, I think that the paper needs to be
-improved before it can be published.
-
-The empirical analysis (Section 6 [NOTE: now \tion{analysis}) is a bit of a let down. I
-would like to see some sort of more robust and rigorous
-statistical analysis, based on statistical tests.
-
-
-
-\begin{quote}{\em
-We agree. \tion{stats} lists our stats methods and \fig{raw}
-shows the results (see the left-hand column: all those ``1''s mean
-that our stats could not find any difference between the fix times for
-delaying or not delaying.
- }\end{quote}
- 
- 
-The paper seems to be written in a somewhat casual style,
-which makes the paper more pleasant to read, but less clear
-in some parts (see Detail Comments below).
-
-\begin{quote}{\em
-Thanks for those pointers. We have fixed the issue.
- }\end{quote}
-
-DETAIL COMMENTS
-
-Section 2 [NOTE: still \tion{claims}]
-
-I'm not really sure what the authors mean by "We say that a
-measure collected in phase 1, ., i, .. j is very much more
-when that measure at phase j is larger than the sum of that
-measure in earlier phases 1 <= i < j." You are defining a
-property of a measure, but, the way this definition is
-written, it seems as if you are defining the property of a
-measure of "being much more," without any further
-qualifications.  I can guess that you mean that a measure
-$m$ (collected in phases, so you can denote by $m(i)$ the
-value of $m$ in phase $i$) has this property *in phase $j$*
-(so, it's a property m has in a specific phase and not a
-general property of the measure) if $\sum_{1 <= i < i} m(i)
-< m(j)$. 
-\begin{quote}{\em
-Thanks for that. We added the $m_j$ notation to \tion{claims}, as you suggested.
- }\end{quote}
- 
- 
-Your definition of "difficult issue" is "Issues are more
-difficult when their resolution takes more time or costs
-more (e.g. needs expensive debugging tools or the skills of
-expensive developers)." That's not a very precise
-definition, though, because it has two different
-interpretations, one in terms of time and the other in terms
-of effort. The reasons why you introduce this definition
-become clearer only in Section 7.2 [NOTE: now \tion{construct}], in the Threats to
-Validity, and that's too late. You should move some of the
-discussion of Section 7.2 here.
-\begin{quote}
-{\em Good idea! We did just that- see middle para in \tion{claims}.}
-\end{quote}
-Why would the term "delayed issue effect" be a
-generalization of the rule "requirements errors are hardest
-to fix"? "Delayed" seems to be quite specific as it appears
-to refer to time, while "hardest to fix" may refer to other
-variables, like effort or cost.
-\begin{quote}
-{\em Not sure if this a reviewer requirement for something to be fixed
-prior to publication, or a clarification question. We used these
-terms since when we ran the survey, the audience clearly made
-that generalization. Does this reply adequately to your comment?}
-\end{quote}
-In Claim 3, "very much more harder" sounds like a
-little bit too much ... ("more harder"?)
-\begin{quote}
-{\em Our bad. We fixed that.}
-\end{quote}
-Section 4
-
-A very minor issue: why is Figure 2 [NOTE: now \fig{survey_results}] a ... figure, instead of
-a table? Same for all other tables ...
-\begin{quote}
-{\em Authors' preference. When a document has many tables and figures, navigating
-between them is hard. Calling them all "figures" makes navigation faster. }
-\end{quote}
-Section 5.1
-
-This is not a complete sentence "All the literature
-described above that reports the onset of DIE prior to delivery.''
-
-\begin{quote}
-{\em Fixed}
-\end{quote}
-
-Section 6.3
-
-You should rephrase your definition "a defect is any change," since a defect is what existed before the change was made and not the change itself.
-\begin{quote}
-{\em We now provide a more precise definition of defect in \tion{defin}.
-}
-\end{quote} 
-You do not explain that "QualTest" in Fig. 8 [NOTE: now \fig{waterfall}] is.
-\begin{quote}
-{\em A mistake on our part that has been removed from the figure.}
-\end{quote}
-The definition of "time per defect - The total \# of defects found in a plan item during a removal phase divided by the total time spent on that plan item in that phase." is not correct as it is, as this would basically be the number of defects per unit time, instead. The roles of time and
-defects should be reversed.
-\begin{quote}{\em We now provide a more precise definition of time measurement related to defects in \tion{data-collection}}\end{quote}
-
-  
-
-Besides adding a more rigorous statistical analysis, you
-need improve your explanations.
-\begin{quote}{\em We agree. \tion{stats} lists our stats methods and \fig{raw}
-shows the results (see the left-hand column: all those ``1''s mean
-that our stats could not find any difference between the fix times for
-delaying or not delaying.}\end{quote}
-
-Figure 9 [NOTE: now \fig{fix-phase-dist}]. The caption says "Distribution of defects found
-and fixed by phase." Is that the distribution of defects
-found in some phase and fixed in that phase? The text says
-"The distribution of defects  fixed per phase in
-our data is shown in Figure 9. A high percentage of defects
-(44) were "found and fixed" (that is, the necessary change was identified and implemented)   in the early phases, i.e.,
-requirements, high level design, and design reviews and
-inspections." which doesn't add much. If that's the
-distribution of defects introduced in a phase and fixed
-immediately in that phase, it is not clear why you introduce
-it, though.
-\begin{quote}
-{\em 
-The TSP convention is to fix a defect in the phase in which it was identified, thus "find and fix". With some exceptions, defects are not counted as defects unless they escape that phase. The exception case is the secondary defect introduced during a fix that occurs with some frequency in test and rarely in inspection or review. We have clarified this distinction in the text.}
-\end{quote}
-Figure 10 [NOTE: now \fig{raw}]. The explanation of the data and histograms in the
-figure is, at best, confusing. The caption says "50th and
-95th percentiles of issue resolution times" and the opening
-sentence of Section 6.4 says "Figure 10 shows the 50th and
-95th percentile of the time spent resolving issues ..."
-However, these are not "times," because you write "expressed
-as ratios of resolution time in the phase where they were
-first injected" a couple of paragraphs below. This seems to
-be the right interpretation, but right after that you write
-"The BLACK and RED bars show the increases for the 50th
-(median) and 95th percentile values, respectively," which
-would be a third interpretation of the data in Figure 10.
-\begin{quote}
-{\em We agree-that figure was far too confusing. We have now split the 50th and 90th peercentile results
-into two charts, which simplifies both. Please see \fig{raw} and \fig{last}.
-Also, please note that fit\fig{raw} now has an extensive help text in the caption.
-We used your comments there where we noted the ratios used in the
-bard charts are unitless while the left-hand-side column numbers are
-times in minutes.
-}
-\end{quote}
- 
-You need to at least mention (or, better, discuss) some of
-your results, because they appear to be "counterintuitive,"
-since they show that, for example, median resolution times
-can even decrease if issues are not fixed immediately, but
-in later phases. For example, looking at the Reqts section,
-most percentages are way below 1, which seems to indicate
-that some issues are actually much easier to fix at later
-stages (maybe because more or better information about the
-software system is available only later). That would be a
-very interesting result by itself, especially if you can
-provide some statistical support for it.
-\begin{quote}{\em
-The last paragraph of \tion{171projects} now comments
-on that effect. }
-\end{quote}
- 
-
-Maybe you could analyze the projects developed in a
-"traditional" way and check if there is some sort of DIE
-there. For example, if you look at the projects developed
-with the waterfall life cycle, maybe you will find larger
-DIE than for the other life cycles, which might partially
-justify the claims of previous researchers about the
-existence of DIE. This would also show that newer kinds of
-life cycles (like Agile ones) help solve DIE. You do provide
-hints about this in Section 8 [NOTE: now \tion{discussion}] ("We also note that other
-development practices have changed in ways that could
-mitigate the delayed issued effect") and Section 9 [NOTE: now \tion{conclusion}], but
-that's clearly not enough.
-\begin{quote}{\em
-
-If your comment is along the lines of ``look for stratifications to check if
-DIE exists in subsets'' then we offer the following notes (which we added to the end of \tion{171projects}):
-
-We looked into   stratifications of the data and, so far,   failed to find a stratification
-containing an exponential expansion in the time to fix issues. The reason for this was  the small size
-of those stratifications  exacerbated the large IQR's seen in this data\footnote{Recall that in a sorted list of numbers,
-the inter-quartile range, or IQR, is difference between the 
-  75th to 25th percentile value.}:
-\bi
-\item
-Our 171 projects   stratifies into subsets of varying sizes. Sorting those sizes, we get a list
-comprising of 17,12 then numerous much smaller stratifications.  Reasoning over such small samples
-is problematic in the general case and, in the case of our data, it is ever more problematic due to
-the large IQRS of the data:
-\item
-To see these large IQRs,  please consider the 50th and IQR columns of Figure~\ref{fig:raw} Note that most of our IQRs were larger than tan the 50th percentile; i.e. software
-data exhibits large variances-- where are exacerbated by the smaller samples seen in the stratifications.
-\ei
-Our conclusion from exploring the stratifications is, given the currently available data, we cannot check
-for a DIE effect in subsets of this data.
-}
-\end{quote}
 \end{document}
 
  
