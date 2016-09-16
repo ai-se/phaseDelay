@@ -1,0 +1,592 @@
+\begin{thebibliography}{100}
+
+\bibitem{arcuri11}
+A.~Arcuri and L.~Briand.
+\newblock A practical guide for using statistical tests to assess randomized
+  algorithms in software engineering.
+\newblock In {\em ICSE'11}, pages 1--10, 2011.
+
+\bibitem{aschwanden10}
+Christie Aschwanden.
+\newblock {Convincing the Public to Accept New Medical Guidelines}.
+\newblock \url{http://goo.gl/RT6SK7}, 2010.
+\newblock FiveThiryEight.com. Accessed: 2015-02-10.
+
+\bibitem{aschwanden15}
+Christie Aschwanden.
+\newblock {Your Brain Is Primed To Reach False Conclusionss}.
+\newblock \url{http://goo.gl/OO3B7s}, 2015.
+\newblock FiveThirtyEight.com. Accessed: 2015-02-10.
+
+\bibitem{avram14}
+Abel Avram.
+\newblock Idc study: How many software developers are out there?
+\newblock \url{infoq.com/news/2014/01/IDC-software-developers}, 2014.
+
+\bibitem{Bachmann13}
+Felix~H. Bachmann, Luis Carballo, James McHale, and Robert~L. Nord.
+\newblock Integrate end to end early and often.
+\newblock {\em Software, IEEE}, 30(4):9--14, July 2013.
+
+\bibitem{baziuk1995bnr}
+Walter Baziuk.
+\newblock Bnr/nortel: path to improve product quality, reliability and customer
+  satisfaction.
+\newblock In {\em Software Reliability Engineering, 1995. Proceedings., Sixth
+  International Symposium on}, pages 256--262. IEEE, 1995.
+
+\bibitem{Beck2001a}
+K~Beck, M~Beedle, A~van Bennekum, A~Cockburn, W~Cunningham, M~Fowler,
+  J~Grenning, J~Highsmith, A~Hunt, R~Jeffries, J~Kern, B~Marick, R~C Martin,
+  S~Mallor, K~Schwaber, J~Sutherland, and D~Thomas.
+\newblock {The Agile Manifesto}.
+\newblock http://www.agilemanifesto.org, 2001.
+
+\bibitem{beck00}
+Kent Beck.
+\newblock {\em Extreme Programming Explained: Embrace Change}.
+\newblock Addison Wesley, 2000.
+
+\bibitem{betta12}
+Nicolas Bettenburg, Meiyappan Nagappan, and Ahmed~E. Hassan.
+\newblock Think locally, act globally: Improving defect and effort prediction
+  models.
+\newblock In {\em MSR'12}, 2012.
+
+\bibitem{betten14}
+Nicolas Bettenburg, Meiyappan Nagappan, and Ahmed~E. Hassan.
+\newblock Towards improving statistical modeling of software engineering data:
+  think locally, act globally!
+\newblock {\em Empirical Software Engineering}, pages 1--42, 2014.
+
+\bibitem{boehm88}
+B.~W. Boehm and P.~N. Papaccio.
+\newblock Understanding and controlling software costs.
+\newblock {\em IEEE Trans. Softw. Eng.}, 14(10):1462--1477, October 1988.
+
+\bibitem{Boehm76}
+Barry Boehm.
+\newblock Software engineering.
+\newblock {\em IEEE Transactions on Computers}, C-25(12):1226--1241, dec 1976.
+
+\bibitem{Boehm80}
+Barry Boehm.
+\newblock Developing small-scale application software products: Some
+  experimental results.
+\newblock In {\em Proceedings of the IFIP Congress}, pages 321--326, 1980.
+
+\bibitem{Boehm81}
+Barry Boehm.
+\newblock {\em Software Engineering Economics}.
+\newblock Prentice Hall, Englewood Cliffs, NJ, 1981.
+
+\bibitem{Boehm10}
+Barry Boehm.
+\newblock Architecting: How much and when?
+\newblock In Andy Oram and Greg Wilson, editors, {\em Making Software: What
+  Really Works, and Why We Believe It}, pages 141--186. O'Reilly Media, 2010.
+
+\bibitem{boehm01}
+Barry Boehm and Victor~R. Basili.
+\newblock Software defect reduction top 10 list.
+\newblock {\em IEEE Software}, pages 135--137, January 2001.
+
+\bibitem{boehm00b}
+Barry Boehm, Ellis Horowitz, Ray Madachy, Donald Reifer, Bradford~K. Clark,
+  Bert Steece, A.~Winsor Brown, Sunita Chulani, and Chris Abts.
+\newblock {\em Software Cost Estimation with Cocomo II}.
+\newblock Prentice Hall, 2000.
+
+\bibitem{boehm1988spiral}
+Barry~W Boehm.
+\newblock A spiral model of software development and enhancement.
+\newblock {\em Computer}, 21(5):61--72, 1988.
+
+\bibitem{boehm2012}
+Barry~W. Boehm.
+\newblock Architecting: How much and when.
+\newblock In Andy Oram and Greg Wilson, editors, {\em Making Software: What
+  Really Works, and Why We Believe It}, pages 161--186. O'Reilly, 2012.
+
+\bibitem{bright15}
+Peter Bright.
+\newblock What windows as a service and a 'free upgrade' mean at home and at
+  work.
+\newblock \url{http://goo.gl/LOM1NJ/}, 2015.
+
+\bibitem{budgen09}
+David Budgen, Pearl Brereton, and Barbara Kitchenham.
+\newblock Is evidence based software engineering mature enough for practice \&
+  policy?
+\newblock In {\em 33rd Annual IEEE Software Engineering Workshop 2009 (SEW-33),
+  Skovde, Sweden}, 2009.
+
+\bibitem{carlson2009}
+Melissa~DA Carlson and R~Sean Morrison.
+\newblock Study design, precision, and validity in observational studies.
+\newblock {\em Journal of palliative medicine}, 12(1):77--82, 2009.
+
+\bibitem{Cigital2003}
+Cigital.
+\newblock Case study: Finding defects earlier yields enormous savings.
+\newblock http://goo.gl/OQlyNi, 2003.
+
+\bibitem{cook1979}
+Thomas~D Cook and Donald~Thomas Campbell.
+\newblock {\em Quasi-experimentation: Design \& analysis issues for field
+  settings}.
+\newblock Houghton Mifflin Boston, 1979.
+
+\bibitem{Daly77}
+Edmund~B. Daly.
+\newblock Management of software development.
+\newblock {\em Software Engineering, IEEE Transactions on}, SE-3(3):229--242,
+  May 1977.
+
+\bibitem{deming1986out}
+W~Edwards Deming.
+\newblock {\em Out of the crisis}.
+\newblock MIT Press, 1986.
+
+\bibitem{prem16}
+Prem Devanbu, Thomas Zimmermann, and Christian Bird.
+\newblock Belief \& evidence in empirical software engineering.
+\newblock In {\em Proceedings of the 38th International Conference on Software
+  Engineering}, pages 108--119. ACM, 2016.
+
+\bibitem{dunsmore88}
+Hubert~E. Dunsmore.
+\newblock Evidence supports some truisms, belies others. (some empirical
+  results concerning software development).
+\newblock {\em IEEE Software}, pages 96--99, May 1988.
+
+\bibitem{efron93}
+Bradley Efron and Robert~J Tibshirani.
+\newblock {\em An introduction to the bootstrap}.
+\newblock Mono. Stat. Appl. Probab. Chapman and Hall, London, 1993.
+
+\bibitem{Elssamadisy02}
+Amr Elssamadisy and Gregory Schalliol.
+\newblock Recognizing and responding to "bad smells" in extreme programming.
+\newblock In {\em Proceedings of the 24th International Conference on Software
+  Engineering}, ICSE '02, pages 617--622, New York, NY, USA, 2002. ACM.
+
+\bibitem{endres03}
+Albert Endres and Dieter Rombach.
+\newblock {\em A Handbook of Software and Systems Engineering: Empirical
+  Observations, Laws and Theories}.
+\newblock Addison Wesley, 2003.
+
+\bibitem{Fagan76}
+Michael~E. Fagan.
+\newblock Design and code inspections to reduce errors in program development.
+\newblock {\em IBM Systems Journal}, 15(3):182--211, 1976.
+
+\bibitem{fenton00}
+Norman~E. Fenton and Martin Neil.
+\newblock Software metrics: A roadmap.
+\newblock In Anthony Finkelstein, editor, {\em Software metrics: A roadmap}.
+  ACM Press, New York, 2000.
+\newblock Available from
+  \url{http://citeseer.nj.nec.com/fenton00software.html}.
+
+\bibitem{fenton00b}
+Norman~E. Fenton and Niclas Ohlsson.
+\newblock Quantitative analysis of faults and failures in a complex software
+  system.
+\newblock {\em IEEE Transactions on Software Engineering}, pages 797--814,
+  August 2000.
+
+\bibitem{fenton97}
+Norman~E. Fenton and Shari~L. Pfleeger.
+\newblock {\em Software Metrics: A Rigorous \& Practical Approach}.
+\newblock International Thompson Press, 1997.
+
+\bibitem{ghotra2015icse}
+Baljinder Ghotra, Shane McIntosh, and Ahmed~E. Hassan.
+\newblock {Revisiting the Impact of Classification Techniques on the
+  Performance of Defect Prediction Models}.
+\newblock In {\em Proc. of the International Conference on Software Engineering
+  (ICSE)}, pages 789--800, 2015.
+
+\bibitem{glass02}
+Robert~L. Glass.
+\newblock {\em Facts and Fallacies of Software Engineering}.
+\newblock Addison-Wesley Professional, Boston, MA, 2002.
+
+\bibitem{Gordon2016}
+Peter Gordon.
+\newblock The cost of requirements errors.
+\newblock https://goo.gl/HSMQtP, 2016.
+
+\bibitem{harter2012does}
+Donald~E Harter, Chris~F Kemerer, and Sandra~A Slaughter.
+\newblock Does software process improvement reduce the severity of defects? a
+  longitudinal field study.
+\newblock {\em Software Engineering, IEEE Transactions on}, 38(4):810--827,
+  2012.
+
+\bibitem{humphrey1995discipline}
+Watts~S Humphrey.
+\newblock {\em A discipline for software engineering}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., 1995.
+
+\bibitem{tsp00}
+Watts~S. Humphrey.
+\newblock {\em Introduction to the Team Software Process}.
+\newblock Addison-Wesley Longman Ltd., Essex, UK, UK, 2000.
+
+\bibitem{Humphrey:2005}
+Watts~S. Humphrey.
+\newblock {\em TSP(SM)-Leading a Development Team (SEI Series in Software
+  Engineering)}.
+\newblock Addison-Wesley Professional, 2005.
+
+\bibitem{1012}
+IEEE-1012.
+\newblock {IEEE} standard 1012-2004 for software verification and validation,
+  1998.
+
+\bibitem{IfSQ2013}
+IfSQ.
+\newblock Catching defects during testing is 10 times more expensive.
+\newblock https://goo.gl/dXIwu4, 2013.
+
+\bibitem{pettey14}
+Gartner Inc.
+\newblock {Gartner Says Worldwide Software Market Grew 4.8 Percent in 2013}.
+\newblock \url{gartner.com/newsroom/id/2696317}, 2014.
+
+\bibitem{jacobson1999unified}
+Ivar Jacobson, Grady Booch, and James Rumbaugh.
+\newblock {\em The unified software development process}.
+\newblock Addison-Wesley Reading, 1999.
+
+\bibitem{jones07}
+Capers Jones.
+\newblock {\em Estimating Software Costs, 2nd Edition}.
+\newblock McGraw-Hill, 2007.
+
+\bibitem{jones12}
+Capers Jones and Olivier Bonsignour.
+\newblock {\em The Economics of Software Quality}.
+\newblock Addison Wesley, 2012.
+
+\bibitem{jorgensen09}
+Magne J{\o}rgensen and Tanja~M. Gruschke.
+\newblock The impact of lessons-learned sessions on effort estimation and
+  uncertainty assessments.
+\newblock {\em Software Engineering, IEEE Transactions on}, 35(3):368 --383,
+  May-June 2009.
+
+\bibitem{kampenes07}
+Vigdis~By Kampenes, Tore Dyb{\aa}, Jo~Erskine Hannay, and Dag I.~K. Sj{\o}berg.
+\newblock A systematic review of effect size in software engineering
+  experiments.
+\newblock {\em Information {\&} Software Technology}, 49(11-12):1073--1086,
+  2007.
+
+\bibitem{karg2011systematic}
+Lars~M Karg, Michael Grottke, and Arne Beckhaus.
+\newblock A systematic literature review of software quality cost research.
+\newblock {\em Journal of Systems and Software}, 84(3):415--427, 2011.
+
+\bibitem{kim13}
+Don Kim.
+\newblock Making agile mandatory at the department of defense, 2013.
+
+\bibitem{kitch04}
+Barbara~A. Kitchenham, Tore Dyba, and Magne J{\o}rgensen.
+\newblock Evidence-based software engineering.
+\newblock In {\em ICSE '04: Proceedings of the 26th International Conference on
+  Software Engineering}, pages 273--281, Washington, DC, USA, 2004. IEEE
+  Computer Society.
+
+\bibitem{Kocaguneli2013:ep}
+Ekrem Kocaguneli, Thomas Zimmermann, Christian Bird, Nachiappan Nagappan, and
+  Tim Menzies.
+\newblock {Distributed development considered harmful?}
+\newblock In {\em Proceedings - International Conference on Software
+  Engineering}, pages 882--890, 2013.
+
+\bibitem{lapham11}
+Mary~Ann Lapham, Suzanne Garcia-Miller, Lorraine Nemeth-Adams, Nanette Brown,
+  Bart~L. Hackemack, Charles~(Bud) Hammons, Linda Levine, and Alfred~R.
+  Schenker.
+\newblock Agile methods: Selected dod management and acquisition concerns.
+\newblock Technical report, Carnegie Mellon University - Software Engineering
+  Institute, 2011.
+
+\bibitem{larman2003iterative}
+Craig Larman and Victor~R Basili.
+\newblock Iterative and incremental development: A brief history.
+\newblock {\em Computer}, 36(6):47--56, 2003.
+
+\bibitem{Leffingwell96}
+Dead Leffingwell.
+\newblock Calculating your return on investment form more effective
+  requirements management.
+\newblock http://goo.gl/3WHsla, 1996.
+\newblock Rational Software Corporation.
+
+\bibitem{madigan2014}
+David Madigan, Paul~E Stang, Jesse~A Berlin, Martijn Schuemie, J~Marc Overhage,
+  Marc~A Suchard, Bill Dumouchel, Abraham~G Hartzema, and Patrick~B Ryan.
+\newblock A systematic statistical approach to evaluating evidence from
+  observational studies.
+\newblock {\em Annual Review of Statistics and Its Application}, 1:11--39,
+  2014.
+
+\bibitem{maxwelldata}
+K~D Maxwell.
+\newblock {\em {Applied Statistics for Software Managers}}.
+\newblock Prentice-Hall, Englewood Cliffs, NJ, 2002.
+
+\bibitem{mcconnell1996software}
+Steve McConnell.
+\newblock Software quality at top speed.
+\newblock {\em Software Development}, 4(8):38--42, 1996.
+
+\bibitem{mcconnell01}
+Steve McConnell.
+\newblock An ounce of prevention.
+\newblock {\em IEEE Softw.}, 18(3):5--7, May 2001.
+
+\bibitem{McGibbon2007}
+Thomas McGibbon.
+\newblock Return on investment from software process improvement.
+\newblock https://goo.gl/MJIJZ3, 2007.
+
+\bibitem{mchale02}
+James McHale.
+\newblock Tsp: Process costs and benefits.
+\newblock {\em Crosstalk}, September 2002.
+
+\bibitem{mead2004software}
+Nancy~R Mead, Julia~H Allen, Sean Barnum, Robert~J Ellison, and Gary McGraw.
+\newblock {\em Software Security Engineering: A Guide for Project Managers}.
+\newblock Addison-Wesley Professional, 2004.
+
+\bibitem{me08a}
+Tim Menzies, Markland Benson, Ken Costello, Christina Moats, Michelle Northey,
+  and Julian Richarson.
+\newblock Learning better {IV\&V} practices.
+\newblock {\em Innovations in Systems and Software Engineering}, March 2008.
+\newblock Available from \url{http://menzies.us/pdf/07ivv.pdf}.
+
+\bibitem{me12d}
+Tim Menzies, Andrew Butcher, David~R. Cok, Andrian Marcus, Lucas Layman,
+  Forrest Shull, Burak Turhan, and Thomas Zimmermann.
+\newblock Local versus global lessons for defect prediction and effort
+  estimation.
+\newblock {\em IEEE Trans. Software Eng.}, 39(6):822--834, 2013.
+\newblock Available from \url{http://menzies.us/pdf/12localb.pdf}.
+
+\bibitem{me11m}
+Tim Menzies, Andrew Butcher, Andrian Marcus, Thomas Zimmermann, and David Cok.
+\newblock Local vs global models for effort estimation and defect prediction.
+\newblock In {\em IEEE ASE'11}, 2011.
+\newblock Available from \url{http://menzies.us/pdf/11ase.pdf}.
+
+\bibitem{minku13}
+Leandro~L. Minku and Xin Yao.
+\newblock Ensembles and locality: Insight on improving software effort
+  estimation.
+\newblock {\em Information {\&} Software Technology}, 55(8):1512--1528, 2013.
+
+\bibitem{mittas13}
+Nikolaos Mittas and Lefteris Angelis.
+\newblock Ranking and clustering software cost estimation models through a
+  multiple comparisons algorithm.
+\newblock {\em IEEE Trans. Software Eng.}, 39(4):537--551, 2013.
+
+\bibitem{Paivarinta15}
+Tero Paivarinta and Kari Smolander.
+\newblock Theorizing about software development practices.
+\newblock {\em Science of Computer Programming}, 101:124--135, 2015.
+
+\bibitem{Parker2013}
+John Parker.
+\newblock Good requirements deliver a high roi.
+\newblock http://goo.gl/JvB9BW, 2013.
+
+\bibitem{passos11}
+Carol Passos, Ana~Paula Braun, Daniela~S. Cruzes, and Manoel Mendonca.
+\newblock Analyzing the impact of beliefs in software project practices.
+\newblock In {\em ESEM'11}, 2011.
+
+\bibitem{Facebook}
+Ryan Paul.
+\newblock Exclusive: a behind-the-scenes look at facebook release engineering.
+\newblock
+  \url{http://arstechnica.com/business/2012/04/exclusive-a-behind-the-scenes-look-at-facebook-release-engineering/1/}.
+\newblock Accessed: 2016-06-14.
+
+\bibitem{Pavlina2000}
+Steve Pavlina.
+\newblock Zero-defect software development.
+\newblock https://goo.gl/pZJVAX, 2000.
+
+\bibitem{Popper}
+Karl Popper.
+\newblock {\em The Logic of Scientific Discovery}.
+\newblock Basic Books, New York, NY, 1959.
+
+\bibitem{posnett11}
+Daryl Posnett, Vladimir Filkov, and Premkumar Devanbu.
+\newblock Ecological inference in empirical software engineering.
+\newblock In {\em Proceedings of ASE'11}, 2011.
+
+\bibitem{prasad13}
+Vinay Prasad, Andrae Vandross, Caitlin Toomey, Michael Cheung, Jason Rho,
+  Steven Quinn, Satish~Jacob Chacko, Durga Borkar, Victor Gall, Senthil
+  Selvaraj, Nancy Ho, and Adam Cifu.
+\newblock A decade of reversal: An analysis of 146 contradicted medical
+  practices.
+\newblock {\em Mayo Clinic Proceedings}, 88(8):790 -- 798, 2013.
+
+\bibitem{pressman2005software}
+Roger~S Pressman.
+\newblock {\em Software engineering: a practitioner's approach}.
+\newblock Palgrave Macmillan, 2005.
+
+\bibitem{ray2014lang}
+Baishakhi Ray, Daryl Posnett, Vladimir Filkov, and Premkumar Devanbu.
+\newblock A large scale study of programming languages and code quality in
+  github.
+\newblock In {\em Proceedings of the ACM SIGSOFT 22nd International Symposium
+  on the Foundations of Software Engineering}, FSE '14. ACM, 2014.
+
+\bibitem{reifer2007profiles}
+Donald~J Reifer.
+\newblock Profiles of level 5 cmmi organizations.
+\newblock {\em Crosstalk: The Journal of Defense Software Engineering}, pages
+  24--28, 2007.
+
+\bibitem{Rothman2000}
+Johanna Rothman.
+\newblock What does it cost you to fix a defect? and why should you care?
+\newblock https://goo.gl/hIccoC, 2000.
+
+\bibitem{Rothman2002}
+Johanna Rothman.
+\newblock What does it cost you to fix a defect.
+\newblock https://goo.gl/hIccoC, 2002.
+
+\bibitem{Royce98}
+Walker Royce.
+\newblock {\em Software Project Management: A Unified Framework}.
+\newblock Addison-Wesley, Reading, MA, 1998.
+
+\bibitem{shepperd12a}
+Martin~J. Shepperd and Steven~G. MacDonell.
+\newblock Evaluating prediction systems in software project estimation.
+\newblock {\em Information {\&} Software Technology}, 54(8):820--827, 2012.
+
+\bibitem{shepperd12}
+Martin~J. Shepperd, Qinbao Song, Zhongbin Sun, and Carolyn Mair.
+\newblock Data quality: Some comments on the nasa software defect datasets.
+\newblock {\em IEEE Trans. Software Eng.}, 39(9):1208--1215, 2013.
+
+\bibitem{shirai14}
+Yasutaka Shirai, William Nichols, and Mark Kasunic.
+\newblock Initial evaluation of data quality in a tsp software engineering
+  project data repository.
+\newblock In {\em Proceedings of the 2014 International Conference on Software
+  and System Process}, ICSSP 2014, pages 25--29, New York, NY, USA, 2014. ACM.
+
+\bibitem{Shull02}
+Forrest Shull, Victor Basili, Barry Boehm, A.~Winsor Brown, Patricia Costa,
+  Mikael Lindvall, Dan Port, Ioana Rus, Roseanne Tesoriero, and Marvin
+  Zelkowitz.
+\newblock What we have learned about fighting defects.
+\newblock In {\em Software Metrics, 2002. Proceedings. Eighth IEEE Symposium
+  on}, pages 249--258, 2002.
+
+\bibitem{Shull08}
+Forrest Shull and Raimund Feldmann.
+\newblock Building theories from multiple evidence sources.
+\newblock In Forrest Shull, Janice Singer, and Dag~I.K. Sjoberg, editors, {\em
+  Guide to Advanced Empirical Software Engineering}, pages 337--364.
+  Springer-Verlag, 2008.
+
+\bibitem{Sjoberg08}
+Dag~I.K. Sj{\o}berg, Tore Dyb{\aa}, Bente~C.D Anda, and Jo~E. Hannay.
+\newblock Building theories in software engineering.
+\newblock In Forrest Shull, Janice Singer, and Dag~I.K. Sj{\o}berg, editors,
+  {\em Guide to Advanced Empirical Software Engineering}, pages 312--336.
+  Springer-Verlag, 2008.
+
+\bibitem{Soni2016}
+Mukesh Soni.
+\newblock Defect prevention: Reducing costs and enhancing quality.
+\newblock https://goo.gl/k2cBnW, 2016.
+
+\bibitem{steck04}
+Jonette Stecklein, Jim Dabney, Brandon Dick, Bil Haskins, Randy Lovell, and
+  Gregory Moroney.
+\newblock Error cost escalation through the project life cycle.
+\newblock In {\em 14th Annual INCOSE International Symposium; 19-24 Jun. 2004;
+  Toulouse; France}, 2004.
+
+\bibitem{Stephenson76}
+W.~E. Stephenson.
+\newblock An analysis of the resources used in the safeguard system software
+  development.
+\newblock In {\em Proceedings of the 2Nd International Conference on Software
+  Engineering}, ICSE '76, pages 312--321, Los Alamitos, CA, USA, 1976. IEEE
+  Computer Society Press.
+
+\bibitem{Stol15}
+Klaas-Jan Stol and Brian Fitzgerald.
+\newblock Theory-oriented software engineering.
+\newblock {\em Science of Computer Programming}, 101:79--98, 2015.
+
+\bibitem{Tassey2002}
+Gregory Tassey.
+\newblock The economic impacts of inadequate infrastructure for software
+  testing.
+\newblock Technical report, National Institute of Standards and Technology,
+  2002.
+
+\bibitem{westland2002cost}
+J~Christopher Westland.
+\newblock The cost of errors in software development: evidence from industry.
+\newblock {\em Journal of Systems and Software}, 62(1):1--9, 2002.
+
+\bibitem{willis1998hughes}
+Ron~R Willis, Robert~M Rova, Mike~D Scott, Martha~J Johnson, John~F Ryskowski,
+  Jane~A Moon, Thomas~O Winfield, and Ken~C Shumate.
+\newblock Hughes aircraft’s widespread deployment of a continuously improving
+  software process.
+\newblock Technical report, Carnegie Mellon University - Software Engineering
+  Institute, 1998.
+
+\bibitem{wohlin2014guidelines}
+Claes Wohlin.
+\newblock Guidelines for snowballing in systematic literature studies and a
+  replication in software engineering.
+\newblock In {\em Proceedings of the 18th International Conference on
+  Evaluation and Assessment in Software Engineering}, page Article 38, 2014.
+
+\bibitem{wohlin2012}
+Claes Wohlin, Per Runeson, Martin H{\"o}st, Magnus~C Ohlsson, Bj{\"o}rn
+  Regnell, and Anders Wessl{\'e}n.
+\newblock {\em Experimentation in software engineering}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{yang13}
+Ye~Yang, Zhimin He, Ke~Mao, Qi~Li, Vu~Nguyen, Barry~W. Boehm, and Ricardo
+  Valerdi.
+\newblock Analyzing and handling local bias for calibrating parametric cost
+  estimation models.
+\newblock {\em Information {\&} Software Technology}, 55(8):1496--1511, 2013.
+
+\bibitem{yang11}
+Ye~Yang, Lang Xie, Zhimin He, Qi~Li, Vu~Nguyen, Barry~W. Boehm, and Ricardo
+  Valerdi.
+\newblock Local bias and its impacts on the performance of parametric
+  estimation models.
+\newblock In {\em PROMISE}, 2011.
+
+\end{thebibliography}
